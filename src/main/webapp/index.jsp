@@ -1,6 +1,11 @@
-<html>
-<body>
-<h2>Hello World!</h2>
+<!doctype html>
 
+<html lang="en">
+<head>
+    <title>The HTML5 Herald</title>
+</head>
+
+<body>
+<h3>Hi!</h3>
 </body>
 </html>
