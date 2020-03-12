@@ -9,9 +9,10 @@ public class AuthenticationCommandContainer {
     private static Map<String, Command> commands = new TreeMap<>();
 
     static {
-        // common commands
         commands.put("login", new LoginCommand());
     }
+
+    private AuthenticationCommandContainer(){}
 
     public static Command get(String commandName) {
         if (commandName == null || !commands.containsKey(commandName)) {

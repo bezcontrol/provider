@@ -37,10 +37,10 @@
             <form class="login100-form validate-form" action="authentication" method="post">
                 <input type="hidden" name="command" value="login"/>
 					<span class="login100-form-title p-b-49">
-						Login
+						Sign in
 					</span>
 
-                <div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired">
+                <div class="wrap-input100 validate-input m-b-23" data-validate = "Username is required">
                     <span class="label-input100">Username</span>
                     <input class="input100" type="text" name="login" placeholder="Type your username">
                     <span class="focus-input100" data-symbol="&#xf206;"></span>

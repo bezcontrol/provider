@@ -10,8 +10,6 @@ public interface DAOFactory {
 
     Connection getConnection() throws DbException;
 
-    UserDAO getUserDAO() throws DbException;
-
     static MySQLFactory getMySQLDAOFactory() throws DbException {
        return MySQLFactory.getInstance();
     }

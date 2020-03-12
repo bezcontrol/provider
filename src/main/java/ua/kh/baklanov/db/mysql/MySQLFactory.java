@@ -51,8 +51,4 @@ public class MySQLFactory implements DAOFactory {
         }
         return con;
     }
-
-    public UserDAO getUserDAO() throws DbException {
-        return new MySQLUserDAOImpl();
-    }
 }
