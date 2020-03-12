@@ -22,7 +22,7 @@ public class MySQLUserDAOImpl implements UserDAO {
 
     public MySQLUserDAOImpl() throws DbException {
         try {
-            factory = MySQLFactory.getInstance();
+            factory = DAOFactory.getMySQLDAOFactory();
         } catch (DbException ex) {
             LOG.error(Messages.ERROR_CREATING_FACTORY+MySQLFactory.class.getName(), ex);
             throw new DbException(Messages.ERROR_CREATING_FACTORY+MySQLFactory.class.getName(), ex);

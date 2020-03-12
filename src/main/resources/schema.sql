@@ -128,10 +128,10 @@ CONSTRAINT `fk_status_contract`
 
 
 
-INSERT INTO `roles` (`id`, `name`) VALUES ('1', 'Admin');
-INSERT INTO `roles` (`id`, `name`) VALUES ('2', 'Customer');
-INSERT INTO `users` (`id`, `login`, `password`,`email`, `idRole`) VALUES ('1', 'login1','pass1','user@gmail.com', '1');
-INSERT INTO `users` (`id`, `login`, `password`,`email`, `idRole`) VALUES ('2', 'login2','pass2','user2@gmail.com', '2');
+INSERT INTO `roles` (`id`, `name`) VALUES ('1', 'admin');
+INSERT INTO `roles` (`id`, `name`) VALUES ('2', 'client');
+INSERT INTO `users` (`id`, `login`, `password`,`email`, `idRole`) VALUES ('1', 'admin','adminpass','user@gmail.com', '1');
+INSERT INTO `users` (`id`, `login`, `password`,`email`, `idRole`) VALUES ('2', 'client','clientpass','user2@gmail.com', '2');
 INSERT INTO `internet` (`id`, `speed`, `technology`) VALUES ('1', '640', '4G');
 INSERT INTO `internet` (`id`, `speed`, `technology`) VALUES ('2', '800', '5G');
 INSERT INTO `internet` (`id`, `speed`, `technology`) VALUES ('3', '1000', '4G');

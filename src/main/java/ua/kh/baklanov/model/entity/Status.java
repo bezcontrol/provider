@@ -1,9 +1,10 @@
 package ua.kh.baklanov.model.entity;
 
-import java.io.Serializable;
+public enum Status {
+    WAITING(1),
+    WORKING(2),
+    BLOCKED(3);
 
-public enum Status implements Serializable {
-    WAITING,
-    WORKING,
-    BLOCKED
+    Status(int value) {
+    }
 }

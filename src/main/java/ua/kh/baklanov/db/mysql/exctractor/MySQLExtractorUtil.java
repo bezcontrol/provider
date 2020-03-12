@@ -8,11 +8,11 @@ import ua.kh.baklanov.model.entity.User;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class MySQLExtractorUtil {
-
-    private MySQLExtractorUtil(){}
+public final class MySQLExtractorUtil {
 
     private static final Logger LOG = Logger.getLogger(MySQLExtractorUtil.class);
+
+    private MySQLExtractorUtil(){}
 
     public static User extractUser(ResultSet rs) throws DbException {
         User user=new User();
