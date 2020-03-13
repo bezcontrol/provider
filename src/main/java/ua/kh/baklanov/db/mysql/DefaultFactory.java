@@ -4,8 +4,6 @@ import org.apache.log4j.Logger;
 import ua.kh.baklanov.db.dao.DAOFactory;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
-import ua.kh.baklanov.db.mysql.repository.MySQLUserDAOImpl;
-import ua.kh.baklanov.db.dao.UserDAO;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -14,14 +12,14 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class MySQLFactory implements DAOFactory {
+public class DefaultFactory implements DAOFactory {
 
-    private static final Logger LOG = Logger.getLogger(MySQLFactory.class);
+    private static final Logger LOG = Logger.getLogger(DefaultFactory.class);
 
-    private static MySQLFactory instance;
+    private static DefaultFactory instance;
     private DataSource ds;
 
-    private MySQLFactory() throws DbException {
+    private DefaultFactory() throws DbException {
         try {
             Context initContext = new InitialContext();
             Context envContext = (Context) initContext.lookup("java:comp/env");
@@ -34,9 +32,9 @@ public class MySQLFactory implements DAOFactory {
         }
     }
 
-    public static synchronized MySQLFactory getInstance() throws DbException {
+    public static synchronized DefaultFactory getInstance() throws DbException {
         if(instance==null){
-            instance=new MySQLFactory();
+            instance=new DefaultFactory();
         }
         return instance;
     }
@@ -50,9 +48,5 @@ public class MySQLFactory implements DAOFactory {
             throw new DbException(Messages.ERROR_OBTAIN_CONNECTION, ex);
         }
         return con;
-    }
-
-    public UserDAO getUserDAO() throws DbException {
-        return new MySQLUserDAOImpl();
     }
 }

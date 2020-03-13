@@ -6,7 +6,6 @@ public class Contract extends Entity {
     private double bill;
     private long idUser;
     private long idTariff;
-    private long idStatus;
     private LocalDateTime contractConclusionDate;
 
     public double getBill() {
@@ -31,14 +30,6 @@ public class Contract extends Entity {
 
     public void setIdTariff(long idTariff) {
         this.idTariff = idTariff;
-    }
-
-    public long getIdStatus() {
-        return idStatus;
-    }
-
-    public void setIdStatus(long idStatus) {
-        this.idStatus = idStatus;
     }
 
     public LocalDateTime getContractConclusionDate() {

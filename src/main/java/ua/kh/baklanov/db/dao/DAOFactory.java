@@ -1,6 +1,6 @@
 package ua.kh.baklanov.db.dao;
 
-import ua.kh.baklanov.db.mysql.MySQLFactory;
+import ua.kh.baklanov.db.mysql.DefaultFactory;
 import ua.kh.baklanov.exception.DbException;
 
 import java.sql.Connection;
@@ -10,10 +10,8 @@ public interface DAOFactory {
 
     Connection getConnection() throws DbException;
 
-    UserDAO getUserDAO() throws DbException;
-
-    static MySQLFactory getMySQLDAOFactory() throws DbException {
-       return MySQLFactory.getInstance();
+    static DefaultFactory getMySQLDAOFactory() throws DbException {
+       return DefaultFactory.getInstance();
     }
 
     static void rollback(Connection con) {

@@ -8,11 +8,11 @@ import ua.kh.baklanov.model.entity.User;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class MySQLExtractorUtil {
+public final class DefaultExtractorUtil {
 
-    private MySQLExtractorUtil(){}
+    private static final Logger LOG = Logger.getLogger(DefaultExtractorUtil.class);
 
-    private static final Logger LOG = Logger.getLogger(MySQLExtractorUtil.class);
+    private DefaultExtractorUtil(){}
 
     public static User extractUser(ResultSet rs) throws DbException {
         User user=new User();
@@ -22,6 +22,7 @@ public class MySQLExtractorUtil {
             user.setPassword(rs.getString("password"));
             user.setEmail(rs.getString("email"));
             user.setIdRole(rs.getLong("idRole"));
+            user.setIdStatus(rs.getLong("idStatus"));
         } catch (SQLException ex) {
             LOG.error(Messages.ERROR_EXTRACTING+user.getClass().getName(), ex);
             throw new DbException(Messages.ERROR_OBTAIN_CONNECTION, ex);
