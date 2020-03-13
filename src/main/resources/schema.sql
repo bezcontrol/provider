@@ -9,7 +9,7 @@ USE `internet_provider`;
   UNIQUE (`id`),
   UNIQUE (`name`));
 
-   CREATE TABLE `userStatuses` (
+   CREATE TABLE `statuses` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
@@ -40,7 +40,7 @@ CREATE TABLE `users` (
     ON UPDATE CASCADE,
     CONSTRAINT `fk_user_status`
     FOREIGN KEY (`idStatus`)
-    REFERENCES `userStatuses` (`id`)
+    REFERENCES `statuses` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE);
 
@@ -94,13 +94,6 @@ CONSTRAINT `fk_service_pc`
     ON UPDATE CASCADE
 );
 
-      CREATE TABLE `contractStatuses` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE (`id`),
-  UNIQUE (`name`));
-
    CREATE TABLE `tariffs` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
@@ -133,19 +126,15 @@ CONSTRAINT `fk_contract_tariff`
     FOREIGN KEY (`idTariff`)
     REFERENCES `tariffs` (`id`)
     ON DELETE CASCADE
-    ON UPDATE CASCADE,
-CONSTRAINT `fk_status_contract`
-    FOREIGN KEY (`idStatus`)
-    REFERENCES `contractStatuses` (`id`)
-    ON DELETE CASCADE
     ON UPDATE CASCADE);
 
 
 
 INSERT INTO `roles` (`id`, `name`) VALUES ('1', 'admin');
 INSERT INTO `roles` (`id`, `name`) VALUES ('2', 'client');
-INSERT INTO `userStatuses` (`id`, `name`) VALUES ('1', 'waiting');
-INSERT INTO `userStatuses` (`id`, `name`) VALUES ('2', 'registered');
+INSERT INTO `statuses` (`id`, `name`) VALUES ('1', 'waiting');
+INSERT INTO `statuses` (`id`, `name`) VALUES ('2', 'registered');
+INSERT INTO `statuses` (`id`, `name`) VALUES ('3', 'blocked');
 INSERT INTO `users` (`id`, `login`, `password`,`email`, `idRole`, `idStatus`) VALUES ('1', 'admin','adminpass','user@gmail.com', '1','2');
 INSERT INTO `users` (`id`, `login`, `password`,`email`, `idRole`,`idStatus`) VALUES ('2', 'client','clientpass','user2@gmail.com', '2','2');
 INSERT INTO `internet` (`id`, `speed`, `technology`) VALUES ('1', '640', '4G');
@@ -163,9 +152,6 @@ INSERT INTO `services` (`id`, `idpc`,`idInternet`) VALUES ('3', '1', '2');
 INSERT INTO `services` (`id`, `idmobile`,`idInternet`) VALUES ('4', '2','1');
 INSERT INTO `services` (`id`, `idpc`,`idInternet`) VALUES ('5', '2','2');
 INSERT INTO `services` (`id`, `idmobile`) VALUES ('6', '1');
-INSERT INTO `contractStatuses` (`id`, `name`) VALUES ('1', 'normal');
-INSERT INTO `contractStatuses` (`id`, `name`) VALUES ('2', 'blocked');
-INSERT INTO `contractStatuses` (`id`, `name`) VALUES ('3', 'waiting');
 INSERT INTO `tariffs` (`id`, `name`, `price`, `idService`,`durationInDays`) VALUES ('1', 'Analog TV', '100', '1','30');
 INSERT INTO `tariffs` (`id`, `name`, `price`, `idService`,`durationInDays`) VALUES ('2', 'IP-TV', '150', '2','30');
 INSERT INTO `tariffs` (`id`, `name`, `price`, `idService`,`durationInDays`) VALUES ('3', 'PC with 4G internet', '125', '5','30');
