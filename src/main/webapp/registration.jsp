@@ -36,37 +36,45 @@
     <div class="container-login100" style="background-image: url('resources/img/bg-01.jpg');">
         <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
             <form class="login100-form validate-form" action="authentication" method="post">
-                <input type="hidden" name="command" value="login"/>
+                <input type="hidden" name="command" value="registration"/>
 					<span class="login100-form-title p-b-49">
-						Sign in
+						Sign up
 					</span>
 
                 <div class="wrap-input100 validate-input m-b-23" data-validate = "Username is required">
                     <span class="label-input100">Username</span>
-                    <input class="input100" type="text" name="login" placeholder="Login or email">
+                    <input class="input100" type="text" name="login" placeholder="Login">
                     <span class="focus-input100" data-symbol="&#xf206;"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-23" data-validate = "Email is required">
+                    <span class="label-input100">Email</span>
+                    <input class="input100" type="email" name="email" id="email" placeholder="Email"/>
+                    <span class="focus-input100" data-symbol="&#xf206;"></span>
+                </div>
+
+
+                <div class="wrap-input100 validate-input" data-validate="Password is required">
+                    <span class="label-input100">Password</span>
+                    <input class="input100" type="password" name="password" id="password" placeholder="Password">
+                    <span class="focus-input100" data-symbol="&#xf190;"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Password is required">
                     <span class="label-input100">Password</span>
-                    <input class="input100" type="password" name="password" placeholder="Type your password">
+                    <input class="input100" type="password" name="re_pass" id="confirm_password" placeholder="Confirm your password">
                     <span class="focus-input100" data-symbol="&#xf190;"></span>
                 </div>
 
-                <div class="text-right p-t-8 p-b-31">
-                    <a href="#">
-                        Forgot password?
-                    </a>
-                </div>
-
-                <div class="container-login100-form-btn">
+                <div class="m-t-15 container-login100-form-btn">
                     <div class="wrap-login100-form-btn">
                         <div class="login100-form-bgbtn"></div>
                         <button class="login100-form-btn" type="submit">
-                            Login
+                            Sign Up
                         </button>
                     </div>
                 </div>
+
                 <c:choose>
                     <c:when test="${requestScope.error.length()>0}">
                         <div class="p-t-15 alert alert-danger alert-dismissible">
@@ -81,15 +89,6 @@
                         </div>
                     </c:when>
                 </c:choose>
-
-                <div class="container-login100-form-btn p-t-15">
-                    <div class="wrap-login100-form-btn">
-                        <div class="login100-form-bgbtn"></div>
-                        <button class="login100-form-btn" onclick="location.href='registration.jsp'">
-                            Sign Up
-                        </button>
-                    </div>
-                </div>
 
                 <div class="txt1 text-center p-t-54 p-b-20">
 						<span>
@@ -135,6 +134,7 @@
 <script src="resources/js/login/lib/countdowntime.js"></script>
 <!--===============================================================================================-->
 <script src="resources/js/login/custom/main.js"></script>
+<script src="resources/js/login/custom/validate_passwords.js"></script>
 
 </body>
 </html>

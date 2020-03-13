@@ -1,6 +1,7 @@
 package ua.kh.baklanov.exception;
 
 public class Messages {
+
     private Messages(){}
 
     public static final String ERROR_OBTAIN_CONNECTION="Can't obtain connection";
@@ -12,11 +13,15 @@ public class Messages {
     public static final String ERROR_DELETE = "Can't delete in database entity: ";
     public static final String ERROR_EXTRACTING = "Can't extract entity ";
     public static final String ERROR_GET_USER_BY_LOGIN = "Can't get user by login";
+    public static final String ERROR_GET_USER_BY_EMAIL = "Can't get user by email";
     public static final String ERROR_GET_USER_BY_ID = "Can't get user by id";
     public static final String ERROR_GET_ALL_RECORDS = "Can't get all records from db with";
     public static final String ERROR_CREATING_FACTORY = "Can't create these factory: ";
     public static final String ERROR_CREATING_DAO_IN_SERVICE = "Can't create dao: ";
     public static final String ERROR_AUTHENTICATION_FORM = "Login/password cannot be empty";
     public static final String ERROR_FIND_USER_WITH_THIS_CREDENTIALS ="Cannot find user with such login/password";
+    public static final String ERROR_FORWARD = "Can't forward to page in controller ";
+    public static final String ERROR_REDIRECT = "Can't redirect to page in controller ";
+    public static final Object ERROR_EXECUTING_COMMAND = "Error when executing this command";
 
 }

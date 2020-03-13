@@ -23,4 +23,17 @@ public enum Role {
         }
         return CLIENT;
     }
+
+    public String getName() {
+        return name().toLowerCase();
+    }
+
+    public static boolean exist(Role role) {
+        for(Role e : values()) {
+            if(e.equals(role)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

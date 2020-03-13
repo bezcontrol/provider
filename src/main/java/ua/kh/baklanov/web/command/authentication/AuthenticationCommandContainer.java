@@ -1,6 +1,7 @@
 package ua.kh.baklanov.web.command.authentication;
 
 import ua.kh.baklanov.web.command.Command;
+import ua.kh.baklanov.web.command.NoCommand;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -10,6 +11,8 @@ public class AuthenticationCommandContainer {
 
     static {
         commands.put("login", new LoginCommand());
+        commands.put("registration", new RegistrationCommand());
+        commands.put("noCommand", new NoCommand());
     }
 
     private AuthenticationCommandContainer(){}

@@ -5,6 +5,15 @@ public class User extends Entity{
     private String password;
     private String email;
     private long idRole;
+    private long idStatus;
+
+    public long getIdStatus() {
+        return idStatus;
+    }
+
+    public void setIdStatus(long idStatus) {
+        this.idStatus = idStatus;
+    }
 
     public String getLogin() {
         return login;
@@ -45,6 +54,7 @@ public class User extends Entity{
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", idRole=" + idRole +
+                ", idStatus=" + idStatus +
                 '}';
     }
 }

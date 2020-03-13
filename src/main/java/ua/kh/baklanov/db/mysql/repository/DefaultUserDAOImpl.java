@@ -3,8 +3,8 @@ package ua.kh.baklanov.db.mysql.repository;
 import org.apache.log4j.Logger;
 import ua.kh.baklanov.db.dao.DAOFactory;
 import ua.kh.baklanov.db.dao.UserDAO;
-import ua.kh.baklanov.db.mysql.MySQLFactory;
-import ua.kh.baklanov.db.mysql.exctractor.MySQLExtractorUtil;
+import ua.kh.baklanov.db.mysql.DefaultFactory;
+import ua.kh.baklanov.db.mysql.exctractor.DefaultExtractorUtil;
 
 import ua.kh.baklanov.db.queries.Queries;
 import ua.kh.baklanov.exception.DbException;
@@ -15,17 +15,17 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MySQLUserDAOImpl implements UserDAO {
+public class DefaultUserDAOImpl implements UserDAO {
 
     private DAOFactory factory;
-    private static final Logger LOG = Logger.getLogger(MySQLUserDAOImpl.class);
+    private static final Logger LOG = Logger.getLogger(DefaultUserDAOImpl.class);
 
-    public MySQLUserDAOImpl() throws DbException {
+    public DefaultUserDAOImpl() throws DbException {
         try {
             factory = DAOFactory.getMySQLDAOFactory();
         } catch (DbException ex) {
-            LOG.error(Messages.ERROR_CREATING_FACTORY+MySQLFactory.class.getName(), ex);
-            throw new DbException(Messages.ERROR_CREATING_FACTORY+MySQLFactory.class.getName(), ex);
+            LOG.error(Messages.ERROR_CREATING_FACTORY+ DefaultFactory.class.getName(), ex);
+            throw new DbException(Messages.ERROR_CREATING_FACTORY+ DefaultFactory.class.getName(), ex);
         }
     }
 
@@ -37,7 +37,7 @@ public class MySQLUserDAOImpl implements UserDAO {
             statement.setString(1, login);
             try (ResultSet rs = statement.executeQuery()) {
                 while (rs.next()) {
-                    user = MySQLExtractorUtil.extractUser(rs);
+                    user = DefaultExtractorUtil.extractUser(rs);
                 }
             }
         } catch (SQLException | DbException ex) {
@@ -48,14 +48,32 @@ public class MySQLUserDAOImpl implements UserDAO {
     }
 
     @Override
-    public void insert(Object obj) throws DbException {
-        User user = (User) obj;
+    public User getByEmail(String email) throws DbException {
+        User user=null;
+        try (Connection con = factory.getConnection();
+             PreparedStatement statement = con.prepareStatement(Queries.GET_USER_BY_EMAIL)) {
+            statement.setString(1, email);
+            try (ResultSet rs = statement.executeQuery()) {
+                while (rs.next()) {
+                    user = DefaultExtractorUtil.extractUser(rs);
+                }
+            }
+        } catch (SQLException | DbException ex) {
+            LOG.error(Messages.ERROR_GET_USER_BY_EMAIL, ex);
+            throw new DbException(Messages.ERROR_GET_USER_BY_EMAIL, ex);
+        }
+        return user;
+    }
+
+    @Override
+    public void insert(User obj) throws DbException {
         try (Connection con = factory.getConnection();
              PreparedStatement statement = con.prepareStatement(Queries.INSERT_USER)) {
-            statement.setString(1, user.getLogin());
-            statement.setString(2, user.getPassword());
-            statement.setString(3, user.getEmail());
-            statement.setLong(4, user.getIdRole());
+            statement.setString(1, obj.getLogin());
+            statement.setString(2, obj.getPassword());
+            statement.setString(3, obj.getEmail());
+            statement.setLong(4, obj.getIdRole());
+            statement.setLong(5, obj.getIdStatus());
 
             int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
@@ -69,14 +87,14 @@ public class MySQLUserDAOImpl implements UserDAO {
     }
 
     @Override
-    public Object getById(long id) throws DbException {
+    public User getById(long id) throws DbException {
         User user=null;
         try (Connection con = factory.getConnection();
              PreparedStatement statement = con.prepareStatement(Queries.GET_USER_BY_ID)) {
             statement.setLong(1, id);
             try (ResultSet rs = statement.executeQuery()) {
                 while (rs.next()) {
-                    user = MySQLExtractorUtil.extractUser(rs);
+                    user = DefaultExtractorUtil.extractUser(rs);
                 }
             }
         } catch (SQLException | DbException ex) {
@@ -87,16 +105,16 @@ public class MySQLUserDAOImpl implements UserDAO {
     }
 
     @Override
-    public void update(Object obj) throws DbException {
-        User user = (User) obj;
-        User old= (User) getById(user.getId());
+    public void update(User obj) throws DbException {
+        User old= getById(obj.getId());
         try (Connection con = factory.getConnection();
              PreparedStatement statement = con.prepareStatement(Queries.UPDATE_USER_BY_LOGIN)) {
-            statement.setString(1, user.getLogin());
-            statement.setString(2, user.getPassword());
-            statement.setString(3, user.getEmail());
-            statement.setLong(4, user.getIdRole());
-            statement.setLong(5, old.getId());
+            statement.setString(1, obj.getLogin());
+            statement.setString(2, obj.getPassword());
+            statement.setString(3, obj.getEmail());
+            statement.setLong(4, obj.getIdRole());
+            statement.setLong(5, old.getIdStatus());
+            statement.setString(6, old.getLogin());
             int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
                 LOG.info(User.class.getName() + Messages.INFO_SUCCESSFULLY_UPDATED);
@@ -109,12 +127,11 @@ public class MySQLUserDAOImpl implements UserDAO {
     }
 
     @Override
-    public void delete(Object obj) throws DbException {
-        User user= (User) obj;
+    public void delete(User obj) throws DbException {
         try (Connection con = factory.getConnection();) {
             int rowsDeleted;
             try (PreparedStatement statement = con.prepareStatement(Queries.DELETE_USER_BY_LOGIN)) {
-                statement.setString(1, user.getLogin());
+                statement.setString(1, obj.getLogin());
                 rowsDeleted = statement.executeUpdate();
             }
             if (rowsDeleted > 0) {
@@ -134,7 +151,7 @@ public class MySQLUserDAOImpl implements UserDAO {
              Statement statement = con.createStatement()) {
             try (ResultSet rs = statement.executeQuery(Queries.GET_ALL_USERS)) {
                 while (rs.next()) {
-                    allUsers.add(MySQLExtractorUtil.extractUser(rs));
+                    allUsers.add(DefaultExtractorUtil.extractUser(rs));
                 }
             }
         } catch (SQLException | DbException ex) {
