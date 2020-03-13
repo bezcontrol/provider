@@ -135,6 +135,7 @@ INSERT INTO `roles` (`id`, `name`) VALUES ('2', 'client');
 INSERT INTO `statuses` (`id`, `name`) VALUES ('1', 'waiting');
 INSERT INTO `statuses` (`id`, `name`) VALUES ('2', 'registered');
 INSERT INTO `statuses` (`id`, `name`) VALUES ('3', 'blocked');
+INSERT INTO `statuses` (`id`, `name`) VALUES ('4', 'missed');
 INSERT INTO `users` (`id`, `login`, `password`,`email`, `idRole`, `idStatus`) VALUES ('1', 'admin','adminpass','user@gmail.com', '1','2');
 INSERT INTO `users` (`id`, `login`, `password`,`email`, `idRole`,`idStatus`) VALUES ('2', 'client','clientpass','user2@gmail.com', '2','2');
 INSERT INTO `internet` (`id`, `speed`, `technology`) VALUES ('1', '640', '4G');

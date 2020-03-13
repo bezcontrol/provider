@@ -19,22 +19,25 @@ import java.util.Objects;
 @WebServlet("/authentication")
 public class AuthenticationController extends HttpServlet {
     private static final Logger LOG = Logger.getLogger(AuthenticationController.class);
+
+    @Override
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) {
         try {
-        if(request.getSession().getAttribute("user")!=null){
+            if (request.getSession().getAttribute("user") != null) {
+                LOG.info("User is not null");
                 request.getRequestDispatcher(Route.HOME).forward(request, response);
-        }
-        else {
-            request.getRequestDispatcher(Route.LOGIN).forward(request,response);
-        }
-        }
-        catch (ServletException | IOException e) {
-            LOG.error(Messages.ERROR_FORWARD+ AuthenticationController.class.getName(),e);
+            } else {
+                LOG.info("User is null");
+                request.getRequestDispatcher(Route.LOGIN).forward(request, response);
+            }
+        } catch (ServletException | IOException e) {
+            LOG.error(Messages.ERROR_FORWARD + AuthenticationController.class.getName(), e);
             request.setAttribute("error", Messages.ERROR_FORWARD);
         }
     }
 
+    @Override
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response) throws IOException {
         processPost(request, response);
@@ -44,31 +47,32 @@ public class AuthenticationController extends HttpServlet {
      * Main method of this controller.
      */
     private void processPost(HttpServletRequest request,
-                         HttpServletResponse response) {
+                             HttpServletResponse response) {
 
-        String commandName = request.getParameter("command");
+        String commandName = request.getParameter(Parameters.COMMAND);
         Command command = AuthenticationCommandContainer.get(commandName);
         String forward = Route.PAGE_ERROR_PAGE;
         try {
+            LOG.info("Executing command");
             forward = command.execute(request, response);
         } catch (AppException ex) {
-            LOG.error(Messages.ERROR_EXECUTING_COMMAND+ command.getClass().getName());
-            request.setAttribute("error", Messages.ERROR_EXECUTING_COMMAND);
+            LOG.error(Messages.ERROR_EXECUTING_COMMAND + command.getClass().getName());
+            request.setAttribute(Attributes.ERROR, Messages.ERROR_EXECUTING_COMMAND);
         }
-        if(Objects.nonNull(request.getAttribute("error"))||Objects.nonNull(request.getAttribute("errorValidation"))){
+        if (Objects.nonNull(request.getAttribute(Attributes.ERROR)) ||
+                Objects.nonNull(request.getAttribute(Attributes.ERROR_VALIDATION))) {
             try {
-                request.getRequestDispatcher(forward).forward(request,response);
+                request.getRequestDispatcher(forward).forward(request, response);
             } catch (ServletException | IOException e) {
                 LOG.error(Messages.ERROR_FORWARD + AuthenticationController.class.getName(), e);
-                request.setAttribute("error", Messages.ERROR_FORWARD);
+                request.setAttribute(Attributes.ERROR, Messages.ERROR_FORWARD);
             }
-        }
-        else {
+        } else {
             try {
                 response.sendRedirect(forward);
             } catch (IOException e) {
                 LOG.error(Messages.ERROR_REDIRECT + AuthenticationController.class.getName(), e);
-                request.setAttribute("error", Messages.ERROR_REDIRECT);
+                request.setAttribute(Attributes.ERROR, Messages.ERROR_REDIRECT);
             }
         }
     }

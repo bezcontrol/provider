@@ -2,8 +2,6 @@ package ua.kh.baklanov.exception;
 
 public class Messages {
 
-    private Messages(){}
-
     public static final String ERROR_OBTAIN_CONNECTION="Can't obtain connection";
     public static final String ERROR_CONTEXT_CREATING_DB="Can't create data source in factory";
     public static final String INFO_SUCCESSFULLY_INSERTED=" had been successfully inserted";
@@ -22,6 +20,11 @@ public class Messages {
     public static final String ERROR_FIND_USER_WITH_THIS_CREDENTIALS ="Cannot find user with such login/password";
     public static final String ERROR_FORWARD = "Can't forward to page in controller ";
     public static final String ERROR_REDIRECT = "Can't redirect to page in controller ";
-    public static final Object ERROR_EXECUTING_COMMAND = "Error when executing this command";
+    public static final String ERROR_EXECUTING_COMMAND = "Error when executing this command";
+    public static final String ERROR_ACCESS_WAITING = "Wait for adding to system by our administrator";
+    public static final String ERROR_USER_DAO = "Error when using user dao in command: ";
+    public static final String FIELDS_NULL = "Fields are null in command: ";
+
+    private Messages(){}
 
 }

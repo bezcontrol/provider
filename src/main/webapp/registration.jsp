@@ -77,7 +77,7 @@
 
                 <c:choose>
                     <c:when test="${requestScope.error.length()>0}">
-                        <div class="p-t-15 alert alert-danger alert-dismissible">
+                        <div class="m-t-15  alert alert-danger alert-dismissible">
                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                 ${requestScope.error}
                         </div>
@@ -108,6 +108,15 @@
                     <a href="#" class="login100-social-item bg3">
                         <i class="fa fa-google"></i>
                     </a>
+                </div>
+
+                <div class="container-login100-form-btn p-t-15">
+                    <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+                        <button class="login100-form-btn" onclick="location.href='index.jsp'">
+                            Back
+                        </button>
+                    </div>
                 </div>
             </form>
         </div>

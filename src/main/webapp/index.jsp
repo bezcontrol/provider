@@ -69,7 +69,7 @@
                 </div>
                 <c:choose>
                     <c:when test="${requestScope.error.length()>0}">
-                        <div class="p-t-15 alert alert-danger alert-dismissible">
+                        <div class="m-t-15 alert alert-danger alert-dismissible">
                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                 ${requestScope.error}
                         </div>
@@ -81,36 +81,36 @@
                         </div>
                     </c:when>
                 </c:choose>
+            </form>
 
-                <div class="container-login100-form-btn p-t-15">
-                    <div class="wrap-login100-form-btn">
-                        <div class="login100-form-bgbtn"></div>
-                        <button class="login100-form-btn" onclick="location.href='registration.jsp'">
-                            Sign Up
-                        </button>
-                    </div>
+            <div class="container-login100-form-btn p-t-15">
+                <div class="wrap-login100-form-btn">
+                    <div class="login100-form-bgbtn"></div>
+                    <button class="login100-form-btn" onclick="location.href='registration.jsp'">
+                        Sign Up
+                    </button>
                 </div>
+            </div>
 
-                <div class="txt1 text-center p-t-54 p-b-20">
+            <div class="txt1 text-center p-t-54 p-b-20">
 						<span>
 							Or Sign Up Using
 						</span>
-                </div>
+            </div>
 
-                <div class="flex-c-m">
-                    <a href="#" class="login100-social-item bg1">
-                        <i class="fa fa-facebook"></i>
-                    </a>
+            <div class="flex-c-m">
+                <a href="#" class="login100-social-item bg1">
+                    <i class="fa fa-facebook"></i>
+                </a>
 
-                    <a href="#" class="login100-social-item bg2">
-                        <i class="fa fa-twitter"></i>
-                    </a>
+                <a href="#" class="login100-social-item bg2">
+                    <i class="fa fa-twitter"></i>
+                </a>
 
-                    <a href="#" class="login100-social-item bg3">
-                        <i class="fa fa-google"></i>
-                    </a>
-                </div>
-            </form>
+                <a href="#" class="login100-social-item bg3">
+                    <i class="fa fa-google"></i>
+                </a>
+            </div>
         </div>
     </div>
 </div>

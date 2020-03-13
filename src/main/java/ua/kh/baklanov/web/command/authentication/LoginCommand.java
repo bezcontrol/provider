@@ -4,12 +4,16 @@ import org.apache.log4j.Logger;
 import ua.kh.baklanov.Route;
 import ua.kh.baklanov.db.dao.UserDAO;
 import ua.kh.baklanov.exception.AppException;
+import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
 import ua.kh.baklanov.model.entity.Role;
+import ua.kh.baklanov.model.entity.Status;
 import ua.kh.baklanov.model.entity.User;
 import ua.kh.baklanov.service.DAOService;
 import ua.kh.baklanov.service.DefaultService;
 import ua.kh.baklanov.web.command.Command;
+import ua.kh.baklanov.web.controller.Attributes;
+import ua.kh.baklanov.web.controller.Parameters;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,35 +23,54 @@ public class LoginCommand extends Command {
     private static final Logger LOG = Logger.getLogger(LoginCommand.class);
 
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) throws AppException {
+    public String execute(HttpServletRequest request, HttpServletResponse response) {
 
-        String login = request.getParameter("login");
-        String password = request.getParameter("password");
+        String login = request.getParameter(Parameters.LOGIN);
+        String password = request.getParameter(Parameters.PASSWORD);
+        String forward;
         if (login == null || password == null || login.isEmpty() || password.isEmpty()) {
-            throw new AppException(Messages.ERROR_AUTHENTICATION_FORM);
+            LOG.error(Messages.FIELDS_NULL+LoginCommand.class.getName());
+            forward=Route.PAGE_ERROR_PAGE;
+            return forward;
         }
-        DAOService service= new DefaultService();
+        DAOService service = new DefaultService();
+        try{
         UserDAO userDAO = service.getUserDao();
         User user = userDAO.getByLogin(login);
-        String forward;
+
         if (user == null || !password.equals(user.getPassword())) {
-            user=userDAO.getByEmail(login);
-            if(user==null || !password.equals(user.getPassword())){
-                LOG.error(Messages.ERROR_FIND_USER_WITH_THIS_CREDENTIALS);
-                request.setAttribute("error", Messages.ERROR_FIND_USER_WITH_THIS_CREDENTIALS);
-                forward=Route.LOGIN;
+            user = userDAO.getByEmail(login);
+            if (user == null || !password.equals(user.getPassword())) {
+                LOG.info(Messages.ERROR_FIND_USER_WITH_THIS_CREDENTIALS);
+                request.setAttribute(Attributes.ERROR, Messages.ERROR_FIND_USER_WITH_THIS_CREDENTIALS);
+                forward = Route.LOGIN;
                 return forward;
             }
         }
-
+        LOG.info("User was found");
         Role userRole = Role.getRole(user);
-        forward=Route.PAGE_ERROR_PAGE;
-        if(Role.exist(userRole)){
-            forward = Route.HOME;
+        forward = Route.PAGE_ERROR_PAGE;
+        if (Role.exist(userRole)) {
+            if (Status.getStatus(user) == Status.WAITING) {
+                forward=Route.LOGIN;
+                request.setAttribute(Attributes.ERROR, Messages.ERROR_ACCESS_WAITING);
+                LOG.info(Messages.ERROR_ACCESS_WAITING);
+            } else if (Status.getStatus(user) == Status.MISSED) {
+                forward=Route.LOGIN;
+                request.setAttribute(Attributes.ERROR, Messages.ERROR_FIND_USER_WITH_THIS_CREDENTIALS);
+                LOG.error(Messages.ERROR_FIND_USER_WITH_THIS_CREDENTIALS);
+            } else {
+                HttpSession session = request.getSession();
+                session.setAttribute(Attributes.USER, user);
+                session.setAttribute(Attributes.USER_ROLE, userRole);
+                forward = Route.HOME;
+            }
         }
-        HttpSession session = request.getSession();
-        session.setAttribute("user", user);
-        session.setAttribute("userRole", userRole);
+
+        }  catch (DbException e) {
+            LOG.error(Messages.ERROR_USER_DAO+LoginCommand.class.getName(),e);
+            forward=Route.PAGE_ERROR_PAGE;
+        }
         return forward;
     }
 }

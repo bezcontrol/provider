@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class NoCommand extends Command {
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) throws AppException {
+    public String execute(HttpServletRequest request, HttpServletResponse response){
         return Route.PAGE_ERROR_PAGE;
     }
 }
