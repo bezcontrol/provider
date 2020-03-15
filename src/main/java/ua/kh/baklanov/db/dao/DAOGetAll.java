@@ -4,6 +4,6 @@ import ua.kh.baklanov.exception.DbException;
 
 import java.util.List;
 
-public interface DaoGetAll<T> {
+public interface DAOGetAll<T> {
     List<T> getAll() throws DbException;
 }

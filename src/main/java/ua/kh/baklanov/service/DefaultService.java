@@ -1,9 +1,9 @@
 package ua.kh.baklanov.service;
 
 import org.apache.log4j.Logger;
-import ua.kh.baklanov.db.dao.DaoGetAll;
+import ua.kh.baklanov.db.dao.TVDAO;
 import ua.kh.baklanov.db.dao.UserDAO;
-import ua.kh.baklanov.db.mysql.repository.DefaultTVDaoImpl;
+import ua.kh.baklanov.db.mysql.repository.DefaultTVDAOImpl;
 import ua.kh.baklanov.db.mysql.repository.DefaultUserDAOImpl;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
@@ -20,12 +20,12 @@ public class DefaultService implements DAOService {
         }
     }
 
-    public DaoGetAll getTVDao() throws DbException {
+    public TVDAO getTVDao() throws DbException {
         try {
-            return new DefaultTVDaoImpl();
+            return new DefaultTVDAOImpl();
         } catch (DbException e) {
-            LOG.error(Messages.ERROR_CREATING_DAO + DefaultTVDaoImpl.class.getName(),e);
-            throw new DbException(Messages.ERROR_CREATING_DAO + DefaultTVDaoImpl.class.getName(),e);
+            LOG.error(Messages.ERROR_CREATING_DAO + DefaultTVDAOImpl.class.getName(),e);
+            throw new DbException(Messages.ERROR_CREATING_DAO + DefaultTVDAOImpl.class.getName(),e);
         }
     }
 }

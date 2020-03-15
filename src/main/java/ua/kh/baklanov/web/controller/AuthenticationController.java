@@ -43,9 +43,6 @@ public class AuthenticationController extends HttpServlet {
         processPost(request, response);
     }
 
-    /**
-     * Main method of this controller.
-     */
     private void processPost(HttpServletRequest request,
                              HttpServletResponse response) {
 
