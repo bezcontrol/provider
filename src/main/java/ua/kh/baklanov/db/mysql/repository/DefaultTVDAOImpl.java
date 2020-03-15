@@ -32,7 +32,7 @@ public class DefaultTVDAOImpl implements TVDAO {
     }
 
     @Override
-    public List getAll() throws DbException {
+    public List<TV> getAll() throws DbException {
         List<TV> allTV=new ArrayList<>();
         try (Connection con = factory.getConnection();
              Statement statement = con.createStatement()) {
@@ -48,4 +48,12 @@ public class DefaultTVDAOImpl implements TVDAO {
         return allTV;
     }
 
+    @Override
+    public List<String> getTypes() throws DbException {
+        List<String> types=new ArrayList<>();
+        for (TV tv : getAll()) {
+            types.add(tv.getType());
+        }
+        return types;
+    }
 }

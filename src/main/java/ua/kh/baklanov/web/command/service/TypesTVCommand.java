@@ -24,10 +24,8 @@ public class TypesTVCommand extends Command {
         DAOService service = new DefaultService();
         try {
             TVDAO tvDAO = service.getTVDao();
-            for (Object obj : tvDAO.getAll()) {
-                TV tv = (TV) obj;
-                tvTypes.add(tv.getType());
-            }
+            tvTypes=tvDAO.getTypes();
+
         } catch (DbException e) {
             LOG.error(Messages.ERROR_TV_DAO + TypesTVCommand.class.getName(), e);
             return Route.PAGE_ERROR_PAGE;
