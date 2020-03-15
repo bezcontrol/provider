@@ -3,6 +3,7 @@ package ua.kh.baklanov.db.mysql.exctractor;
 import org.apache.log4j.Logger;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
+import ua.kh.baklanov.model.entity.TV;
 import ua.kh.baklanov.model.entity.User;
 
 import java.sql.ResultSet;
@@ -24,9 +25,22 @@ public final class DefaultExtractorUtil {
             user.setIdRole(rs.getLong("idRole"));
             user.setIdStatus(rs.getLong("idStatus"));
         } catch (SQLException ex) {
-            LOG.error(Messages.ERROR_EXTRACTING+user.getClass().getName(), ex);
-            throw new DbException(Messages.ERROR_OBTAIN_CONNECTION, ex);
+            LOG.error(Messages.ERROR_EXTRACTING+User.class.getName(), ex);
+            throw new DbException(Messages.ERROR_EXTRACTING+User.class.getName(), ex);
         }
         return user;
+    }
+
+    public static TV extractTV(ResultSet rs) throws DbException {
+        TV tv=new TV();
+        try {
+            tv.setId(rs.getLong("id"));
+            tv.setType(rs.getString("type"));
+
+        } catch (SQLException ex) {
+            LOG.error(Messages.ERROR_EXTRACTING+TV.class.getName(), ex);
+            throw new DbException(Messages.ERROR_EXTRACTING+TV.class.getName(), ex);
+        }
+        return tv;
     }
 }

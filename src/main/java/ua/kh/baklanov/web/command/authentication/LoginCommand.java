@@ -3,7 +3,6 @@ package ua.kh.baklanov.web.command.authentication;
 import org.apache.log4j.Logger;
 import ua.kh.baklanov.Route;
 import ua.kh.baklanov.db.dao.UserDAO;
-import ua.kh.baklanov.exception.AppException;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
 import ua.kh.baklanov.model.entity.Role;
@@ -24,39 +23,45 @@ public class LoginCommand extends Command {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-
         String login = request.getParameter(Parameters.LOGIN);
         String password = request.getParameter(Parameters.PASSWORD);
-        String forward;
         if (login == null || password == null || login.isEmpty() || password.isEmpty()) {
-            LOG.error(Messages.FIELDS_NULL+LoginCommand.class.getName());
-            forward=Route.PAGE_ERROR_PAGE;
-            return forward;
+            LOG.error(Messages.FIELDS_NULL + LoginCommand.class.getName());
+            return Route.PAGE_ERROR_PAGE;
         }
         DAOService service = new DefaultService();
-        try{
-        UserDAO userDAO = service.getUserDao();
-        User user = userDAO.getByLogin(login);
-
-        if (user == null || !password.equals(user.getPassword())) {
-            user = userDAO.getByEmail(login);
+        String forward;
+        try {
+            UserDAO userDAO = service.getUserDao();
+            User user = userDAO.getByLogin(login);
             if (user == null || !password.equals(user.getPassword())) {
-                LOG.info(Messages.ERROR_FIND_USER_WITH_THIS_CREDENTIALS);
-                request.setAttribute(Attributes.ERROR, Messages.ERROR_FIND_USER_WITH_THIS_CREDENTIALS);
-                forward = Route.LOGIN;
-                return forward;
+                user = userDAO.getByEmail(login);
+                if (user == null || !password.equals(user.getPassword())) {
+                    LOG.info(Messages.ERROR_FIND_USER_WITH_THIS_CREDENTIALS);
+                    request.setAttribute(Attributes.ERROR, Messages.ERROR_FIND_USER_WITH_THIS_CREDENTIALS);
+                    return Route.LOGIN;
+                }
             }
+            LOG.info("User was found");
+            forward = getStatusOfUser(user, request);
+        } catch (DbException e) {
+            LOG.error(Messages.ERROR_USER_DAO + LoginCommand.class.getName(), e);
+            forward = Route.PAGE_ERROR_PAGE;
         }
-        LOG.info("User was found");
+        return forward;
+    }
+
+
+    private static String getStatusOfUser(User user, HttpServletRequest request) {
         Role userRole = Role.getRole(user);
-        forward = Route.PAGE_ERROR_PAGE;
+        String forward = Route.PAGE_ERROR_PAGE;
         if (Role.exist(userRole)) {
             if (Status.getStatus(user) == Status.WAITING) {
-                forward=Route.LOGIN;
+                forward = Route.LOGIN;
                 request.setAttribute(Attributes.ERROR, Messages.ERROR_ACCESS_WAITING);
                 LOG.info(Messages.ERROR_ACCESS_WAITING);
             } else if (Status.getStatus(user) == Status.MISSED) {
-                forward=Route.LOGIN;
+                forward = Route.LOGIN;
                 request.setAttribute(Attributes.ERROR, Messages.ERROR_FIND_USER_WITH_THIS_CREDENTIALS);
                 LOG.error(Messages.ERROR_FIND_USER_WITH_THIS_CREDENTIALS);
             } else {
@@ -65,11 +70,6 @@ public class LoginCommand extends Command {
                 session.setAttribute(Attributes.USER_ROLE, userRole);
                 forward = Route.HOME;
             }
-        }
-
-        }  catch (DbException e) {
-            LOG.error(Messages.ERROR_USER_DAO+LoginCommand.class.getName(),e);
-            forward=Route.PAGE_ERROR_PAGE;
         }
         return forward;
     }

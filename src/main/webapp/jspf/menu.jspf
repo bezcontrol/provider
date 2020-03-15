@@ -6,6 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<link rel="stylesheet" type="text/css" href="../resources/css/menu/normalize.css" />
+<link rel="stylesheet" type="text/css" href="../resources/css/menu/demo.css" />
+<link rel="stylesheet" type="text/css" href="../resources/css/menu/component.css" />
+<script src="../resources/js/menu/modernizr.custom.js"></script>
 <div class="container">
     <ul id="gn-menu" class="gn-menu-main">
         <li class="gn-trigger">
@@ -19,10 +23,6 @@
                         </li>
                         <li>
                             <a class="gn-icon gn-icon-download">Downloads</a>
-                            <%--                            <ul class="gn-submenu">--%>
-                            <%--                                <li><a class="gn-icon gn-icon-illustrator">Vector Illustrations</a></li>--%>
-                            <%--                                <li><a class="gn-icon gn-icon-photoshop">Photoshop files</a></li>--%>
-                            <%--                            </ul>--%>
                         </li>
                         <li><a class="gn-icon gn-icon-cog">Settings</a></li>
                         <li><a class="gn-icon gn-icon-help">Help</a></li>
@@ -33,26 +33,22 @@
                 </div><!-- /gn-scroller -->
             </nav>
         </li>
-        <li><a href="http://tympanus.net/codrops">Home</a></li>
+        <li><a href="../jsp/services.jsp">Home</a></li>
         <li><a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Development/HeaderEffects/"><span>Previous Demo</span></a></li>
-
-
+        <li><a class="codrops-icon codrops-icon-drop" href="../index.jsp"><span>
         <c:choose>
-
-            <c:when test="${sessionScope.user!=null}">
-
-                <li><a class="codrops-icon codrops-icon-drop" onclick="location.href='../jsp/cabinet.jsp'"><span> ${sessionScope.user.login} cabinet</span></a></li>
+            <c:when test="${sessionScope.containsKey(user)}">
+                Hello, ${sessionScope.user.login}
             </c:when>
             <c:otherwise>
-
-                <li><a class="codrops-icon codrops-icon-drop" onclick="location.href='../index.jsp'"><span>Log In</span></a></li>
-
+                Log In
             </c:otherwise>
         </c:choose>
-
+</span></a></li>
 
     </ul>
-    <%--    <header>--%>
-    <%--        <h1>Google Nexus Website Menu <span>A sidebar menu as seen on the <a href="http://www.google.com/nexus/index.html">Google Nexus 7</a> page</span></h1>--%>
-    <%--    </header>--%>
+    <script src="../resources/js/menu/classie.js"></script>
+    <script src="../resources/js/menu/gnmenu.js"></script>
+    <script src="../resources/js/menu/gnmenucreate.js"></script>
+
 </div><!-- /container -->

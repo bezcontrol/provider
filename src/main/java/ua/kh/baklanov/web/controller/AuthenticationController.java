@@ -56,7 +56,7 @@ public class AuthenticationController extends HttpServlet {
             LOG.info("Executing command");
             forward = command.execute(request, response);
         } catch (AppException ex) {
-            LOG.error(Messages.ERROR_EXECUTING_COMMAND + command.getClass().getName());
+            LOG.error(Messages.ERROR_EXECUTING_COMMAND + command.getClass().getName(),ex);
             request.setAttribute(Attributes.ERROR, Messages.ERROR_EXECUTING_COMMAND);
         }
         if (Objects.nonNull(request.getAttribute(Attributes.ERROR)) ||
@@ -65,14 +65,12 @@ public class AuthenticationController extends HttpServlet {
                 request.getRequestDispatcher(forward).forward(request, response);
             } catch (ServletException | IOException e) {
                 LOG.error(Messages.ERROR_FORWARD + AuthenticationController.class.getName(), e);
-                request.setAttribute(Attributes.ERROR, Messages.ERROR_FORWARD);
             }
         } else {
             try {
                 response.sendRedirect(forward);
             } catch (IOException e) {
                 LOG.error(Messages.ERROR_REDIRECT + AuthenticationController.class.getName(), e);
-                request.setAttribute(Attributes.ERROR, Messages.ERROR_REDIRECT);
             }
         }
     }

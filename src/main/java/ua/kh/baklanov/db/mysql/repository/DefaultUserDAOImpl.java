@@ -128,7 +128,7 @@ public class DefaultUserDAOImpl implements UserDAO {
 
     @Override
     public void delete(User obj) throws DbException {
-        try (Connection con = factory.getConnection();) {
+        try (Connection con = factory.getConnection()) {
             int rowsDeleted;
             try (PreparedStatement statement = con.prepareStatement(Queries.DELETE_USER_BY_LOGIN)) {
                 statement.setString(1, obj.getLogin());

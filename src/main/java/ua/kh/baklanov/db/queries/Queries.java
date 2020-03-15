@@ -15,6 +15,8 @@ public class Queries {
 
     public static final String GET_USER_BY_EMAIL = "SELECT * FROM users WHERE email=?";
 
+    public static final String GET_ALL_TV = "SELECT * FROM tv";
+
     private Queries() {
 
     }

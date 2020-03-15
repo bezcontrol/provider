@@ -15,7 +15,7 @@ public class Messages {
     public static final String ERROR_GET_USER_BY_ID = "Can't get user by id";
     public static final String ERROR_GET_ALL_RECORDS = "Can't get all records from db with";
     public static final String ERROR_CREATING_FACTORY = "Can't create these factory: ";
-    public static final String ERROR_CREATING_DAO_IN_SERVICE = "Can't create dao: ";
+    public static final String ERROR_CREATING_DAO = "Can't create dao: ";
     public static final String ERROR_AUTHENTICATION_FORM = "Login/password cannot be empty";
     public static final String ERROR_FIND_USER_WITH_THIS_CREDENTIALS ="Cannot find user with such login/password";
     public static final String ERROR_FORWARD = "Can't forward to page in controller ";
@@ -23,6 +23,7 @@ public class Messages {
     public static final String ERROR_EXECUTING_COMMAND = "Error when executing this command";
     public static final String ERROR_ACCESS_WAITING = "Wait for adding to system by our administrator";
     public static final String ERROR_USER_DAO = "Error when using user dao in command: ";
+    public static final String ERROR_TV_DAO = "Error when using tv dao in command: ";
     public static final String FIELDS_NULL = "Fields are null in command: ";
 
     private Messages(){}
