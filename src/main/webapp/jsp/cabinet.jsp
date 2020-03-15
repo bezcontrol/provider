@@ -1,16 +1,21 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: User
-  Date: 14.03.2020
-  Time: 00:45
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html lang="en" class="no-js">
 <head>
-    <title>Title</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabinet</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../resources/css/menu/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="../resources/css/menu/demo.css" />
+    <link rel="stylesheet" type="text/css" href="../resources/css/menu/component.css" />
+    <script src="../resources/js/menu/modernizr.custom.js"></script>
 </head>
 <body>
-
+<%@ include file="../jspf/menu.jspf"%>
+<script src="../resources/js/menu/classie.js"></script>
+<script src="../resources/js/menu/gnmenu.js"></script>
+<script src="../resources/js/menu/gnmenucreate.js"></script>
 </body>
 </html>
