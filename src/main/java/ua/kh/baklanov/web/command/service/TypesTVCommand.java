@@ -3,6 +3,7 @@ package ua.kh.baklanov.web.command.service;
 import org.apache.log4j.Logger;
 import ua.kh.baklanov.Route;
 import ua.kh.baklanov.db.dao.DAOGetAll;
+import ua.kh.baklanov.db.dao.TVDAO;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
 import ua.kh.baklanov.model.entity.TV;
@@ -22,7 +23,7 @@ public class TypesTVCommand extends Command {
         List<String> tvTypes = new ArrayList<>();
         DAOService service = new DefaultService();
         try {
-            DAOGetAll tvDAO = service.getTVDao();
+            TVDAO tvDAO = service.getTVDao();
             for (Object obj : tvDAO.getAll()) {
                 TV tv = (TV) obj;
                 tvTypes.add(tv.getType());
