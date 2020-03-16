@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
 import ua.kh.baklanov.model.entity.TV;
+import ua.kh.baklanov.model.entity.Tariff;
 import ua.kh.baklanov.model.entity.User;
 
 import java.sql.ResultSet;
@@ -42,5 +43,20 @@ public final class DefaultExtractorUtil {
             throw new DbException(Messages.ERROR_EXTRACTING+TV.class.getName(), ex);
         }
         return tv;
+    }
+
+    public static Tariff extractTariff(ResultSet rs) throws DbException {
+        Tariff tariff=new Tariff();
+        try {
+            tariff.setId(rs.getLong("id"));
+            tariff.setName(rs.getString("name"));
+            tariff.setPrice(rs.getInt("price"));
+            tariff.setIdService(rs.getLong("idService"));
+            tariff.setDurationInDays(rs.getInt("durationInDays"));
+        } catch (SQLException ex) {
+            LOG.error(Messages.ERROR_EXTRACTING+Tariff.class.getName(), ex);
+            throw new DbException(Messages.ERROR_EXTRACTING+Tariff.class.getName(), ex);
+        }
+        return tariff;
     }
 }

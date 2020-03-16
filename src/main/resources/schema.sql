@@ -26,7 +26,7 @@ CREATE TABLE `users` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `login` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
-  `email` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45),
   `idRole` INT NOT NULL,
   `idStatus` INT NOT NULL,
   PRIMARY KEY (`id`),

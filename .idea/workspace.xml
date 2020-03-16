@@ -6,7 +6,89 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bd69f328-7ef0-4520-bb63-8de55c690f5d" name="Default Changelist" comment="" />
+    <list default="true" id="bd69f328-7ef0-4520-bb63-8de55c690f5d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/e/2e22b6edd746fa3dc40ad7276c87c8d87d72a392" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/b/4bb9dcc8791d725df57b7faf70e0934f8b406fa1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/9/899b7eb401cc7cac57c03751a071b9930ef5a5a0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/7/970aaf073459aa35d948040665b1364905e60f8a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/3/b30affc37e492d1b5e561b2830997592584c350f" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/b/cb730b50f71ded04003b28bf63f53ec27ccb9c08" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/4/d4b249ed7f7dd6e2401372b3c85a511535ad55b9" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/8/d8750b77a8ce1b13a093e0cc534a4aa2fb01856e" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/d/dd51f7041d5a8d7bb17c79a85099a350e198ae09" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/6/f670ac9cd71304abfdf3105b446a441347f608f6" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/0/20073c8829cb9e27a793cd86953956eae4f543c3" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/0/20073c8829cb9e27a793cd86953956eae4f543c3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/0/203e4584dc88faf81e62c190835dc6c1248be14b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/5/35d6dd486134f5c9fd9a54bbbef5f3d722f95e29" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/7/37586984a92514863be485453a984290c7d6b223" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/7/376502ef2ca49878c0eb19a74f284eb28392a185" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/7/376502ef2ca49878c0eb19a74f284eb28392a185" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/b/3be6762069f011f76ea1893cd3ac70db566e0578" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/b/3be6762069f011f76ea1893cd3ac70db566e0578" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/1/511b0cf8b683b34c2ed13cce026ed1711b7af6a8" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/1/511b0cf8b683b34c2ed13cce026ed1711b7af6a8" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/8/68f3d18faa26abb6288a0bf9182feaf446d98b0e" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/8/68f3d18faa26abb6288a0bf9182feaf446d98b0e" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/6/7649e4b05b9d89a448d4ae23f0df8e2d34d86bec" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/6/7649e4b05b9d89a448d4ae23f0df8e2d34d86bec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/3/835ee1fa809bb8277073c4706a625702f8492d26" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/3/835ee1fa809bb8277073c4706a625702f8492d26" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/e/8e6d3b70c9f5b02570779b0441540d45eceb0ded" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/e/8e6d3b70c9f5b02570779b0441540d45eceb0ded" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/7/c7e92f44d62c470be4ec9ab431339a3bd56b212f" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/7/c7e92f44d62c470be4ec9ab431339a3bd56b212f" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/5/e59f3b90183161978433d9e9979d68b19aed94bb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/3/f353faf3e211c95e982317411caff18d18c9421b" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/3/f353faf3e211c95e982317411caff18d18c9421b" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/kh/baklanov/db/mysql/exctractor/DefaultExtractorUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/kh/baklanov/db/mysql/exctractor/DefaultExtractorUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/kh/baklanov/db/mysql/repository/DefaultTVDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/kh/baklanov/db/mysql/repository/DefaultTVDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/kh/baklanov/db/mysql/repository/DefaultUserDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/kh/baklanov/db/mysql/repository/DefaultUserDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/kh/baklanov/exception/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/kh/baklanov/exception/Messages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/kh/baklanov/service/DAOService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/kh/baklanov/service/DAOService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/kh/baklanov/service/DefaultService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/kh/baklanov/service/DefaultService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/kh/baklanov/web/command/service/ServiceCommandContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/kh/baklanov/web/command/service/ServiceCommandContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/kh/baklanov/web/command/service/TypesTVCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/kh/baklanov/web/command/service/TypesTVCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/kh/baklanov/web/controller/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/kh/baklanov/web/controller/Parameters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/services.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/services.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/tv.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/tv.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jspf/menu.jspf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jspf/menu.jspf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/services/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Provider.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/Provider.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Provider/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/Provider/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Provider/META-INF/context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Provider/META-INF/context.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Provider/WEB-INF/classes/META-INF/Provider.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/target/Provider/WEB-INF/classes/META-INF/Provider.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Provider/WEB-INF/classes/ua/kh/baklanov/db/DBManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Provider/WEB-INF/classes/ua/kh/baklanov/db/dao/DAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Provider/WEB-INF/classes/ua/kh/baklanov/db/dao/DAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Provider/WEB-INF/classes/ua/kh/baklanov/db/dao/DAOFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Provider/WEB-INF/classes/ua/kh/baklanov/db/dao/DAOFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Provider/WEB-INF/classes/ua/kh/baklanov/db/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Provider/WEB-INF/classes/ua/kh/baklanov/db/dao/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Provider/WEB-INF/classes/ua/kh/baklanov/db/mysql/MySQLFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Provider/WEB-INF/classes/ua/kh/baklanov/db/mysql/exctractor/MySQLExtractorUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Provider/WEB-INF/classes/ua/kh/baklanov/db/mysql/repository/MySQLUserDAOImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Provider/WEB-INF/classes/ua/kh/baklanov/db/queries/Queries.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Provider/WEB-INF/classes/ua/kh/baklanov/db/queries/Queries.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Provider/WEB-INF/classes/ua/kh/baklanov/exception/Messages.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Provider/WEB-INF/classes/ua/kh/baklanov/exception/Messages.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Provider/WEB-INF/classes/ua/kh/baklanov/model/entity/Contract.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Provider/WEB-INF/classes/ua/kh/baklanov/model/entity/Contract.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Provider/WEB-INF/classes/ua/kh/baklanov/model/entity/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Provider/WEB-INF/classes/ua/kh/baklanov/model/entity/Role.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Provider/WEB-INF/classes/ua/kh/baklanov/model/entity/Status.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Provider/WEB-INF/classes/ua/kh/baklanov/model/entity/Status.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Provider/WEB-INF/classes/ua/kh/baklanov/model/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Provider/WEB-INF/classes/ua/kh/baklanov/model/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Provider/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Provider/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Provider/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Provider/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/Provider.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/Provider.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ua/kh/baklanov/db/DBManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ua/kh/baklanov/db/dao/DAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/kh/baklanov/db/dao/DAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ua/kh/baklanov/db/dao/DAOFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/kh/baklanov/db/dao/DAOFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ua/kh/baklanov/db/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/kh/baklanov/db/dao/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ua/kh/baklanov/db/mysql/MySQLFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ua/kh/baklanov/db/mysql/exctractor/MySQLExtractorUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ua/kh/baklanov/db/mysql/repository/MySQLUserDAOImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ua/kh/baklanov/db/queries/Queries.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/kh/baklanov/db/queries/Queries.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ua/kh/baklanov/exception/Messages.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/kh/baklanov/exception/Messages.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ua/kh/baklanov/model/entity/Contract.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/kh/baklanov/model/entity/Contract.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ua/kh/baklanov/model/entity/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/kh/baklanov/model/entity/Role.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ua/kh/baklanov/model/entity/Status.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/kh/baklanov/model/entity/Status.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ua/kh/baklanov/model/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ua/kh/baklanov/model/entity/User.class" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,11 +114,26 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="jsf" />
+        <option value="Jsp File" />
+        <option value="SCSS File" />
+        <option value="Interface" />
         <option value="Class" />
+        <option value="Sass File" />
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -52,6 +149,9 @@
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="NamedScopeManager">
+    <scope name="css" pattern=".css" />
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
@@ -62,26 +162,50 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="NewWatcherDialog.advanced.open" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/ua/kh/baklanov" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.35517243" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="ua.kh.baklanov.web.command.service" />
       <recent name="ua.kh.baklanov.exception" />
       <recent name="ua.kh.baklanov.dao.mysql" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\GitRepository\provider\src\main\webapp\jsp" />
+      <recent name="F:\GitRepository\provider\src\main\webapp\resources\img\screenshots\services" />
+      <recent name="F:\GitRepository\provider\src\main\webapp\resources\css\services" />
       <recent name="F:\Work\Epam\Provider\src\main\java\ua\kh\baklanov" />
       <recent name="F:\Work\Epam\Provider\src\main\resources" />
-      <recent name="F:\Work\Epam\Provider\src\main\java\ua\kh\baklanov\dao" />
-      <recent name="F:\Work\Epam\Provider\src\main\webapp" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\GitRepository\provider\src\main\webapp\jsp" />
+      <recent name="F:\GitRepository\provider\src\main\webapp\resources\js\main" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9">
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -98,8 +222,8 @@
       </method>
     </configuration>
     <configuration name="Tomcat 9" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="BROWSER_ID" value="53e2f627-b1a7-4dfa-bfa7-5b83cc034776" />
-      <option name="UPDATING_POLICY" value="restart-server" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/jsp/services.jsp" />
+      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
         <artifact name="Provider:war">
           <settings>
@@ -170,33 +294,16 @@
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Test" />
+      <item itemvalue="Tomcat Server.Tomcat 9" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Test" />
+        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-            </expand>
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -218,124 +325,165 @@
       <workItem from="1583882541491" duration="8231000" />
       <workItem from="1583890860266" duration="961000" />
       <workItem from="1583929213597" duration="2928000" />
+      <workItem from="1583967361881" duration="9749000" />
+      <workItem from="1584108260632" duration="14157000" />
+      <workItem from="1584128790456" duration="10796000" />
+      <workItem from="1584288635434" duration="11869000" />
+      <workItem from="1584301598298" duration="23643000" />
+      <workItem from="1584362933756" duration="6601000" />
     </task>
+    <task id="LOCAL-00001" summary="1.fixed some entity and dao methods&#10;2.added controllers and commands for autentication&#10;TO-DO:&#10;1.Log everything in controllers and commands&#10;2.fix errors when login crush and create jsperror-page&#10;3.add headers and footers universal front files">
+      <created>1583976292388</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1583976292388</updated>
+    </task>
+    <task id="LOCAL-00002" summary="1.fixed some entity and dao methods&#10;2.added controllers and commands for authentication&#10;TO-DO:&#10;1.Log everything in controllers and commands&#10;2.fix errors when login crush and create jsperror-page&#10;3.add headers and footers universal front files">
+      <created>1583977016268</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1583977016268</updated>
+    </task>
+    <task id="LOCAL-00003" summary="1.added Log4j props&#10;2.added classes with names of attributes and parameters of requests and responses&#10;3.fixed routes and some login and registration problems&#10;4.fixed schema sql&#10;5.added new error messages and logging info&#10;TO-DO:&#10;1.add support of gmail&#10;2.add support of link &quot;forgot password&quot;">
+      <created>1584121649534</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1584121649534</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added main page">
+      <created>1584139714218</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1584139714218</updated>
+    </task>
+    <task id="LOCAL-00005" summary="1.fixed menu jspf&#10;2.added tv dao and impl&#10;3.creating pages with types of tv via controller">
+      <created>1584311918027</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1584311918027</updated>
+    </task>
+    <task id="LOCAL-00006" summary="change DAOGetAll -&gt; TVDAO">
+      <created>1584313016141</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1584313016141</updated>
+    </task>
+    <task id="LOCAL-00007" summary="change DAOGetAll -&gt; TVDAO">
+      <created>1584313228440</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1584313228440</updated>
+    </task>
+    <task id="LOCAL-00008" summary="changing logic of returning types of tv">
+      <created>1584314397553</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1584314397553</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1.fixed some entity and dao methods&#10;2.added controllers and commands for autentication&#10;TO-DO:&#10;1.Log everything in controllers and commands&#10;2.fix errors when login crush and create jsperror-page&#10;3.add headers and footers universal front files" />
+    <MESSAGE value="1.fixed some entity and dao methods&#10;2.added controllers and commands for authentication&#10;TO-DO:&#10;1.Log everything in controllers and commands&#10;2.fix errors when login crush and create jsperror-page&#10;3.add headers and footers universal front files" />
+    <MESSAGE value="1.added Log4j props&#10;2.added classes with names of attributes and parameters of requests and responses&#10;3.fixed routes and some login and registration problems&#10;4.fixed schema sql&#10;5.added new error messages and logging info&#10;TO-DO:&#10;1.add support of gmail&#10;2.add support of link &quot;forgot password&quot;" />
+    <MESSAGE value="added main page" />
+    <MESSAGE value="1.fixed menu jspf&#10;2.added tv dao and impl&#10;3.creating pages with types of tv via controller" />
+    <MESSAGE value="change DAOGetAll -&gt; TVDAO" />
+    <MESSAGE value="changing logic of returning types of tv" />
+    <option name="LAST_COMMIT_MESSAGE" value="changing logic of returning types of tv" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="328" y="91" key="#Project_Structure" timestamp="1583776312273">
-      <screen x="0" y="0" width="1470" height="864" />
-    </state>
-    <state x="328" y="91" key="#Project_Structure/0.0.1470.864@0.0.1470.864" timestamp="1583776312273" />
-    <state x="190" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583777770496">
-      <screen x="0" y="0" width="1470" height="864" />
-    </state>
-    <state x="190" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1470.864@0.0.1470.864" timestamp="1583777770496" />
-    <state x="58" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1583883134172">
-      <screen x="0" y="0" width="1470" height="864" />
-    </state>
-    <state x="58" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1470.864@0.0.1470.864" timestamp="1583883134172" />
-    <state x="533" y="317" width="403" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1583856664680">
-      <screen x="0" y="0" width="1470" height="864" />
-    </state>
-    <state x="533" y="317" width="403" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1470.864@0.0.1470.864" timestamp="1583856664680" />
-    <state x="478" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1583882698110">
-      <screen x="0" y="0" width="1470" height="864" />
-    </state>
-    <state x="478" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1470.864@0.0.1470.864" timestamp="1583882698110" />
-    <state x="466" y="182" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1583890018442">
-      <screen x="0" y="0" width="1470" height="864" />
-    </state>
-    <state x="466" y="182" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1470.864@0.0.1470.864" timestamp="1583890018442" />
-    <state x="0" y="86" key="#toString()_Generation_Settings" timestamp="1583883132104">
-      <screen x="0" y="0" width="1470" height="864" />
-    </state>
-    <state x="0" y="86" key="#toString()_Generation_Settings/0.0.1470.864@0.0.1470.864" timestamp="1583883132104" />
-    <state x="516" y="187" key="FileChooserDialogImpl" timestamp="1583885833990">
-      <screen x="0" y="0" width="1470" height="864" />
-    </state>
-    <state x="516" y="187" key="FileChooserDialogImpl/0.0.1470.864@0.0.1470.864" timestamp="1583885833990" />
-    <state width="978" height="224" key="GridCell.Tab.0.bottom" timestamp="1583930285476">
-      <screen x="0" y="0" width="1470" height="864" />
-    </state>
-    <state width="978" height="224" key="GridCell.Tab.0.bottom/0.0.1470.864@0.0.1470.864" timestamp="1583930285476" />
-    <state width="978" height="224" key="GridCell.Tab.0.center" timestamp="1583930285476">
-      <screen x="0" y="0" width="1470" height="864" />
-    </state>
-    <state width="978" height="224" key="GridCell.Tab.0.center/0.0.1470.864@0.0.1470.864" timestamp="1583930285476" />
-    <state width="978" height="224" key="GridCell.Tab.0.left" timestamp="1583930285475">
-      <screen x="0" y="0" width="1470" height="864" />
-    </state>
-    <state width="978" height="224" key="GridCell.Tab.0.left/0.0.1470.864@0.0.1470.864" timestamp="1583930285475" />
-    <state width="978" height="224" key="GridCell.Tab.0.right" timestamp="1583930285476">
-      <screen x="0" y="0" width="1470" height="864" />
-    </state>
-    <state width="978" height="224" key="GridCell.Tab.0.right/0.0.1470.864@0.0.1470.864" timestamp="1583930285476" />
-    <state width="978" height="224" key="GridCell.Tab.1.bottom" timestamp="1583930285477">
-      <screen x="0" y="0" width="1470" height="864" />
-    </state>
-    <state width="978" height="224" key="GridCell.Tab.1.bottom/0.0.1470.864@0.0.1470.864" timestamp="1583930285477" />
-    <state width="978" height="224" key="GridCell.Tab.1.center" timestamp="1583930285476">
-      <screen x="0" y="0" width="1470" height="864" />
-    </state>
-    <state width="978" height="224" key="GridCell.Tab.1.center/0.0.1470.864@0.0.1470.864" timestamp="1583930285476" />
-    <state width="978" height="224" key="GridCell.Tab.1.left" timestamp="1583930285476">
-      <screen x="0" y="0" width="1470" height="864" />
-    </state>
-    <state width="978" height="224" key="GridCell.Tab.1.left/0.0.1470.864@0.0.1470.864" timestamp="1583930285476" />
-    <state width="978" height="224" key="GridCell.Tab.1.right" timestamp="1583930285477">
-      <screen x="0" y="0" width="1470" height="864" />
-    </state>
-    <state width="978" height="224" key="GridCell.Tab.1.right/0.0.1470.864@0.0.1470.864" timestamp="1583930285477" />
-    <state width="978" height="224" key="GridCell.Tab.2.bottom" timestamp="1583930285478">
-      <screen x="0" y="0" width="1470" height="864" />
-    </state>
-    <state width="978" height="224" key="GridCell.Tab.2.bottom/0.0.1470.864@0.0.1470.864" timestamp="1583930285478" />
-    <state width="978" height="224" key="GridCell.Tab.2.center" timestamp="1583930285477">
-      <screen x="0" y="0" width="1470" height="864" />
-    </state>
-    <state width="978" height="224" key="GridCell.Tab.2.center/0.0.1470.864@0.0.1470.864" timestamp="1583930285477" />
-    <state width="978" height="224" key="GridCell.Tab.2.left" timestamp="1583930285477">
-      <screen x="0" y="0" width="1470" height="864" />
-    </state>
-    <state width="978" height="224" key="GridCell.Tab.2.left/0.0.1470.864@0.0.1470.864" timestamp="1583930285477" />
-    <state width="978" height="224" key="GridCell.Tab.2.right" timestamp="1583930285478">
-      <screen x="0" y="0" width="1470" height="864" />
-    </state>
-    <state width="978" height="224" key="GridCell.Tab.2.right/0.0.1470.864@0.0.1470.864" timestamp="1583930285478" />
-    <state width="978" height="224" key="GridCell.Tab.3.bottom" timestamp="1583840464471">
-      <screen x="0" y="0" width="1470" height="864" />
-    </state>
-    <state width="978" height="224" key="GridCell.Tab.3.bottom/0.0.1470.864@0.0.1470.864" timestamp="1583840464471" />
-    <state width="978" height="224" key="GridCell.Tab.3.center" timestamp="1583840464470">
-      <screen x="0" y="0" width="1470" height="864" />
-    </state>
-    <state width="978" height="224" key="GridCell.Tab.3.center/0.0.1470.864@0.0.1470.864" timestamp="1583840464470" />
-    <state width="978" height="224" key="GridCell.Tab.3.left" timestamp="1583840464470">
-      <screen x="0" y="0" width="1470" height="864" />
-    </state>
-    <state width="978" height="224" key="GridCell.Tab.3.left/0.0.1470.864@0.0.1470.864" timestamp="1583840464470" />
-    <state width="978" height="224" key="GridCell.Tab.3.right" timestamp="1583840464471">
-      <screen x="0" y="0" width="1470" height="864" />
-    </state>
-    <state width="978" height="224" key="GridCell.Tab.3.right/0.0.1470.864@0.0.1470.864" timestamp="1583840464471" />
-    <state x="216" y="7" key="SettingsEditor" timestamp="1583856418925">
-      <screen x="0" y="0" width="1470" height="864" />
-    </state>
-    <state x="216" y="7" key="SettingsEditor/0.0.1470.864@0.0.1470.864" timestamp="1583856418925" />
-    <state x="432" y="256" key="com.intellij.ide.util.TipDialog" timestamp="1583929215244">
-      <screen x="0" y="0" width="1470" height="864" />
-    </state>
-    <state x="432" y="256" key="com.intellij.ide.util.TipDialog/0.0.1470.864@0.0.1470.864" timestamp="1583929215244" />
-    <state x="429" y="164" width="611" height="536" key="find.popup" timestamp="1583775854043">
-      <screen x="0" y="0" width="1470" height="864" />
-    </state>
-    <state x="429" y="164" width="611" height="536" key="find.popup/0.0.1470.864@0.0.1470.864" timestamp="1583775854043" />
-    <state x="398" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1583857464078">
-      <screen x="0" y="0" width="1470" height="864" />
-    </state>
-    <state x="398" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1470.864@0.0.1470.864" timestamp="1583857464078" />
+    <state x="328" y="91" key="#Project_Structure" />
+    <state x="328" y="91" key="#Project_Structure/0.0.1470.864@0.0.1470.864" />
+    <state x="190" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog" />
+    <state x="190" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1470.864@0.0.1470.864" />
+    <state x="58" y="128" key="#com.intellij.ide.util.MemberChooser" />
+    <state x="58" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1470.864@0.0.1470.864" />
+    <state x="533" y="317" width="403" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" />
+    <state x="533" y="317" width="403" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1470.864@0.0.1470.864" />
+    <state x="478" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" />
+    <state x="478" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1470.864@0.0.1470.864" />
+    <state x="466" y="182" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" />
+    <state x="466" y="182" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1470.864@0.0.1470.864" />
+    <state x="0" y="86" key="#toString()_Generation_Settings" />
+    <state x="0" y="86" key="#toString()_Generation_Settings/0.0.1470.864@0.0.1470.864" />
+    <state x="516" y="187" key="FileChooserDialogImpl" />
+    <state x="516" y="187" key="FileChooserDialogImpl/0.0.1470.864@0.0.1470.864" />
+    <state width="978" height="224" key="GridCell.Tab.0.bottom" />
+    <state width="978" height="224" key="GridCell.Tab.0.bottom/0.0.1470.864@0.0.1470.864" />
+    <state width="978" height="224" key="GridCell.Tab.0.center" />
+    <state width="978" height="224" key="GridCell.Tab.0.center/0.0.1470.864@0.0.1470.864" />
+    <state width="978" height="224" key="GridCell.Tab.0.left" />
+    <state width="978" height="224" key="GridCell.Tab.0.left/0.0.1470.864@0.0.1470.864" />
+    <state width="978" height="224" key="GridCell.Tab.0.right" />
+    <state width="978" height="224" key="GridCell.Tab.0.right/0.0.1470.864@0.0.1470.864" />
+    <state width="978" height="224" key="GridCell.Tab.1.bottom" />
+    <state width="978" height="224" key="GridCell.Tab.1.bottom/0.0.1470.864@0.0.1470.864" />
+    <state width="978" height="224" key="GridCell.Tab.1.center" />
+    <state width="978" height="224" key="GridCell.Tab.1.center/0.0.1470.864@0.0.1470.864" />
+    <state width="978" height="224" key="GridCell.Tab.1.left" />
+    <state width="978" height="224" key="GridCell.Tab.1.left/0.0.1470.864@0.0.1470.864" />
+    <state width="978" height="224" key="GridCell.Tab.1.right" />
+    <state width="978" height="224" key="GridCell.Tab.1.right/0.0.1470.864@0.0.1470.864" />
+    <state width="978" height="224" key="GridCell.Tab.2.bottom" />
+    <state width="978" height="224" key="GridCell.Tab.2.bottom/0.0.1470.864@0.0.1470.864" />
+    <state width="978" height="224" key="GridCell.Tab.2.center" />
+    <state width="978" height="224" key="GridCell.Tab.2.center/0.0.1470.864@0.0.1470.864" />
+    <state width="978" height="224" key="GridCell.Tab.2.left" />
+    <state width="978" height="224" key="GridCell.Tab.2.left/0.0.1470.864@0.0.1470.864" />
+    <state width="978" height="224" key="GridCell.Tab.2.right" />
+    <state width="978" height="224" key="GridCell.Tab.2.right/0.0.1470.864@0.0.1470.864" />
+    <state width="978" height="224" key="GridCell.Tab.3.bottom" />
+    <state width="978" height="224" key="GridCell.Tab.3.bottom/0.0.1470.864@0.0.1470.864" />
+    <state width="978" height="224" key="GridCell.Tab.3.center" />
+    <state width="978" height="224" key="GridCell.Tab.3.center/0.0.1470.864@0.0.1470.864" />
+    <state width="978" height="224" key="GridCell.Tab.3.left" />
+    <state width="978" height="224" key="GridCell.Tab.3.left/0.0.1470.864@0.0.1470.864" />
+    <state width="978" height="224" key="GridCell.Tab.3.right" />
+    <state width="978" height="224" key="GridCell.Tab.3.right/0.0.1470.864@0.0.1470.864" />
+    <state x="216" y="7" key="SettingsEditor" />
+    <state x="216" y="7" key="SettingsEditor/0.0.1470.864@0.0.1470.864" />
+    <state x="432" y="256" key="com.intellij.ide.util.TipDialog" />
+    <state x="432" y="256" key="com.intellij.ide.util.TipDialog/0.0.1470.864@0.0.1470.864" />
+    <state x="429" y="164" width="611" height="536" key="find.popup" />
+    <state x="429" y="164" width="611" height="536" key="find.popup/0.0.1470.864@0.0.1470.864" />
+    <state x="398" y="181" width="672" height="678" key="search.everywhere.popup" />
+    <state x="398" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1470.864@0.0.1470.864" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/kh/baklanov/web/controller/AuthenticationController.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

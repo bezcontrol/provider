@@ -37,7 +37,7 @@
         <li><a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Development/HeaderEffects/"><span>Previous Demo</span></a></li>
         <li><a class="codrops-icon codrops-icon-drop" href="../index.jsp"><span>
         <c:choose>
-            <c:when test="${sessionScope.containsKey(user)}">
+            <c:when test="${not empty sessionScope.user}">
                 Hello, ${sessionScope.user.login}
             </c:when>
             <c:otherwise>

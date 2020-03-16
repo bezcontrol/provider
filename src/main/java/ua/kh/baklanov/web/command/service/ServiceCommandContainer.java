@@ -10,8 +10,10 @@ public class ServiceCommandContainer {
     private static Map<String, Command> commands = new TreeMap<>();
 
     static {
-        commands.put("typesTV", new TypesTVCommand());
+        commands.put("tvTypes", new TypesTVCommand());
+        commands.put("tariffs", new TariffsCommand());
         commands.put("noCommand", new NoCommand());
+
     }
 
     private ServiceCommandContainer(){}

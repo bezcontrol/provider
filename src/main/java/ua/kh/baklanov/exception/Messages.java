@@ -13,7 +13,7 @@ public class Messages {
     public static final String ERROR_GET_USER_BY_LOGIN = "Can't get user by login";
     public static final String ERROR_GET_USER_BY_EMAIL = "Can't get user by email";
     public static final String ERROR_GET_USER_BY_ID = "Can't get user by id";
-    public static final String ERROR_GET_ALL_RECORDS = "Can't get all records from db with";
+    public static final String ERROR_GET_RECORDS = "Can't get all records from db with";
     public static final String ERROR_CREATING_FACTORY = "Can't create these factory: ";
     public static final String ERROR_CREATING_DAO = "Can't create dao: ";
     public static final String ERROR_AUTHENTICATION_FORM = "Login/password cannot be empty";

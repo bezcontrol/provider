@@ -42,8 +42,8 @@ public class DefaultTVDAOImpl implements TVDAO {
                 }
             }
         } catch (SQLException | DbException ex) {
-            LOG.error(Messages.ERROR_GET_ALL_RECORDS+TV.class.getName(), ex);
-            throw new DbException(Messages.ERROR_GET_ALL_RECORDS+TV.class.getName(), ex);
+            LOG.error(Messages.ERROR_GET_RECORDS +TV.class.getName(), ex);
+            throw new DbException(Messages.ERROR_GET_RECORDS +TV.class.getName(), ex);
         }
         return allTV;
     }
