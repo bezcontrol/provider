@@ -3,18 +3,9 @@ package ua.kh.baklanov.model.entity;
 import java.time.LocalDateTime;
 
 public class Contract extends Entity {
-    private double bill;
     private long idUser;
     private long idTariff;
     private LocalDateTime contractConclusionDate;
-
-    public double getBill() {
-        return bill;
-    }
-
-    public void setBill(double bill) {
-        this.bill = bill;
-    }
 
     public long getIdUser() {
         return idUser;

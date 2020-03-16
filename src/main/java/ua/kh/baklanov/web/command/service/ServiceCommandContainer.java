@@ -14,6 +14,7 @@ public class ServiceCommandContainer {
         commands.put("tvTariffs", new TVTariffsCommand());
         commands.put("pcTariffs", new PCTariffsCommand());
         commands.put("mobileTariffs", new MobileTariffsCommand());
+        commands.put("allTariffs", new AllTariffsCommand());
         commands.put("noCommand", new NoCommand());
     }
 

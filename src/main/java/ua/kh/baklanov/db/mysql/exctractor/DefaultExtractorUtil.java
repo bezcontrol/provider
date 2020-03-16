@@ -24,6 +24,7 @@ public final class DefaultExtractorUtil {
             user.setEmail(rs.getString("email"));
             user.setIdRole(rs.getLong("idRole"));
             user.setIdStatus(rs.getLong("idStatus"));
+            user.setBill(rs.getDouble("bill"));
         } catch (SQLException ex) {
             LOG.error(Messages.ERROR_EXTRACTING+User.class.getName(), ex);
             throw new DbException(Messages.ERROR_EXTRACTING+User.class.getName(), ex);
@@ -79,7 +80,10 @@ public final class DefaultExtractorUtil {
             mobileTariff.setTariff(extractTariff(rs));
             mobileTariff.setInternet(extractInternet(rs));
             mobile.setId(rs.getLong("idMobile"));
-            mobile.setNumOfConnectedPhones(rs.getInt("numOfConnectedPhones"));
+            mobile.setNumOfMinutesInside(rs.getInt("numOfMinutesInside"));
+            mobile.setNumOfMinutesOutside(rs.getInt("numOfMinutesOutside"));
+            mobile.setNumOfSMS(rs.getInt("numOfSMS"));
+            mobile.setNumOfMbts(rs.getInt("numOfMbts"));
         } catch (SQLException ex) {
             LOG.error(Messages.ERROR_EXTRACTING+AnyTariff.class.getName(), ex);
             throw new DbException(Messages.ERROR_EXTRACTING+AnyTariff.class.getName(), ex);

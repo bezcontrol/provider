@@ -2,7 +2,7 @@ package ua.kh.baklanov.web.command.service;
 
 import org.apache.log4j.Logger;
 import ua.kh.baklanov.Route;
-import ua.kh.baklanov.db.dao.TariffDAO;
+import ua.kh.baklanov.db.dao.AnyTariffDAO;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
 import ua.kh.baklanov.model.bean.AnyTariff;
@@ -22,11 +22,11 @@ public class TVTariffsCommand extends Command {
         DAOService service = new DefaultService();
         List<AnyTariff> tvTariffs;
         try {
-            TariffDAO tariffDAO = service.getTariffDao();
+            AnyTariffDAO anyTariffDAO = service.getTariffDao();
             if (request.getParameter(Parameters.TYPE_TV)!= null) {
-                tvTariffs=tariffDAO.getTVTariffsOfCurrentType(request.getParameter(Parameters.TYPE_TV));
+                tvTariffs= anyTariffDAO.getTVTariffsOfCurrentType(request.getParameter(Parameters.TYPE_TV));
             } else {
-                tvTariffs = tariffDAO.getAllTVTariffs();
+                tvTariffs = anyTariffDAO.getAllTVTariffs();
             }
         } catch (DbException e) {
             LOG.error(Messages.ERROR_TARIFF_DAO + TVTariffsCommand.class.getName(), e);

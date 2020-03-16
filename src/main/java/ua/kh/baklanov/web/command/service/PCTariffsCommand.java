@@ -2,7 +2,7 @@ package ua.kh.baklanov.web.command.service;
 
 import org.apache.log4j.Logger;
 import ua.kh.baklanov.Route;
-import ua.kh.baklanov.db.dao.TariffDAO;
+import ua.kh.baklanov.db.dao.AnyTariffDAO;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
 import ua.kh.baklanov.model.bean.AnyTariff;
@@ -22,14 +22,13 @@ public class PCTariffsCommand extends Command {
         DAOService service = new DefaultService();
         List<AnyTariff> pcTariffs;
         try {
-            TariffDAO tariffDAO = service.getTariffDao();
-            pcTariffs = tariffDAO.getAllPCTariffs();
+            AnyTariffDAO anyTariffDAO = service.getTariffDao();
+            pcTariffs = anyTariffDAO.getAllPCTariffs();
         } catch (DbException e) {
             LOG.error(Messages.ERROR_TARIFF_DAO + PCTariffsCommand.class.getName(), e);
             return Route.PAGE_ERROR_PAGE;
         }
         request.setAttribute("tariffs", pcTariffs);
-        System.out.println(pcTariffs.toString());
         return Route.TARIFFS;
     }
 }

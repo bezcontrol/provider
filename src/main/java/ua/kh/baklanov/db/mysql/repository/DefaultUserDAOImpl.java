@@ -74,6 +74,7 @@ public class DefaultUserDAOImpl implements UserDAO {
             statement.setString(3, obj.getEmail());
             statement.setLong(4, obj.getIdRole());
             statement.setLong(5, obj.getIdStatus());
+            statement.setDouble(6, obj.getBill());
 
             int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
@@ -114,7 +115,8 @@ public class DefaultUserDAOImpl implements UserDAO {
             statement.setString(3, obj.getEmail());
             statement.setLong(4, obj.getIdRole());
             statement.setLong(5, old.getIdStatus());
-            statement.setString(6, old.getLogin());
+            statement.setDouble(6, old.getBill());
+            statement.setString(7, old.getLogin());
             int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
                 LOG.info(User.class.getName() + Messages.INFO_SUCCESSFULLY_UPDATED);

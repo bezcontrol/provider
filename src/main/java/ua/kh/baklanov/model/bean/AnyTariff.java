@@ -8,6 +8,8 @@ public class AnyTariff<T>{
     private T service;
     private Internet internet;
 
+    public AnyTariff(){}
+
     public Internet getInternet() {
         return internet;
     }

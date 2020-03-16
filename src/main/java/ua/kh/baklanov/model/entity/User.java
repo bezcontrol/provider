@@ -1,11 +1,20 @@
 package ua.kh.baklanov.model.entity;
 
-public class User extends Entity{
+public class User extends Entity {
     private String login;
     private String password;
     private String email;
     private long idRole;
     private long idStatus;
+    private double bill;
+
+    public double getBill() {
+        return bill;
+    }
+
+    public void setBill(double bill) {
+        this.bill = bill;
+    }
 
     public long getIdStatus() {
         return idStatus;

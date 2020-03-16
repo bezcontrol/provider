@@ -5,7 +5,7 @@ import ua.kh.baklanov.model.bean.AnyTariff;
 
 import java.util.List;
 
-public interface TariffDAO extends DAO<AnyTariff> {
+public interface AnyTariffDAO extends DAO<AnyTariff>{
     List<AnyTariff> getAllMobileTariffs() throws DbException;
 
     List<AnyTariff> getAllPCTariffs()throws DbException;

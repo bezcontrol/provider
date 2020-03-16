@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>TV</title>
-    <link href="../resources/css/services/xxx.css" rel="stylesheet">
+    <link href="../resources/css/services/main.css" rel="stylesheet">
     <%@ include file="../jspf/menu.jspf"%>
 </head>
 <body>
@@ -23,7 +23,7 @@
         <div class='square2' data-image="../resources/img/tv.png">
             <div class="square-container2">
                 <div class="align-center"></div>
-                <a href="/service?command=tvTariffs&typeTV=${object}" class="boxshadow kallyas-button">View more</a>
+                <a href="${pageContext.request.contextPath}/service?command=tvTariffs&typeTV=${object}" class="boxshadow kallyas-button">View more</a>
             </div>
             <div class="flip-overlay"></div>
         </div>

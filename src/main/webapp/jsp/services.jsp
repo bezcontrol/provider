@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Services</title>
-    <link href="../resources/css/services/xxx.css" rel="stylesheet">
+    <link href="../resources/css/services/main.css" rel="stylesheet">
     <%@ include file="../jspf/menu.jspf"%>
 </head>
 <body>
@@ -21,7 +21,7 @@
         <div class='square2' data-image="../resources/img/tv.png">
             <div class="square-container2">
                 <div class="align-center"></div>
-                <a href="/service?command=tvTypes" class="boxshadow kallyas-button">View more</a>
+                <a href="${pageContext.request.contextPath}/service?command=tvTypes" class="boxshadow kallyas-button">View more</a>
             </div>
             <div class="flip-overlay"></div>
         </div>
@@ -39,7 +39,7 @@
         <div class='square2' data-image="../resources/img/pc.png">
             <div class="square-container2">
                 <div class="align-center"></div>
-                <a href="/service?command=pcTariffs" class="boxshadow kallyas-button">View more</a>
+                <a href="${pageContext.request.contextPath}/service?command=pcTariffs" class="boxshadow kallyas-button">View more</a>
             </div>
             <div class="flip-overlay"></div>
         </div>
@@ -57,7 +57,7 @@
         <div class='square2' data-image="../resources/img/mobile.png">
             <div class="square-container2">
                 <div class="align-center"></div>
-                <a href="/service?command=mobileTariffs" class="boxshadow kallyas-button">View more</a>
+                <a href="${pageContext.request.contextPath}/service?command=mobileTariffs" class="boxshadow kallyas-button">View more</a>
             </div>
             <div class="flip-overlay"></div>
         </div>

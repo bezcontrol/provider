@@ -22,7 +22,7 @@
                             <a class="gn-icon gn-icon-search"><span>Search</span></a>
                         </li>
                         <li>
-                            <a class="gn-icon gn-icon-download">Downloads</a>
+                            <a class="gn-icon gn-icon-download" href="${pageContext.request.contextPath}/service?command=allTariffs">Все тарифы</a>
                         </li>
                         <li><a class="gn-icon gn-icon-cog">Settings</a></li>
                         <li><a class="gn-icon gn-icon-help">Help</a></li>
@@ -34,7 +34,6 @@
             </nav>
         </li>
         <li><a href="../jsp/services.jsp">Home</a></li>
-        <li><a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Development/HeaderEffects/"><span>Previous Demo</span></a></li>
         <li><a class="codrops-icon codrops-icon-drop" href="../index.jsp"><span>
         <c:choose>
             <c:when test="${not empty sessionScope.user}">
