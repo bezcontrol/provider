@@ -42,7 +42,7 @@ public class Queries {
     public static final String GET_ALL_TV_TARIFFS =  "SELECT t.id ,t.name,t.price,t.idService," +
             "t.durationInDays, " +
             "s.idTV, s.idInternet, " +
-            "tv.type, " +
+            "tv.type, tv.numOfChannels," +
             "i.speed, i.technology " +
             "FROM services s " +
             "JOIN tariffs t ON s.id=t.idService " +

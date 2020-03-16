@@ -9,6 +9,7 @@ import ua.kh.baklanov.db.queries.Queries;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
 import ua.kh.baklanov.model.bean.AnyTariff;
+import ua.kh.baklanov.model.entity.TV;
 import ua.kh.baklanov.model.entity.Tariff;
 
 import java.sql.Connection;
@@ -113,7 +114,10 @@ public class DefaultTariffDAOImpl implements TariffDAO {
     public List<AnyTariff> getTVTariffsOfCurrentType(String type) throws DbException {
         List<AnyTariff> currentTypePC=new ArrayList<>();
         for (AnyTariff tariff : getAllTVTariffs()) {
-            currentTypePC.add(tariff);
+            TV tv=(TV)tariff.getService();
+            if(tv.getType().equals(type)){
+                currentTypePC.add(tariff);
+            }
         }
         return currentTypePC;
     }

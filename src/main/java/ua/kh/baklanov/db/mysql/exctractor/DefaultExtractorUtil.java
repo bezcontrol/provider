@@ -110,7 +110,7 @@ public final class DefaultExtractorUtil {
         try {
             tvTariff.setTariff(extractTariff(rs));
             tvTariff.setInternet(extractInternet(rs));
-            tv.setId(rs.getLong("idPC"));
+            tv.setId(rs.getLong("idTV"));
             tv.setType(rs.getString("type"));
             tv.setNumOfChannels(rs.getInt("numOfChannels"));
         } catch (SQLException ex) {
