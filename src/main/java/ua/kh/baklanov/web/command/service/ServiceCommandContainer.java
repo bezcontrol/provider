@@ -11,9 +11,10 @@ public class ServiceCommandContainer {
 
     static {
         commands.put("tvTypes", new TypesTVCommand());
-        commands.put("tariffs", new TariffsCommand());
+        commands.put("tvTariffs", new TVTariffsCommand());
+        commands.put("pcTariffs", new PCTariffsCommand());
+        commands.put("mobileTariffs", new MobileTariffsCommand());
         commands.put("noCommand", new NoCommand());
-
     }
 
     private ServiceCommandContainer(){}

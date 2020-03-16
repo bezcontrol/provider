@@ -23,7 +23,7 @@
         <div class='square2' data-image="../resources/img/tv.png">
             <div class="square-container2">
                 <div class="align-center"></div>
-                <a href="/service?command=tariffs&typeOfService=${object}" target="_blank" class="boxshadow kallyas-button">View more</a>
+                <a href="/service?command=tvTariffs&typeTV=${object}" target="_blank" class="boxshadow kallyas-button">View more</a>
             </div>
             <div class="flip-overlay"></div>
         </div>

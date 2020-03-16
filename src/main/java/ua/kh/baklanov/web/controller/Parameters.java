@@ -6,7 +6,6 @@ public final class Parameters {
     public static final String LOGIN="login";
     public static final String PASSWORD="password";
     public static final String EMAIL="email";
-    public static final String TYPE_OF_SERVICE = "typeOfService";
 
     private Parameters(){}
 }

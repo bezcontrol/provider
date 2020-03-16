@@ -53,6 +53,7 @@ CREATE TABLE `users` (
     CREATE TABLE `tv` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `type` VARCHAR(45) NOT NULL,
+  `numOfChannels` INT NOT NULL,
   PRIMARY KEY (`id`)
   );
 
@@ -63,9 +64,9 @@ CREATE TABLE `users` (
 
   CREATE TABLE `services` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `idpc` INT,
-  `idtv` INT,
-  `idmobile` INT,
+  `idPC` INT,
+  `idTV` INT,
+  `idMobile` INT,
 `idInternet` INT,
   PRIMARY KEY (`id`),
   UNIQUE  (`id`),
@@ -73,17 +74,17 @@ CREATE TABLE `users` (
   UNIQUE (`idTV`),
   UNIQUE (`idMobile`),
 CONSTRAINT `fk_service_pc`
-  FOREIGN KEY (`idpc`)
+  FOREIGN KEY (`idPC`)
   REFERENCES `pc` (`id`)
   ON DELETE CASCADE
   ON UPDATE CASCADE,
  CONSTRAINT `fk_service_tv`
-  FOREIGN KEY (`idtv`)
+  FOREIGN KEY (`idTV`)
   REFERENCES `tv` (`id`)
   ON DELETE CASCADE
   ON UPDATE CASCADE,
   CONSTRAINT `fk_service_mobile`
-  FOREIGN KEY (`idmobile`)
+  FOREIGN KEY (`idMobile`)
   REFERENCES `mobile` (`id`)
   ON DELETE CASCADE
   ON UPDATE CASCADE,
@@ -143,16 +144,16 @@ INSERT INTO `internet` (`id`, `speed`, `technology`) VALUES ('2', '800', '5G');
 INSERT INTO `internet` (`id`, `speed`, `technology`) VALUES ('3', '1000', '4G');
 INSERT INTO `pc` (`id`,`numOfConnectedPC`) VALUES ('1','1');
 INSERT INTO `pc` (`id`,`numOfConnectedPC`) VALUES ('2','10');
-INSERT INTO `tv` (`id`, `type`) VALUES ('1', 'Analog');
-INSERT INTO `tv` (`id`, `type`) VALUES ('2', 'IP-TV');
+INSERT INTO `tv` (`id`, `type`,`numOfChannels`) VALUES ('1', 'Analog','100');
+INSERT INTO `tv` (`id`, `type`,`numOfChannels`) VALUES ('2', 'IP-TV','150');
 INSERT INTO `mobile` (`id`, `numOfConnectedPhones`) VALUES ('1','1');
 INSERT INTO `mobile` (`id`, `numOfConnectedPhones`) VALUES ('2','5');
-INSERT INTO `services` (`id`, `idtv`,`idInternet`) VALUES ('1', '1', '1');
-INSERT INTO `services` (`id`, `idtv`) VALUES ('2', '2');
-INSERT INTO `services` (`id`, `idpc`,`idInternet`) VALUES ('3', '1', '2');
-INSERT INTO `services` (`id`, `idmobile`,`idInternet`) VALUES ('4', '2','1');
-INSERT INTO `services` (`id`, `idpc`,`idInternet`) VALUES ('5', '2','2');
-INSERT INTO `services` (`id`, `idmobile`) VALUES ('6', '1');
+INSERT INTO `services` (`id`, `idTV`,`idInternet`) VALUES ('1', '1', '1');
+INSERT INTO `services` (`id`, `idTV`) VALUES ('2', '2');
+INSERT INTO `services` (`id`, `idPC`,`idInternet`) VALUES ('3', '1', '2');
+INSERT INTO `services` (`id`, `idMobile`,`idInternet`) VALUES ('4', '2','1');
+INSERT INTO `services` (`id`, `idPC`,`idInternet`) VALUES ('5', '2','2');
+INSERT INTO `services` (`id`, `idMobile`) VALUES ('6', '1');
 INSERT INTO `tariffs` (`id`, `name`, `price`, `idService`,`durationInDays`) VALUES ('1', 'Analog TV', '100', '1','30');
 INSERT INTO `tariffs` (`id`, `name`, `price`, `idService`,`durationInDays`) VALUES ('2', 'IP-TV', '150', '2','30');
 INSERT INTO `tariffs` (`id`, `name`, `price`, `idService`,`durationInDays`) VALUES ('3', 'PC with 4G internet', '125', '5','30');

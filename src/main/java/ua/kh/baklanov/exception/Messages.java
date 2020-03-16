@@ -25,6 +25,7 @@ public class Messages {
     public static final String ERROR_USER_DAO = "Error when using user dao in command: ";
     public static final String ERROR_TV_DAO = "Error when using tv dao in command: ";
     public static final String FIELDS_NULL = "Fields are null in command: ";
+    public static final String ERROR_TARIFF_DAO = "Error when using tariff dao in command: ";
 
     private Messages(){}
 

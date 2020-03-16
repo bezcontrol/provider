@@ -39,7 +39,7 @@
         <div class='square2' data-image="../resources/img/pc.png">
             <div class="square-container2">
                 <div class="align-center"></div>
-                <a href="" target="_blank" class="boxshadow kallyas-button">View more</a>
+                <a href="/service?command=pcTariffs" target="_blank" class="boxshadow kallyas-button">View more</a>
             </div>
             <div class="flip-overlay"></div>
         </div>
@@ -57,7 +57,7 @@
         <div class='square2' data-image="../resources/img/mobile.png">
             <div class="square-container2">
                 <div class="align-center"></div>
-                <a href="" target="_blank" class="boxshadow kallyas-button">View more</a>
+                <a href="/service?command=mobileTariffs" target="_blank" class="boxshadow kallyas-button">View more</a>
             </div>
             <div class="flip-overlay"></div>
         </div>

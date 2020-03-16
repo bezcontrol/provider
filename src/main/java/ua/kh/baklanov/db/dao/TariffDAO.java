@@ -1,10 +1,16 @@
 package ua.kh.baklanov.db.dao;
 
 import ua.kh.baklanov.exception.DbException;
-import ua.kh.baklanov.model.entity.Tariff;
+import ua.kh.baklanov.model.bean.AnyTariff;
 
 import java.util.List;
 
-public interface TariffDAO extends DAO<Tariff> {
-    List<Tariff> getAllTariffsOfServiceType() throws DbException;
+public interface TariffDAO extends DAO<AnyTariff> {
+    List<AnyTariff> getAllMobileTariffs() throws DbException;
+
+    List<AnyTariff> getAllPCTariffs()throws DbException;
+
+    List<AnyTariff> getAllTVTariffs()throws DbException;
+
+    List<AnyTariff> getTVTariffsOfCurrentType(String type)throws DbException;
 }
