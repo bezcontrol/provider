@@ -23,27 +23,16 @@ public class AuthenticationController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) {
-        try {
-            if (request.getSession().getAttribute("user") != null) {
-                LOG.info("User is not null");
-                request.getRequestDispatcher(Route.HOME).forward(request, response);
-            } else {
-                LOG.info("User is null");
-                request.getRequestDispatcher(Route.LOGIN).forward(request, response);
-            }
-        } catch (ServletException | IOException e) {
-            LOG.error(Messages.ERROR_FORWARD + AuthenticationController.class.getName(), e);
-            request.setAttribute("error", Messages.ERROR_FORWARD);
-        }
+        process(request,response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request,
-                          HttpServletResponse response) throws IOException {
-        processPost(request, response);
+                          HttpServletResponse response){
+        process(request, response);
     }
 
-    private void processPost(HttpServletRequest request,
+    private void process(HttpServletRequest request,
                              HttpServletResponse response) {
 
         String commandName = request.getParameter(Parameters.COMMAND);

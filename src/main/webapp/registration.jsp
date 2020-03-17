@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,8 +90,12 @@
                         </div>
                     </c:when>
                 </c:choose>
-
-                <div class="txt1 text-center p-t-54 p-b-20">
+                <div class="text-center p-t-8 p-b-31">
+                    <a href="jsp/services.jsp">
+                        Start without authorization
+                    </a>
+                </div>
+                <div class="txt1 text-center p-t-10 p-b-20">
 						<span>
 							Or Sign Up Using
 						</span>
@@ -118,6 +123,7 @@
                         </button>
                     </div>
                 </div>
+
             </form>
         </div>
     </div>

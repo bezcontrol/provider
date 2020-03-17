@@ -6,9 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link rel="stylesheet" type="text/css" href="../resources/css/menu/normalize.css" />
-<link rel="stylesheet" type="text/css" href="../resources/css/menu/demo.css" />
-<link rel="stylesheet" type="text/css" href="../resources/css/menu/component.css" />
+<link rel="stylesheet" type="text/css" href="../resources/css/menu/normalize.css"/>
+<link rel="stylesheet" type="text/css" href="../resources/css/menu/demo.css"/>
+<link rel="stylesheet" type="text/css" href="../resources/css/menu/component.css"/>
 <script src="../resources/js/menu/modernizr.custom.js"></script>
 <div class="container">
     <ul id="gn-menu" class="gn-menu-main">
@@ -22,7 +22,8 @@
                             <a class="gn-icon gn-icon-search"><span>Search</span></a>
                         </li>
                         <li>
-                            <a class="gn-icon gn-icon-download" href="${pageContext.request.contextPath}/service?command=allTariffs">Все тарифы</a>
+                            <a class="gn-icon gn-icon-download"
+                               href="${pageContext.request.contextPath}/service?command=allTariffs">Все тарифы</a>
                         </li>
                         <li><a class="gn-icon gn-icon-cog">Settings</a></li>
                         <li><a class="gn-icon gn-icon-help">Help</a></li>
@@ -34,20 +35,23 @@
             </nav>
         </li>
         <li><a href="../jsp/services.jsp">Home</a></li>
-        <li><a class="codrops-icon codrops-icon-drop" href="../index.jsp"><span>
         <c:choose>
-            <c:when test="${not empty sessionScope.user}">
-                Hello, ${sessionScope.user.login}
+        <c:when test="${not empty sessionScope.user}">
+        <li style="float: right;border-right: none;border-left: 1px solid #c6d0da;"><a class="codrops-icon codrops-icon-drop"
+               href="${pageContext.request.contextPath}/authentication?command=logout"><span>Log Out</span></a>
+        <li><a class="codrops-icon codrops-icon-drop"
+               href="../jsp/cabinet.jsp"><span>Hello, ${sessionScope.user.login}</span></a>
             </c:when>
             <c:otherwise>
-                Log In
+        <li><a class="codrops-icon codrops-icon-drop" href="../index.jsp"><span>Log in</span></a>
             </c:otherwise>
-        </c:choose>
-</span></a></li>
+            </c:choose>
+        </li>
 
     </ul>
     <script src="../resources/js/menu/classie.js"></script>
     <script src="../resources/js/menu/gnmenu.js"></script>
     <script src="../resources/js/menu/gnmenucreate.js"></script>
 
-</div><!-- /container -->
+</div>
+<!-- /container -->
