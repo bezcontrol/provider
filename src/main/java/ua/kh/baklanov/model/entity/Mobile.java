@@ -1,6 +1,6 @@
 package ua.kh.baklanov.model.entity;
 
-public class Mobile extends Entity {
+public class Mobile extends AbstractEntity {
     private int numOfMinutesInside;
     private int numOfMinutesOutside;
     private int numOfSMS;

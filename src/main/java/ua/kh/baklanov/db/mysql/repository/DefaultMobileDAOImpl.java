@@ -3,13 +3,12 @@ package ua.kh.baklanov.db.mysql.repository;
 import org.apache.log4j.Logger;
 import ua.kh.baklanov.db.dao.DAOFactory;
 import ua.kh.baklanov.db.dao.MobileDAO;
-import ua.kh.baklanov.db.dao.PCDAO;
 import ua.kh.baklanov.db.mysql.exctractor.DefaultExtractorUtil;
 import ua.kh.baklanov.db.queries.Queries;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
 import ua.kh.baklanov.model.entity.Mobile;
-import ua.kh.baklanov.model.entity.PC;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

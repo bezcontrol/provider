@@ -3,16 +3,16 @@ package ua.kh.baklanov.db.mysql.repository;
 import org.apache.log4j.Logger;
 import ua.kh.baklanov.db.dao.DAOFactory;
 import ua.kh.baklanov.db.dao.PCDAO;
-import ua.kh.baklanov.db.dao.TVDAO;
 import ua.kh.baklanov.db.mysql.exctractor.DefaultExtractorUtil;
 import ua.kh.baklanov.db.queries.Queries;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
 import ua.kh.baklanov.model.entity.PC;
-import ua.kh.baklanov.model.entity.TV;
 
-import java.sql.*;
-import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public class DefaultPCDAOImpl implements PCDAO {

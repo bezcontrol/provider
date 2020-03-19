@@ -1,20 +1,19 @@
 package ua.kh.baklanov.db.mysql.repository;
 
 import org.apache.log4j.Logger;
-import ua.kh.baklanov.db.dao.AnyTariffDAO;
-import ua.kh.baklanov.db.dao.DAO;
+
 import ua.kh.baklanov.db.dao.DAOFactory;
 import ua.kh.baklanov.db.dao.ServiceDAO;
 import ua.kh.baklanov.db.mysql.exctractor.DefaultExtractorUtil;
 import ua.kh.baklanov.db.queries.Queries;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
-import ua.kh.baklanov.model.bean.AnyTariff;
 import ua.kh.baklanov.model.entity.Service;
-import ua.kh.baklanov.model.entity.TV;
 
-import java.sql.*;
-import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public class DefaultServiceDAOImpl implements ServiceDAO {

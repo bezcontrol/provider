@@ -1,5 +1,7 @@
 package ua.kh.baklanov.model.entity;
 
+import java.util.Locale;
+
 public enum Role {
     ADMIN(1),
     CLIENT(2);
@@ -25,12 +27,12 @@ public enum Role {
     }
 
     public String getName() {
-        return name().toLowerCase();
+        return name().toLowerCase(Locale.getDefault());
     }
 
     public static boolean exist(Role role) {
         for(Role e : values()) {
-            if(e.equals(role)) {
+            if(e==role) {
                 return true;
             }
         }

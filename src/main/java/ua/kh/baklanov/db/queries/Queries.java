@@ -1,6 +1,6 @@
 package ua.kh.baklanov.db.queries;
 
-public class Queries {
+public final class Queries {
     public static final String GET_USER_BY_LOGIN = "SELECT * FROM users WHERE login=?";
 
     public static final String INSERT_USER = "INSERT INTO " +
@@ -21,7 +21,8 @@ public class Queries {
 
     public static final String GET_ALL_TV = "SELECT * FROM tv";
 
-    public static final String GET_ANY_TARIFF_ALL_PC_TARIFFS =  "SELECT t.id ,t.name,t.price,t.idService,t.durationInDays, " +
+    public static final String GET_ANY_TARIFF_ALL_PC_TARIFFS =
+            "SELECT t.id ,t.name,t.price,t.idService,t.durationInDays, " +
             "s.idPC, s.idInternet, " +
             "pc.numOfConnectedPC, " +
             "i.speed, i.technology " +
@@ -30,7 +31,8 @@ public class Queries {
             "JOIN pc pc ON s.idPC=pc.id  " +
             "LEFT OUTER JOIN internet i ON s.idInternet=i.id;";
 
-    public static final String GET_ANY_TARIFF_ALL_MOBILE_TARIFFS =  "SELECT t.id ,t.name,t.price,t.idService, t.durationInDays," +
+    public static final String GET_ANY_TARIFF_ALL_MOBILE_TARIFFS =
+            "SELECT t.id ,t.name,t.price,t.idService, t.durationInDays," +
             "s.idMobile, s.idInternet, " +
             "mobile.numOfMinutesInside,mobile.numOfMinutesOutside,mobile.numOfSMS,mobile.numOfMbts," +
             "i.speed, i.technology " +

@@ -5,7 +5,7 @@ import org.apache.log4j.Logger;
 import ua.kh.baklanov.Route;
 import ua.kh.baklanov.exception.AppException;
 import ua.kh.baklanov.exception.Messages;
-import ua.kh.baklanov.web.command.Command;
+import ua.kh.baklanov.web.command.AbstractCommand;
 import ua.kh.baklanov.web.command.authentication.AuthenticationCommandContainer;
 
 import javax.servlet.ServletException;
@@ -32,11 +32,11 @@ public class AuthenticationController extends HttpServlet {
         process(request, response);
     }
 
-    private void process(HttpServletRequest request,
+    private static void process(HttpServletRequest request,
                              HttpServletResponse response) {
 
         String commandName = request.getParameter(Parameters.COMMAND);
-        Command command = AuthenticationCommandContainer.get(commandName);
+        AbstractCommand command = AuthenticationCommandContainer.get(commandName);
         String forward = Route.PAGE_ERROR_PAGE;
         try {
             LOG.info(Messages.INFO_EXECUTING_COMMAND+commandName);

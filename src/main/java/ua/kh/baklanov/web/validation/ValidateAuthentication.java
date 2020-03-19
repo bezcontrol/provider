@@ -9,7 +9,7 @@ import ua.kh.baklanov.service.DefaultService;
 
 import java.util.Objects;
 
-public class ValidateAuthentication {
+public final class ValidateAuthentication {
     private static final Logger LOG = Logger.getLogger(ValidateAuthentication.class);
     private ValidateAuthentication(){}
 

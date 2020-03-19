@@ -2,7 +2,7 @@ package ua.kh.baklanov.model.entity;
 
 import java.io.Serializable;
 
-public abstract class Entity implements Serializable {
+public abstract class AbstractEntity implements Serializable {
 
     private Long id;
 

@@ -1,6 +1,6 @@
 package ua.kh.baklanov.model.entity;
 
-public class Tariff extends Entity {
+public class Tariff extends AbstractEntity {
     private String name;
     private int price;
     private long idService;

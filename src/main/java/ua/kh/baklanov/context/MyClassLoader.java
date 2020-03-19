@@ -2,7 +2,14 @@ package ua.kh.baklanov.context;
 
 import org.apache.log4j.Logger;
 import ua.kh.baklanov.db.mysql.DefaultFactory;
-import ua.kh.baklanov.db.mysql.repository.*;
+import ua.kh.baklanov.db.mysql.repository.DefaultAnyTariffDAOImpl;
+import ua.kh.baklanov.db.mysql.repository.DefaultInternetDAOImpl;
+import ua.kh.baklanov.db.mysql.repository.DefaultMobileDAOImpl;
+import ua.kh.baklanov.db.mysql.repository.DefaultPCDAOImpl;
+import ua.kh.baklanov.db.mysql.repository.DefaultServiceDAOImpl;
+import ua.kh.baklanov.db.mysql.repository.DefaultTVDAOImpl;
+import ua.kh.baklanov.db.mysql.repository.DefaultTariffDAOImpl;
+import ua.kh.baklanov.db.mysql.repository.DefaultUserDAOImpl;
 import ua.kh.baklanov.exception.AppException;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
@@ -10,6 +17,8 @@ import ua.kh.baklanov.exception.Messages;
 
 public final class MyClassLoader {
     private static final Logger LOG = Logger.getLogger(MyClassLoader.class);
+
+    private MyClassLoader(){}
 
     public static void load() throws AppException {
         LOG.info(Messages.INFO_CLASS_LOADER_START);
@@ -30,5 +39,5 @@ public final class MyClassLoader {
         LOG.info(Messages.INFO_CLASS_LOADER_SUCCESS);
     }
 
-    private MyClassLoader(){}
+
 }

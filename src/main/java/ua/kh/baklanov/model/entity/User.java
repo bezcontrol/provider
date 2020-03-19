@@ -1,6 +1,6 @@
 package ua.kh.baklanov.model.entity;
 
-public class User extends Entity {
+public class User extends AbstractEntity {
     private String login;
     private String password;
     private String email;

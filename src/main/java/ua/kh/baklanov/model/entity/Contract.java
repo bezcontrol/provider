@@ -2,10 +2,11 @@ package ua.kh.baklanov.model.entity;
 
 import java.time.LocalDateTime;
 
-public class Contract extends Entity {
+public class Contract extends AbstractEntity {
+
     private long idUser;
     private long idTariff;
-    private LocalDateTime contractConclusionDate;
+    private transient LocalDateTime contractConclusionDate;
 
     public long getIdUser() {
         return idUser;

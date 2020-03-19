@@ -1,6 +1,6 @@
 package ua.kh.baklanov.model.entity;
 
-public class Service extends Entity {
+public class Service extends AbstractEntity {
     private long idPC;
     private long idTV;
     private long idMobile;

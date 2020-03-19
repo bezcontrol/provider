@@ -4,7 +4,13 @@ import org.apache.log4j.Logger;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
 import ua.kh.baklanov.model.bean.AnyTariff;
-import ua.kh.baklanov.model.entity.*;
+import ua.kh.baklanov.model.entity.Internet;
+import ua.kh.baklanov.model.entity.Mobile;
+import ua.kh.baklanov.model.entity.PC;
+import ua.kh.baklanov.model.entity.Service;
+import ua.kh.baklanov.model.entity.TV;
+import ua.kh.baklanov.model.entity.Tariff;
+import ua.kh.baklanov.model.entity.User;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -1,6 +1,6 @@
 package ua.kh.baklanov.model.entity;
 
-public class Internet extends Entity {
+public class Internet extends AbstractEntity {
     private int speed;
     private String technology;
 

@@ -4,7 +4,7 @@ import org.apache.log4j.Logger;
 import ua.kh.baklanov.Route;
 import ua.kh.baklanov.exception.AppException;
 import ua.kh.baklanov.exception.Messages;
-import ua.kh.baklanov.web.command.Command;
+import ua.kh.baklanov.web.command.AbstractCommand;
 import ua.kh.baklanov.web.command.tariff.TariffCommandContainer;
 
 import javax.servlet.ServletException;
@@ -21,7 +21,7 @@ public class TariffController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         String commandName = req.getParameter(Parameters.COMMAND);
-        Command command = TariffCommandContainer.get(commandName);
+        AbstractCommand command = TariffCommandContainer.get(commandName);
         String forward = Route.PAGE_ERROR_PAGE;
         try {
             LOG.info(Messages.INFO_EXECUTING_COMMAND+commandName);

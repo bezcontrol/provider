@@ -1,6 +1,6 @@
 package ua.kh.baklanov.model.entity;
 
-public class TV extends Entity{
+public class TV extends AbstractEntity {
     private String type;
     private int numOfChannels;
 

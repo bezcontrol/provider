@@ -8,31 +8,27 @@ import ua.kh.baklanov.exception.Messages;
 import ua.kh.baklanov.model.bean.AnyTariff;
 import ua.kh.baklanov.service.DAOService;
 import ua.kh.baklanov.service.DefaultService;
-import ua.kh.baklanov.web.command.Command;
-import ua.kh.baklanov.web.controller.Parameters;
+import ua.kh.baklanov.web.command.AbstractCommand;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
-public class TVTariffsCommand extends Command {
-    private static final Logger LOG = Logger.getLogger(TVTariffsCommand.class);
+public class PCTariffsAbstractCommand implements AbstractCommand {
+    private static final Logger LOG = Logger.getLogger(PCTariffsAbstractCommand.class);
+
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         DAOService service = new DefaultService();
-        List<AnyTariff> tvTariffs;
+        List<AnyTariff> pcTariffs;
         try {
             AnyTariffDAO anyTariffDAO = service.getAnyTariffDAO();
-            if (request.getParameter(Parameters.TYPE_TV)!= null) {
-                tvTariffs= anyTariffDAO.getTVTariffsOfCurrentType(request.getParameter(Parameters.TYPE_TV));
-            } else {
-                tvTariffs = anyTariffDAO.getAllTVTariffs();
-            }
+            pcTariffs = anyTariffDAO.getAllPCTariffs();
         } catch (DbException e) {
-            LOG.error(Messages.ERROR_TARIFF_DAO + TVTariffsCommand.class.getName(), e);
+            LOG.error(Messages.ERROR_TARIFF_DAO + PCTariffsAbstractCommand.class.getName(), e);
             return Route.PAGE_ERROR_PAGE;
         }
-        request.setAttribute("tariffs", tvTariffs);
+        request.setAttribute("tariffs", pcTariffs);
         return Route.TARIFFS;
     }
 }
