@@ -18,15 +18,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class LoginAbstractCommand implements AbstractCommand {
-    private static final Logger LOG = Logger.getLogger(LoginAbstractCommand.class);
+public class LoginCommand implements AbstractCommand {
+    private static final Logger LOG = Logger.getLogger(LoginCommand.class);
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         String login = request.getParameter(Parameters.LOGIN);
         String password = request.getParameter(Parameters.PASSWORD);
         if (login == null || password == null || login.isEmpty() || password.isEmpty()) {
-            LOG.error(Messages.ERROR_FIELDS_NULL + LoginAbstractCommand.class.getName());
+            LOG.error(Messages.ERROR_FIELDS_NULL + LoginCommand.class.getName());
             return Route.PAGE_ERROR_PAGE;
         }
         DAOService service = new DefaultService();
@@ -45,7 +45,7 @@ public class LoginAbstractCommand implements AbstractCommand {
             LOG.info("User was found");
             forward = getStatusOfUser(user, request);
         } catch (DbException e) {
-            LOG.error(Messages.ERROR_USER_DAO + LoginAbstractCommand.class.getName(), e);
+            LOG.error(Messages.ERROR_USER_DAO + LoginCommand.class.getName(), e);
             forward = Route.PAGE_ERROR_PAGE;
         }
         return forward;

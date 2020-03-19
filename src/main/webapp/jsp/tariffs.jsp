@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <title>TV</title>
 
-    <%--    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">--%>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script src="../resources/js/lib/jquery-3.2.1.min.js"></script>
+    <script src="../resources/js/lib/popper.min.js"></script>
+    <script src="../resources/js/bootstrap/bootstrap.min.js"></script>
     <link href="../resources/css/bootstrap/bootstrap.css" rel="stylesheet">
     <link href="../resources/css/tariffs/style.css" rel="stylesheet">
     <%@ include file="../jspf/menu.jspf" %>
@@ -121,9 +123,20 @@
                                 <button type="submit" class="btn btn-success">Make order</button>
                             </c:otherwise>
                             </c:choose>
-                            <button type="submit"  class="btn btn-danger" name="command" value="details">Details</button>
+
                         </c:if>
-                        <button type="submit" class="btn btn-success download" name="command" value="download">Download</button>
+                            <button type="submit"  class="btn btn-danger" name="command" value="details">Details</button>
+
+                            <div class="dropdown">
+                                <button class="btn btn-success dropdown-toggle download" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Download
+                                </button>
+                                <div class="dropdown-menu" style="width: 100%;">
+                                    <button class="dropdown-item" type="submit" name="command" value="downloadPDF">.pdf</button>
+                                    <button class="dropdown-item" type="submit" name="command" value="downloadTXT">.txt</button>
+                                </div>
+                            </div>
+<%--                        <button type="submit" class="btn btn-success download" name="command" value="download">Download</button>--%>
                         </form>
                     </div>
                 </figure>
@@ -131,6 +144,7 @@
 
     </div>
 </c:if>
+
 </body>
 </html>
 

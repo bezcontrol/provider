@@ -13,19 +13,19 @@
     <link rel="stylesheet" type="text/css" href="resources/css/bootstrap/bootstrap-grid.css">
     <link rel="stylesheet" type="text/css" href="resources/css/bootstrap/bootstrap-reboot.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="resources/css/login/lib/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/lib/font-awesome.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="resources/css/login/lib/material-design-iconic-font.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/lib/material-design-iconic-font.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="resources/css/login/lib/animate.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/lib/animate.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="resources/css/login/lib/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/lib/hamburgers.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="resources/css/login/lib/animsition.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/lib/animsition.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="resources/css/login/lib/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/lib/select2.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="resources/css/login/lib/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/lib/daterangepicker.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="resources/css/login/custom/util.css">
     <link rel="stylesheet" type="text/css" href="resources/css/login/custom/main.css">
@@ -133,23 +133,23 @@
 <div id="dropDownSelect1"></div>
 
 <!--===============================================================================================-->
-<script src="resources/js/login/lib/jquery-3.2.1.min.js"></script>
+<script src="resources/js/lib/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
-<script src="resources/js/login/lib/animsition.min.js"></script>
+<script src="resources/js/lib/animsition.min.js"></script>
 <!--===============================================================================================-->
-<script src="resources/js/login/lib/popper.js"></script>
+<script src="resources/js/lib/popper.js"></script>
 <script src="resources/js/bootstrap/bootstrap.js"></script>
 <script src="resources/js/bootstrap/bootstrap.bundle.js"></script>
 <!--===============================================================================================-->
-<script src="resources/js/login/lib/select2.min.js"></script>
+<script src="resources/js/lib/select2.min.js"></script>
 <!--===============================================================================================-->
-<script src="resources/js/login/lib/moment.min.js"></script>
-<script src="resources/js/login/lib/daterangepicker.js"></script>
+<script src="resources/js/lib/moment.min.js"></script>
+<script src="resources/js/lib/daterangepicker.js"></script>
 <!--===============================================================================================-->
-<script src="resources/js/login/lib/countdowntime.js"></script>
+<script src="resources/js/lib/countdowntime.js"></script>
 <!--===============================================================================================-->
-<script src="resources/js/login/custom/main.js"></script>
-<script src="resources/js/login/custom/validate_passwords.js"></script>
+<script src="resources/js/custom/main.js"></script>
+<script src="resources/js/custom/validate_passwords.js"></script>
 
 </body>
 </html>

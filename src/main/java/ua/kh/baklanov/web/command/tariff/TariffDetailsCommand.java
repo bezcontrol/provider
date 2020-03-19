@@ -20,8 +20,8 @@ import ua.kh.baklanov.web.controller.Parameters;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class TariffDetailsAbstractCommand implements AbstractCommand {
-    private static final Logger LOG = Logger.getLogger(TariffDetailsAbstractCommand.class);
+public class TariffDetailsCommand implements AbstractCommand {
+    private static final Logger LOG = Logger.getLogger(TariffDetailsCommand.class);
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
@@ -38,7 +38,7 @@ public class TariffDetailsAbstractCommand implements AbstractCommand {
             tariff.setService(getTypedObject(daoService,service));
 
         } catch (DbException e) {
-            LOG.error(Messages.ERROR_SERVICE_DAO + TariffDetailsAbstractCommand.class.getName(), e);
+            LOG.error(Messages.ERROR_SERVICE_DAO + TariffDetailsCommand.class.getName(), e);
             return Route.PAGE_ERROR_PAGE;
         }
         request.setAttribute("selectedTariff", tariff);

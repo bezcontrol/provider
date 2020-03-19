@@ -19,8 +19,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Objects;
 
-public class RegistrationAbstractCommand implements AbstractCommand {
-    private static final Logger LOG = Logger.getLogger(RegistrationAbstractCommand.class);
+public class RegistrationCommand implements AbstractCommand {
+    private static final Logger LOG = Logger.getLogger(RegistrationCommand.class);
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response){
         User user=new User();
@@ -40,7 +40,7 @@ public class RegistrationAbstractCommand implements AbstractCommand {
             }
             request.setAttribute(Attributes.ERROR_VALIDATION, errorValidation);
         } catch (DbException e) {
-            LOG.error(Messages.ERROR_USER_DAO+ RegistrationAbstractCommand.class.getName(),e);
+            LOG.error(Messages.ERROR_USER_DAO+ RegistrationCommand.class.getName(),e);
             forward=Route.PAGE_ERROR_PAGE;
         }
         return forward;

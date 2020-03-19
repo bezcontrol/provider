@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
-public class PCTariffsAbstractCommand implements AbstractCommand {
-    private static final Logger LOG = Logger.getLogger(PCTariffsAbstractCommand.class);
+public class PCTariffsCommand implements AbstractCommand {
+    private static final Logger LOG = Logger.getLogger(PCTariffsCommand.class);
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
@@ -25,7 +25,7 @@ public class PCTariffsAbstractCommand implements AbstractCommand {
             AnyTariffDAO anyTariffDAO = service.getAnyTariffDAO();
             pcTariffs = anyTariffDAO.getAllPCTariffs();
         } catch (DbException e) {
-            LOG.error(Messages.ERROR_TARIFF_DAO + PCTariffsAbstractCommand.class.getName(), e);
+            LOG.error(Messages.ERROR_TARIFF_DAO + PCTariffsCommand.class.getName(), e);
             return Route.PAGE_ERROR_PAGE;
         }
         request.setAttribute("tariffs", pcTariffs);
