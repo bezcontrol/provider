@@ -1,43 +1,28 @@
 package ua.kh.baklanov.service;
 
-import org.apache.log4j.Logger;
+import ua.kh.baklanov.context.Attributes;
+import ua.kh.baklanov.context.Context;
 import ua.kh.baklanov.db.dao.TVDAO;
 import ua.kh.baklanov.db.dao.AnyTariffDAO;
+import ua.kh.baklanov.db.dao.TariffDAO;
 import ua.kh.baklanov.db.dao.UserDAO;
-import ua.kh.baklanov.db.mysql.repository.DefaultTVDAOImpl;
-import ua.kh.baklanov.db.mysql.repository.DefaultAnyTariffDAOImpl;
-import ua.kh.baklanov.db.mysql.repository.DefaultUserDAOImpl;
-import ua.kh.baklanov.exception.DbException;
-import ua.kh.baklanov.exception.Messages;
 
 public class DefaultService implements DAOService {
-    private static final Logger LOG = Logger.getLogger(DefaultService.class);
 
-    public UserDAO getUserDao() throws DbException {
-        try {
-            return new DefaultUserDAOImpl();
-        } catch (DbException e) {
-            LOG.error(Messages.ERROR_CREATING_DAO + DefaultUserDAOImpl.class.getName(),e);
-            throw new DbException(Messages.ERROR_CREATING_DAO + DefaultUserDAOImpl.class.getName(),e);
-        }
+    public UserDAO getUserDao() {
+        return (UserDAO) Context.get(Attributes.USER_DAO);
     }
 
-    public TVDAO getTVDao() throws DbException {
-        try {
-            return new DefaultTVDAOImpl();
-        } catch (DbException e) {
-            LOG.error(Messages.ERROR_CREATING_DAO + DefaultTVDAOImpl.class.getName(),e);
-            throw new DbException(Messages.ERROR_CREATING_DAO + DefaultTVDAOImpl.class.getName(),e);
-        }
+    public TVDAO getTVDao() {
+        return (TVDAO) Context.get(Attributes.TV_DAO);
+    }
+
+    public AnyTariffDAO getAnyTariffDao() {
+        return (AnyTariffDAO) Context.get(Attributes.ANY_TARIFF_DAO);
     }
 
     @Override
-    public AnyTariffDAO getTariffDao() throws DbException {
-        try {
-            return new DefaultAnyTariffDAOImpl();
-        } catch (DbException e) {
-            LOG.error(Messages.ERROR_CREATING_DAO + DefaultAnyTariffDAOImpl.class.getName(),e);
-            throw new DbException(Messages.ERROR_CREATING_DAO + DefaultAnyTariffDAOImpl.class.getName(),e);
-        }
+    public TariffDAO getTariffDao() {
+        return (TariffDAO) Context.get(Attributes.TARIFF_DAO);
     }
 }

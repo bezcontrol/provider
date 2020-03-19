@@ -26,7 +26,7 @@ public class LoginCommand extends Command {
         String login = request.getParameter(Parameters.LOGIN);
         String password = request.getParameter(Parameters.PASSWORD);
         if (login == null || password == null || login.isEmpty() || password.isEmpty()) {
-            LOG.error(Messages.FIELDS_NULL + LoginCommand.class.getName());
+            LOG.error(Messages.ERROR_FIELDS_NULL + LoginCommand.class.getName());
             return Route.PAGE_ERROR_PAGE;
         }
         DAOService service = new DefaultService();

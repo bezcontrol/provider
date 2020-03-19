@@ -24,7 +24,7 @@ public class ServiceController extends HttpServlet {
         Command command = ServiceCommandContainer.get(commandName);
         String forward = Route.PAGE_ERROR_PAGE;
         try {
-            LOG.info("Executing command");
+            LOG.info(Messages.INFO_EXECUTING_COMMAND+commandName);
             forward = command.execute(req, resp);
         } catch (AppException ex) {
             LOG.error(Messages.ERROR_EXECUTING_COMMAND + command.getClass().getName(),ex);

@@ -21,7 +21,7 @@ public class AllTariffsCommand extends Command {
         DAOService service = new DefaultService();
         List allTariffs;
         try {
-            AnyTariffDAO anyTariffDAO = service.getTariffDao();
+            AnyTariffDAO anyTariffDAO = service.getAnyTariffDao();
             allTariffs = anyTariffDAO.getAll();
         } catch (DbException e) {
             LOG.error(Messages.ERROR_TARIFF_DAO + AllTariffsCommand.class.getName(), e);

@@ -22,7 +22,7 @@ public class MobileTariffsCommand extends Command {
         DAOService service = new DefaultService();
         List<AnyTariff> mobileTariffs;
         try {
-            AnyTariffDAO anyTariffDAO = service.getTariffDao();
+            AnyTariffDAO anyTariffDAO = service.getAnyTariffDao();
             mobileTariffs = anyTariffDAO.getAllMobileTariffs();
         } catch (DbException e) {
             LOG.error(Messages.ERROR_TARIFF_DAO + MobileTariffsCommand.class.getName(), e);

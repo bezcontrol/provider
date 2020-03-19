@@ -22,7 +22,7 @@ public class PCTariffsCommand extends Command {
         DAOService service = new DefaultService();
         List<AnyTariff> pcTariffs;
         try {
-            AnyTariffDAO anyTariffDAO = service.getTariffDao();
+            AnyTariffDAO anyTariffDAO = service.getAnyTariffDao();
             pcTariffs = anyTariffDAO.getAllPCTariffs();
         } catch (DbException e) {
             LOG.error(Messages.ERROR_TARIFF_DAO + PCTariffsCommand.class.getName(), e);

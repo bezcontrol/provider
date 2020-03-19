@@ -67,8 +67,6 @@
 
 </div>
 
-
-
 <script src="../resources/js/login/lib/jquery-3.2.1.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="../resources/js/service/script.js"></script>

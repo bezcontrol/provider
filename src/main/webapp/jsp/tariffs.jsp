@@ -20,7 +20,6 @@
             <c:set var="tv" value="TV"/>
             <c:set var="mobile" value="Mobile"/>
 
-            <a href="">
                 <figure class="card card--water">
                     <div class="card__image-container">
                         <img src="https://cdn.bulbagarden.net/upload/thumb/f/fd/134Vaporeon.png/1200px-134Vaporeon.png"
@@ -108,13 +107,27 @@
 
                     </figcaption>
                     <div class="group_of_buttons">
-                        <button type="button" class="btn btn-danger">Create</button>
-                        <button type="button"  class="btn btn-danger">Update</button>
-                        <button type="button"  class="btn btn-danger">Delete</button>
-                        <button type="button"  class="btn btn-danger">Details</button>
+                        <form action="tariff" method="post">
+                            <input type="hidden" name="tariffId" value="${object.tariff.id}"/>
+                            <input type="hidden" name="serviceType" value=" ${object.service.getClass().simpleName}"/>
+
+                        <c:if test="${not empty sessionScope.user}">
+                            <c:choose>
+                                <c:when test="${sessionScope.userRole.getName() eq 'admin'}">
+                                    <button type="submit" class="btn btn-danger" name="command" value="create">Create</button>
+                                    <button type="submit"  class="btn btn-danger" name="command" value="edit">Update</button>
+                                    <button type="submit"  class="btn btn-danger" name="command" value="delete">Delete</button>
+                                </c:when>
+                            <c:otherwise>
+                                <button type="submit" class="btn btn-success">Make order</button>
+                            </c:otherwise>
+                            </c:choose>
+                            <button type="submit"  class="btn btn-danger" name="command" value="details">Details</button>
+                        </c:if>
+                        <button type="submit" class="btn btn-success download" name="command" value="download">Download</button>
+                        </form>
                     </div>
                 </figure>
-            </a>
         </c:forEach>
 
     </div>

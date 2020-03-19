@@ -48,7 +48,7 @@ public class Queries {
             "JOIN tariffs t ON s.id=t.idService " +
             "JOIN tv tv ON s.idTV=tv.id  " +
             "LEFT OUTER JOIN internet i ON s.idInternet=i.id;";
-    public static final String GET_ALL_TARIFFS = "";
+
 
     private Queries() {
     }

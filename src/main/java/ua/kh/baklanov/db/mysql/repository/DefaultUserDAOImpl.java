@@ -3,7 +3,6 @@ package ua.kh.baklanov.db.mysql.repository;
 import org.apache.log4j.Logger;
 import ua.kh.baklanov.db.dao.DAOFactory;
 import ua.kh.baklanov.db.dao.UserDAO;
-import ua.kh.baklanov.db.mysql.DefaultFactory;
 import ua.kh.baklanov.db.mysql.exctractor.DefaultExtractorUtil;
 
 import ua.kh.baklanov.db.queries.Queries;
@@ -11,7 +10,11 @@ import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
 import ua.kh.baklanov.model.entity.User;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,13 +23,8 @@ public class DefaultUserDAOImpl implements UserDAO {
     private DAOFactory factory;
     private static final Logger LOG = Logger.getLogger(DefaultUserDAOImpl.class);
 
-    public DefaultUserDAOImpl() throws DbException {
-        try {
-            factory = DAOFactory.getMySQLDAOFactory();
-        } catch (DbException ex) {
-            LOG.error(Messages.ERROR_CREATING_FACTORY+ DefaultFactory.class.getName(), ex);
-            throw new DbException(Messages.ERROR_CREATING_FACTORY+ DefaultFactory.class.getName(), ex);
-        }
+    public DefaultUserDAOImpl() {
+            factory = DAOFactory.getDefaultFactory();
     }
 
     @Override
@@ -69,18 +67,24 @@ public class DefaultUserDAOImpl implements UserDAO {
     public void insert(User obj) throws DbException {
         try (Connection con = factory.getConnection();
              PreparedStatement statement = con.prepareStatement(Queries.INSERT_USER)) {
-            statement.setString(1, obj.getLogin());
-            statement.setString(2, obj.getPassword());
-            statement.setString(3, obj.getEmail());
-            statement.setLong(4, obj.getIdRole());
-            statement.setLong(5, obj.getIdStatus());
-            statement.setDouble(6, obj.getBill());
+            int k=1;
+            statement.setString(k, obj.getLogin());
+            k++;
+            statement.setString(k, obj.getPassword());
+            k++;
+            statement.setString(k, obj.getEmail());
+            k++;
+            statement.setLong(k, obj.getIdRole());
+            k++;
+            statement.setLong(k, obj.getIdStatus());
+            k++;
+            statement.setDouble(k, obj.getBill());
 
             int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
-                LOG.info(User.class.getName() + Messages.INFO_SUCCESSFULLY_INSERTED);
+                LOG.info(Messages.INFO_SUCCESSFULLY_INSERTED+User.class.getName());
             }
-            DAOFactory.commit(con);
+            factory.commit(con);
         } catch (SQLException | DbException ex) {
             LOG.error(Messages.ERROR_INSERT + User.class.getName(), ex);
             throw new DbException(Messages.ERROR_INSERT + User.class.getName(), ex);
@@ -110,18 +114,25 @@ public class DefaultUserDAOImpl implements UserDAO {
         User old= getById(obj.getId());
         try (Connection con = factory.getConnection();
              PreparedStatement statement = con.prepareStatement(Queries.UPDATE_USER_BY_LOGIN)) {
-            statement.setString(1, obj.getLogin());
-            statement.setString(2, obj.getPassword());
-            statement.setString(3, obj.getEmail());
-            statement.setLong(4, obj.getIdRole());
-            statement.setLong(5, old.getIdStatus());
-            statement.setDouble(6, old.getBill());
-            statement.setString(7, old.getLogin());
+            int k=1;
+            statement.setString(k, obj.getLogin());
+            k++;
+            statement.setString(k, obj.getPassword());
+            k++;
+            statement.setString(k, obj.getEmail());
+            k++;
+            statement.setLong(k, obj.getIdRole());
+            k++;
+            statement.setLong(k, old.getIdStatus());
+            k++;
+            statement.setDouble(k, old.getBill());
+            k++;
+            statement.setString(k, old.getLogin());
             int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
-                LOG.info(User.class.getName() + Messages.INFO_SUCCESSFULLY_UPDATED);
+                LOG.info(Messages.INFO_SUCCESSFULLY_UPDATED+User.class.getName());
             }
-            DAOFactory.commit(con);
+            factory.commit(con);
         } catch (SQLException | DbException ex) {
             LOG.error(Messages.ERROR_UPDATE + User.class.getName(), ex);
             throw new DbException(Messages.ERROR_UPDATE + User.class.getName(), ex);
@@ -137,9 +148,9 @@ public class DefaultUserDAOImpl implements UserDAO {
                 rowsDeleted = statement.executeUpdate();
             }
             if (rowsDeleted > 0) {
-                LOG.info(User.class.getName() + Messages.INFO_SUCCESSFULLY_UPDATED);
+                LOG.info(Messages.INFO_SUCCESSFULLY_UPDATED+User.class.getName() );
             }
-            DAOFactory.commit(con);
+            factory.commit(con);
         } catch (SQLException| DbException ex) {
             LOG.error(Messages.ERROR_DELETE + User.class.getName(), ex);
             throw new DbException(Messages.ERROR_DELETE + User.class.getName(), ex);

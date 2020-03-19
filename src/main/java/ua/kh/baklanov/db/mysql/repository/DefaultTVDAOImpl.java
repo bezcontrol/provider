@@ -3,7 +3,6 @@ package ua.kh.baklanov.db.mysql.repository;
 import org.apache.log4j.Logger;
 import ua.kh.baklanov.db.dao.DAOFactory;
 import ua.kh.baklanov.db.dao.TVDAO;
-import ua.kh.baklanov.db.mysql.DefaultFactory;
 import ua.kh.baklanov.db.mysql.exctractor.DefaultExtractorUtil;
 import ua.kh.baklanov.db.queries.Queries;
 import ua.kh.baklanov.exception.DbException;
@@ -22,13 +21,8 @@ public class DefaultTVDAOImpl implements TVDAO {
     private DAOFactory factory;
     private static final Logger LOG = Logger.getLogger(DefaultUserDAOImpl.class);
 
-    public DefaultTVDAOImpl() throws DbException {
-        try {
-            factory = DAOFactory.getMySQLDAOFactory();
-        } catch (DbException ex) {
-            LOG.error(Messages.ERROR_CREATING_FACTORY+ DefaultFactory.class.getName(), ex);
-            throw new DbException(Messages.ERROR_CREATING_FACTORY+ DefaultFactory.class.getName(), ex);
-        }
+    public DefaultTVDAOImpl()  {
+        factory = DAOFactory.getDefaultFactory();
     }
 
     @Override
