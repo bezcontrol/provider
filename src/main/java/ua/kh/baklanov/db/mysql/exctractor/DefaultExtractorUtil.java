@@ -26,8 +26,8 @@ public final class DefaultExtractorUtil {
             user.setIdStatus(rs.getLong("idStatus"));
             user.setBill(rs.getDouble("bill"));
         } catch (SQLException ex) {
-            LOG.error(Messages.ERROR_EXTRACTING+User.class.getName(), ex);
-            throw new DbException(Messages.ERROR_EXTRACTING+User.class.getName(), ex);
+            LOG.error(Messages.ERROR_EXTRACTING+User.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_EXTRACTING+User.class.getSimpleName(), ex);
         }
         return user;
     }
@@ -39,8 +39,8 @@ public final class DefaultExtractorUtil {
             tv.setType(rs.getString("type"));
             tv.setNumOfChannels(rs.getInt("numOfChannels"));
         } catch (SQLException ex) {
-            LOG.error(Messages.ERROR_EXTRACTING+TV.class.getName(), ex);
-            throw new DbException(Messages.ERROR_EXTRACTING+TV.class.getName(), ex);
+            LOG.error(Messages.ERROR_EXTRACTING+TV.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_EXTRACTING+TV.class.getSimpleName(), ex);
         }
         return tv;
     }
@@ -54,8 +54,8 @@ public final class DefaultExtractorUtil {
             tariff.setIdService(rs.getLong("idService"));
             tariff.setDurationInDays(rs.getInt("durationInDays"));
         } catch (SQLException ex) {
-            LOG.error(Messages.ERROR_EXTRACTING+Tariff.class.getName(), ex);
-            throw new DbException(Messages.ERROR_EXTRACTING+Tariff.class.getName(), ex);
+            LOG.error(Messages.ERROR_EXTRACTING+Tariff.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_EXTRACTING+Tariff.class.getSimpleName(), ex);
         }
         return tariff;
     }
@@ -63,12 +63,12 @@ public final class DefaultExtractorUtil {
     public static Internet extractInternet(ResultSet rs) throws DbException {
         Internet internet=new Internet();
         try {
-            internet.setId(rs.getLong("idInternet"));
+            internet.setId(rs.getLong("id"));
             internet.setSpeed(rs.getInt("speed"));
             internet.setTechnology(rs.getString("technology"));
         } catch (SQLException ex) {
-            LOG.error(Messages.ERROR_EXTRACTING+Internet.class.getName(), ex);
-            throw new DbException(Messages.ERROR_EXTRACTING+Internet.class.getName(), ex);
+            LOG.error(Messages.ERROR_EXTRACTING+Internet.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_EXTRACTING+Internet.class.getSimpleName(), ex);
         }
         return internet;
     }
@@ -85,8 +85,8 @@ public final class DefaultExtractorUtil {
             mobile.setNumOfSMS(rs.getInt("numOfSMS"));
             mobile.setNumOfMbts(rs.getInt("numOfMbts"));
         } catch (SQLException ex) {
-            LOG.error(Messages.ERROR_EXTRACTING+AnyTariff.class.getName(), ex);
-            throw new DbException(Messages.ERROR_EXTRACTING+AnyTariff.class.getName(), ex);
+            LOG.error(Messages.ERROR_EXTRACTING+AnyTariff.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_EXTRACTING+AnyTariff.class.getSimpleName(), ex);
         }
         mobileTariff.setService(mobile);
         return mobileTariff;
@@ -101,8 +101,8 @@ public final class DefaultExtractorUtil {
             pc.setId(rs.getLong("idPC"));
             pc.setNumOfConnectedPC(rs.getInt("numOfConnectedPC"));
         } catch (SQLException ex) {
-            LOG.error(Messages.ERROR_EXTRACTING+AnyTariff.class.getName(), ex);
-            throw new DbException(Messages.ERROR_EXTRACTING+AnyTariff.class.getName(), ex);
+            LOG.error(Messages.ERROR_EXTRACTING+AnyTariff.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_EXTRACTING+AnyTariff.class.getSimpleName(), ex);
         }
         pcTariff.setService(pc);
         return pcTariff;
@@ -118,10 +118,52 @@ public final class DefaultExtractorUtil {
             tv.setType(rs.getString("type"));
             tv.setNumOfChannels(rs.getInt("numOfChannels"));
         } catch (SQLException ex) {
-            LOG.error(Messages.ERROR_EXTRACTING+AnyTariff.class.getName(), ex);
-            throw new DbException(Messages.ERROR_EXTRACTING+AnyTariff.class.getName(), ex);
+            LOG.error(Messages.ERROR_EXTRACTING+AnyTariff.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_EXTRACTING+AnyTariff.class.getSimpleName(), ex);
         }
         tvTariff.setService(tv);
         return tvTariff;
+    }
+
+    public static Service extractService(ResultSet rs) throws DbException {
+        Service service=new Service();
+        try {
+            service.setId(rs.getLong("id"));
+            service.setIdPC(rs.getLong("idPC"));
+            service.setIdTV(rs.getLong("idTV"));
+            service.setIdMobile(rs.getLong("idMobile"));
+            service.setIdInternet(rs.getLong("idInternet"));
+        } catch (SQLException ex) {
+            LOG.error(Messages.ERROR_EXTRACTING+Service.class.getSimpleName(),ex);
+            throw new DbException(Messages.ERROR_EXTRACTING+Service.class.getSimpleName(), ex);
+        }
+        return service;
+    }
+
+    public static PC extractPC(ResultSet rs) throws DbException {
+        PC pc=new PC();
+        try {
+            pc.setId(rs.getLong("id"));
+            pc.setNumOfConnectedPC(rs.getInt("numOfConnectedPC"));
+        } catch (SQLException ex) {
+            LOG.error(Messages.ERROR_EXTRACTING+PC.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_EXTRACTING+PC.class.getSimpleName(), ex);
+        }
+        return pc;
+    }
+
+    public static Mobile extractMobile(ResultSet rs) throws DbException {
+        Mobile mobile=new Mobile();
+        try {
+            mobile.setId(rs.getLong("id"));
+            mobile.setNumOfMinutesInside(rs.getInt("numOfMinutesInside"));
+            mobile.setNumOfMinutesOutside(rs.getInt("numOfMinutesOutside"));
+            mobile.setNumOfMbts(rs.getInt("numOfMbts"));
+            mobile.setNumOfSMS(rs.getInt("numOfSMS"));
+        } catch (SQLException ex) {
+            LOG.error(Messages.ERROR_EXTRACTING+Mobile.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_EXTRACTING+Mobile.class.getSimpleName(), ex);
+        }
+        return mobile;
     }
 }

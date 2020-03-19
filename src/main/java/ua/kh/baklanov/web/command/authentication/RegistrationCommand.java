@@ -32,7 +32,7 @@ public class RegistrationCommand extends Command {
         DAOService service= new DefaultService();
         String forward = Route.REGISTRATION;
         try {
-            UserDAO userDAO = service.getUserDao();
+            UserDAO userDAO = service.getUserDAO();
             String errorValidation = ValidateAuthentication.isUserAlreadyRegistered(user);
             if (Objects.isNull(errorValidation)) {
                 userDAO.insert(user);

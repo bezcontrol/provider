@@ -32,7 +32,7 @@ public class LoginCommand extends Command {
         DAOService service = new DefaultService();
         String forward;
         try {
-            UserDAO userDAO = service.getUserDao();
+            UserDAO userDAO = service.getUserDAO();
             User user = userDAO.getByLogin(login);
             if (user == null || !password.equals(user.getPassword())) {
                 user = userDAO.getByEmail(login);

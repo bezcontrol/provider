@@ -2,27 +2,42 @@ package ua.kh.baklanov.service;
 
 import ua.kh.baklanov.context.Attributes;
 import ua.kh.baklanov.context.Context;
-import ua.kh.baklanov.db.dao.TVDAO;
-import ua.kh.baklanov.db.dao.AnyTariffDAO;
-import ua.kh.baklanov.db.dao.TariffDAO;
-import ua.kh.baklanov.db.dao.UserDAO;
+import ua.kh.baklanov.db.dao.*;
+import ua.kh.baklanov.exception.DbException;
 
 public class DefaultService implements DAOService {
 
-    public UserDAO getUserDao() {
+    public UserDAO getUserDAO() {
         return (UserDAO) Context.get(Attributes.USER_DAO);
     }
 
-    public TVDAO getTVDao() {
+    public TVDAO getTVDAO() {
         return (TVDAO) Context.get(Attributes.TV_DAO);
     }
 
-    public AnyTariffDAO getAnyTariffDao() {
+    public PCDAO getPCDAO() {
+        return (PCDAO) Context.get(Attributes.PC_DAO);
+    }
+
+    public AnyTariffDAO getAnyTariffDAO() {
         return (AnyTariffDAO) Context.get(Attributes.ANY_TARIFF_DAO);
     }
 
-    @Override
-    public TariffDAO getTariffDao() {
+    public ServiceDAO getServiceDAO() {
+        return (ServiceDAO) Context.get(Attributes.SERVICE_DAO);
+    }
+
+    public TariffDAO getTariffDAO() {
         return (TariffDAO) Context.get(Attributes.TARIFF_DAO);
+    }
+
+    @Override
+    public InternetDAO getInternetDAO() {
+        return (InternetDAO) Context.get(Attributes.INTERNET_DAO);
+    }
+
+    @Override
+    public MobileDAO getMobileDAO() {
+        return (MobileDAO) Context.get(Attributes.MOBILE_DAO);
     }
 }

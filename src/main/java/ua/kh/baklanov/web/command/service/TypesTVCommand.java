@@ -20,7 +20,7 @@ public class TypesTVCommand extends Command {
         List<String> tvTypes;
         DAOService service = new DefaultService();
         try {
-            TVDAO tvDAO = service.getTVDao();
+            TVDAO tvDAO = service.getTVDAO();
             tvTypes=tvDAO.getTypes();
 
         } catch (DbException e) {

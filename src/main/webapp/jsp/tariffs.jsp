@@ -109,7 +109,6 @@
                     <div class="group_of_buttons">
                         <form action="tariff" method="post">
                             <input type="hidden" name="tariffId" value="${object.tariff.id}"/>
-                            <input type="hidden" name="serviceType" value=" ${object.service.getClass().simpleName}"/>
 
                         <c:if test="${not empty sessionScope.user}">
                             <c:choose>

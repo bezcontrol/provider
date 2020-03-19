@@ -4,6 +4,7 @@ public class Service extends Entity {
     private long idPC;
     private long idTV;
     private long idMobile;
+    private long idInternet;
 
     public long getIdPC() {
         return idPC;
@@ -27,6 +28,14 @@ public class Service extends Entity {
 
     public void setIdMobile(long idMobile) {
         this.idMobile = idMobile;
+    }
+
+    public long getIdInternet() {
+        return idInternet;
+    }
+
+    public void setIdInternet(long idInternet) {
+        this.idInternet = idInternet;
     }
 
     @Override

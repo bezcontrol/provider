@@ -15,7 +15,7 @@ public class ValidateAuthentication {
 
     public static String isUserAlreadyRegistered(User user) throws DbException {
         DAOService service= new DefaultService();
-        UserDAO userDAO = service.getUserDao();
+        UserDAO userDAO = service.getUserDAO();
         User userFromDB;
         userFromDB=userDAO.getByEmail(user.getEmail());
         if(Objects.nonNull(userFromDB)){

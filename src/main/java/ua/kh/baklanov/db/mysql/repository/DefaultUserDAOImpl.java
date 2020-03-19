@@ -82,17 +82,18 @@ public class DefaultUserDAOImpl implements UserDAO {
 
             int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
-                LOG.info(Messages.INFO_SUCCESSFULLY_INSERTED+User.class.getName());
+                LOG.info(Messages.INFO_SUCCESSFULLY_INSERTED+User.class.getSimpleName());
             }
             factory.commit(con);
         } catch (SQLException | DbException ex) {
-            LOG.error(Messages.ERROR_INSERT + User.class.getName(), ex);
-            throw new DbException(Messages.ERROR_INSERT + User.class.getName(), ex);
+            LOG.error(Messages.ERROR_INSERT + User.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_INSERT + User.class.getSimpleName(), ex);
         }
     }
 
     @Override
     public User getById(long id) throws DbException {
+        LOG.info(Messages.INFO_GET_BY_ID+User.class.getSimpleName());
         User user=null;
         try (Connection con = factory.getConnection();
              PreparedStatement statement = con.prepareStatement(Queries.GET_USER_BY_ID)) {
@@ -103,8 +104,8 @@ public class DefaultUserDAOImpl implements UserDAO {
                 }
             }
         } catch (SQLException | DbException ex) {
-            LOG.error(Messages.ERROR_GET_USER_BY_ID, ex);
-            throw new DbException(Messages.ERROR_GET_USER_BY_ID, ex);
+            LOG.error(Messages.ERROR_GET_BY_ID+User.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_GET_BY_ID+User.class.getSimpleName(), ex);
         }
         return user;
     }
@@ -130,12 +131,12 @@ public class DefaultUserDAOImpl implements UserDAO {
             statement.setString(k, old.getLogin());
             int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
-                LOG.info(Messages.INFO_SUCCESSFULLY_UPDATED+User.class.getName());
+                LOG.info(Messages.INFO_SUCCESSFULLY_UPDATED+User.class.getSimpleName());
             }
             factory.commit(con);
         } catch (SQLException | DbException ex) {
-            LOG.error(Messages.ERROR_UPDATE + User.class.getName(), ex);
-            throw new DbException(Messages.ERROR_UPDATE + User.class.getName(), ex);
+            LOG.error(Messages.ERROR_UPDATE + User.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_UPDATE + User.class.getSimpleName(), ex);
         }
     }
 
@@ -148,12 +149,12 @@ public class DefaultUserDAOImpl implements UserDAO {
                 rowsDeleted = statement.executeUpdate();
             }
             if (rowsDeleted > 0) {
-                LOG.info(Messages.INFO_SUCCESSFULLY_UPDATED+User.class.getName() );
+                LOG.info(Messages.INFO_SUCCESSFULLY_UPDATED+User.class.getSimpleName() );
             }
             factory.commit(con);
         } catch (SQLException| DbException ex) {
-            LOG.error(Messages.ERROR_DELETE + User.class.getName(), ex);
-            throw new DbException(Messages.ERROR_DELETE + User.class.getName(), ex);
+            LOG.error(Messages.ERROR_DELETE + User.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_DELETE + User.class.getSimpleName(), ex);
         }
     }
 
@@ -168,8 +169,8 @@ public class DefaultUserDAOImpl implements UserDAO {
                 }
             }
         } catch (SQLException | DbException ex) {
-            LOG.error(Messages.ERROR_GET_RECORDS +User.class.getName(), ex);
-            throw new DbException(Messages.ERROR_GET_RECORDS +User.class.getName(), ex);
+            LOG.error(Messages.ERROR_GET_RECORDS +User.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_GET_RECORDS +User.class.getSimpleName(), ex);
         }
         return allUsers;
     }

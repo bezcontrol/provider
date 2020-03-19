@@ -22,7 +22,7 @@ public class TVTariffsCommand extends Command {
         DAOService service = new DefaultService();
         List<AnyTariff> tvTariffs;
         try {
-            AnyTariffDAO anyTariffDAO = service.getAnyTariffDao();
+            AnyTariffDAO anyTariffDAO = service.getAnyTariffDAO();
             if (request.getParameter(Parameters.TYPE_TV)!= null) {
                 tvTariffs= anyTariffDAO.getTVTariffsOfCurrentType(request.getParameter(Parameters.TYPE_TV));
             } else {

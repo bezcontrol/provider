@@ -10,6 +10,7 @@ import ua.kh.baklanov.exception.Messages;
 import ua.kh.baklanov.model.entity.TV;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -19,7 +20,7 @@ import java.util.List;
 public class DefaultTVDAOImpl implements TVDAO {
 
     private DAOFactory factory;
-    private static final Logger LOG = Logger.getLogger(DefaultUserDAOImpl.class);
+    private static final Logger LOG = Logger.getLogger(DefaultTVDAOImpl.class);
 
     public DefaultTVDAOImpl()  {
         factory = DAOFactory.getDefaultFactory();
@@ -49,5 +50,39 @@ public class DefaultTVDAOImpl implements TVDAO {
             types.add(tv.getType());
         }
         return types;
+    }
+
+    @Override
+    public void insert(TV obj) throws DbException {
+
+    }
+
+    @Override
+    public TV getById(long id) throws DbException {
+        LOG.info(Messages.INFO_GET_BY_ID+TV.class.getSimpleName());
+        TV tv=null;
+        try (Connection con = factory.getConnection();
+             PreparedStatement statement = con.prepareStatement(Queries.GET_TV_BY_ID)) {
+            statement.setLong(1, id);
+            try (ResultSet rs = statement.executeQuery()) {
+                while (rs.next()) {
+                    tv = DefaultExtractorUtil.extractTV(rs);
+                }
+            }
+        } catch (SQLException | DbException ex) {
+            LOG.error(Messages.ERROR_GET_BY_ID+TV.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_GET_BY_ID+TV.class.getSimpleName(), ex);
+        }
+        return tv;
+    }
+
+    @Override
+    public void update(TV obj) throws DbException {
+
+    }
+
+    @Override
+    public void delete(TV obj) throws DbException {
+
     }
 }

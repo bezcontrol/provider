@@ -1,14 +1,14 @@
 package ua.kh.baklanov.service;
 
-import ua.kh.baklanov.db.dao.TVDAO;
-import ua.kh.baklanov.db.dao.AnyTariffDAO;
-import ua.kh.baklanov.db.dao.TariffDAO;
-import ua.kh.baklanov.db.dao.UserDAO;
+import ua.kh.baklanov.db.dao.*;
 import ua.kh.baklanov.exception.DbException;
-
 public interface DAOService {
-    UserDAO getUserDao() throws DbException;
-    TVDAO getTVDao() throws DbException;
-    AnyTariffDAO getAnyTariffDao() throws DbException;
-    TariffDAO getTariffDao();
+    UserDAO getUserDAO() throws DbException;
+    TVDAO getTVDAO() throws DbException;
+    PCDAO getPCDAO() throws DbException;
+    AnyTariffDAO getAnyTariffDAO() throws DbException;
+    ServiceDAO getServiceDAO() throws DbException;
+    TariffDAO getTariffDAO() throws DbException;
+    InternetDAO getInternetDAO() throws DbException;
+    MobileDAO getMobileDAO() throws DbException;
 }

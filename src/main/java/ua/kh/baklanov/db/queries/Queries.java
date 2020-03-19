@@ -21,7 +21,7 @@ public class Queries {
 
     public static final String GET_ALL_TV = "SELECT * FROM tv";
 
-    public static final String GET_ALL_PC_TARIFFS =  "SELECT t.id ,t.name,t.price,t.idService,t.durationInDays, " +
+    public static final String GET_ANY_TARIFF_ALL_PC_TARIFFS =  "SELECT t.id ,t.name,t.price,t.idService,t.durationInDays, " +
             "s.idPC, s.idInternet, " +
             "pc.numOfConnectedPC, " +
             "i.speed, i.technology " +
@@ -30,7 +30,7 @@ public class Queries {
             "JOIN pc pc ON s.idPC=pc.id  " +
             "LEFT OUTER JOIN internet i ON s.idInternet=i.id;";
 
-    public static final String GET_ALL_MOBILE_TARIFFS =  "SELECT t.id ,t.name,t.price,t.idService, t.durationInDays," +
+    public static final String GET_ANY_TARIFF_ALL_MOBILE_TARIFFS =  "SELECT t.id ,t.name,t.price,t.idService, t.durationInDays," +
             "s.idMobile, s.idInternet, " +
             "mobile.numOfMinutesInside,mobile.numOfMinutesOutside,mobile.numOfSMS,mobile.numOfMbts," +
             "i.speed, i.technology " +
@@ -39,7 +39,7 @@ public class Queries {
             "JOIN mobile mobile ON s.idMobile=mobile.id  " +
             "LEFT OUTER JOIN internet i ON s.idInternet=i.id";
 
-    public static final String GET_ALL_TV_TARIFFS =  "SELECT t.id ,t.name,t.price,t.idService," +
+    public static final String GET_ANY_TARIFF_ALL_TV_TARIFFS =  "SELECT t.id ,t.name,t.price,t.idService," +
             "t.durationInDays, " +
             "s.idTV, s.idInternet, " +
             "tv.type, tv.numOfChannels," +
@@ -49,6 +49,15 @@ public class Queries {
             "JOIN tv tv ON s.idTV=tv.id  " +
             "LEFT OUTER JOIN internet i ON s.idInternet=i.id;";
 
+    public static final String GET_SERVICE_BY_TARIFF_ID ="SELECT * FROM services s " +
+            "JOIN tariffs t ON s.id=t.idService " +
+            "WHERE t.id=?";
+
+    public static final String GET_TV_BY_ID = "SELECT * FROM TV WHERE id=?";
+    public static final String GET_PC_BY_ID  = "SELECT * FROM PC WHERE id=?";
+    public static final String GET_TARIFF_BY_ID = "SELECT * FROM tariffs WHERE id=?";
+    public static final String GET_INTERNET_BY_ID = "SELECT * FROM internet WHERE id=?";
+    public static final String GET_MOBILE_BY_ID = "SELECT * FROM mobile WHERE id=?";
 
     private Queries() {
     }
