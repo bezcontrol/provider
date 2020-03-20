@@ -80,7 +80,7 @@ public final class DefaultExtractorUtil {
     }
 
     public static AnyTariff extractMobileTariff(ResultSet rs) throws DbException {
-        AnyTariff<Mobile> mobileTariff=new AnyTariff();
+        AnyTariff<Mobile> mobileTariff=new AnyTariff<>();
         Mobile mobile=new Mobile();
         try {
             mobileTariff.setTariff(extractTariff(rs));
@@ -99,7 +99,7 @@ public final class DefaultExtractorUtil {
     }
 
     public static AnyTariff extractPCTariff(ResultSet rs) throws DbException {
-        AnyTariff<PC> pcTariff=new AnyTariff();
+        AnyTariff<PC> pcTariff=new AnyTariff<>();
         PC pc=new PC();
         try {
             pcTariff.setTariff(extractTariff(rs));
@@ -115,7 +115,7 @@ public final class DefaultExtractorUtil {
     }
 
     public static AnyTariff extractTVTariff(ResultSet rs) throws DbException {
-        AnyTariff<TV> tvTariff=new AnyTariff();
+        AnyTariff<TV> tvTariff=new AnyTariff<>();
         TV tv=new TV();
         try {
             tvTariff.setTariff(extractTariff(rs));
@@ -172,4 +172,5 @@ public final class DefaultExtractorUtil {
         }
         return mobile;
     }
+
 }

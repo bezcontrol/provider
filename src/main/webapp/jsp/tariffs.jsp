@@ -104,7 +104,6 @@
                                     </h4>
                                 </c:otherwise>
                             </c:choose>
-
                         </div>
 
                     </figcaption>
