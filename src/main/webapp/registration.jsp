@@ -148,8 +148,8 @@
 <!--===============================================================================================-->
 <script src="resources/js/lib/countdowntime.js"></script>
 <!--===============================================================================================-->
-<script src="resources/js/custom/main.js"></script>
-<script src="resources/js/custom/validate_passwords.js"></script>
+<script src="resources/js/login/custom/main.js"></script>
+<script src="resources/js/login/custom/validate_passwords.js"></script>
 
 </body>
 </html>

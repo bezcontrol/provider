@@ -34,13 +34,13 @@ public final class Messages {
     public static final String INFO_CONTEXT_INITIALIZED = "Context had been successfully initialized";
     public static final String INFO_DATASOURCE_INITIALIZED = "Data source had been successfully initialized";
     public static final String INFO_CONNECTION_OBTAINED = "Connection had been successfully obtained";
-    public static final String ERROR_SERVICE_DAO = "Error when using service dao in command: ";
     public static final String INFO_GET_ANY_TARIFF_ALL = "Trying to get all AnyTariffs of class ";
     public static final String INFO_GET_ANY_TARIFF_TV_WITH_TYPE =
             "Trying to get AnyTariff with service type TV with tv type ";
     public static final String INFO_GET_ALL_ANY_TARIFF = "Trying to get all AnyTariff";
     public static final String INFO_GET_BY_ID = "Trying to get by id entity of class ";
     public static final String ERROR_GET_BY_ID = "Can't getting by id entity of class ";
+    public static final String ERROR_BEAN_EXTRACTOR_UTIL = "Error when using bean extractor in command: ";
 
     private Messages(){}
 

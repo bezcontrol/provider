@@ -3,6 +3,7 @@ package ua.kh.baklanov.web.listener;
 import org.apache.log4j.Logger;
 import ua.kh.baklanov.context.MyClassLoader;
 import ua.kh.baklanov.exception.AppException;
+import ua.kh.baklanov.web.controller.TextFields;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -16,6 +17,7 @@ public class AppContextListener implements ServletContextListener {
         LOG.info("Context listener start working...");
         try {
             MyClassLoader.load();
+            sce.getServletContext().setAttribute("textFields",new TextFields());
         } catch (AppException e) {
            LOG.error("Error loading context", e);
         }

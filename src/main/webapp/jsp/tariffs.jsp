@@ -18,6 +18,7 @@
 <c:if test="${not empty tariffs}">
     <div id="cards">
         <c:forEach items="${requestScope.tariffs}" var="object">
+
             <c:set var="pc" value="PC"/>
             <c:set var="tv" value="TV"/>
             <c:set var="mobile" value="Mobile"/>
@@ -29,7 +30,7 @@
                     </div>
 
                     <figcaption class="card__caption">
-                        <h1 class="card__name">${object.tariff.name}</h1>
+                        <h1 class="card__name">${applicationScope.textFields.getTariffName()}${object.tariff.name}</h1>
 
                         <h3 class="card__type">
                             <c:out value="${object.service.getClass().simpleName}"/>
@@ -38,47 +39,47 @@
                         <table class="card__stats">
                             <tbody>
                             <tr>
-                                <th>Price</th>
+                                <th>${applicationScope.textFields.getTariffPrice()}</th>
                                 <td>${object.tariff.price} $</td>
                             </tr>
                             <tr>
-                                <th>Duration</th>
+                                <th>${applicationScope.textFields.getTariffDurationInDays()}</th>
                                 <td>${object.tariff.durationInDays} days</td>
                             </tr>
                             <c:choose>
                                 <c:when test="${object.service.getClass().simpleName eq pc}">
                                     <tr>
-                                        <th>Number of computers</th>
+                                        <th>${applicationScope.textFields.getPcConnectedPC()}</th>
                                         <td>${object.service.numOfConnectedPC}</td>
                                     </tr>
                                 </c:when>
                                 <c:when test="${object.service.getClass().simpleName eq tv}">
 
                                     <tr>
-                                        <th>Channels</th>
+                                        <th>${applicationScope.textFields.getTvNumberOfChannels()}</th>
                                         <td>${object.service.numOfChannels}</td>
                                     </tr>
                                     <tr>
-                                        <th>Type</th>
+                                        <th>${applicationScope.textFields.getTvType()}</th>
                                         <td>${object.service.type}</td>
                                     </tr>
                                 </c:when>
                                 <c:when test="${object.service.getClass().simpleName eq mobile}">
                                     <tr>
-                                        <th>Inside country</th>
+                                        <th>${applicationScope.textFields.getMobileMinutesInside()}</th>
                                         <td>${object.service.numOfMinutesInside} minutes</td>
                                     </tr>
                                     <tr>
-                                        <th>Outside country</th>
+                                        <th>${applicationScope.textFields.getMobileMinutesOutside()}</th>
                                         <td>${object.service.numOfMinutesOutside} minutes</td>
                                     </tr>
                                     <tr>
-                                        <th>SMS</th>
+                                        <th>${applicationScope.textFields.getMobileNumberOfSMS()}</th>
                                         <td>${object.service.numOfSMS}</td>
                                     </tr>
                                     <tr>
-                                        <th>Internet</th>
-                                        <td>${object.service.numOfMbts} mbts</td>
+                                        <th>${applicationScope.textFields.getMobileNumberOfMbts()}</th>
+                                        <td>${object.service.numOfMbts}mbts</td>
                                     </tr>
                                 </c:when>
                             </c:choose>
@@ -90,11 +91,11 @@
                             <c:choose>
                                 <c:when test="${object.internet.speed!=0}">
                                     <h4 class="card__ability">
-                                        <span class="card__label">Internet Speed</span>
+                                        <span class="card__label">${applicationScope.textFields.getInternetSpeed()}</span>
                                             ${object.internet.speed/8} Mbps
                                     </h4>
                                     <h4 class="card__ability">
-                                        <span class="card__label">Technology</span>
+                                        <span class="card__label">${applicationScope.textFields.getInternetTechnology()}</span>
                                             ${object.internet.technology}
                                     </h4>
                                 </c:when>
@@ -135,12 +136,10 @@
                                     <button class="dropdown-item" type="submit" name="command" value="downloadTXT">.txt</button>
                                 </div>
                             </div>
-<%--                        <button type="submit" class="btn btn-success download" name="command" value="download">Download</button>--%>
                         </form>
                     </div>
                 </figure>
         </c:forEach>
-
     </div>
 </c:if>
 
