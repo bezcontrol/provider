@@ -39,39 +39,42 @@
     <div class="wrap-contact100">
         <c:choose>
             <c:when test="${(requestScope.operation eq 'Update') or (requestScope.operation eq 'Create')}">
-                <form class="contact100-form validate-form" method="post">
+                <form class="contact100-form validate-form" action="tariff" method="post">
+                    <input type="hidden" name="tariffId" value="${selectedTariff.tariff.id}"/>
+                    <input type="hidden" name="serviceType" value="${requestScope.selectedTariff.service.getClass().simpleName}"/>
+
 				<span class="contact100-form-title">
                         ${requestScope.operation}
                 </span>
                     <label class="label-input100"
-                           for="tariff-name">${applicationScope.textFields.getTariffName()}</label>
+                           for="tariff_name">${applicationScope.textFields.getTariffName()}</label>
                     <div class="wrap-input100 validate-input" data-validate="Required">
-                        <input id="tariff-name" class="input100" type="text" placeholder="">
+                        <input id="tariff_name" class="input100" type="text" placeholder="">
                         <span class="focus-input100"></span>
                     </div>
 
-                    <label class="label-input100" for="price">${applicationScope.textFields.getTariffPrice()}</label>
+                    <label class="label-input100" for="tariff_price">${applicationScope.textFields.getTariffPrice()}</label>
                     <div class="wrap-input100 validate-input" data-validate="Required">
-                        <input id="price" class="input100" type="text" placeholder="">
+                        <input id="tariff_price" class="input100" type="text" placeholder="">
                         <span class="focus-input100"></span>
                     </div>
 
                     <label class="label-input100"
-                           for="duration">${applicationScope.textFields.getTariffDurationInDays()}</label>
+                           for="tariff_duration">${applicationScope.textFields.getTariffDurationInDays()}</label>
                     <div class="wrap-input100 validate-input" data-validate="Required">
-                        <input id="duration" class="input100" type="text" placeholder="">
+                        <input id="tariff_duration" class="input100" type="text" placeholder="">
                         <span class="focus-input100"></span>
                     </div>
 
                     <c:if test="${selectedTariff.internet ne null}">
-                        <label class="label-input100" for="speed">${applicationScope.textFields.getInternetSpeed()}</label>
+                        <label class="label-input100" for="internet_speed">${applicationScope.textFields.getInternetSpeed()}</label>
                         <div class="wrap-input100 validate-input" data-validate="Required" >
-                            <input id="speed" class="input100" type="text" placeholder="">
+                            <input id="internet_speed" class="input100" type="text" placeholder="">
                             <span class="focus-input100"></span>
                         </div>
-                        <label class="label-input100" for="technology">${applicationScope.textFields.getInternetTechnology()}</label>
+                        <label class="label-input100" for="internet_technology">${applicationScope.textFields.getInternetTechnology()}</label>
                         <div class="wrap-input100 validate-input" data-validate="Required">
-                            <input id="technology" class="input100" type="text" placeholder="">
+                            <input id="internet_technology" class="input100" type="text" placeholder="">
                             <span class="focus-input100"></span>
                         </div>
                     </c:if>
@@ -87,9 +90,9 @@
                         </c:when>
                         <c:when test="${requestScope.selectedTariff.service.getClass().simpleName eq tv}">
                             <label class="label-input100"
-                                   for="tvType">${applicationScope.textFields.getTvType()}</label>
+                                   for="typeTV">${applicationScope.textFields.getTvType()}</label>
                             <div class="wrap-input100 validate-input" data-validate="Required">
-                                <input id="tvType" class="input100" type="text" placeholder="">
+                                <input id="typeTV" class="input100" type="text" placeholder="">
                                 <span class="focus-input100"></span>
                             </div>
                             <label class="label-input100"
@@ -128,50 +131,61 @@
                     </c:choose>
 
                     <div class="container-contact100-form-btn">
-                        <button class="contact100-form-btn">
-                                ${requestScope.operation}
-                        </button>
+                        <c:choose>
+                            <c:when test="${requestScope.operation eq 'Details'}">
+                                <button class="contact100-form-btn" type="button" >
+                                    Back
+                                </button>
+                            </c:when>
+                            <c:otherwise>
+                                <button class="contact100-form-btn" type="submit" name="command" value="${requestScope.operation}">
+                                        ${requestScope.operation}
+                                </button>
+                            </c:otherwise>
+                        </c:choose>
                     </div>
                 </form>
             </c:when>
             <c:otherwise>
-                <form class="contact100-form validate-form" method="post">
+                <form class="contact100-form validate-form" action="tariff" method="post">
+                    <input type="hidden" name="tariffId" value="${selectedTariff.tariff.id}"/>
+                    <input type="hidden" name="serviceType" value="${requestScope.selectedTariff.service.getClass().simpleName}"/>
 				<span class="contact100-form-title">
                         ${requestScope.operation}
                 </span>
                     <label class="label-input100"
-                           for="tariff-name-na">${applicationScope.textFields.getTariffName()}</label>
+                           for="tariff_name_na">${applicationScope.textFields.getTariffName()}</label>
                     <div class="wrap-input100">
-                        <input id="tariff-name-na" class="input100" type="text"
+                        <input id="tariff_name_na" class="input100" type="text"
                                placeholder="${selectedTariff.tariff.name}" disabled="disabled">
                         <span class="focus-input100"></span>
                     </div>
 
-                    <label class="label-input100" for="price-na">${applicationScope.textFields.getTariffPrice()}</label>
+                    <label class="label-input100" for="price_na">${applicationScope.textFields.getTariffPrice()}</label>
                     <div class="wrap-input100">
-                        <input id="price-na" class="input100" type="text" placeholder="${selectedTariff.tariff.price}"
+                        <input id="price_na" class="input100" type="text" placeholder="${selectedTariff.tariff.price}"
                                disabled="disabled">
                         <span class="focus-input100"></span>
                     </div>
 
                     <label class="label-input100"
-                           for="duration-na">${applicationScope.textFields.getTariffDurationInDays()}</label>
+                           for="duration_na">${applicationScope.textFields.getTariffDurationInDays()}</label>
                     <div class="wrap-input100">
-                        <input id="duration-na" class="input100" type="text"
+                        <input id="duration_na" class="input100" type="text"
                                placeholder="${selectedTariff.tariff.durationInDays}" disabled="disabled">
                         <span class="focus-input100"></span>
                     </div>
 
                     <c:if test="${selectedTariff.internet ne null}">
-                        <label class="label-input100" for="speed-na">${applicationScope.textFields.getInternetSpeed()}</label>
+                        <label class="label-input100" for="speed_na">${applicationScope.textFields.getInternetSpeed()}</label>
                         <div class="wrap-input100">
-                            <input id="speed-na" class="input100" type="text" placeholder="${selectedTariff.internet.speed}"
+                            <input id="speed_na" class="input100" type="text" placeholder="${selectedTariff.internet.speed}"
                                    disabled="disabled">
                             <span class="focus-input100"></span>
                         </div>
-                        <label class="label-input100" for="technology-na">${applicationScope.textFields.getInternetTechnology()}</label>
+                        <label class="label-input100" for="technology_na">${applicationScope.textFields.getInternetTechnology()}</label>
                         <div class="wrap-input100">
-                            <input id="technology-na" class="input100" type="text" placeholder="${selectedTariff.internet.technology}"
+                            <input id="technology_na" class="input100" type="text" placeholder="${selectedTariff.internet.technology}"
                                    disabled="disabled">
                             <span class="focus-input100"></span>
                         </div>
@@ -180,48 +194,48 @@
                     <c:choose>
                         <c:when test="${requestScope.selectedTariff.service.getClass().simpleName eq pc}">
                             <label class="label-input100"
-                                   for="connectedPC-na">${applicationScope.textFields.getPcConnectedPC()}</label>
+                                   for="connectedPC_na">${applicationScope.textFields.getPcConnectedPC()}</label>
                             <div class="wrap-input100">
-                                <input id="connectedPC-na" class="input100" type="text"
+                                <input id="connectedPC_na" class="input100" type="text"
                                        placeholder="${selectedTariff.service.numOfConnectedPC}" disabled="disabled">
                                 <span class="focus-input100"></span>
                             </div>
                         </c:when>
                         <c:when test="${requestScope.selectedTariff.service.getClass().simpleName eq tv}">
                             <label class="label-input100"
-                                   for="tvType-na">${applicationScope.textFields.getTvType()}</label>
+                                   for="tvType_na">${applicationScope.textFields.getTvType()}</label>
                             <div class="wrap-input100">
-                                <input id="tvType-na" class="input100" type="text"
+                                <input id="tvType_na" class="input100" type="text"
                                        placeholder="${selectedTariff.service.type}" disabled="disabled">
                                 <span class="focus-input100"></span>
                             </div>
                             <label class="label-input100"
-                                   for="numOfChannels-na">${applicationScope.textFields.getTvNumberOfChannels()}</label>
+                                   for="numOfChannels_na">${applicationScope.textFields.getTvNumberOfChannels()}</label>
                             <div class="wrap-input100">
-                                <input id="numOfChannels-na" class="input100" type="text"
+                                <input id="numOfChannels_na" class="input100" type="text"
                                        placeholder="${selectedTariff.service.numOfChannels}" disabled="disabled">
                                 <span class="focus-input100"></span>
                             </div>
                         </c:when>
                         <c:when test="${requestScope.selectedTariff.service.getClass().simpleName eq mobile}">
                             <label class="label-input100"
-                                   for="minutesInside-na">${applicationScope.textFields.getMobileMinutesInside()}</label>
+                                   for="minutesInside_na">${applicationScope.textFields.getMobileMinutesInside()}</label>
                             <div class="wrap-input100">
-                                <input id="minutesInside-na" class="input100" type="text"
+                                <input id="minutesInside_na" class="input100" type="text"
                                        placeholder="${selectedTariff.service.numOfMinutesInside}" disabled="disabled">
                                 <span class="focus-input100"></span>
                             </div>
                             <label class="label-input100"
-                                   for="minutesOutside-na">${applicationScope.textFields.getMobileMinutesOutside()}</label>
+                                   for="minutesOutside_na">${applicationScope.textFields.getMobileMinutesOutside()}</label>
                             <div class="wrap-input100">
-                                <input id="minutesOutside-na" class="input100" type="text"
+                                <input id="minutesOutside_na" class="input100" type="text"
                                        placeholder="${selectedTariff.service.numOfMinutesOutside}" disabled="disabled">
                                 <span class="focus-input100"></span>
                             </div>
                             <label class="label-input100"
-                                   for="numOfSMS-na">${applicationScope.textFields.getMobileNumberOfSMS()}</label>
+                                   for="numOfSMS_na">${applicationScope.textFields.getMobileNumberOfSMS()}</label>
                             <div class="wrap-input100">
-                                <input id="numOfSMS-na" class="input100" type="text"
+                                <input id="numOfSMS_na" class="input100" type="text"
                                        placeholder="${selectedTariff.service.numOfSMS}" disabled="disabled">
                                 <span class="focus-input100"></span>
                             </div>

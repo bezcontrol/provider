@@ -33,7 +33,7 @@ public class TariffDownloadPDFCommand implements AbstractCommand, Download {
     @Override
     public void load(HttpServletRequest request, HttpServletResponse response) {
         Document document = new Document();
-        TextFields fields= (TextFields) request.getServletContext().getAttribute("textFields");
+        TextFields fields = (TextFields) request.getServletContext().getAttribute("textFields");
         long tariffId = Long.parseLong(request.getParameter(Parameters.TARIFF_ID));
         try {
             AnyTariff tariff = BeanExtractorUtil.extractAnyTariffById(tariffId);

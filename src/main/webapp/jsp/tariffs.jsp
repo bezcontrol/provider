@@ -115,9 +115,8 @@
                         <c:if test="${not empty sessionScope.user}">
                             <c:choose>
                                 <c:when test="${sessionScope.userRole.getName() eq 'admin'}">
-                                    <button type="submit" class="btn btn-danger" name="operation" value="Create">Create</button>
-                                    <button type="submit"  class="btn btn-danger" name="operation" value="Update">Update</button>
-                                    <button type="submit"  class="btn btn-danger" name="operation" value="Delete">Delete</button>
+                                    <button type="submit"  class="btn btn-danger mybtn" name="operation" value="Update">Update</button>
+                                    <button type="submit"  class="btn btn-danger mybtn" name="operation" value="Delete">Delete</button>
                                 </c:when>
                             <c:otherwise>
                                 <button type="submit" class="btn btn-success">Make order</button>
@@ -125,7 +124,7 @@
                             </c:choose>
 
                         </c:if>
-                            <button type="submit"  class="btn btn-danger" name="operation" value="Details">Details</button>
+                            <button type="submit"  class="btn btn-danger mybtn" name="operation" value="Details">Details</button>
 
                             <div class="dropdown">
                                 <button class="btn btn-success dropdown-toggle download" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -142,6 +141,11 @@
         </c:forEach>
     </div>
 </c:if>
+<form action="tariff" method="post">
+    <c:if test="${sessionScope.userRole.getName() eq 'admin'}">
+        <button type="submit" class="btn btn-danger" name="operation" value="Create">Create</button>
+    </c:if>
+</form>
 
 </body>
 </html>

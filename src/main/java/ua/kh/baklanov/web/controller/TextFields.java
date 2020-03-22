@@ -2,89 +2,89 @@ package ua.kh.baklanov.web.controller;
 
 public final class TextFields {
 
-    private final String contractConclusionDate="Contract conclusion date: ";
-    private final String internetSpeed="Internet speed: ";
-    private final String internetTechnology="Internet technology: ";
-    private final String mobileMinutesInside="Minutes inside country: ";
-    private final String mobileMinutesOutside="Minutes outside country: ";
-    private final String mobileNumberOfSMS="SMS: ";
-    private final String mobileNumberOfMbts="Internet(mbts): ";
-    private final String pcConnectedPC="Available number of connected PC: ";
-    private final String statusUser="Your status: ";
-    private final String tariffName="Tariff: ";
-    private final String tariffPrice="Price: ";
-    private final String tariffDurationInDays="Duration(days): ";
-    private final String tvType="Type: ";
-    private final String tvNumberOfChannels="Channels: ";
-    private final String userLogin="Your login: ";
-    private final String userEmail="Your email: ";
-    private final String userBill="Bill: ";
+    private static final String CONTRACT_CONCLUSION_DATE ="Contract conclusion date: ";
+    private static final String INTERNET_SPEED ="Internet speed: ";
+    private static final String INTERNET_TECHNOLOGY ="Internet technology: ";
+    private static final String MINUTES_INSIDE_COUNTRY ="Minutes inside country: ";
+    private static final String MINUTES_OUTSIDE_COUNTRY ="Minutes outside country: ";
+    private static final String MOBILE_NUMBER_OF_SMS ="SMS: ";
+    private static final String MOBILE_NUMBER_OF_MBTS ="Internet(mbts): ";
+    private static final String PC_CONNECTED_PC ="Available number of connected PC: ";
+    private static final String STATUS_USER ="Your status: ";
+    private static final String TARIFF_NAME ="Tariff: ";
+    private static final String TARIFF_PRICE ="Price: ";
+    private static final String TARIFF_DURATION_IN_DAYS ="Duration(days): ";
+    private static final String TV_TYPE ="Type: ";
+    private static final String TV_NUMBER_OF_CHANNELS ="Channels: ";
+    private static final String USER_LOGIN ="Your login: ";
+    private static final String USER_EMAIL ="Your email: ";
+    private static final String USER_BILL ="Bill: ";
 
     public String getContractConclusionDate() {
-        return contractConclusionDate;
+        return CONTRACT_CONCLUSION_DATE;
     }
 
     public String getInternetSpeed() {
-        return internetSpeed;
+        return INTERNET_SPEED;
     }
 
     public String getInternetTechnology() {
-        return internetTechnology;
+        return INTERNET_TECHNOLOGY;
     }
 
     public String getMobileMinutesInside() {
-        return mobileMinutesInside;
+        return MINUTES_INSIDE_COUNTRY;
     }
 
     public String getMobileMinutesOutside() {
-        return mobileMinutesOutside;
+        return MINUTES_OUTSIDE_COUNTRY;
     }
 
     public String getMobileNumberOfSMS() {
-        return mobileNumberOfSMS;
+        return MOBILE_NUMBER_OF_SMS;
     }
 
     public String getMobileNumberOfMbts() {
-        return mobileNumberOfMbts;
+        return MOBILE_NUMBER_OF_MBTS;
     }
 
     public String getPcConnectedPC() {
-        return pcConnectedPC;
+        return PC_CONNECTED_PC;
     }
 
     public String getStatusUser() {
-        return statusUser;
+        return STATUS_USER;
     }
 
     public String getTariffName() {
-        return tariffName;
+        return TARIFF_NAME;
     }
 
     public String getTariffPrice() {
-        return tariffPrice;
+        return TARIFF_PRICE;
     }
 
     public String getTariffDurationInDays() {
-        return tariffDurationInDays;
+        return TARIFF_DURATION_IN_DAYS;
     }
 
     public String getTvType() {
-        return tvType;
+        return TV_TYPE;
     }
 
     public String getTvNumberOfChannels() {
-        return tvNumberOfChannels;
+        return TV_NUMBER_OF_CHANNELS;
     }
 
     public String getUserLogin() {
-        return userLogin;
+        return USER_LOGIN;
     }
 
     public String getUserEmail() {
-        return userEmail;
+        return USER_EMAIL;
     }
 
     public String getUserBill() {
-        return userBill;
+        return USER_BILL;
     }
 }

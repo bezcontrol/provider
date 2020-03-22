@@ -8,7 +8,20 @@ public final class Parameters {
     public static final String EMAIL="email";
     public static final String TYPE_TV="typeTV";
     public static final String TARIFF_ID = "tariffId";
+    public static final String SERVICE_TYPE = "serviceType";
     public static final String OPERATION = "operation";
+    public static final String TARIFF_NAME="tariff_name";
+    public static final String TARIFF_PRICE="tariff_price";
+    public static final String TARIFF_DURATION="tariff_duration";
+    public static final String INTERNET_SPEED="internet_speed";
+    public static final String INTERNET_TECHNOLOGY="internet_technology";
+    public static final String CONNECTED_PC="connectedPC";
+    public static final String NUM_OF_CHANNELS="numOfChannels";
+    public static final String MINUTES_INSIDE="minutesInside";
+    public static final String MINUTES_OUTSIDE="minutesOutside";
+    public static final String NUM_OF_SMS="numOfSMS";
+    public static final String NUM_OF_MBTS="numOfMbts";
+
 
     private Parameters(){}
 }
