@@ -8,6 +8,7 @@ public final class Parameters {
     public static final String EMAIL="email";
     public static final String TYPE_TV="typeTV";
     public static final String TARIFF_ID = "tariffId";
+    public static final String OPERATION = "operation";
 
     private Parameters(){}
 }

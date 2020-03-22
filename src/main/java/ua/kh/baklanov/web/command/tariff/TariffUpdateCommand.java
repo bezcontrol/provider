@@ -16,15 +16,17 @@ public class TariffUpdateCommand implements AbstractCommand {
     private static final Logger LOG = Logger.getLogger(TariffUpdateCommand.class);
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response){
-        long tariffId = Long.parseLong(request.getParameter(Parameters.TARIFF_ID));
-        try {
-            AnyTariff tariff = BeanExtractorUtil.extractAnyTariffById(tariffId);
-            request.setAttribute("selectedTariff", tariff);
-            request.setAttribute("command", "update");
-            return Route.SINGLE_TARIFF;
-        } catch (DbException e) {
-            LOG.error(Messages.ERROR_BEAN_EXTRACTOR_UTIL + TariffUpdateCommand.class.getName(), e);
-            return Route.PAGE_ERROR_PAGE;
-        }
+        System.out.println("UPDATE");
+//        long tariffId = Long.parseLong(request.getParameter(Parameters.TARIFF_ID));
+//        try {
+//            AnyTariff tariff = BeanExtractorUtil.extractAnyTariffById(tariffId);
+//            request.setAttribute("selectedTariff", tariff);
+//            request.setAttribute("command", "Update");
+//            return Route.SINGLE_TARIFF;
+//        } catch (DbException e) {
+//            LOG.error(Messages.ERROR_BEAN_EXTRACTOR_UTIL + TariffUpdateCommand.class.getName(), e);
+//            return Route.PAGE_ERROR_PAGE;
+//        }
+        return null;
     }
 }

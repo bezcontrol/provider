@@ -255,7 +255,7 @@ iframe {
   color: #333333;
   line-height: 1.2;
   text-align: center;
-  padding-bottom: 33px;
+  /*padding-bottom: 33px;*/
 }
 
 
@@ -293,7 +293,7 @@ iframe {
   display: flex;
   align-items: center;
   width: 100%;
-  min-height: 55px;
+  /*min-height: 55px;*/
   border: 1px solid #e6e6e6;
   border-bottom: none; 
   padding: 10px 25px;
@@ -313,7 +313,7 @@ iframe {
 }
 
 input.input100 {
-  height: 55px;
+  height: 35px;
 }
 
 

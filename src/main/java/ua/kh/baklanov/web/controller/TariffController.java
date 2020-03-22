@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Objects;
 
 @WebServlet("/tariff")
 public class TariffController extends HttpServlet {
@@ -21,7 +22,12 @@ public class TariffController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         String commandName = req.getParameter(Parameters.COMMAND);
-        AbstractCommand command = TariffCommandContainer.get(commandName);
+        AbstractCommand command;
+        if(Objects.isNull(commandName)){
+            command=TariffCommandContainer.get("getSingleTariff");
+        } else {
+            command = TariffCommandContainer.get(commandName);
+        }
         String forward = Route.PAGE_ERROR_PAGE;
         try {
             LOG.info(Messages.INFO_EXECUTING_COMMAND+commandName);

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 public class TariffCreateCommand implements AbstractCommand {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws AppException {
+        System.out.println("CREATE");
         return null;
     }
 }

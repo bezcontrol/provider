@@ -10,12 +10,13 @@ public final class TariffCommandContainer {
     private static Map<String, AbstractCommand> commands = new TreeMap<>();
 
     static {
-        commands.put("details", new TariffDetailsCommand());
-        commands.put("edit", new TariffUpdateCommand());
-        commands.put("delete", new TariffDeleteCommand());
-        commands.put("create", new TariffCreateCommand());
+        commands.put("Details", new TariffDetailsCommand());
+        commands.put("Update", new TariffUpdateCommand());
+        commands.put("Delete", new TariffDeleteCommand());
+        commands.put("Create", new TariffCreateCommand());
         commands.put("downloadPDF", new TariffDownloadPDFCommand());
         commands.put("downloadTXT", new TariffDownloadTXTCommand());
+        commands.put("getSingleTariff", new GetSingleTariffCommand());
         commands.put("noCommand", new NoCommand());
     }
 
