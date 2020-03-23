@@ -9,10 +9,7 @@ import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
 import ua.kh.baklanov.model.bean.AnyService;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +18,7 @@ public class DefaultAnyServiceDAOImpl implements AnyServiceDAO {
     private DAOFactory factory;
     private static final Logger LOG = Logger.getLogger(DefaultAnyServiceDAOImpl.class);
 
-    public DefaultAnyServiceDAOImpl(){
+    public DefaultAnyServiceDAOImpl() {
         factory = DAOFactory.getDefaultFactory();
     }
 
@@ -47,7 +44,25 @@ public class DefaultAnyServiceDAOImpl implements AnyServiceDAO {
 
     @Override
     public List getAll() throws DbException {
-        return null;
+        List<AnyService> typedServices = new ArrayList<>();
+        try (Connection con = factory.getConnection();
+             Statement statement = con.createStatement()) {
+            try (ResultSet rs = statement.executeQuery(Queries.GET_ALL_ANY_SERVICES)) {
+                while (rs.next()) {
+                    if (rs.getLong("idPC") != 0) {
+                        typedServices.add(DefaultExtractorUtil.extractAnyServicePC(rs));
+                    } else if (rs.getLong("idTV") != 0) {
+                        typedServices.add(DefaultExtractorUtil.extractAnyServiceTV(rs));
+                    } else {
+                        typedServices.add(DefaultExtractorUtil.extractAnyServiceMobile(rs));
+                    }
+                }
+            }
+        } catch (SQLException | DbException ex) {
+            LOG.error(Messages.ERROR_GET_PART_OF_RECORDS + AnyService.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_GET_PART_OF_RECORDS + AnyService.class.getSimpleName(), ex);
+        }
+        return typedServices;
     }
 
     @Override

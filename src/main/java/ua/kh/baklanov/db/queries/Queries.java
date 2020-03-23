@@ -75,6 +75,13 @@ public final class Queries {
             "JOIN tv tv ON tv.id=s.idTV join internet i ON s.idInternet=i.id where idTV =?";
     public static final String GET_ANY_SERVICES_OF_MOBILE =  "SELECT * FROM services s " +
             "JOIN mobile m ON m.id=s.idMobile join internet i ON s.idInternet=i.id where idMobile =?";
+    public static final String UPDATE_TARIFF = "UPDATE tariffs SET " +
+            "name=?, price=?, idService=?, durationInDays=? WHERE id=?";
+    public static final String GET_ALL_ANY_SERVICES = "SELECT * FROM services s " +
+            "LEFT OUTER JOIN internet i ON s.idInternet=i.id " +
+            "LEFT OUTER JOIN pc pc ON s.idPC = pc.id " +
+            "LEFT OUTER JOIN tv tv ON s.idTV=tv.id " +
+            "LEFT OUTER JOIN mobile m ON s.idMobile=m.id;";
 
     private Queries() {
     }

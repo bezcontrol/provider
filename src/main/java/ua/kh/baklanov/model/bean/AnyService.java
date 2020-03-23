@@ -5,6 +5,15 @@ import ua.kh.baklanov.model.entity.Internet;
 public class AnyService<T> {
     private Internet internet;
     private T service;
+    private String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public Internet getInternet() {
         return internet;

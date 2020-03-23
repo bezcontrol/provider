@@ -176,22 +176,38 @@ public final class DefaultExtractorUtil {
 
     public static AnyService extractAnyServicePC(ResultSet rs) throws DbException {
         AnyService<PC> anyService=new AnyService();
-        anyService.setInternet(extractInternet(rs));
-        anyService.setService(extractPC(rs));
+        try {
+            anyService.setDescription(rs.getString("description"));
+            anyService.setInternet(extractInternet(rs));
+            anyService.setService(extractPC(rs));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return anyService;
     }
 
     public static AnyService extractAnyServiceTV(ResultSet rs) throws DbException {
         AnyService<TV> anyService=new AnyService();
-        anyService.setInternet(extractInternet(rs));
-        anyService.setService(extractTV(rs));
+        try {
+            anyService.setInternet(extractInternet(rs));
+            anyService.setService(extractTV(rs));
+            anyService.setDescription(rs.getString("description"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return anyService;
     }
 
     public static AnyService extractAnyServiceMobile(ResultSet rs) throws DbException {
         AnyService<Mobile> anyService=new AnyService();
-        anyService.setInternet(extractInternet(rs));
-        anyService.setService(extractMobile(rs));
+        try {
+            anyService.setInternet(extractInternet(rs));
+            anyService.setService(extractMobile(rs));
+            anyService.setDescription(rs.getString("description"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return anyService;
     }
 }

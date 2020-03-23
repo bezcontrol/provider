@@ -72,6 +72,7 @@ CREATE TABLE `services` (
                             `idTV` INT,
                             `idMobile` INT,
                             `idInternet` INT,
+                             `description` VARCHAR(45) NOT NULL,
                             PRIMARY KEY (`id`),
                             UNIQUE  (`id`),
                             CONSTRAINT `fk_service_pc`
@@ -171,18 +172,18 @@ INSERT INTO `mobile` (`numOfMinutesInside`,`numOfMinutesOutside`,`numOfSMS`,`num
 INSERT INTO `mobile` (`numOfMinutesInside`,`numOfMinutesOutside`,`numOfSMS`,`numOfMbts`) VALUES ('50','100','25','8000');
 INSERT INTO `mobile` (`numOfMinutesInside`,`numOfMinutesOutside`,`numOfSMS`,`numOfMbts`) VALUES ('300','100','50','0');
 INSERT INTO `mobile` (`numOfMinutesInside`,`numOfMinutesOutside`,`numOfSMS`,`numOfMbts`) VALUES ('250','100','25','2000');
-INSERT INTO services (id,idTV,idInternet) VALUES (1,2,2);
-INSERT INTO services (id,idTV,idInternet) VALUES (2,3,3);
-INSERT INTO services (id,idTV) VALUES (3,1);
-INSERT INTO services (id,idTV,idInternet) VALUES (4,3,4);
-INSERT INTO services (id,idPC,idInternet) VALUES (5,1,3);
-INSERT INTO services (id,idPC,idInternet) VALUES (6,2,4);
-INSERT INTO services (id,idMobile) VALUES (7,3);
-INSERT INTO services (id,idMobile,idInternet) VALUES (8,2,2);
-INSERT INTO services (id,idMobile,idInternet) VALUES (9,2,3);
-INSERT INTO services (id,idMobile,idInternet) VALUES (10,1,2);
-INSERT INTO services (id,idMobile,idInternet) VALUES (11,1,4);
-INSERT INTO services (id,idMobile,idInternet) VALUES (12,4,1);
+INSERT INTO services (id,idTV,idInternet,description) VALUES (1,2,2,'ip-tv with simple internet');
+INSERT INTO services (id,idTV,idInternet,description) VALUES (2,3,3, 'smart-tv with great internet');
+INSERT INTO services (id,idTV,description) VALUES (3,1, 'analog without internet');
+INSERT INTO services (id,idTV,idInternet,description) VALUES (4,3,4, 'smart-tv with the best internet');
+INSERT INTO services (id,idPC,idInternet,description) VALUES (5,1,3,'5G internet for single pc');
+INSERT INTO services (id,idPC,idInternet,description) VALUES (6,2,4, '4G internet for N pc');
+INSERT INTO services (id,idMobile,description) VALUES (7,3,'mobile without internet');
+INSERT INTO services (id,idMobile,idInternet,description) VALUES (8,2,2,'8Gb 4G internet');
+INSERT INTO services (id,idMobile,idInternet,description) VALUES (9,2,3, '8Gb 5G internet');
+INSERT INTO services (id,idMobile,idInternet,description) VALUES (10,1,2, '7Gb 4G slow internet');
+INSERT INTO services (id,idMobile,idInternet,description) VALUES (11,1,4,'7Gb 4G fast internet');
+INSERT INTO services (id,idMobile,idInternet,description) VALUES (12,4,1,'2Gb 3G internet');
 INSERT INTO tariffs (id,name, price, idService,durationInDays) VALUES (1,'Analog TV', 100, 3, 30);
 INSERT INTO tariffs (id,name, price, idService,durationInDays) VALUES (2,'IP-TV', 150, 1, 30);
 INSERT INTO tariffs (id,name, price, idService,durationInDays) VALUES (3,'Smart-TV', 250, 2, 28);
