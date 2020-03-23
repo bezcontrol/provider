@@ -111,7 +111,8 @@
                     <div class="group_of_buttons">
                         <form action="tariff" method="post">
                             <input type="hidden" name="tariffId" value="${object.tariff.id}"/>
-
+                            <input type="hidden" name="serviceType" value="${object.service.getClass().simpleName}"/>
+                            <input type="hidden" name="serviceId" value="${object.service.id}"/>
                         <c:if test="${not empty sessionScope.user}">
                             <c:choose>
                                 <c:when test="${sessionScope.userRole.getName() eq 'admin'}">

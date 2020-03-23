@@ -30,10 +30,12 @@
     <%@ include file="../jspf/menu.jspf" %>
 </head>
 <body>
-
 <c:set var="pc" value='PC'/>
 <c:set var="tv" value='TV'/>
 <c:set var="mobile" value='Mobile'/>
+<c:if test="${(sessionScope.user eq null) and (requestScope.operation ne 'Details')}">
+    <c:redirect url="/service?command=allTariffs"/>
+</c:if>
 
 <div class="container-contact100">
     <div class="wrap-contact100">
@@ -41,11 +43,11 @@
             <c:when test="${(requestScope.operation eq 'Update') or (requestScope.operation eq 'Create')}">
                 <form class="contact100-form validate-form" action="tariff" method="post">
                     <input type="hidden" name="tariffId" value="${selectedTariff.tariff.id}"/>
-                    <input type="hidden" name="serviceType" value="${requestScope.selectedTariff.service.getClass().simpleName}"/>
+                    <input type="hidden" name="serviceId" value="${requestScope.selectedTariff.service.id}"/>
 
-				<span class="contact100-form-title">
-                        ${requestScope.operation}
-                </span>
+                    <span class="contact100-form-title">
+                            ${requestScope.operation}
+                    </span>
                     <label class="label-input100"
                            for="tariff_name">${applicationScope.textFields.getTariffName()}</label>
                     <div class="wrap-input100 validate-input" data-validate="Required">
@@ -53,7 +55,46 @@
                         <span class="focus-input100"></span>
                     </div>
 
-                    <label class="label-input100" for="tariff_price">${applicationScope.textFields.getTariffPrice()}</label>
+                    <div class="wrap-input100">
+                        <div class="label-input100">What do you need?</div>
+                        <div style="border: 1px solid #e6e6e6;">
+                            <select id="serviceId" class="js-select2">
+                                <option value="">-- Select --</option>
+                                <c:forEach items="${servicesList}" var="service">
+
+                                    <c:choose>
+                                        <c:when test="${service.service.getClass().simpleName eq pc}">
+                                            <option data-speed="${service.internet.speed}"
+                                                    data-tech="${service.internet.technology}"
+                                                    data-conpc="${service.service.numOfConnectedPC}">
+                                                <c:out value="${service.service.id}"/></option>
+                                        </c:when>
+                                        <c:when test="${service.service.getClass().simpleName eq tv}">
+                                            <option data-speed="${service.internet.speed}"
+                                                    data-tech="${service.internet.technology}"
+                                                    data-type="${service.service.type}"
+                                                    data-numofchannels="${service.service.numOfChannels}">
+                                                <c:out value="${service.service.id}"/></option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option data-speed="${service.internet.speed}"
+                                                    data-tech="${service.internet.technology}"
+                                                    data-numofmininside="${service.service.numOfMinutesInside}"
+                                                    data-numofminoutside="${service.service.numOfMinutesOutside}"
+                                                    data-numofsms="${service.service.numOfSMS}"
+                                                    data-numofmbts="${service.service.numOfMbts}">
+                                                <c:out value="${service.service.id}"/></option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:forEach>
+                            </select>
+                            <div class="dropDownSelect2"></div>
+                        </div>
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <label class="label-input100"
+                           for="tariff_price">${applicationScope.textFields.getTariffPrice()}</label>
                     <div class="wrap-input100 validate-input" data-validate="Required">
                         <input id="tariff_price" class="input100" type="text" placeholder="">
                         <span class="focus-input100"></span>
@@ -67,14 +108,16 @@
                     </div>
 
                     <c:if test="${selectedTariff.internet ne null}">
-                        <label class="label-input100" for="internet_speed">${applicationScope.textFields.getInternetSpeed()}</label>
-                        <div class="wrap-input100 validate-input" data-validate="Required" >
-                            <input id="internet_speed" class="input100" type="text" placeholder="">
+                        <label class="label-input100"
+                               for="internet_speed">${applicationScope.textFields.getInternetSpeed()}</label>
+                        <div class="wrap-input100 validate-input" data-validate="Required">
+                            <input id="internet_speed" class="input100" type="text" placeholder="" disabled="disabled">
                             <span class="focus-input100"></span>
                         </div>
-                        <label class="label-input100" for="internet_technology">${applicationScope.textFields.getInternetTechnology()}</label>
+                        <label class="label-input100"
+                               for="internet_technology">${applicationScope.textFields.getInternetTechnology()}</label>
                         <div class="wrap-input100 validate-input" data-validate="Required">
-                            <input id="internet_technology" class="input100" type="text" placeholder="">
+                            <input id="internet_technology" class="input100" type="text" placeholder="" disabled="disabled">
                             <span class="focus-input100"></span>
                         </div>
                     </c:if>
@@ -84,7 +127,7 @@
                             <label class="label-input100"
                                    for="connectedPC">${applicationScope.textFields.getPcConnectedPC()}</label>
                             <div class="wrap-input100 validate-input" data-validate="Required">
-                                <input id="connectedPC" class="input100" type="text" placeholder="">
+                                <input id="connectedPC" class="input100" type="text" placeholder="" disabled="disabled">
                                 <span class="focus-input100"></span>
                             </div>
                         </c:when>
@@ -92,13 +135,13 @@
                             <label class="label-input100"
                                    for="typeTV">${applicationScope.textFields.getTvType()}</label>
                             <div class="wrap-input100 validate-input" data-validate="Required">
-                                <input id="typeTV" class="input100" type="text" placeholder="">
+                                <input id="typeTV" class="input100" type="text" placeholder="" disabled="disabled">
                                 <span class="focus-input100"></span>
                             </div>
                             <label class="label-input100"
                                    for="numOfChannels">${applicationScope.textFields.getTvNumberOfChannels()}</label>
                             <div class="wrap-input100 validate-input" data-validate="Required">
-                                <input id="numOfChannels" class="input100" type="text" placeholder="">
+                                <input id="numOfChannels" class="input100" type="text" placeholder="" disabled="disabled">
                                 <span class="focus-input100"></span>
                             </div>
                         </c:when>
@@ -106,7 +149,7 @@
                             <label class="label-input100"
                                    for="minutesInside">${applicationScope.textFields.getMobileMinutesInside()}</label>
                             <div class="wrap-input100 validate-input" data-validate="Required">
-                                <input id="minutesInside" class="input100" type="text" placeholder="">
+                                <input id="minutesInside" class="input100" type="text" placeholder="" disabled="disabled">
                                 <span class="focus-input100"></span>
                             </div>
                             <label class="label-input100"
@@ -118,13 +161,13 @@
                             <label class="label-input100"
                                    for="numOfSMS">${applicationScope.textFields.getMobileNumberOfSMS()}</label>
                             <div class="wrap-input100 validate-input" data-validate="Required">
-                                <input id="numOfSMS" class="input100" type="text" placeholder="">
+                                <input id="numOfSMS" class="input100" type="text" placeholder="" disabled="disabled">
                                 <span class="focus-input100"></span>
                             </div>
                             <label class="label-input100"
                                    for="numOfMbts">${applicationScope.textFields.getMobileNumberOfMbts()}</label>
                             <div class="wrap-input100 validate-input" data-validate="Required">
-                                <input id="numOfMbts" class="input100" type="text" placeholder="">
+                                <input id="numOfMbts" class="input100" type="text" placeholder="" disabled="disabled">
                                 <span class="focus-input100"></span>
                             </div>
                         </c:when>
@@ -133,12 +176,13 @@
                     <div class="container-contact100-form-btn">
                         <c:choose>
                             <c:when test="${requestScope.operation eq 'Details'}">
-                                <button class="contact100-form-btn" type="button" >
+                                <button class="contact100-form-btn" type="button">
                                     Back
                                 </button>
                             </c:when>
                             <c:otherwise>
-                                <button class="contact100-form-btn" type="submit" name="command" value="${requestScope.operation}">
+                                <button class="contact100-form-btn" type="submit" name="command"
+                                        value="${requestScope.operation}">
                                         ${requestScope.operation}
                                 </button>
                             </c:otherwise>
@@ -149,10 +193,11 @@
             <c:otherwise>
                 <form class="contact100-form validate-form" action="tariff" method="post">
                     <input type="hidden" name="tariffId" value="${selectedTariff.tariff.id}"/>
-                    <input type="hidden" name="serviceType" value="${requestScope.selectedTariff.service.getClass().simpleName}"/>
-				<span class="contact100-form-title">
-                        ${requestScope.operation}
-                </span>
+                    <input type="hidden" name="serviceType"
+                           value="${requestScope.selectedTariff.service.getClass().simpleName}"/>
+                    <span class="contact100-form-title">
+                            ${requestScope.operation}
+                    </span>
                     <label class="label-input100"
                            for="tariff_name_na">${applicationScope.textFields.getTariffName()}</label>
                     <div class="wrap-input100">
@@ -177,15 +222,19 @@
                     </div>
 
                     <c:if test="${selectedTariff.internet ne null}">
-                        <label class="label-input100" for="speed_na">${applicationScope.textFields.getInternetSpeed()}</label>
+                        <label class="label-input100"
+                               for="speed_na">${applicationScope.textFields.getInternetSpeed()}</label>
                         <div class="wrap-input100">
-                            <input id="speed_na" class="input100" type="text" placeholder="${selectedTariff.internet.speed}"
+                            <input id="speed_na" class="input100" type="text"
+                                   placeholder="${selectedTariff.internet.speed}"
                                    disabled="disabled">
                             <span class="focus-input100"></span>
                         </div>
-                        <label class="label-input100" for="technology_na">${applicationScope.textFields.getInternetTechnology()}</label>
+                        <label class="label-input100"
+                               for="technology_na">${applicationScope.textFields.getInternetTechnology()}</label>
                         <div class="wrap-input100">
-                            <input id="technology_na" class="input100" type="text" placeholder="${selectedTariff.internet.technology}"
+                            <input id="technology_na" class="input100" type="text"
+                                   placeholder="${selectedTariff.internet.technology}"
                                    disabled="disabled">
                             <span class="focus-input100"></span>
                         </div>
@@ -252,12 +301,13 @@
                     <div class="container-contact100-form-btn">
                         <c:choose>
                             <c:when test="${requestScope.operation eq 'Details'}">
-                                <button class="contact100-form-btn" type="button" >
+                                <button class="contact100-form-btn" type="button">
                                     Back
                                 </button>
                             </c:when>
                             <c:otherwise>
-                                <button class="contact100-form-btn" type="submit" name="command" value="${requestScope.operation}">
+                                <button class="contact100-form-btn" type="submit" name="command"
+                                        value="${requestScope.operation}">
                                         ${requestScope.operation}
                                 </button>
                             </c:otherwise>
@@ -412,6 +462,50 @@
 <script src="../resources/js/bootstrap/bootstrap.min.js"></script>
 <!--===============================================================================================-->
 <script src="../resources/js/lib/select2.min.js"></script>
+
+
+<script>
+    $("#serviceId").change(function () {
+        document.getElementById('internet_speed').value = $(this).find(':selected').data('speed');
+        document.getElementById('internet_technology').value = $(this).find(':selected').data('tech');
+        <c:choose>
+        <c:when test="${selectedTariff.service.getClass().simpleName eq pc}">
+            document.getElementById('connectedPC').value = $(this).find(':selected').data('conpc');
+        </c:when>
+        <c:when test="${selectedTariff.service.getClass().simpleName eq tv}">
+            document.getElementById('typeTV').value = $(this).find(':selected').data('type');
+            document.getElementById('numOfChannels').value = $(this).find(':selected').data('numofchannels');
+        </c:when>
+        <c:otherwise>
+            document.getElementById('minutesInside').value = $(this).find(':selected').data('numofmininside');
+            document.getElementById('minutesOutside').value = $(this).find(':selected').data('numofminoutside');
+            document.getElementById('numOfSMS').value = $(this).find(':selected').data('numofsms');
+            document.getElementById('numOfMbts').value = $(this).find(':selected').data('numofmbts');
+        </c:otherwise>
+        </c:choose>
+    });
+</script>
+<script>
+
+    $(".js-select2").each(function () {
+        $(this).select2({
+            minimumResultsForSearch: 20,
+            dropdownParent: $(this).next('.dropDownSelect2')
+        });
+    })
+    $(".js-select2").each(function () {
+        $(this).on('select2:open', function (e) {
+            $(this).parent().next().addClass('eff-focus-selection');
+        });
+    });
+    $(".js-select2").each(function () {
+        $(this).on('select2:close', function (e) {
+            $(this).parent().next().removeClass('eff-focus-selection');
+        });
+    });
+
+</script>
+
 <script>
     $(".selection-2").select2({
         minimumResultsForSearch: 20,

@@ -10,6 +10,7 @@ public final class Attributes {
     public static final String PC_DAO = "PC_DAO";
     public static final String INTERNET_DAO = "INTERNET_DAO";
     public static final String MOBILE_DAO = "MOBILE_DAO";
+    public static final String ANY_SERVICE_DAO = "ANY_SERVICE_DAO";
 
     private Attributes(){}
 }

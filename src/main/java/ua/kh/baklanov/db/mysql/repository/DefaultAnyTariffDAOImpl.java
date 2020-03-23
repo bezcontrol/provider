@@ -41,8 +41,8 @@ public class DefaultAnyTariffDAOImpl implements AnyTariffDAO {
                 }
             }
         } catch (SQLException | DbException ex) {
-            LOG.error(Messages.ERROR_GET_RECORDS +AnyTariff.class.getSimpleName(), ex);
-            throw new DbException(Messages.ERROR_GET_RECORDS +AnyTariff.class.getSimpleName(), ex);
+            LOG.error(Messages.ERROR_GET_ALL_RECORDS +AnyTariff.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_GET_ALL_RECORDS +AnyTariff.class.getSimpleName(), ex);
         }
         return allMobileTariffs;
     }
@@ -59,8 +59,8 @@ public class DefaultAnyTariffDAOImpl implements AnyTariffDAO {
                 }
             }
         } catch (SQLException | DbException ex) {
-            LOG.error(Messages.ERROR_GET_RECORDS +AnyTariff.class.getSimpleName(), ex);
-            throw new DbException(Messages.ERROR_GET_RECORDS +AnyTariff.class.getSimpleName(), ex);
+            LOG.error(Messages.ERROR_GET_ALL_RECORDS +AnyTariff.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_GET_ALL_RECORDS +AnyTariff.class.getSimpleName(), ex);
         }
         return allPCTariffs;
     }
@@ -77,8 +77,8 @@ public class DefaultAnyTariffDAOImpl implements AnyTariffDAO {
                 }
             }
         } catch (SQLException | DbException ex) {
-            LOG.error(Messages.ERROR_GET_RECORDS +AnyTariff.class.getSimpleName(), ex);
-            throw new DbException(Messages.ERROR_GET_RECORDS +AnyTariff.class.getSimpleName(), ex);
+            LOG.error(Messages.ERROR_GET_ALL_RECORDS +AnyTariff.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_GET_ALL_RECORDS +AnyTariff.class.getSimpleName(), ex);
         }
         return allTVTariffs;
     }

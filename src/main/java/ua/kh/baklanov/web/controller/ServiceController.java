@@ -24,15 +24,15 @@ public class ServiceController extends HttpServlet {
         AbstractCommand command = ServiceCommandContainer.get(commandName);
         String forward = Route.PAGE_ERROR_PAGE;
         try {
-            LOG.info(Messages.INFO_EXECUTING_COMMAND+commandName);
+            LOG.info(Messages.INFO_EXECUTING_COMMAND+command.getClass().getSimpleName());
             forward = command.execute(req, resp);
         } catch (AppException ex) {
-            LOG.error(Messages.ERROR_EXECUTING_COMMAND + command.getClass().getName(),ex);
+            LOG.error(Messages.ERROR_EXECUTING_COMMAND + command.getClass().getSimpleName(),ex);
         }
         try {
             req.getRequestDispatcher(forward).forward(req,resp);
         } catch (ServletException |IOException ex) {
-            LOG.error(Messages.ERROR_FORWARD+ServiceController.class.getName(),ex);
+            LOG.error(Messages.ERROR_FORWARD+ServiceController.class.getSimpleName(),ex);
         }
     }
 }

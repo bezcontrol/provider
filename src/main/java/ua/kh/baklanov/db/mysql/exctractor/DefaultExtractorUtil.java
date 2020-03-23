@@ -3,6 +3,7 @@ package ua.kh.baklanov.db.mysql.exctractor;
 import org.apache.log4j.Logger;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
+import ua.kh.baklanov.model.bean.AnyService;
 import ua.kh.baklanov.model.bean.AnyTariff;
 import ua.kh.baklanov.model.entity.Internet;
 import ua.kh.baklanov.model.entity.Mobile;
@@ -173,4 +174,24 @@ public final class DefaultExtractorUtil {
         return mobile;
     }
 
+    public static AnyService extractAnyServicePC(ResultSet rs) throws DbException {
+        AnyService<PC> anyService=new AnyService();
+        anyService.setInternet(extractInternet(rs));
+        anyService.setService(extractPC(rs));
+        return anyService;
+    }
+
+    public static AnyService extractAnyServiceTV(ResultSet rs) throws DbException {
+        AnyService<TV> anyService=new AnyService();
+        anyService.setInternet(extractInternet(rs));
+        anyService.setService(extractTV(rs));
+        return anyService;
+    }
+
+    public static AnyService extractAnyServiceMobile(ResultSet rs) throws DbException {
+        AnyService<Mobile> anyService=new AnyService();
+        anyService.setInternet(extractInternet(rs));
+        anyService.setService(extractMobile(rs));
+        return anyService;
+    }
 }

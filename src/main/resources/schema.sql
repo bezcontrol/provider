@@ -96,6 +96,25 @@ CREATE TABLE `services` (
                                     ON UPDATE CASCADE
 );
 
+
+
+
+DELIMITER $$
+
+CREATE DEFINER=`user`@`localhost` TRIGGER `services_BEFORE_INSERT` BEFORE INSERT ON `services` FOR EACH ROW BEGIN
+
+IF exists (SELECT 1 FROM `services`
+   WHERE  idTV<=>NEW.idTV and idPC<=>NEW.idPC and idMobile<=>NEW.idMobile and idInternet<=>NEW.idInternet
+  )
+  THEN
+        signal sqlstate '45000' set message_text = 'MyTriggerError: Trying to insert duplicate!';
+  END IF;
+
+END$$
+
+DELIMITER ;
+
+
 CREATE TABLE `tariffs` (
                            `id` INT NOT NULL AUTO_INCREMENT,
                            `name` VARCHAR(45) NOT NULL,
@@ -139,9 +158,10 @@ INSERT INTO `statuses` (`name`) VALUES ('blocked');
 INSERT INTO `statuses` (`name`) VALUES ('missed');
 INSERT INTO `users` (`login`, `password`,`email`, `idRole`, `idStatus`, `bill`) VALUES ('admin','adminpass','user@gmail.com', '1','2','100.0');
 INSERT INTO `users` (`login`, `password`,`email`, `idRole`,`idStatus`, `bill`) VALUES ('client','clientpass','user2@gmail.com', '2','2','200.0');
-INSERT INTO `internet` (`speed`, `technology`) VALUES ( '640', '4G');
-INSERT INTO `internet` (`speed`, `technology`) VALUES ('800', '5G');
-INSERT INTO `internet` (`speed`, `technology`) VALUES ('1000', '4G');
+INSERT INTO `internet` (id, speed, technology) VALUES (1, 520, '3G');
+INSERT INTO `internet` (id, speed, technology) VALUES (2, 640, '4G');
+INSERT INTO `internet` (id, speed, technology) VALUES (3, 800, '5G');
+INSERT INTO `internet` (id, speed, technology) VALUES (4, 1000, '4G');
 INSERT INTO `pc` (`numOfConnectedPC`) VALUES ('1');
 INSERT INTO `pc` (`numOfConnectedPC`) VALUES ('10');
 INSERT INTO `tv` (`type`,`numOfChannels`) VALUES ('Analog','100');
@@ -150,19 +170,26 @@ INSERT INTO `tv` (`type`,`numOfChannels`) VALUES ('Smart-TV','200');
 INSERT INTO `mobile` (`numOfMinutesInside`,`numOfMinutesOutside`,`numOfSMS`,`numOfMbts`) VALUES ('100','20','50','7000');
 INSERT INTO `mobile` (`numOfMinutesInside`,`numOfMinutesOutside`,`numOfSMS`,`numOfMbts`) VALUES ('50','100','25','8000');
 INSERT INTO `mobile` (`numOfMinutesInside`,`numOfMinutesOutside`,`numOfSMS`,`numOfMbts`) VALUES ('300','100','50','0');
-INSERT INTO `services` (`idTV`,`idInternet`) VALUES ('1', '1');
-INSERT INTO `services` (`idTV`) VALUES ('2');
-INSERT INTO `services` (`idPC`,`idInternet`) VALUES ('1', '2');
-INSERT INTO `services` (`idMobile`,`idInternet`) VALUES ('2','1');
-INSERT INTO `services` (`idPC`,`idInternet`) VALUES ('2','2');
-INSERT INTO `services` (`idMobile`) VALUES ('3');
-INSERT INTO `services` (`idTV`,`idInternet`) VALUES ('3','2');
-INSERT INTO `services` (`idMobile`,`idInternet`) VALUES ('2','2');
-INSERT INTO `tariffs` (`name`, `price`, `idService`,`durationInDays`) VALUES ('Analog TV', '100', '1','30');
-INSERT INTO `tariffs` (`name`, `price`, `idService`,`durationInDays`) VALUES ('IP-TV', '150', '2','30');
-INSERT INTO `tariffs` (`name`, `price`, `idService`,`durationInDays`) VALUES ('Usual pc', '125', '5','30');
-INSERT INTO `tariffs` (`name`, `price`, `idService`,`durationInDays`) VALUES ('Usual mobile', '150', '4','30');
-INSERT INTO `tariffs` (`name`, `price`, `idService`,`durationInDays`) VALUES ('Pro pc', '175', '3','28');
-INSERT INTO `tariffs` (`name`, `price`, `idService`,`durationInDays`) VALUES ('Mobile for speak', '125', '6','28');
-INSERT INTO `tariffs` (`name`, `price`, `idService`,`durationInDays`) VALUES ('Pro mobile', '125', '8','28');
-INSERT INTO `tariffs` (`name`, `price`, `idService`,`durationInDays`) VALUES ('Smart-TV', '250', '7','28');
+INSERT INTO `mobile` (`numOfMinutesInside`,`numOfMinutesOutside`,`numOfSMS`,`numOfMbts`) VALUES ('250','100','25','2000');
+INSERT INTO services (id,idTV,idInternet) VALUES (1,2,2);
+INSERT INTO services (id,idTV,idInternet) VALUES (2,3,3);
+INSERT INTO services (id,idTV) VALUES (3,1);
+INSERT INTO services (id,idTV,idInternet) VALUES (4,3,4);
+INSERT INTO services (id,idPC,idInternet) VALUES (5,1,3);
+INSERT INTO services (id,idPC,idInternet) VALUES (6,2,4);
+INSERT INTO services (id,idMobile) VALUES (7,3);
+INSERT INTO services (id,idMobile,idInternet) VALUES (8,2,2);
+INSERT INTO services (id,idMobile,idInternet) VALUES (9,2,3);
+INSERT INTO services (id,idMobile,idInternet) VALUES (10,1,2);
+INSERT INTO services (id,idMobile,idInternet) VALUES (11,1,4);
+INSERT INTO services (id,idMobile,idInternet) VALUES (12,4,1);
+INSERT INTO tariffs (id,name, price, idService,durationInDays) VALUES (1,'Analog TV', 100, 3, 30);
+INSERT INTO tariffs (id,name, price, idService,durationInDays) VALUES (2,'IP-TV', 150, 1, 30);
+INSERT INTO tariffs (id,name, price, idService,durationInDays) VALUES (3,'Smart-TV', 250, 2, 28);
+INSERT INTO tariffs (id,name, price, idService,durationInDays) VALUES (4,'Smart-TV', 250, 4, 28);
+INSERT INTO tariffs (id,name, price, idService,durationInDays) VALUES (5,'Usual pc', 125, 5, 30);
+INSERT INTO tariffs (id,name, price, idService,durationInDays) VALUES (7,'Pro pc', 175, 6,'28');
+INSERT INTO tariffs (id,name, price, idService,durationInDays) VALUES (6,'Usual mobile', 150, 9, 30);
+INSERT INTO tariffs (id,name, price, idService,durationInDays) VALUES (8,'Mobile for speak', 125, 7, 28);
+INSERT INTO tariffs (id,name, price, idService,durationInDays) VALUES (9,'Pro mobile', 125, 11, 28);
+

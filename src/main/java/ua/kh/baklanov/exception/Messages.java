@@ -11,7 +11,8 @@ public final class Messages {
     public static final String ERROR_GET_USER_BY_LOGIN = "Can't get user by login";
     public static final String ERROR_GET_USER_BY_EMAIL = "Can't get user by email";
     public static final String ERROR_GET_SERVICE_BY_TARIFF_ID = "Can't get service by tariff id";
-    public static final String ERROR_GET_RECORDS = "Can't get all records from db with";
+    public static final String ERROR_GET_ALL_RECORDS = "Can't get all records from db with instance ";
+    public static final String ERROR_GET_PART_OF_RECORDS = "Can't get part of records from db with instance ";
     public static final String ERROR_FIND_USER_WITH_THIS_CREDENTIALS ="Cannot find user with such login/password";
     public static final String ERROR_FORWARD = "Can't forward to page in controller ";
     public static final String ERROR_REDIRECT = "Can't redirect to page in controller ";
@@ -41,6 +42,8 @@ public final class Messages {
     public static final String INFO_GET_BY_ID = "Trying to get by id entity of class ";
     public static final String ERROR_GET_BY_ID = "Can't getting by id entity of class ";
     public static final String ERROR_BEAN_EXTRACTOR_UTIL = "Error when using bean extractor in command: ";
+    public static final String INFO_GET_ALL_RECORDS = "Trying to get all instances of class: ";
+    public static final String INFO_GET_INTERNET_TYPED_RECORDS = "Get internet records of type: ";
 
     private Messages(){}
 

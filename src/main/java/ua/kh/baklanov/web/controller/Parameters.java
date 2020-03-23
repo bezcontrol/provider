@@ -21,6 +21,9 @@ public final class Parameters {
     public static final String MINUTES_OUTSIDE="minutesOutside";
     public static final String NUM_OF_SMS="numOfSMS";
     public static final String NUM_OF_MBTS="numOfMbts";
+    public static final String INTERNET_ID = "internetId";
+    public static final String SERVICE_ID = "serviceId";
+
 
 
     private Parameters(){}

@@ -1,8 +1,13 @@
 package ua.kh.baklanov.web.command.tariff;
 
 import org.apache.log4j.Logger;
-import ua.kh.baklanov.model.bean.AnyTariff;
+
+import ua.kh.baklanov.db.dao.TariffDAO;
+import ua.kh.baklanov.exception.DbException;
+
 import ua.kh.baklanov.model.entity.Tariff;
+import ua.kh.baklanov.service.DAOService;
+import ua.kh.baklanov.service.DefaultService;
 import ua.kh.baklanov.web.command.AbstractCommand;
 import ua.kh.baklanov.web.controller.Parameters;
 
@@ -13,12 +18,24 @@ public class TariffUpdateCommand implements AbstractCommand {
     private static final Logger LOG = Logger.getLogger(TariffUpdateCommand.class);
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response){
-        AnyTariff anyTariff=new AnyTariff();
-        Tariff tariff=new Tariff();
-        tariff.setId(Long.parseLong(request.getParameter(Parameters.TARIFF_ID)));
-        tariff.setPrice(Integer.parseInt(request.getParameter(Parameters.TARIFF_PRICE)));
-        tariff.setDurationInDays(Integer.parseInt(request.getParameter(Parameters.TARIFF_DURATION)));
-        anyTariff.setTariff(tariff);
+        try {
+            Tariff tariff=new Tariff();
+            tariff.setId(Long.parseLong(request.getParameter(Parameters.TARIFF_ID)));
+//            tariff.setName(Long.parseLong(request.getParameter(Parameters.TARIFF_ID)));
+            DAOService service=new DefaultService();
+            TariffDAO tariffDAO = service.getTariffDAO();
+//            tariffDAO.update();
+            Long.parseLong(request.getParameter(Parameters.SERVICE_ID));
+        } catch (DbException e) {
+            e.printStackTrace();
+        }
+
+
+
+//        tariff.setId(Long.parseLong(request.getParameter(Parameters.TARIFF_ID)));
+//        tariff.setPrice(Integer.parseInt(request.getParameter(Parameters.TARIFF_PRICE)));
+//        tariff.setDurationInDays(Integer.parseInt(request.getParameter(Parameters.TARIFF_DURATION)));
+//        anyTariff.setTariff(tariff);
         return null;
     }
 }

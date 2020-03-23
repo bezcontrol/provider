@@ -39,10 +39,10 @@ public class AuthenticationController extends HttpServlet {
         AbstractCommand command = AuthenticationCommandContainer.get(commandName);
         String forward = Route.PAGE_ERROR_PAGE;
         try {
-            LOG.info(Messages.INFO_EXECUTING_COMMAND+commandName);
+            LOG.info(Messages.INFO_EXECUTING_COMMAND+command.getClass().getSimpleName());
             forward = command.execute(request, response);
         } catch (AppException ex) {
-            LOG.error(Messages.ERROR_EXECUTING_COMMAND + command.getClass().getName(),ex);
+            LOG.error(Messages.ERROR_EXECUTING_COMMAND + command.getClass().getSimpleName(),ex);
             request.setAttribute(Attributes.ERROR, Messages.ERROR_EXECUTING_COMMAND);
         }
         if (Objects.nonNull(request.getAttribute(Attributes.ERROR)) ||
@@ -50,7 +50,7 @@ public class AuthenticationController extends HttpServlet {
             try {
                 request.getRequestDispatcher(forward).forward(request, response);
             } catch (ServletException | IOException e) {
-                LOG.error(Messages.ERROR_FORWARD + AuthenticationController.class.getName(), e);
+                LOG.error(Messages.ERROR_FORWARD + AuthenticationController.class.getSimpleName(), e);
             }
         } else {
             try {

@@ -30,15 +30,15 @@ public class TariffController extends HttpServlet {
         }
         String forward = Route.PAGE_ERROR_PAGE;
         try {
-            LOG.info(Messages.INFO_EXECUTING_COMMAND+commandName);
+            LOG.info(Messages.INFO_EXECUTING_COMMAND+command.getClass().getSimpleName());
             forward = command.execute(req, resp);
         } catch (AppException ex) {
-            LOG.error(Messages.ERROR_EXECUTING_COMMAND + command.getClass().getName(),ex);
+            LOG.error(Messages.ERROR_EXECUTING_COMMAND + command.getClass().getSimpleName(),ex);
         }
         try {
             req.getRequestDispatcher(forward).forward(req,resp);
         } catch (ServletException | IOException ex) {
-            LOG.error(Messages.ERROR_FORWARD+TariffController.class.getName(),ex);
+            LOG.error(Messages.ERROR_FORWARD+TariffController.class.getSimpleName(),ex);
         }
     }
 }

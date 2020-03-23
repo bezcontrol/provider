@@ -169,8 +169,8 @@ public class DefaultUserDAOImpl implements UserDAO {
                 }
             }
         } catch (SQLException | DbException ex) {
-            LOG.error(Messages.ERROR_GET_RECORDS +User.class.getSimpleName(), ex);
-            throw new DbException(Messages.ERROR_GET_RECORDS +User.class.getSimpleName(), ex);
+            LOG.error(Messages.ERROR_GET_ALL_RECORDS +User.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_GET_ALL_RECORDS +User.class.getSimpleName(), ex);
         }
         return allUsers;
     }
