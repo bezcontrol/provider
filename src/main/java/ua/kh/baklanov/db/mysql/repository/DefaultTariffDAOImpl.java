@@ -93,8 +93,21 @@ public class DefaultTariffDAOImpl implements TariffDAO {
     }
 
     @Override
-    public void delete(Tariff obj) throws DbException {
-
+    public void delete(long id) throws DbException {
+        try (Connection con = factory.getConnection()) {
+            int rowsDeleted;
+            try (PreparedStatement statement = con.prepareStatement(Queries.DELETE_TARIFF_BY_ID)) {
+                statement.setLong(1, id);
+                rowsDeleted = statement.executeUpdate();
+            }
+            if (rowsDeleted > 0) {
+                LOG.info(Messages.INFO_SUCCESSFULLY_DELETED+Tariff.class.getSimpleName() );
+            }
+            factory.commit(con);
+        } catch (SQLException| DbException ex) {
+            LOG.error(Messages.ERROR_DELETE + Tariff.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_DELETE + Tariff.class.getSimpleName(), ex);
+        }
     }
 
     @Override

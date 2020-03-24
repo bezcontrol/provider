@@ -29,8 +29,8 @@ public class TVTariffsCommand implements AbstractCommand {
                 tvTariffs = anyTariffDAO.getAllTVTariffs();
             }
         } catch (DbException e) {
-            LOG.error(Messages.ERROR_TARIFF_DAO + TVTariffsCommand.class.getName(), e);
-            return Route.PAGE_ERROR_PAGE;
+            LOG.error(Messages.ERROR_ANY_TARIFF_DAO + TVTariffsCommand.class.getName(), e);
+            return Route.ERROR_PAGE;
         }
         request.setAttribute("tariffs", tvTariffs);
         return Route.TARIFFS;

@@ -54,7 +54,7 @@ public class DefaultPCDAOImpl implements PCDAO {
     }
 
     @Override
-    public void delete(PC obj) throws DbException {
+    public void delete(long id) throws DbException {
 
     }
 

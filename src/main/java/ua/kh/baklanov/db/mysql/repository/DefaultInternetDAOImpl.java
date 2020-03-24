@@ -55,7 +55,7 @@ public class DefaultInternetDAOImpl implements InternetDAO {
     }
 
     @Override
-    public void delete(Internet obj) throws DbException {
+    public void delete(long id) throws DbException {
 
     }
 

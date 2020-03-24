@@ -23,8 +23,8 @@ public class AllTariffsCommand implements AbstractCommand {
             AnyTariffDAO anyTariffDAO = service.getAnyTariffDAO();
             allTariffs = anyTariffDAO.getAll();
         } catch (DbException e) {
-            LOG.error(Messages.ERROR_TARIFF_DAO + AllTariffsCommand.class.getName(), e);
-            return Route.PAGE_ERROR_PAGE;
+            LOG.error(Messages.ERROR_ANY_TARIFF_DAO + AllTariffsCommand.class.getName(), e);
+            return Route.ERROR_PAGE;
         }
         request.setAttribute("tariffs", allTariffs);
         return Route.TARIFFS;

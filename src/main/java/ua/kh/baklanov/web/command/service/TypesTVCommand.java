@@ -25,7 +25,7 @@ public class TypesTVCommand implements AbstractCommand {
 
         } catch (DbException e) {
             LOG.error(Messages.ERROR_TV_DAO + TypesTVCommand.class.getName(), e);
-            return Route.PAGE_ERROR_PAGE;
+            return Route.ERROR_PAGE;
         }
         request.setAttribute("tvTypes", tvTypes);
         return Route.TV_SERVICE;

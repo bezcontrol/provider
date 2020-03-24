@@ -14,7 +14,7 @@ public final class Queries {
             "SET login=?, password=?, email=?, idRole=?, idStatus=?, bill=? " +
             "WHERE login=?";
 
-    public static final String DELETE_USER_BY_LOGIN = "DELETE FROM users WHERE login=?";
+    public static final String DELETE_USER_BY_ID = "DELETE FROM users WHERE id=?";
 
     public static final String GET_ALL_USERS = "SELECT * FROM users";
 
@@ -86,6 +86,7 @@ public final class Queries {
     public static final String INSERT_TARIFF = "INSERT INTO " +
             "tariffs (name, price, idService, durationInDays) " +
             "VALUES (?, ?, ?, ?)";
+    public static final String DELETE_TARIFF_BY_ID =  "DELETE FROM tariffs WHERE id=?";
 
     private Queries() {
     }

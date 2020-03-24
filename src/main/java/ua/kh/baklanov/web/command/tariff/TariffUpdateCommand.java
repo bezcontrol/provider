@@ -6,6 +6,7 @@ import ua.kh.baklanov.Route;
 import ua.kh.baklanov.db.dao.TariffDAO;
 import ua.kh.baklanov.exception.DbException;
 
+import ua.kh.baklanov.exception.Messages;
 import ua.kh.baklanov.model.entity.Tariff;
 import ua.kh.baklanov.service.DAOService;
 import ua.kh.baklanov.service.DefaultService;
@@ -30,7 +31,8 @@ public class TariffUpdateCommand implements AbstractCommand {
             TariffDAO tariffDAO = service.getTariffDAO();
             tariffDAO.update(tariff);
         } catch (DbException e) {
-            e.printStackTrace();
+            LOG.error(Messages.ERROR_TARIFF_DAO + TariffUpdateCommand.class.getName(), e);
+            return Route.ERROR_PAGE;
         }
         return Route.HOME;
     }

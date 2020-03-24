@@ -25,8 +25,8 @@ public class PCTariffsCommand implements AbstractCommand {
             AnyTariffDAO anyTariffDAO = service.getAnyTariffDAO();
             pcTariffs = anyTariffDAO.getAllPCTariffs();
         } catch (DbException e) {
-            LOG.error(Messages.ERROR_TARIFF_DAO + PCTariffsCommand.class.getName(), e);
-            return Route.PAGE_ERROR_PAGE;
+            LOG.error(Messages.ERROR_ANY_TARIFF_DAO + PCTariffsCommand.class.getName(), e);
+            return Route.ERROR_PAGE;
         }
         request.setAttribute("tariffs", pcTariffs);
         return Route.TARIFFS;

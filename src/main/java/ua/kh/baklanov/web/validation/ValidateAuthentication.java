@@ -25,7 +25,7 @@ public final class ValidateAuthentication {
         userFromDB=userDAO.getByLogin(user.getLogin());
         if(Objects.nonNull(userFromDB)){
             LOG.info("User with login exists");
-            return "You have account with this login";
+            return "Login is already in use";
         }
         LOG.info("User validated successfully");
         return null;

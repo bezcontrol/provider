@@ -691,6 +691,7 @@
         }
         document.getElementById('connectedPC').value = $(this).find(':selected').data('conpc');
     });
+
     $("#serviceId3").change(function () {
         document.getElementById('serviceType').value = 'TV';
         document.getElementById('internet_speed').value = null;
@@ -707,6 +708,7 @@
         document.getElementById('numOfChannels').value = $(this).find(':selected').data('numofchannels');
 
     });
+
     $("#serviceId4").change(function () {
         document.getElementById('serviceType').value = 'Mobile';
         document.getElementById('internet_speed').value = null;

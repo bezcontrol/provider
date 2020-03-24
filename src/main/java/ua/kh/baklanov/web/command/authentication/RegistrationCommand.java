@@ -1,5 +1,7 @@
 package ua.kh.baklanov.web.command.authentication;
 
+import com.google.common.hash.Hashing;
+import org.apache.commons.codec.Charsets;
 import org.apache.log4j.Logger;
 import ua.kh.baklanov.Route;
 import ua.kh.baklanov.db.dao.UserDAO;
@@ -26,7 +28,8 @@ public class RegistrationCommand implements AbstractCommand {
         User user=new User();
         user.setLogin(request.getParameter(Parameters.LOGIN));
         user.setEmail(request.getParameter(Parameters.EMAIL));
-        user.setPassword(request.getParameter(Parameters.PASSWORD));
+        user.setPassword(Hashing.sha256()
+                .hashString(request.getParameter(Parameters.PASSWORD), Charsets.UTF_8).toString());
         user.setIdRole(Role.CLIENT.getValue());
         user.setIdStatus(Status.WAITING.getValue());
         DAOService service= new DefaultService();
@@ -41,7 +44,7 @@ public class RegistrationCommand implements AbstractCommand {
             request.setAttribute(Attributes.ERROR_VALIDATION, errorValidation);
         } catch (DbException e) {
             LOG.error(Messages.ERROR_USER_DAO+ RegistrationCommand.class.getName(),e);
-            forward=Route.PAGE_ERROR_PAGE;
+            forward=Route.ERROR_PAGE;
         }
         return forward;
     }

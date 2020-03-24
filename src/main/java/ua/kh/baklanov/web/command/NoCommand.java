@@ -8,6 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 public class NoCommand implements AbstractCommand {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response){
-        return Route.PAGE_ERROR_PAGE;
+        return Route.ERROR_PAGE;
     }
 }

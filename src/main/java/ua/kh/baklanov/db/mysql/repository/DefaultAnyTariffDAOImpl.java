@@ -112,7 +112,7 @@ public class DefaultAnyTariffDAOImpl implements AnyTariffDAO {
     }
 
     @Override
-    public void delete(AnyTariff obj) throws DbException {
+    public void delete(long id) throws DbException {
 
     }
 

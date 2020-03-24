@@ -44,7 +44,7 @@ public class DefaultServiceDAOImpl implements ServiceDAO {
     }
 
     @Override
-    public void delete(Service obj) throws DbException {
+    public void delete(long id) throws DbException {
 
     }
 

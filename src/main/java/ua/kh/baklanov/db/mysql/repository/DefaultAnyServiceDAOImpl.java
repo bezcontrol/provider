@@ -38,7 +38,7 @@ public class DefaultAnyServiceDAOImpl implements AnyServiceDAO {
     }
 
     @Override
-    public void delete(AnyService obj) throws DbException {
+    public void delete(long id) throws DbException {
 
     }
 

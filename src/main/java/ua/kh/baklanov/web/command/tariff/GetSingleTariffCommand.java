@@ -60,7 +60,7 @@ public class GetSingleTariffCommand implements AbstractCommand {
             request.setAttribute("servicesList", servicesList);
         } catch (DbException e) {
             LOG.error(Messages.ERROR_BEAN_EXTRACTOR_UTIL + TariffUpdateCommand.class.getName(), e);
-            return Route.PAGE_ERROR_PAGE;
+            return Route.ERROR_PAGE;
         }
         request.setAttribute(Attributes.OPERATION, operationName);
         return Route.SINGLE_TARIFF;

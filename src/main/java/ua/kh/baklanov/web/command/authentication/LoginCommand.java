@@ -1,5 +1,8 @@
 package ua.kh.baklanov.web.command.authentication;
 
+import com.google.common.hash.Hashing;
+import org.apache.commons.codec.Charsets;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
 import ua.kh.baklanov.Route;
 import ua.kh.baklanov.db.dao.UserDAO;
@@ -27,14 +30,15 @@ public class LoginCommand implements AbstractCommand {
         String password = request.getParameter(Parameters.PASSWORD);
         if (login == null || password == null || login.isEmpty() || password.isEmpty()) {
             LOG.error(Messages.ERROR_FIELDS_NULL + LoginCommand.class.getName());
-            return Route.PAGE_ERROR_PAGE;
+            return Route.ERROR_PAGE;
         }
         DAOService service = new DefaultService();
         String forward;
         try {
             UserDAO userDAO = service.getUserDAO();
             User user = userDAO.getByLogin(login);
-            if (user == null || !password.equals(user.getPassword())) {
+            if (user == null ||
+                    !Hashing.sha256().hashString(password, Charsets.UTF_8).toString().equals(user.getPassword())) {
                 user = userDAO.getByEmail(login);
                 if (user == null || !password.equals(user.getPassword())) {
                     LOG.info(Messages.ERROR_FIND_USER_WITH_THIS_CREDENTIALS);
@@ -46,7 +50,7 @@ public class LoginCommand implements AbstractCommand {
             forward = getStatusOfUser(user, request);
         } catch (DbException e) {
             LOG.error(Messages.ERROR_USER_DAO + LoginCommand.class.getName(), e);
-            forward = Route.PAGE_ERROR_PAGE;
+            forward = Route.ERROR_PAGE;
         }
         return forward;
     }
@@ -54,7 +58,7 @@ public class LoginCommand implements AbstractCommand {
 
     private static String getStatusOfUser(User user, HttpServletRequest request) {
         Role userRole = Role.getRole(user);
-        String forward = Route.PAGE_ERROR_PAGE;
+        String forward = Route.ERROR_PAGE;
         if (Role.exist(userRole)) {
             if (Status.getStatus(user) == Status.WAITING) {
                 forward = Route.LOGIN;

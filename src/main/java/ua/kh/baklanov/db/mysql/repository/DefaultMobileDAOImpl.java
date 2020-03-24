@@ -55,7 +55,7 @@ public class DefaultMobileDAOImpl implements MobileDAO {
     }
 
     @Override
-    public void delete(Mobile obj) throws DbException {
+    public void delete(long id) throws DbException {
 
     }
 

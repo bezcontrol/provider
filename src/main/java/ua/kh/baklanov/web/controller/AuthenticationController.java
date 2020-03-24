@@ -37,7 +37,7 @@ public class AuthenticationController extends HttpServlet {
 
         String commandName = request.getParameter(Parameters.COMMAND);
         AbstractCommand command = AuthenticationCommandContainer.get(commandName);
-        String forward = Route.PAGE_ERROR_PAGE;
+        String forward = Route.ERROR_PAGE;
         try {
             LOG.info(Messages.INFO_EXECUTING_COMMAND+command.getClass().getSimpleName());
             forward = command.execute(request, response);

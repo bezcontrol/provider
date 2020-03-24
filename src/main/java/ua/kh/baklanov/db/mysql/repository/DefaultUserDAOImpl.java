@@ -141,15 +141,15 @@ public class DefaultUserDAOImpl implements UserDAO {
     }
 
     @Override
-    public void delete(User obj) throws DbException {
+    public void delete(long id) throws DbException {
         try (Connection con = factory.getConnection()) {
             int rowsDeleted;
-            try (PreparedStatement statement = con.prepareStatement(Queries.DELETE_USER_BY_LOGIN)) {
-                statement.setString(1, obj.getLogin());
+            try (PreparedStatement statement = con.prepareStatement(Queries.DELETE_USER_BY_ID)) {
+                statement.setLong(1, id);
                 rowsDeleted = statement.executeUpdate();
             }
             if (rowsDeleted > 0) {
-                LOG.info(Messages.INFO_SUCCESSFULLY_UPDATED+User.class.getSimpleName() );
+                LOG.info(Messages.INFO_SUCCESSFULLY_DELETED+User.class.getSimpleName() );
             }
             factory.commit(con);
         } catch (SQLException| DbException ex) {

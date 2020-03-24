@@ -82,7 +82,7 @@ public class DefaultTVDAOImpl implements TVDAO {
     }
 
     @Override
-    public void delete(TV obj) throws DbException {
+    public void delete(long id) throws DbException {
 
     }
 }

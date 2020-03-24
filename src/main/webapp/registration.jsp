@@ -36,7 +36,7 @@
 <div class="limiter">
     <div class="container-login100" style="background-image: url('resources/img/bg-01.jpg');">
         <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-            <form class="login100-form validate-form" action="authentication" method="post">
+            <form class="login100-form validate-form" action="authentication" method="post" name="form">
                 <input type="hidden" name="command" value="registration"/>
 					<span class="login100-form-title p-b-49">
 						Sign up
@@ -70,7 +70,7 @@
                 <div class="m-t-15 container-login100-form-btn">
                     <div class="wrap-login100-form-btn">
                         <div class="login100-form-bgbtn"></div>
-                        <button class="login100-form-btn" type="submit">
+                        <button class="login100-form-btn" type="submit" onclick="CheckPassword(document.form.password)">
                             Sign Up
                         </button>
                     </div>
@@ -132,6 +132,18 @@
 
 <div id="dropDownSelect1"></div>
 
+<script>
+    function CheckPassword()
+    {
+        var password = document.getElementById("password");
+        var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+        if(!password.value.match(passw))
+        {
+            confirm_password.setCustomValidity("Password must consist of min 6 symbols, 1 digit and 1 uppercase letter");
+            return false;
+        }
+    }
+</script>
 <!--===============================================================================================-->
 <script src="resources/js/lib/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
