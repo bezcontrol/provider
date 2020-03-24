@@ -6,7 +6,6 @@ import ua.kh.baklanov.Route;
 import ua.kh.baklanov.db.dao.TariffDAO;
 import ua.kh.baklanov.exception.DbException;
 
-import ua.kh.baklanov.exception.Messages;
 import ua.kh.baklanov.model.entity.Tariff;
 import ua.kh.baklanov.service.DAOService;
 import ua.kh.baklanov.service.DefaultService;
@@ -33,6 +32,6 @@ public class TariffUpdateCommand implements AbstractCommand {
         } catch (DbException e) {
             e.printStackTrace();
         }
-        return Route.TARIFFS;
+        return Route.HOME;
     }
 }

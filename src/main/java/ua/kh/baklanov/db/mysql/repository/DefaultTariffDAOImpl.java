@@ -27,7 +27,25 @@ public class DefaultTariffDAOImpl implements TariffDAO {
 
     @Override
     public void insert(Tariff obj) throws DbException {
-
+        try (Connection con = factory.getConnection();
+             PreparedStatement statement = con.prepareStatement(Queries.INSERT_TARIFF)) {
+            int k=1;
+            statement.setString(k, obj.getName());
+            k++;
+            statement.setInt(k, obj.getPrice());
+            k++;
+            statement.setLong(k, obj.getIdService());
+            k++;
+            statement.setInt(k, obj.getDurationInDays());
+            int rowsInserted = statement.executeUpdate();
+            if (rowsInserted > 0) {
+                LOG.info(Messages.INFO_SUCCESSFULLY_INSERTED+Tariff.class.getSimpleName());
+            }
+            factory.commit(con);
+        } catch (SQLException | DbException ex) {
+            LOG.error(Messages.ERROR_INSERT + Tariff.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_INSERT + Tariff.class.getSimpleName(), ex);
+        }
     }
 
     @Override

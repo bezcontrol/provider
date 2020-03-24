@@ -31,7 +31,7 @@ public class GetSingleTariffCommand implements AbstractCommand {
         response.setDateHeader("Expires", 0);
         DAOService service = new DefaultService();
         String operationName = request.getParameter(Parameters.OPERATION);
-        List<AnyService>servicesList = null;
+        List<AnyService> servicesList = null;
         try {
             if (!"Create".equals(operationName)) {
                 long tariffId = Long.parseLong(request.getParameter(Parameters.TARIFF_ID));

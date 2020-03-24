@@ -83,6 +83,10 @@ public final class Queries {
             "LEFT OUTER JOIN tv tv ON s.idTV=tv.id " +
             "LEFT OUTER JOIN mobile m ON s.idMobile=m.id;";
 
+    public static final String INSERT_TARIFF = "INSERT INTO " +
+            "tariffs (name, price, idService, durationInDays) " +
+            "VALUES (?, ?, ?, ?)";
+
     private Queries() {
     }
 }

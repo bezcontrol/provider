@@ -198,9 +198,9 @@
                                 ${requestScope.operation}
                         </span>
                     <label class="label-input100"
-                           for="new_tariff_name">${applicationScope.textFields.getTariffName()}</label>
+                           for="tariff_name">${applicationScope.textFields.getTariffName()}</label>
                     <div class="wrap-input100 validate-input" data-validate="Required">
-                        <input id="new_tariff_name" name="tariff_name" class="input100" type="text" placeholder="">
+                        <input id="tariff_name" name="tariff_name" class="input100" type="text" placeholder="">
                         <span class="focus-input100"></span>
                     </div>
 
@@ -208,8 +208,8 @@
                     <div class="wrap-input100">
                         <div class="label-input100">Type of service</div>
                         <div style="border: 1px solid #e6e6e6;">
-                            <select id="new_type" class="js-select2" onchange="yesnoCheck(this);">
-                                <option value="-- Select --"></option>
+                            <select id="type" class="js-select2" onchange="yesnoCheck(this);">
+                                <option value="">-- Select --</option>
                                 <option value="TV">TV</option>
                                 <option value="PC">PC</option>
                                 <option value="Mobile">Mobile</option>
@@ -220,16 +220,16 @@
                     </div>
 
                     <label class="label-input100"
-                           for="new_tariff_price">${applicationScope.textFields.getTariffPrice()}</label>
+                           for="tariff_price">${applicationScope.textFields.getTariffPrice()}</label>
                     <div class="wrap-input100 validate-input" data-validate="Required">
-                        <input id="new_tariff_price" name="tariff_price" class="input100" type="text" placeholder="">
+                        <input id="tariff_price" name="tariff_price" class="input100" type="text" placeholder="">
                         <span class="focus-input100"></span>
                     </div>
 
                     <label class="label-input100"
-                           for="new_tariff_duration">${applicationScope.textFields.getTariffDurationInDays()}</label>
+                           for="tariff_duration">${applicationScope.textFields.getTariffDurationInDays()}</label>
                     <div class="wrap-input100 validate-input" data-validate="Required">
-                        <input id="new_tariff_duration" name="tariff_duration" class="input100" type="text"
+                        <input id="tariff_duration" name="tariff_duration" class="input100" type="text"
                                placeholder="">
                         <span class="focus-input100"></span>
                     </div>
@@ -241,11 +241,11 @@
                         <div class="wrap-input100">
                             <div class="label-input100">Choose service</div>
                             <div style="border: 1px solid #e6e6e6;">
-                                <select id="serviceId2" name="serviceId" class="js-select2">
+                                <select id="serviceId2" name="serviceIdPC" class="js-select2">
                                     <option value="">-- Select --</option>
                                     <c:forEach items="${servicesList}" var="service">
                                         <c:if test="${service.service.getClass().simpleName eq pc}">
-                                            <option
+                                            <option value="${service.service.id}"
                                                     data-speed="${service.internet.speed}"
                                                     data-tech="${service.internet.technology}"
                                                     data-conpc="${service.service.numOfConnectedPC}">
@@ -261,9 +261,9 @@
 
 
                         <label class="label-input100"
-                               for="new_connectedPC">${applicationScope.textFields.getPcConnectedPC()}</label>
-                        <div class="wrap-input100 validate-input" data-validate="Required">
-                            <input id="new_connectedPC" class="input100" type="text" placeholder="" disabled="disabled">
+                               for="connectedPC">${applicationScope.textFields.getPcConnectedPC()}</label>
+                        <div class="wrap-input100">
+                            <input id="connectedPC" class="input100" type="text" placeholder="" disabled="disabled">
                             <span class="focus-input100"></span>
                         </div>
                     </div>
@@ -274,11 +274,11 @@
                         <div class="wrap-input100">
                             <div class="label-input100">Choose service</div>
                             <div style="border: 1px solid #e6e6e6;">
-                                <select id="serviceId3" name="serviceId" class="js-select2">
+                                <select id="serviceId3" name="serviceIdTV" class="js-select2">
                                     <option value="">-- Select --</option>
                                     <c:forEach items="${servicesList}" var="service">
                                         <c:if test="${service.service.getClass().simpleName eq tv}">
-                                            <option
+                                            <option value="${service.service.id}"
                                                     data-speed="${service.internet.speed}"
                                                     data-tech="${service.internet.technology}"
                                                     data-type="${service.service.type}"
@@ -295,15 +295,15 @@
 
 
                         <label class="label-input100"
-                               for="new_typeTV">${applicationScope.textFields.getTvType()}</label>
-                        <div class="wrap-input100 validate-input" data-validate="Required">
-                            <input id="new_typeTV" class="input100" type="text" placeholder="" disabled="disabled">
+                               for="typeTV">${applicationScope.textFields.getTvType()}</label>
+                        <div class="wrap-input100">
+                            <input id="typeTV" class="input100" type="text" placeholder="" disabled="disabled">
                             <span class="focus-input100"></span>
                         </div>
                         <label class="label-input100"
-                               for="new_numOfChannels">${applicationScope.textFields.getTvNumberOfChannels()}</label>
-                        <div class="wrap-input100 validate-input" data-validate="Required">
-                            <input id="new_numOfChannels" class="input100" type="text" placeholder=""
+                               for="numOfChannels">${applicationScope.textFields.getTvNumberOfChannels()}</label>
+                        <div class="wrap-input100">
+                            <input id="numOfChannels" class="input100" type="text" placeholder=""
                                    disabled="disabled">
                             <span class="focus-input100"></span>
                         </div>
@@ -316,11 +316,11 @@
                         <div class="wrap-input100">
                             <div class="label-input100">Choose service</div>
                             <div style="border: 1px solid #e6e6e6;">
-                                <select id="serviceId4" name="serviceId" class="js-select2">
+                                <select id="serviceId4" name="serviceIdMobile" class="js-select2">
                                     <option value="">-- Select --</option>
                                     <c:forEach items="${servicesList}" var="service">
                                         <c:if test="${service.service.getClass().simpleName eq mobile}">
-                                            <option
+                                            <option value="${service.service.id}"
                                                     data-speed="${service.internet.speed}"
                                                     data-tech="${service.internet.technology}"
                                                     data-numofmininside="${service.service.numOfMinutesInside}"
@@ -339,46 +339,46 @@
 
 
                         <label class="label-input100"
-                               for="new_minutesInside">${applicationScope.textFields.getMobileMinutesInside()}</label>
-                        <div class="wrap-input100 validate-input" data-validate="Required">
-                            <input id="new_minutesInside" class="input100" type="text" placeholder=""
+                               for="minutesInside">${applicationScope.textFields.getMobileMinutesInside()}</label>
+                        <div class="wrap-input100" >
+                            <input id="minutesInside" class="input100" type="text" placeholder=""
                                    disabled="disabled">
                             <span class="focus-input100"></span>
                         </div>
                         <label class="label-input100"
-                               for="new_minutesOutside">${applicationScope.textFields.getMobileMinutesOutside()}</label>
-                        <div class="wrap-input100 validate-input" data-validate="Required">
-                            <input id="new_minutesOutside" class="input100" type="text" placeholder="">
+                               for="minutesOutside">${applicationScope.textFields.getMobileMinutesOutside()}</label>
+                        <div class="wrap-input100" >
+                            <input id="minutesOutside" class="input100" type="text" placeholder="">
                             <span class="focus-input100"></span>
                         </div>
                         <label class="label-input100"
-                               for="new_numOfSMS">${applicationScope.textFields.getMobileNumberOfSMS()}</label>
-                        <div class="wrap-input100 validate-input" data-validate="Required">
-                            <input id="new_numOfSMS" class="input100" type="text" placeholder="" disabled="disabled">
+                               for="numOfSMS">${applicationScope.textFields.getMobileNumberOfSMS()}</label>
+                        <div class="wrap-input100">
+                            <input id="numOfSMS" class="input100" type="text" placeholder="" disabled="disabled">
                             <span class="focus-input100"></span>
                         </div>
                         <label class="label-input100"
-                               for="new_numOfMbts">${applicationScope.textFields.getMobileNumberOfMbts()}</label>
-                        <div class="wrap-input100 validate-input" data-validate="Required">
-                            <input id="new_numOfMbts" class="input100" type="text" placeholder="" disabled="disabled">
+                               for="numOfMbts">${applicationScope.textFields.getMobileNumberOfMbts()}</label>
+                        <div class="wrap-input100">
+                            <input id="numOfMbts" class="input100" type="text" placeholder="" disabled="disabled">
                             <span class="focus-input100"></span>
                         </div>
                     </div>
 
                     <label class="label-input100"
-                           for="new_internet_speed">${applicationScope.textFields.getInternetSpeed()}</label>
-                    <div class="wrap-input100 validate-input" data-validate="Required">
-                        <input id="new_internet_speed" class="input100" type="text" placeholder="" disabled="disabled">
+                           for="internet_speed">${applicationScope.textFields.getInternetSpeed()}</label>
+                    <div class="wrap-input100" >
+                        <input id="internet_speed" class="input100" type="text" placeholder="" disabled="disabled">
                         <span class="focus-input100"></span>
                     </div>
                     <label class="label-input100"
-                           for="new_internet_technology">${applicationScope.textFields.getInternetTechnology()}</label>
-                    <div class="wrap-input100 validate-input" data-validate="Required">
-                        <input id="new_internet_technology" class="input100" type="text" placeholder=""
+                           for="internet_technology">${applicationScope.textFields.getInternetTechnology()}</label>
+                    <div class="wrap-input100">
+                        <input id="internet_technology" class="input100" type="text" placeholder=""
                                disabled="disabled">
                         <span class="focus-input100"></span>
                     </div>
-
+                    <input id="serviceType" type="hidden" name="serviceType" value=""/>
                     <button class="contact100-form-btn" type="submit" name="command"
                             value="${requestScope.operation}">
                             ${requestScope.operation}
@@ -497,19 +497,10 @@
                     </c:choose>
 
                     <div class="container-contact100-form-btn">
-                        <c:choose>
-                            <c:when test="${requestScope.operation eq 'Details'}">
-                                <button class="contact100-form-btn" type="button">
-                                    Back
-                                </button>
-                            </c:when>
-                            <c:otherwise>
                                 <button class="contact100-form-btn" type="submit" name="command"
                                         value="${requestScope.operation}">
                                         ${requestScope.operation}
                                 </button>
-                            </c:otherwise>
-                        </c:choose>
                     </div>
                 </form>
                 <!-- END OF RIGHT SIDE OF DETAILS AND DELETE COMMAND (FORM) -->
@@ -688,46 +679,49 @@
 
 <script>
     $("#serviceId2").change(function () {
-        document.getElementById('new_internet_speed').value = null;
-        document.getElementById('new_internet_technology').value = null;
+        document.getElementById('serviceType').value = 'PC';
+        document.getElementById('internet_speed').value = null;
+        document.getElementById('internet_technology').value = null;
         val1 = $(this).find(':selected').data('speed');
         val2 = $(this).find(':selected').data('tech');
 
         if (val1 != 0 && val2 != 'null') {
-            document.getElementById('new_internet_speed').value = val1;
-            document.getElementById('new_internet_technology').value = val2;
+            document.getElementById('internet_speed').value = val1;
+            document.getElementById('internet_technology').value = val2;
         }
-        document.getElementById('new_connectedPC').value = $(this).find(':selected').data('conpc');
+        document.getElementById('connectedPC').value = $(this).find(':selected').data('conpc');
     });
     $("#serviceId3").change(function () {
-        document.getElementById('new_internet_speed').value = null;
-        document.getElementById('new_internet_technology').value = null;
+        document.getElementById('serviceType').value = 'TV';
+        document.getElementById('internet_speed').value = null;
+        document.getElementById('internet_technology').value = null;
         val1 = $(this).find(':selected').data('speed');
         val2 = $(this).find(':selected').data('tech');
 
         if (val1 != 0 && val2 != 'null') {
-            document.getElementById('new_internet_speed').value = val1;
-            document.getElementById('new_internet_technology').value = val2;
+            document.getElementById('internet_speed').value = val1;
+            document.getElementById('internet_technology').value = val2;
         }
 
-        document.getElementById('new_typeTV').value = $(this).find(':selected').data('type');
-        document.getElementById('new_numOfChannels').value = $(this).find(':selected').data('numofchannels');
+        document.getElementById('typeTV').value = $(this).find(':selected').data('type');
+        document.getElementById('numOfChannels').value = $(this).find(':selected').data('numofchannels');
 
     });
     $("#serviceId4").change(function () {
-        document.getElementById('new_internet_speed').value = null;
-        document.getElementById('new_internet_technology').value = null;
+        document.getElementById('serviceType').value = 'Mobile';
+        document.getElementById('internet_speed').value = null;
+        document.getElementById('internet_technology').value = null;
         val1 = $(this).find(':selected').data('speed');
         val2 = $(this).find(':selected').data('tech');
 
         if (val1 != 0 && val2 != 'null') {
-            document.getElementById('new_internet_speed').value = val1;
-            document.getElementById('new_internet_technology').value = val2;
+            document.getElementById('internet_speed').value = val1;
+            document.getElementById('internet_technology').value = val2;
         }
-        document.getElementById('new_minutesInside').value = $(this).find(':selected').data('numofmininside');
-        document.getElementById('new_minutesOutside').value = $(this).find(':selected').data('numofminoutside');
-        document.getElementById('new_numOfSMS').value = $(this).find(':selected').data('numofsms');
-        document.getElementById('new_numOfMbts').value = $(this).find(':selected').data('numofmbts');
+        document.getElementById('minutesInside').value = $(this).find(':selected').data('numofmininside');
+        document.getElementById('minutesOutside').value = $(this).find(':selected').data('numofminoutside');
+        document.getElementById('numOfSMS').value = $(this).find(':selected').data('numofsms');
+        document.getElementById('numOfMbts').value = $(this).find(':selected').data('numofmbts');
 
     });
 </script>

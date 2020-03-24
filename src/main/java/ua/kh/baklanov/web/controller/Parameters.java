@@ -23,7 +23,9 @@ public final class Parameters {
     public static final String NUM_OF_MBTS="numOfMbts";
     public static final String INTERNET_ID = "internetId";
     public static final String SERVICE_ID = "serviceId";
-
+    public static final String SERVICE_ID_TV = "serviceIdTV";
+    public static final String SERVICE_ID_MOBILE = "serviceIdMobile";
+    public static final String SERVICE_ID_PC = "serviceIdPC";
 
 
     private Parameters(){}
