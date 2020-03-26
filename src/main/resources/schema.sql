@@ -25,7 +25,7 @@ CREATE TABLE `internet` (
 CREATE TABLE `users` (
                          `id` INT NOT NULL AUTO_INCREMENT,
                          `login` VARCHAR(45) NOT NULL,
-                         `password` VARCHAR(45) NOT NULL,
+                         `password` VARCHAR(260) NOT NULL,
                          `email` VARCHAR(45),
                          `idRole` INT NOT NULL,
                          `idStatus` INT NOT NULL,
@@ -100,7 +100,7 @@ CREATE TABLE `services` (
 
 
 
-DELIMITER $$
+@DELIMITER $$
 
 CREATE DEFINER=`user`@`localhost` TRIGGER `services_BEFORE_INSERT` BEFORE INSERT ON `services` FOR EACH ROW BEGIN
 
@@ -113,7 +113,7 @@ IF exists (SELECT 1 FROM `services`
 
 END$$
 
-DELIMITER ;
+@DELIMITER ;
 
 
 CREATE TABLE `tariffs` (
@@ -157,8 +157,8 @@ INSERT INTO `statuses` (`name`) VALUES ('waiting');
 INSERT INTO `statuses` (`name`) VALUES ('registered');
 INSERT INTO `statuses` (`name`) VALUES ('blocked');
 INSERT INTO `statuses` (`name`) VALUES ('missed');
-INSERT INTO `users` (`login`, `password`,`email`, `idRole`, `idStatus`, `bill`) VALUES ('admin','adminpass','user@gmail.com', '1','2','100.0');
-INSERT INTO `users` (`login`, `password`,`email`, `idRole`,`idStatus`, `bill`) VALUES ('client','clientpass','user2@gmail.com', '2','2','200.0');
+INSERT INTO `users` (`login`, `password`,`email`, `idRole`, `idStatus`, `bill`) VALUES ('admin',SHA2('adminpass', 256),'user@gmail.com', '1','2','100.0');
+INSERT INTO `users` (`login`, `password`,`email`, `idRole`,`idStatus`, `bill`) VALUES ('client',SHA2('clientpass', 256),'user2@gmail.com', '2','2','200.0');
 INSERT INTO `internet` (id, speed, technology) VALUES (1, 520, '3G');
 INSERT INTO `internet` (id, speed, technology) VALUES (2, 640, '4G');
 INSERT INTO `internet` (id, speed, technology) VALUES (3, 800, '5G');
@@ -187,7 +187,7 @@ INSERT INTO services (id,idMobile,idInternet,description) VALUES (12,4,1,'2Gb 3G
 INSERT INTO tariffs (id,name, price, idService,durationInDays) VALUES (1,'Analog TV', 100, 3, 30);
 INSERT INTO tariffs (id,name, price, idService,durationInDays) VALUES (2,'IP-TV', 150, 1, 30);
 INSERT INTO tariffs (id,name, price, idService,durationInDays) VALUES (3,'Smart-TV', 250, 2, 28);
-INSERT INTO tariffs (id,name, price, idService,durationInDays) VALUES (4,'Smart-TV', 250, 4, 28);
+INSERT INTO tariffs (id,name, price, idService,durationInDays) VALUES (4,'Smart-TV faster', 250, 4, 28);
 INSERT INTO tariffs (id,name, price, idService,durationInDays) VALUES (5,'Usual pc', 125, 5, 30);
 INSERT INTO tariffs (id,name, price, idService,durationInDays) VALUES (7,'Pro pc', 175, 6,'28');
 INSERT INTO tariffs (id,name, price, idService,durationInDays) VALUES (6,'Usual mobile', 150, 9, 30);
