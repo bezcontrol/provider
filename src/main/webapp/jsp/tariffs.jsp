@@ -126,17 +126,21 @@
 
                         </c:if>
                             <button type="submit"  class="btn btn-danger mybtn" name="operation" value="Details">Details</button>
-
+                        </form>
                             <div class="dropdown">
                                 <button class="btn btn-success dropdown-toggle download" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Download
                                 </button>
                                 <div class="dropdown-menu" style="width: 100%;">
+                                    <form action="tariff" method="post">
+                                        <input type="hidden" name="tariffId" value="${object.tariff.id}"/>
+                                        <input type="hidden" name="serviceType" value="${object.service.getClass().simpleName}"/>
+                                        <input type="hidden" name="serviceId" value="${object.service.id}"/>
                                     <button class="dropdown-item" type="submit" name="command" value="downloadPDF">.pdf</button>
                                     <button class="dropdown-item" type="submit" name="command" value="downloadTXT">.txt</button>
+                                    </form>
                                 </div>
                             </div>
-                        </form>
                     </div>
                 </figure>
         </c:forEach>

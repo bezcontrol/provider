@@ -10,5 +10,7 @@
 </head>
 <body>
 <%@ include file="../jspf/menu.jspf"%>
+
+<h1>CABINET</h1>
 </body>
 </html>
