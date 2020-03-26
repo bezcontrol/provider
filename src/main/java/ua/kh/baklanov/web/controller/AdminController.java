@@ -8,6 +8,7 @@ import ua.kh.baklanov.model.bean.UserBean;
 import ua.kh.baklanov.web.command.AbstractCommand;
 import ua.kh.baklanov.web.command.adminPanel.AdminCommandContainer;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -39,7 +40,7 @@ public class AdminController extends HttpServlet {
                 resp.sendRedirect(Route.HOME);
             }
         } catch (IOException ex) {
-            LOG.error(Messages.ERROR_FORWARD + AdminController.class.getSimpleName(), ex);
+            LOG.error(Messages.ERROR_REDIRECT + AdminController.class.getSimpleName(), ex);
         }
     }
 }

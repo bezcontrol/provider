@@ -108,6 +108,9 @@ public final class Queries {
 
     public static final String GET_STATUS_BY_NAME = "SELECT id AS 'idStatus', name as 'statusName' " +
             "FROM statuses WHERE name=?";
+    public static final String GET_ALL_ROLES = "SELECT id as 'idRole', name as 'roleName' FROM roles";
+
+    public static final String GET_ALL_STATUSES = "SELECT id AS 'idStatus', name as 'statusName' FROM statuses";
 
     private Queries() {
     }

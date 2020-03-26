@@ -8,7 +8,8 @@ public final class Attributes {
     public static final String OPERATION = "operation";
     public static final String SELECTED_TARIFF = "selectedTariff";
     public static final String USERS = "users";
-
+    public static final String ROLES = "roles";
+    public static final String STATUSES = "statuses";
 
     private Attributes(){
     }

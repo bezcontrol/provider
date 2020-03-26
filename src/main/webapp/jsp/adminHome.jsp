@@ -24,7 +24,6 @@
     <link rel="stylesheet" href="../resources/css/admin/cs-skin-elastic.css">
     <link rel="stylesheet" href="../resources/css/admin/jqvmap.min.css">
 
-
     <link rel="stylesheet" href="../resources/css/admin/style.css">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
@@ -140,6 +139,7 @@
                                         <th>Bill</th>
                                         <th>Role</th>
                                         <th>Status</th>
+                                        <th>Operations</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -150,6 +150,9 @@
                                             <td>${item.user.bill}</td>
                                             <td>${item.role.name}</td>
                                             <td>${item.status.name}</td>
+                                            <td>
+                                                <a href="#shortModal" data-toggle="modal"><button class="btnSelect btn btn-primary">Select</button></a>
+                                            </td>
                                         </tr>
                                     </c:forEach>
                                     </tbody>
@@ -163,13 +166,58 @@
             </div><!-- .animated -->
         </div>
 
+        <div id="shortModal" class="modal modal-wide fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="wrap-input100">
+                            <input id="login" class="input100" type="text"
+                                   placeholder="asdasdasd" disabled="disabled">
+                            <span class="focus-input100">Login</span>
+                        </div>
 
+                        <div class="wrap-input100">
+                            <input id="email" class="input100" type="text"
+                                   placeholder="asdasdasd" disabled="disabled">
+                            <span class="focus-input100">Email</span>
+                        </div>
+                        <div>
+                            <select id="role" class="js-select2">
+                                <option value="">-- Role --</option>
+                                <c:forEach items="${sessionScope.roles}" var="item">
+                                    <option value="${item.id}">${item.name}</option>
+                                </c:forEach>
+                            </select>
+                            <div class="dropDownSelect2"></div>
+                        </div>
+
+                        <div>
+                            <select id="status" class="js-select2">
+                                <option value="">-- Status --</option>
+                                <c:forEach items="${sessionScope.statuses}" var="item">
+                                    <option value="${item.id}">${item.name}</option>
+                                </c:forEach>
+                            </select>
+                            <div class="dropDownSelect2"></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
 
     </div> <!-- .content -->
 </div><!-- /#right-panel -->
 
 <!-- Right Panel -->
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="../resources/js/lib/jquery-3.2.1.min.js"></script>
 <script src="../resources/js/lib/popper.min.js"></script>
 <script src="../resources/js/bootstrap/bootstrap.min.js"></script>
@@ -194,7 +242,28 @@
 <script src="../resources/js/admin/buttons.print.min.js"></script>
 <script src="../resources/js/admin/buttons.colVis.min.js"></script>
 <script src="../resources/js/admin/datatables-init.js"></script>
+<script src="../resources/js/menu/modernizr.custom.js"></script>
+<script>
+    $("#shortModal").on("show.bs.modal", function() {
+        var height = $(window).height() - 200;
+        $(this).find(".modal-body").css("max-height", height);
+    });
+</script>
 
+
+<script>
+    $(document).ready(function(){
+        // code to read selected table row cell data (values).
+        $(".btnSelect").on('click',function(){
+            var currentRow=$(this).closest("tr");
+            var col1=currentRow.find("td:eq(0)").html();
+            var col2=currentRow.find("td:eq(1)").html();
+            var col3=currentRow.find("td:eq(2)").html();
+            document.getElementById("login").value=col1;
+            document.getElementById("email").value=col2;
+        });
+    });
+</script>
 <script>
     (function($) {
         "use strict";
