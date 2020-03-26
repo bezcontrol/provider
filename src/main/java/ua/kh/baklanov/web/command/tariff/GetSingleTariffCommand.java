@@ -52,6 +52,7 @@ public class GetSingleTariffCommand implements AbstractCommand {
                                 Long.parseLong(request.getParameter(
                                         Parameters.SERVICE_ID)));
                     }
+                    request.setAttribute(Parameters.SERVICE_TYPE,request.getParameter(Parameters.SERVICE_TYPE));
                 }
             } else {
                 AnyServiceDAO dao = service.getAnyServiceDAO();

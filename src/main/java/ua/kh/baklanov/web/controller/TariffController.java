@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Objects;
 
 @WebServlet("/tariff")
 public class TariffController extends HttpServlet {
@@ -49,20 +48,10 @@ public class TariffController extends HttpServlet {
         } catch (AppException ex) {
             LOG.error(Messages.ERROR_EXECUTING_COMMAND + command.getClass().getSimpleName(), ex);
         }
-
-        if (Objects.nonNull(req.getAttribute(Attributes.ERROR_VALIDATION))) {
-            try {
-                resp.sendRedirect(forward);
-             //   req.getRequestDispatcher(forward).forward(req, resp);
-            } catch (IOException ex) {
-                LOG.error(Messages.ERROR_FORWARD + TariffController.class.getSimpleName(), ex);
-            }
-        } else {
             try {
                 resp.sendRedirect(forward);
             } catch (IOException ex) {
                 LOG.error(Messages.ERROR_REDIRECT + TariffController.class.getSimpleName(), ex);
             }
-        }
     }
 }

@@ -3,7 +3,7 @@ package ua.kh.baklanov.db.mysql.repository;
 import org.apache.log4j.Logger;
 import ua.kh.baklanov.db.dao.AnyServiceDAO;
 import ua.kh.baklanov.db.dao.DAOFactory;
-import ua.kh.baklanov.db.mysql.exctractor.DefaultExtractorUtil;
+import ua.kh.baklanov.db.mysql.extractor.DefaultExtractorUtil;
 import ua.kh.baklanov.db.queries.Queries;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
@@ -20,26 +20,6 @@ public class DefaultAnyServiceDAOImpl implements AnyServiceDAO {
 
     public DefaultAnyServiceDAOImpl() {
         factory = DAOFactory.getDefaultFactory();
-    }
-
-    @Override
-    public void insert(AnyService obj) throws DbException {
-
-    }
-
-    @Override
-    public AnyService getById(long id) throws DbException {
-        return null;
-    }
-
-    @Override
-    public void update(AnyService obj) throws DbException {
-
-    }
-
-    @Override
-    public void delete(long id) throws DbException {
-
     }
 
     @Override

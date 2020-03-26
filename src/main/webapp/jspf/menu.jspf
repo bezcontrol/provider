@@ -36,17 +36,17 @@
         </li>
         <li><a href="../jsp/services.jsp">Home</a></li>
         <c:choose>
-        <c:when test="${not empty sessionScope.user}">
+        <c:when test="${not empty sessionScope.userBean.user}">
         <li style="float: right;border-right: none;border-left: 1px solid #c6d0da;"><a class="codrops-icon codrops-icon-drop"
                href="${pageContext.request.contextPath}/authentication?command=logout"><span>Log Out</span></a>
             <c:choose>
-            <c:when test="${sessionScope.userRole.name eq 'admin'}">
+            <c:when test="${sessionScope.userBean.role.name eq 'admin'}">
                 <li><a class="codrops-icon codrops-icon-drop"
-                       href="/admin?command=home"><span>Hello, ${sessionScope.user.login}</span></a></li>
+                       href="/admin?command=home"><span>Hello, ${sessionScope.userBean.user.login}</span></a></li>
             </c:when>
             <c:otherwise>
                 <li><a class="codrops-icon codrops-icon-drop"
-                       href="../jsp/cabinet.jsp"><span>Hello, ${sessionScope.user.login}</span></a></li>
+                       href="../jsp/cabinet.jsp"><span>Hello, ${sessionScope.userBean.user.login}</span></a></li>
             </c:otherwise>
             </c:choose>
         </c:when>

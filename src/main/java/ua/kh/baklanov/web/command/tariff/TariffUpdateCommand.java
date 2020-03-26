@@ -17,19 +17,23 @@ import ua.kh.baklanov.web.validation.ValidateAnyTariffFields;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TariffUpdateCommand implements AbstractCommand {
     private static final Logger LOG = Logger.getLogger(TariffUpdateCommand.class);
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response){
-        List<String> validateGeneral= ValidateAnyTariffFields.isGeneralFieldsValid(
+        List<String> validateGeneral = ValidateAnyTariffFields.isGeneralFieldsValid(
                 request.getParameter(Parameters.TARIFF_NAME),
                 request.getParameter(Parameters.TARIFF_PRICE),
                 request.getParameter(Parameters.TARIFF_DURATION));
-        if(!validateGeneral.isEmpty()){
-            request.getSession().setAttribute(Attributes.ERROR_VALIDATION,validateGeneral);
-            return "/tariff?operation=Update";
+        if (!validateGeneral.isEmpty()) {
+            request.getSession().setAttribute(Attributes.ERROR_VALIDATION, validateGeneral);
+            return "/tariff?"+Parameters.TARIFF_ID+"="+request.getParameter(Parameters.TARIFF_ID)+"&"+
+                    Parameters.SERVICE_TYPE+"="+request.getParameter(Parameters.SERVICE_TYPE)+"&"+
+                    Parameters.SERVICE_ID+"="+request.getParameter(Parameters.SERVICE_ID)+"&"+
+                    Parameters.OPERATION+"="+"Update";
         } else {
             try {
                 Tariff tariff = new Tariff();
@@ -47,5 +51,6 @@ public class TariffUpdateCommand implements AbstractCommand {
                 return Route.ERROR_PAGE;
             }
         }
+
     }
 }

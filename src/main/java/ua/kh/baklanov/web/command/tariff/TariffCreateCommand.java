@@ -23,7 +23,7 @@ import java.util.List;
 
 public class TariffCreateCommand implements AbstractCommand {
     private static final Logger LOG = Logger.getLogger(TariffCreateCommand.class);
-    private static List<String> errors = new ArrayList<>();
+
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
@@ -36,7 +36,8 @@ public class TariffCreateCommand implements AbstractCommand {
                 request.getParameter(Parameters.TARIFF_PRICE),
                 request.getParameter(Parameters.TARIFF_DURATION));
         if (!validateGeneral.isEmpty()) {
-            errors.addAll(validateGeneral);
+            request.getSession().setAttribute(Attributes.ERROR_VALIDATION, validateGeneral);
+            return "/tariff?operation=Create";
         } else {
             try {
                 tariffDAO = service.getTariffDAO();
@@ -53,9 +54,6 @@ public class TariffCreateCommand implements AbstractCommand {
                 return Route.ERROR_PAGE;
             }
         }
-        request.getSession().setAttribute(Attributes.ERROR_VALIDATION, validateGeneral);
-        return "/tariff?operation=Create";
-
     }
 
     private static Tariff isServiceTV(HttpServletRequest request, Tariff tariff) {

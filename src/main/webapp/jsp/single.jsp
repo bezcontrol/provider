@@ -179,7 +179,7 @@
                             </div>
                         </c:when>
                     </c:choose>
-
+                    <input id="serviceType" type="hidden" name="serviceType" value="${requestScope.serviceType}"/>
                     <div class="container-contact100-form-btn">
                         <button class="contact100-form-btn" type="submit" name="command"
                                 value="${requestScope.operation}">

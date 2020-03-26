@@ -9,7 +9,9 @@ public final class Messages {
     public static final String ERROR_DELETE = "Can't delete in database entity: ";
     public static final String ERROR_EXTRACTING = "Can't extract entity ";
     public static final String ERROR_GET_USER_BY_LOGIN = "Can't get user by login";
+    public static final String ERROR_GET_USER_BEAN_BY_LOGIN ="Can't get user bean by login" ;
     public static final String ERROR_GET_USER_BY_EMAIL = "Can't get user by email";
+    public static final String ERROR_GET_USER_BEAN_BY_EMAIL = "Can't get user bean by email";
     public static final String ERROR_GET_SERVICE_BY_TARIFF_ID = "Can't get service by tariff id";
     public static final String ERROR_GET_ALL_RECORDS = "Can't get all records from db with instance ";
     public static final String ERROR_GET_PART_OF_RECORDS = "Can't get part of records from db with instance ";
@@ -46,6 +48,10 @@ public final class Messages {
     public static final String INFO_GET_ALL_RECORDS = "Trying to get all instances of class: ";
     public static final String INFO_GET_INTERNET_TYPED_RECORDS = "Get internet records of type: ";
     public static final String ERROR_TARIFF_DAO = "Error when using tariff dao in command:";
+    public static final String INFO_GET_BY_NAME = "Getting by name entity: ";
+    public static final String ERROR_GET_BY_NAME = "Error getting by name entity: ";
+    public static final String ERROR_ROLE_DAO = "Error when using role dao in command: ";
+    public static final String ERROR_STATUS_DAO = "Error when using status dao in command: ";
 
     private Messages(){}
 

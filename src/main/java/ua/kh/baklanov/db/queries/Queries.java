@@ -88,6 +88,28 @@ public final class Queries {
             "VALUES (?, ?, ?, ?)";
     public static final String DELETE_TARIFF_BY_ID =  "DELETE FROM tariffs WHERE id=?";
 
+    public static final String GET_ALL_USERS_INFO ="SELECT u.*, r.name AS 'roleName', s.name AS 'statusName' " +
+            "FROM users u " +
+            "JOIN roles r ON u.idRole=r.id " +
+            "JOIN statuses s ON u.idStatus=s.id";
+
+    public static final String GET_USER_BEAN_BY_LOGIN="SELECT u.*, r.name AS 'roleName', s.name AS 'statusName' " +
+            "FROM users u " +
+            "JOIN roles r ON u.idRole=r.id " +
+            "JOIN statuses s ON u.idStatus=s.id " +
+            "WHERE u.login=?";
+
+    public static final String GET_USER_BEAN_BY_EMAIL = "SELECT u.*, r.name AS 'roleName', s.name AS 'statusName' " +
+            "FROM users u " +
+            "JOIN roles r ON u.idRole=r.id " +
+            "JOIN statuses s ON u.idStatus=s.id " +
+            "JOIN statuses s ON u.idStatus=s.id " +
+            "WHERE u.email=?";
+    public static final String GET_ROLE_BY_NAME = "SELECT id as 'idRole', name as 'roleName' FROM roles WHERE name=?";
+
+    public static final String GET_STATUS_BY_NAME = "SELECT id AS 'idStatus', name as 'statusName' " +
+            "FROM statuses WHERE name=?";
+
     private Queries() {
     }
 }

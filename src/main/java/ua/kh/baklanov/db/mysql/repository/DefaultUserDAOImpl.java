@@ -3,7 +3,7 @@ package ua.kh.baklanov.db.mysql.repository;
 import org.apache.log4j.Logger;
 import ua.kh.baklanov.db.dao.DAOFactory;
 import ua.kh.baklanov.db.dao.UserDAO;
-import ua.kh.baklanov.db.mysql.exctractor.DefaultExtractorUtil;
+import ua.kh.baklanov.db.mysql.extractor.DefaultExtractorUtil;
 
 import ua.kh.baklanov.db.queries.Queries;
 import ua.kh.baklanov.exception.DbException;

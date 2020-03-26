@@ -2,15 +2,7 @@ package ua.kh.baklanov.context;
 
 import org.apache.log4j.Logger;
 import ua.kh.baklanov.db.mysql.DefaultFactory;
-import ua.kh.baklanov.db.mysql.repository.DefaultAnyServiceDAOImpl;
-import ua.kh.baklanov.db.mysql.repository.DefaultAnyTariffDAOImpl;
-import ua.kh.baklanov.db.mysql.repository.DefaultInternetDAOImpl;
-import ua.kh.baklanov.db.mysql.repository.DefaultMobileDAOImpl;
-import ua.kh.baklanov.db.mysql.repository.DefaultPCDAOImpl;
-import ua.kh.baklanov.db.mysql.repository.DefaultServiceDAOImpl;
-import ua.kh.baklanov.db.mysql.repository.DefaultTVDAOImpl;
-import ua.kh.baklanov.db.mysql.repository.DefaultTariffDAOImpl;
-import ua.kh.baklanov.db.mysql.repository.DefaultUserDAOImpl;
+import ua.kh.baklanov.db.mysql.repository.*;
 import ua.kh.baklanov.exception.AppException;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
@@ -36,6 +28,9 @@ public final class MyClassLoader {
             Context.put(Attributes.SERVICE_DAO, new DefaultServiceDAOImpl());
             Context.put(Attributes.INTERNET_DAO, new DefaultInternetDAOImpl());
             Context.put(Attributes.MOBILE_DAO, new DefaultMobileDAOImpl());
+            Context.put(Attributes.USER_BEAN_DAO, new DefaultUserBeanDAOImpl());
+            Context.put(Attributes.ROLE_DAO, new DefaultRoleDAOImpl());
+            Context.put(Attributes.STATUS_DAO, new DefaultStatusDAOImpl());
         } catch (DbException e) {
             LOG.error(Messages.ERROR_CLASS_LOADER, e);
             throw new AppException(Messages.ERROR_CLASS_LOADER, e);

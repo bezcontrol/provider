@@ -1,17 +1,12 @@
-package ua.kh.baklanov.db.mysql.exctractor;
+package ua.kh.baklanov.db.mysql.extractor;
 
 import org.apache.log4j.Logger;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
 import ua.kh.baklanov.model.bean.AnyService;
 import ua.kh.baklanov.model.bean.AnyTariff;
-import ua.kh.baklanov.model.entity.Internet;
-import ua.kh.baklanov.model.entity.Mobile;
-import ua.kh.baklanov.model.entity.PC;
-import ua.kh.baklanov.model.entity.Service;
-import ua.kh.baklanov.model.entity.TV;
-import ua.kh.baklanov.model.entity.Tariff;
-import ua.kh.baklanov.model.entity.User;
+import ua.kh.baklanov.model.bean.UserBean;
+import ua.kh.baklanov.model.entity.*;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -209,5 +204,37 @@ public final class DefaultExtractorUtil {
             e.printStackTrace();
         }
         return anyService;
+    }
+
+    public static UserBean extractUserBean(ResultSet rs) throws DbException {
+        UserBean bean=new UserBean();
+        bean.setUser(extractUser(rs));
+        bean.setRole(extractRole(rs));
+        bean.setStatus(extractStatus(rs));
+        return bean;
+    }
+
+    public static Status extractStatus(ResultSet rs) throws DbException {
+        Status status=new Status();
+        try {
+            status.setId(rs.getLong("idStatus"));
+            status.setName(rs.getString("statusName"));
+        } catch (SQLException ex) {
+            LOG.error(Messages.ERROR_EXTRACTING+Status.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_EXTRACTING+Status.class.getSimpleName(), ex);
+        }
+        return status;
+    }
+
+    public static Role extractRole(ResultSet rs) throws DbException {
+        Role role = new Role();
+        try {
+            role.setId(rs.getLong("idRole"));
+            role.setName(rs.getString("roleName"));
+        } catch (SQLException ex) {
+            LOG.error(Messages.ERROR_EXTRACTING+Role.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_EXTRACTING+Role.class.getSimpleName(), ex);
+        }
+        return role;
     }
 }

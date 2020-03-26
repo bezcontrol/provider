@@ -3,7 +3,7 @@ package ua.kh.baklanov.db.mysql.repository;
 import org.apache.log4j.Logger;
 import ua.kh.baklanov.db.dao.DAOFactory;
 import ua.kh.baklanov.db.dao.AnyTariffDAO;
-import ua.kh.baklanov.db.mysql.exctractor.DefaultExtractorUtil;
+import ua.kh.baklanov.db.mysql.extractor.DefaultExtractorUtil;
 import ua.kh.baklanov.db.queries.Queries;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
@@ -94,26 +94,6 @@ public class DefaultAnyTariffDAOImpl implements AnyTariffDAO {
             }
         }
         return currentTypePC;
-    }
-
-    @Override
-    public void insert(AnyTariff obj) throws DbException {
-
-    }
-
-    @Override
-    public AnyTariff getById(long id) throws DbException {
-        return null;
-    }
-
-    @Override
-    public void update(AnyTariff obj) throws DbException {
-
-    }
-
-    @Override
-    public void delete(long id) throws DbException {
-
     }
 
     @Override

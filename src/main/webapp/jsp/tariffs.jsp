@@ -113,9 +113,9 @@
                             <input type="hidden" name="tariffId" value="${object.tariff.id}"/>
                             <input type="hidden" name="serviceType" value="${object.service.getClass().simpleName}"/>
                             <input type="hidden" name="serviceId" value="${object.service.id}"/>
-                        <c:if test="${not empty sessionScope.user}">
+                        <c:if test="${not empty sessionScope.userBean.user}">
                             <c:choose>
-                                <c:when test="${sessionScope.userRole.getName() eq 'admin'}">
+                                <c:when test="${sessionScope.userBean.role.name eq 'admin'}">
                                     <button type="submit"  class="btn btn-danger mybtn" name="operation" value="Update">Update</button>
                                     <button type="submit"  class="btn btn-danger mybtn" name="operation" value="Delete">Delete</button>
                                 </c:when>
@@ -143,7 +143,7 @@
     </div>
 </c:if>
 <form action="tariff" method="get">
-    <c:if test="${sessionScope.userRole.getName() eq 'admin'}">
+    <c:if test="${sessionScope.userBean.role.name eq 'admin'}">
         <button type="submit" class="btn btn-danger" name="operation" value="Create">Create</button>
     </c:if>
 </form>

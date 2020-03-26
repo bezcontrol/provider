@@ -11,6 +11,9 @@ public final class Attributes {
     public static final String INTERNET_DAO = "INTERNET_DAO";
     public static final String MOBILE_DAO = "MOBILE_DAO";
     public static final String ANY_SERVICE_DAO = "ANY_SERVICE_DAO";
+    public static final String USER_BEAN_DAO = "USER_BEAN_DAO";
+    public static final String ROLE_DAO = "ROLE_DAO";
+    public static final String STATUS_DAO = "STATUS_DAO";
 
     private Attributes(){}
 }

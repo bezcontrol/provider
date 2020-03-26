@@ -6,7 +6,7 @@ import ua.kh.baklanov.model.bean.AnyService;
 import java.util.List;
 
 
-public interface AnyServiceDAO extends DAO<AnyService> {
+public interface AnyServiceDAO extends DAOGetAll<AnyService> {
     List<AnyService> getCurrentPCTypedServices(long idPC) throws DbException;
     List<AnyService> getCurrentTVTypedServices(long idTV) throws DbException;
     List<AnyService> getCurrentMobileTypedServices(long idMobile) throws DbException;
