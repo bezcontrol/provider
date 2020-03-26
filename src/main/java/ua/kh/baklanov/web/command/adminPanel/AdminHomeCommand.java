@@ -2,10 +2,12 @@ package ua.kh.baklanov.web.command.adminPanel;
 
 import org.apache.log4j.Logger;
 import ua.kh.baklanov.Route;
+import ua.kh.baklanov.db.dao.UserBeanDAO;
 import ua.kh.baklanov.db.dao.UserDAO;
 import ua.kh.baklanov.exception.AppException;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
+import ua.kh.baklanov.model.bean.UserBean;
 import ua.kh.baklanov.model.entity.User;
 import ua.kh.baklanov.service.DAOService;
 import ua.kh.baklanov.service.DefaultService;
@@ -22,8 +24,8 @@ public class AdminHomeCommand implements AbstractCommand {
     public String execute(HttpServletRequest request, HttpServletResponse response){
         try {
             DAOService service= new DefaultService();
-            UserDAO userDAO = service.getUserDAO();
-            List<User> users=userDAO.getAll();
+            UserBeanDAO userDAO = service.getUserBeanDAO();
+            List<UserBean> users=userDAO.getAll();
             request.getSession().setAttribute(Attributes.USERS, users);
             return Route.ADMIN_HOME;
         } catch (DbException e) {

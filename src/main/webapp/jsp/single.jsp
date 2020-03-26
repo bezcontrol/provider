@@ -33,7 +33,7 @@
 <c:set var="pc" value='PC'/>
 <c:set var="tv" value='TV'/>
 <c:set var="mobile" value='Mobile'/>
-<c:if test="${(sessionScope.user eq null) and (requestScope.operation ne 'Details')}">
+<c:if test="${(sessionScope.userBean eq null) and (requestScope.operation ne 'Details')}">
     <c:redirect url="/service?command=allTariffs"/>
 </c:if>
 

@@ -43,7 +43,8 @@ public class LoginCommand implements AbstractCommand {
                     !Hashing.sha256().hashString(password, Charsets.UTF_8).toString()
                             .equals(user.getUser().getPassword())) {
                 user = userBeanDAO.getByEmail(login);
-                if (user == null || !password.equals(user.getUser().getPassword())) {
+                if (user == null || !Hashing.sha256().hashString(password, Charsets.UTF_8).toString()
+                        .equals(user.getUser().getPassword())) {
                     LOG.info(Messages.ERROR_FIND_USER_WITH_THIS_CREDENTIALS);
                     request.setAttribute(Attributes.ERROR, Messages.ERROR_FIND_USER_WITH_THIS_CREDENTIALS);
                     return Route.LOGIN;

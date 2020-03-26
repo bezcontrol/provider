@@ -135,19 +135,21 @@
                                 <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                     <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Salary</th>
+                                        <th>Login</th>
+                                        <th>Email</th>
+                                        <th>Bill</th>
+                                        <th>Role</th>
+                                        <th>Status</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach items="${list}" var="item">
+                                    <c:forEach items="${sessionScope.users}" var="item">
                                         <tr>
-                                            <td>${item.login}</td>
-                                            <td>${item.login}</td>
-                                            <td>New York</td>
-                                            <td>$112,000</td>
+                                            <td>${item.user.login}</td>
+                                            <td>${item.user.email}</td>
+                                            <td>${item.user.bill}</td>
+                                            <td>${item.role.name}</td>
+                                            <td>${item.status.name}</td>
                                         </tr>
                                     </c:forEach>
                                     </tbody>

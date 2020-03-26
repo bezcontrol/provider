@@ -103,7 +103,6 @@ public final class Queries {
             "FROM users u " +
             "JOIN roles r ON u.idRole=r.id " +
             "JOIN statuses s ON u.idStatus=s.id " +
-            "JOIN statuses s ON u.idStatus=s.id " +
             "WHERE u.email=?";
     public static final String GET_ROLE_BY_NAME = "SELECT id as 'idRole', name as 'roleName' FROM roles WHERE name=?";
 

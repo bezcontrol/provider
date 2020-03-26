@@ -12,6 +12,10 @@
 
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
+<c:if test="${(sessionScope.userBean eq null) or (sessionScope.userBean.role.name ne 'admin')}">
+    <c:redirect url="/service?command=allTariffs"/>
+</c:if>
+
 <aside id="left-panel" class="left-panel">
     <nav class="navbar navbar-expand-sm navbar-default">
 
