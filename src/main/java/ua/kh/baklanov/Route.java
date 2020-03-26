@@ -8,6 +8,8 @@ public final class Route {
     public static final String TV_SERVICE = "jsp/tv.jsp";
     public static final String TARIFFS = "jsp/tariffs.jsp";
     public static final String SINGLE_TARIFF = "jsp/single.jsp";
+    public static final String ALL_TARIFFS = "/service?command=allTariffs";
+    public static final String ADMIN_HOME = "jsp/adminHome.jsp";
 
     private Route(){}
 }

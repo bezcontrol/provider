@@ -20,25 +20,49 @@ public class TariffController extends HttpServlet {
     private static final Logger LOG = Logger.getLogger(TariffController.class);
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        String commandName = req.getParameter(Parameters.COMMAND);
-        AbstractCommand command;
-        if(Objects.isNull(commandName)){
-            command=TariffCommandContainer.get("getSingleTariff");
-        } else {
-            command = TariffCommandContainer.get(commandName);
-        }
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
+        AbstractCommand command = null;
         String forward = Route.ERROR_PAGE;
         try {
-            LOG.info(Messages.INFO_EXECUTING_COMMAND+command.getClass().getSimpleName());
+            command = TariffCommandContainer.get("getSingleTariff");
+            LOG.info(Messages.INFO_EXECUTING_COMMAND + command.getClass().getSimpleName());
             forward = command.execute(req, resp);
         } catch (AppException ex) {
-            LOG.error(Messages.ERROR_EXECUTING_COMMAND + command.getClass().getSimpleName(),ex);
+            LOG.error(Messages.ERROR_EXECUTING_COMMAND + command.getClass().getSimpleName(), ex);
         }
         try {
-            req.getRequestDispatcher(forward).forward(req,resp);
-        } catch (ServletException | IOException ex) {
-            LOG.error(Messages.ERROR_FORWARD+TariffController.class.getSimpleName(),ex);
+            req.getRequestDispatcher(forward).forward(req, resp);
+        } catch (IOException | ServletException ex) {
+            LOG.error(Messages.ERROR_FORWARD + TariffController.class.getSimpleName(), ex);
+        }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
+        String commandName = req.getParameter(Parameters.COMMAND);
+        AbstractCommand command = null;
+        String forward = Route.ERROR_PAGE;
+        try {
+            command = TariffCommandContainer.get(commandName);
+            LOG.info(Messages.INFO_EXECUTING_COMMAND + command.getClass().getSimpleName());
+            forward = command.execute(req, resp);
+        } catch (AppException ex) {
+            LOG.error(Messages.ERROR_EXECUTING_COMMAND + command.getClass().getSimpleName(), ex);
+        }
+
+        if (Objects.nonNull(req.getAttribute(Attributes.ERROR_VALIDATION))) {
+            try {
+                resp.sendRedirect(forward);
+             //   req.getRequestDispatcher(forward).forward(req, resp);
+            } catch (IOException ex) {
+                LOG.error(Messages.ERROR_FORWARD + TariffController.class.getSimpleName(), ex);
+            }
+        } else {
+            try {
+                resp.sendRedirect(forward);
+            } catch (IOException ex) {
+                LOG.error(Messages.ERROR_REDIRECT + TariffController.class.getSimpleName(), ex);
+            }
         }
     }
 }

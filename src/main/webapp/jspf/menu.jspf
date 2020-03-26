@@ -39,13 +39,21 @@
         <c:when test="${not empty sessionScope.user}">
         <li style="float: right;border-right: none;border-left: 1px solid #c6d0da;"><a class="codrops-icon codrops-icon-drop"
                href="${pageContext.request.contextPath}/authentication?command=logout"><span>Log Out</span></a>
-        <li><a class="codrops-icon codrops-icon-drop"
-               href="../jsp/cabinet.jsp"><span>Hello, ${sessionScope.user.login}</span></a>
+            <c:choose>
+            <c:when test="${sessionScope.userRole.name eq 'admin'}">
+                <li><a class="codrops-icon codrops-icon-drop"
+                       href="/admin?command=home"><span>Hello, ${sessionScope.user.login}</span></a></li>
             </c:when>
             <c:otherwise>
-        <li><a class="codrops-icon codrops-icon-drop" href="../index.jsp"><span>Log in</span></a>
+                <li><a class="codrops-icon codrops-icon-drop"
+                       href="../jsp/cabinet.jsp"><span>Hello, ${sessionScope.user.login}</span></a></li>
             </c:otherwise>
             </c:choose>
+        </c:when>
+        <c:otherwise>
+        <li><a class="codrops-icon codrops-icon-drop" href="../index.jsp"><span>Log in</span></a>
+        </c:otherwise>
+        </c:choose>
         </li>
 
     </ul>

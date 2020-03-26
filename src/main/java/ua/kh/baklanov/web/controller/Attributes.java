@@ -8,6 +8,7 @@ public final class Attributes {
     public static final String USER_ROLE="userRole";
     public static final String OPERATION = "operation";
     public static final String SELECTED_TARIFF = "selectedTariff";
+    public static final String USERS = "users";
 
 
     private Attributes(){

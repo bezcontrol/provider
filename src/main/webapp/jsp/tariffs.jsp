@@ -109,7 +109,7 @@
 
                     </figcaption>
                     <div class="group_of_buttons">
-                        <form action="tariff" method="post">
+                        <form action="tariff" method="get">
                             <input type="hidden" name="tariffId" value="${object.tariff.id}"/>
                             <input type="hidden" name="serviceType" value="${object.service.getClass().simpleName}"/>
                             <input type="hidden" name="serviceId" value="${object.service.id}"/>
@@ -142,7 +142,7 @@
         </c:forEach>
     </div>
 </c:if>
-<form action="tariff" method="post">
+<form action="tariff" method="get">
     <c:if test="${sessionScope.userRole.getName() eq 'admin'}">
         <button type="submit" class="btn btn-danger" name="operation" value="Create">Create</button>
     </c:if>

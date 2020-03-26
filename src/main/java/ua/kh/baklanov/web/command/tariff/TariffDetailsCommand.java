@@ -19,6 +19,6 @@ public class TariffDetailsCommand implements AbstractCommand {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-        return Route.HOME;
+        return Route.ALL_TARIFFS;
     }
 }

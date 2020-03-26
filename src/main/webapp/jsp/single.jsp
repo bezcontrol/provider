@@ -200,7 +200,7 @@
                     <label class="label-input100"
                            for="tariff_name">${applicationScope.textFields.getTariffName()}</label>
                     <div class="wrap-input100 validate-input" data-validate="Required">
-                        <input id="tariff_name" name="tariff_name" class="input100" type="text" placeholder="">
+                        <input id="tariff_name" name="tariff_name" class="input100 tariff_field" type="text" placeholder="">
                         <span class="focus-input100"></span>
                     </div>
 
@@ -222,14 +222,14 @@
                     <label class="label-input100"
                            for="tariff_price">${applicationScope.textFields.getTariffPrice()}</label>
                     <div class="wrap-input100 validate-input" data-validate="Required">
-                        <input id="tariff_price" name="tariff_price" class="input100" type="text" placeholder="">
+                        <input id="tariff_price" name="tariff_price" class="input100 tariff_field" type="text" placeholder="">
                         <span class="focus-input100"></span>
                     </div>
 
                     <label class="label-input100"
                            for="tariff_duration">${applicationScope.textFields.getTariffDurationInDays()}</label>
                     <div class="wrap-input100 validate-input" data-validate="Required">
-                        <input id="tariff_duration" name="tariff_duration" class="input100" type="text"
+                        <input id="tariff_duration" name="tariff_duration" class="input100 tariff_field" type="text"
                                placeholder="">
                         <span class="focus-input100"></span>
                     </div>
@@ -263,7 +263,7 @@
                         <label class="label-input100"
                                for="connectedPC">${applicationScope.textFields.getPcConnectedPC()}</label>
                         <div class="wrap-input100">
-                            <input id="connectedPC" class="input100" type="text" placeholder="" disabled="disabled">
+                            <input id="connectedPC" class="input100 tariff_field" type="text" placeholder="" disabled="disabled">
                             <span class="focus-input100"></span>
                         </div>
                     </div>
@@ -297,13 +297,13 @@
                         <label class="label-input100"
                                for="typeTV">${applicationScope.textFields.getTvType()}</label>
                         <div class="wrap-input100">
-                            <input id="typeTV" class="input100" type="text" placeholder="" disabled="disabled">
+                            <input id="typeTV" class="input100 tariff_field" type="text" placeholder="" disabled="disabled">
                             <span class="focus-input100"></span>
                         </div>
                         <label class="label-input100"
                                for="numOfChannels">${applicationScope.textFields.getTvNumberOfChannels()}</label>
                         <div class="wrap-input100">
-                            <input id="numOfChannels" class="input100" type="text" placeholder=""
+                            <input id="numOfChannels" class="input100 tariff_field" type="text" placeholder=""
                                    disabled="disabled">
                             <span class="focus-input100"></span>
                         </div>
@@ -341,26 +341,26 @@
                         <label class="label-input100"
                                for="minutesInside">${applicationScope.textFields.getMobileMinutesInside()}</label>
                         <div class="wrap-input100" >
-                            <input id="minutesInside" class="input100" type="text" placeholder=""
+                            <input id="minutesInside" class="input100 tariff_field" type="text" placeholder=""
                                    disabled="disabled">
                             <span class="focus-input100"></span>
                         </div>
                         <label class="label-input100"
                                for="minutesOutside">${applicationScope.textFields.getMobileMinutesOutside()}</label>
                         <div class="wrap-input100" >
-                            <input id="minutesOutside" class="input100" type="text" placeholder="">
+                            <input id="minutesOutside" class="input100 tariff_field" type="text" placeholder="">
                             <span class="focus-input100"></span>
                         </div>
                         <label class="label-input100"
                                for="numOfSMS">${applicationScope.textFields.getMobileNumberOfSMS()}</label>
                         <div class="wrap-input100">
-                            <input id="numOfSMS" class="input100" type="text" placeholder="" disabled="disabled">
+                            <input id="numOfSMS" class="input100 tariff_field" type="text" placeholder="" disabled="disabled">
                             <span class="focus-input100"></span>
                         </div>
                         <label class="label-input100"
                                for="numOfMbts">${applicationScope.textFields.getMobileNumberOfMbts()}</label>
                         <div class="wrap-input100">
-                            <input id="numOfMbts" class="input100" type="text" placeholder="" disabled="disabled">
+                            <input id="numOfMbts" class="input100 tariff_field" type="text" placeholder="" disabled="disabled">
                             <span class="focus-input100"></span>
                         </div>
                     </div>
@@ -368,22 +368,31 @@
                     <label class="label-input100"
                            for="internet_speed">${applicationScope.textFields.getInternetSpeed()}</label>
                     <div class="wrap-input100" >
-                        <input id="internet_speed" class="input100" type="text" placeholder="" disabled="disabled">
+                        <input id="internet_speed" class="input100 tariff_field" type="text" placeholder="" disabled="disabled">
                         <span class="focus-input100"></span>
                     </div>
                     <label class="label-input100"
                            for="internet_technology">${applicationScope.textFields.getInternetTechnology()}</label>
                     <div class="wrap-input100">
-                        <input id="internet_technology" class="input100" type="text" placeholder=""
+                        <input id="internet_technology" class="input100 tariff_field" type="text" placeholder=""
                                disabled="disabled">
                         <span class="focus-input100"></span>
                     </div>
+                    <c:if test="${sessionScope.errorValidation.size()>0}">
+                        <c:forEach items="${sessionScope.errorValidation}" var="element">
+                            <div class="m-t-15 alert alert-danger alert-dismissible">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    ${element}
+                            </div>
+                        </c:forEach>
+                    </c:if>
                     <input id="serviceType" type="hidden" name="serviceType" value=""/>
                     <button class="contact100-form-btn" type="submit" name="command"
                             value="${requestScope.operation}">
                             ${requestScope.operation}
                     </button>
                 </form>
+
                 <!-- END OF RIGHT SIDE OF CREATE COMMAND (FORM) -->
             </c:when>
 
@@ -675,78 +684,7 @@
         </c:otherwise>
         </c:choose>
     });
-</script>
 
-<script>
-    $("#serviceId2").change(function () {
-        document.getElementById('serviceType').value = 'PC';
-        document.getElementById('internet_speed').value = null;
-        document.getElementById('internet_technology').value = null;
-        val1 = $(this).find(':selected').data('speed');
-        val2 = $(this).find(':selected').data('tech');
-
-        if (val1 != 0 && val2 != 'null') {
-            document.getElementById('internet_speed').value = val1;
-            document.getElementById('internet_technology').value = val2;
-        }
-        document.getElementById('connectedPC').value = $(this).find(':selected').data('conpc');
-    });
-
-    $("#serviceId3").change(function () {
-        document.getElementById('serviceType').value = 'TV';
-        document.getElementById('internet_speed').value = null;
-        document.getElementById('internet_technology').value = null;
-        val1 = $(this).find(':selected').data('speed');
-        val2 = $(this).find(':selected').data('tech');
-
-        if (val1 != 0 && val2 != 'null') {
-            document.getElementById('internet_speed').value = val1;
-            document.getElementById('internet_technology').value = val2;
-        }
-
-        document.getElementById('typeTV').value = $(this).find(':selected').data('type');
-        document.getElementById('numOfChannels').value = $(this).find(':selected').data('numofchannels');
-
-    });
-
-    $("#serviceId4").change(function () {
-        document.getElementById('serviceType').value = 'Mobile';
-        document.getElementById('internet_speed').value = null;
-        document.getElementById('internet_technology').value = null;
-        val1 = $(this).find(':selected').data('speed');
-        val2 = $(this).find(':selected').data('tech');
-
-        if (val1 != 0 && val2 != 'null') {
-            document.getElementById('internet_speed').value = val1;
-            document.getElementById('internet_technology').value = val2;
-        }
-        document.getElementById('minutesInside').value = $(this).find(':selected').data('numofmininside');
-        document.getElementById('minutesOutside').value = $(this).find(':selected').data('numofminoutside');
-        document.getElementById('numOfSMS').value = $(this).find(':selected').data('numofsms');
-        document.getElementById('numOfMbts').value = $(this).find(':selected').data('numofmbts');
-
-    });
-</script>
-
-
-<script>
-    function yesnoCheck(that) {
-        if (that.value == "PC") {
-            document.getElementById("ifPC").style.display = "block";
-        } else {
-            document.getElementById("ifPC").style.display = "none";
-        }
-        if (that.value == "TV") {
-            document.getElementById("ifTV").style.display = "block";
-        } else {
-            document.getElementById("ifTV").style.display = "none";
-        }
-        if (that.value == "Mobile") {
-            document.getElementById("ifMobile").style.display = "block";
-        } else {
-            document.getElementById("ifMobile").style.display = "none";
-        }
-    }
 </script>
 <script>
 
@@ -775,12 +713,41 @@
         dropdownParent: $('#dropDownSelect1')
     });
 </script>
+
+
+<script>
+    function dropDownValidate()
+    {
+        defaultOne = document.getElementById('type');
+        if($("#ifPC").css("display") == "block"){
+            if($("#serviceId2 option:selected").text() == "-- Select --")
+            {
+                document.getElementById('serviceId2').setCustomValidity("Choose service of PC");
+                return false;
+            }
+        } else if($("#ifTV").css("display") == "block"){
+            if($("#serviceId3 option:selected").text() == "-- Select --")
+            {
+                document.getElementById('serviceId3').setCustomValidity("Choose service of TV");
+                return false;
+            }
+        } else if($("#ifMobile").css("display") == "block"){
+            if($("#serviceId4 option:selected").text() == "-- Select --")
+            {
+                document.getElementById('serviceId4').setCustomValidity("Choose service of mobile");
+                return false;
+            }
+        }
+        return true;
+    }
+</script>
 <!--===============================================================================================-->
 <script src="../resources/js/lib/moment.min.js"></script>
 <script src="../resources/js/lib/daterangepicker.js"></script>
 <!--===============================================================================================-->
 <script src="../resources/js/lib/countdowntime.js"></script>
 <!--===============================================================================================-->
+<script src="../resources/js/single/showFillValidateFields.js"></script>
 <script src="../resources/js/single/main.js"></script>
 </body>
 </html>
