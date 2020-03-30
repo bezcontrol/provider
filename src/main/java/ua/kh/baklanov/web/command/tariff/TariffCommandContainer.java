@@ -14,6 +14,7 @@ public final class TariffCommandContainer {
         commands.put("Update", new TariffUpdateCommand());
         commands.put("Delete", new TariffDeleteCommand());
         commands.put("Create", new TariffCreateCommand());
+        commands.put("AddToCart", new AddToCartCommand());
         commands.put("downloadPDF", new TariffDownloadPDFCommand());
         commands.put("downloadTXT", new TariffDownloadTXTCommand());
         commands.put("getSingleTariff", new GetSingleTariffCommand());

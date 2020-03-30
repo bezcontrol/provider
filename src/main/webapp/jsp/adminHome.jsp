@@ -151,7 +151,7 @@
                                             <td>${item.role.name}</td>
                                             <td>${item.status.name}</td>
                                             <td>
-                                                <a href="#shortModal" data-toggle="modal"><button class="btnSelect btn btn-primary">Select</button></a>
+                                                <a href="#shortModal" data-toggle="modal"><button class="btnSelect btn btn-primary">Update</button></a>
                                             </td>
                                         </tr>
                                     </c:forEach>
@@ -169,24 +169,28 @@
         <div id="shortModal" class="modal modal-wide fade">
             <div class="modal-dialog">
                 <div class="modal-content">
+                    <form class="contact100-form validate-form" action="${pageContext.request.contextPath}/admin" method="post">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                     <div class="modal-body">
                         <div class="wrap-input100">
-                            <input id="login" class="input100" type="text"
-                                   placeholder="asdasdasd" disabled="disabled">
-                            <span class="focus-input100">Login</span>
-                        </div>
+                            <span class="focus-input100">${applicationScope.textFields.getUserLogin()}</span>
+                            <input id="login" name="login" class="input100" type="text" readonly>
 
+                        </div>
                         <div class="wrap-input100">
-                            <input id="email" class="input100" type="text"
-                                   placeholder="asdasdasd" disabled="disabled">
-                            <span class="focus-input100">Email</span>
+                            <span class="focus-input100">${applicationScope.textFields.getUserEmail()}</span>
+                            <input id="email" name="email" class="input100" type="text" readonly>
+                        </div>
+                        <div class="wrap-input100">
+                            <span class="focus-input100">${applicationScope.textFields.getUserBill()}</span>
+                            <input id="bill" name="bill" class="input100" type="text">
+
                         </div>
                         <div>
-                            <select id="role" class="js-select2">
-                                <option value="">-- Role --</option>
+                            <span class="focus-input100">${applicationScope.textFields.getUserRole()}</span>
+                            <select id="role" class="js-select2" name="roleUser">
                                 <c:forEach items="${sessionScope.roles}" var="item">
                                     <option value="${item.id}">${item.name}</option>
                                 </c:forEach>
@@ -195,8 +199,8 @@
                         </div>
 
                         <div>
-                            <select id="status" class="js-select2">
-                                <option value="">-- Status --</option>
+                            <span class="focus-input100">${applicationScope.textFields.getUserStatus()}</span>
+                            <select id="status" class="js-select2" name="statusUser">
                                 <c:forEach items="${sessionScope.statuses}" var="item">
                                     <option value="${item.id}">${item.name}</option>
                                 </c:forEach>
@@ -206,8 +210,10 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn btn-primary" name="operation"
+                                value="UpdateUser">Save changes</button>
                     </div>
+                    </form>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
@@ -261,26 +267,9 @@
             var col3=currentRow.find("td:eq(2)").html();
             document.getElementById("login").value=col1;
             document.getElementById("email").value=col2;
+            document.getElementById("bill").value=col3;
         });
     });
-</script>
-<script>
-    (function($) {
-        "use strict";
-
-        jQuery('#vmap').vectorMap({
-            map: 'world_en',
-            backgroundColor: null,
-            color: '#ffffff',
-            hoverOpacity: 0.7,
-            selectedColor: '#1de9b6',
-            enableZoom: true,
-            showTooltip: true,
-            values: sample_data,
-            scaleColors: ['#1de9b6', '#03a9f5'],
-            normalizeFunction: 'polynomial'
-        });
-    })(jQuery);
 </script>
 
 </body>

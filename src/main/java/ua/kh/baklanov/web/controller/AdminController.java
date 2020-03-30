@@ -8,7 +8,6 @@ import ua.kh.baklanov.model.bean.UserBean;
 import ua.kh.baklanov.web.command.AbstractCommand;
 import ua.kh.baklanov.web.command.adminPanel.AdminCommandContainer;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +18,25 @@ import java.util.Objects;
 @WebServlet("/admin")
 public class AdminController extends HttpServlet {
     private static final Logger LOG = Logger.getLogger(AdminController.class);
+
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
+        String commandName = req.getParameter(Parameters.OPERATION);
+        AbstractCommand command = AdminCommandContainer.get(commandName);
+        String forward = Route.ERROR_PAGE;
+        try {
+            LOG.info(Messages.INFO_EXECUTING_COMMAND+command.getClass().getSimpleName());
+            forward = command.execute(req, resp);
+        } catch (AppException ex) {
+            LOG.error(Messages.ERROR_EXECUTING_COMMAND + command.getClass().getSimpleName(),ex);
+        }
+        try {
+            resp.sendRedirect(forward);
+        } catch (IOException ex) {
+            LOG.error(Messages.ERROR_REDIRECT+ServiceController.class.getSimpleName(),ex);
+        }
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
@@ -34,7 +52,6 @@ public class AdminController extends HttpServlet {
                 } catch (AppException ex) {
                     LOG.error(Messages.ERROR_EXECUTING_COMMAND + command.getClass().getSimpleName(), ex);
                 }
-
                 resp.sendRedirect(forward);
             } else {
                 resp.sendRedirect(Route.HOME);

@@ -8,6 +8,7 @@ import ua.kh.baklanov.db.dao.UserBeanDAO;
 import ua.kh.baklanov.db.dao.UserDAO;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
+import ua.kh.baklanov.model.bean.AnyTariff;
 import ua.kh.baklanov.model.bean.UserBean;
 import ua.kh.baklanov.model.entity.Role;
 import ua.kh.baklanov.model.entity.Status;
@@ -21,6 +22,7 @@ import ua.kh.baklanov.web.controller.Parameters;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class LoginCommand implements AbstractCommand {
@@ -50,6 +52,11 @@ public class LoginCommand implements AbstractCommand {
                     return Route.LOGIN;
                 }
             }
+            if("blocked".equals(user.getStatus().getName())){
+                LOG.info(Messages.ERROR_USER_IS_BLOCKED);
+                request.setAttribute(Attributes.ERROR, Messages.ERROR_USER_IS_BLOCKED);
+                return Route.LOGIN;
+            }
             LOG.info("User was found");
             forward = getUserAccess(user, request);
         } catch (DbException e) {
@@ -74,6 +81,7 @@ public class LoginCommand implements AbstractCommand {
             } else {
                 HttpSession session = request.getSession();
                 session.setAttribute(Attributes.USER, user);
+                session.setAttribute(Attributes.CART, new ArrayList<AnyTariff>());
                 forward = Route.HOME;
             }
         }

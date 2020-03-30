@@ -402,9 +402,6 @@
                     <input type="hidden" name="tariffId" value="${selectedTariff.tariff.id}"/>
                     <input type="hidden" name="serviceType"
                            value="${requestScope.selectedTariff.service.getClass().simpleName}"/>
-                    <span class="contact100-form-title">
-                            ${requestScope.operation}
-                    </span>
                     <label class="label-input100"
                            for="tariff_name_na">${applicationScope.textFields.getTariffName()}</label>
                     <div class="wrap-input100">
@@ -506,10 +503,28 @@
                     </c:choose>
 
                     <div class="container-contact100-form-btn">
+                        <c:choose>
+                            <c:when test="${(requestScope.operation eq 'Details')}">
+                                <button class="contact100-form-btn" type="submit" name="command"
+                                        value="${requestScope.operation}">
+                                        Back
+                                </button>
+                            </c:when>
+                            <c:when test="${(requestScope.operation eq 'Delete')}">
                                 <button class="contact100-form-btn" type="submit" name="command"
                                         value="${requestScope.operation}">
                                         ${requestScope.operation}
                                 </button>
+                            </c:when>
+                            <c:when test="${(requestScope.operation eq 'AddToCart')}">
+                                <button class="contact100-form-btn" type="submit" name="command"
+                                        value="${requestScope.operation}">
+                                        Add to cart
+                                </button>
+                            </c:when>
+                        </c:choose>
+
+
                     </div>
                 </form>
                 <!-- END OF RIGHT SIDE OF DETAILS AND DELETE COMMAND (FORM) -->

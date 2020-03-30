@@ -112,23 +112,20 @@ public class DefaultUserDAOImpl implements UserDAO {
 
     @Override
     public void update(User obj) throws DbException {
-        User old= getById(obj.getId());
         try (Connection con = factory.getConnection();
              PreparedStatement statement = con.prepareStatement(Queries.UPDATE_USER_BY_LOGIN)) {
             int k=1;
             statement.setString(k, obj.getLogin());
             k++;
-            statement.setString(k, obj.getPassword());
-            k++;
             statement.setString(k, obj.getEmail());
             k++;
             statement.setLong(k, obj.getIdRole());
             k++;
-            statement.setLong(k, old.getIdStatus());
+            statement.setLong(k, obj.getIdStatus());
             k++;
-            statement.setDouble(k, old.getBill());
+            statement.setDouble(k, obj.getBill());
             k++;
-            statement.setString(k, old.getLogin());
+            statement.setString(k, obj.getLogin());
             int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
                 LOG.info(Messages.INFO_SUCCESSFULLY_UPDATED+User.class.getSimpleName());

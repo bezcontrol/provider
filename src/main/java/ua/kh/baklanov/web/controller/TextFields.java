@@ -10,7 +10,6 @@ public final class TextFields {
     private static final String MOBILE_NUMBER_OF_SMS ="SMS: ";
     private static final String MOBILE_NUMBER_OF_MBTS ="Internet(mbts): ";
     private static final String PC_CONNECTED_PC ="Available number of connected PC: ";
-    private static final String STATUS_USER ="Your status: ";
     private static final String TARIFF_NAME ="Tariff: ";
     private static final String TARIFF_PRICE ="Price: ";
     private static final String TARIFF_DURATION_IN_DAYS ="Duration(days): ";
@@ -19,6 +18,16 @@ public final class TextFields {
     private static final String USER_LOGIN ="Your login: ";
     private static final String USER_EMAIL ="Your email: ";
     private static final String USER_BILL ="Bill: ";
+    private static final String USER_ROLE ="Role: ";
+    private static final String USER_STATUS ="Status: ";
+
+    public static String getUserRole() {
+        return USER_ROLE;
+    }
+
+    public static String getUserStatus() {
+        return USER_STATUS;
+    }
 
     public String getContractConclusionDate() {
         return CONTRACT_CONCLUSION_DATE;
@@ -50,10 +59,6 @@ public final class TextFields {
 
     public String getPcConnectedPC() {
         return PC_CONNECTED_PC;
-    }
-
-    public String getStatusUser() {
-        return STATUS_USER;
     }
 
     public String getTariffName() {

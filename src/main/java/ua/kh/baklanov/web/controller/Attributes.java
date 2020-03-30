@@ -10,6 +10,7 @@ public final class Attributes {
     public static final String USERS = "users";
     public static final String ROLES = "roles";
     public static final String STATUSES = "statuses";
+    public static final String CART = "cart";
 
     private Attributes(){
     }

@@ -11,6 +11,7 @@ public final class AdminCommandContainer {
 
     static {
         commands.put("home", new AdminHomeCommand());
+        commands.put("UpdateUser", new UpdateUserCommand());
         commands.put("noCommand", new NoCommand());
     }
 

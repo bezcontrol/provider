@@ -26,8 +26,6 @@ public class DefaultServiceDAOImpl implements ServiceDAO {
             factory = DAOFactory.getDefaultFactory();
     }
 
-
-
     @Override
     public void insert(Service obj) throws DbException {
 

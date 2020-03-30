@@ -24,6 +24,7 @@ public class DefaultRoleDAOImpl implements RoleDAO {
     public DefaultRoleDAOImpl() {
         factory = DAOFactory.getDefaultFactory();
     }
+
     @Override
     public Role getRoleByName(String name) throws DbException {
         LOG.info(Messages.INFO_GET_BY_NAME+ Role.class.getSimpleName());

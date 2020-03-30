@@ -52,6 +52,7 @@ public final class Messages {
     public static final String ERROR_GET_BY_NAME = "Error getting by name entity: ";
     public static final String ERROR_ROLE_DAO = "Error when using role dao in command: ";
     public static final String ERROR_STATUS_DAO = "Error when using status dao in command: ";
+    public static final Object ERROR_USER_IS_BLOCKED = "This account has been blocked";
 
     private Messages(){}
 

@@ -42,10 +42,6 @@
                                 <th>${applicationScope.textFields.getTariffPrice()}</th>
                                 <td>${object.tariff.price} $</td>
                             </tr>
-                            <tr>
-                                <th>${applicationScope.textFields.getTariffDurationInDays()}</th>
-                                <td>${object.tariff.durationInDays} days</td>
-                            </tr>
                             <c:choose>
                                 <c:when test="${object.service.getClass().simpleName eq pc}">
                                     <tr>
@@ -91,10 +87,6 @@
                             <c:choose>
                                 <c:when test="${object.internet.speed!=0}">
                                     <h4 class="card__ability">
-                                        <span class="card__label">${applicationScope.textFields.getInternetSpeed()}</span>
-                                            ${object.internet.speed/8} Mbps
-                                    </h4>
-                                    <h4 class="card__ability">
                                         <span class="card__label">${applicationScope.textFields.getInternetTechnology()}</span>
                                             ${object.internet.technology}
                                     </h4>
@@ -120,7 +112,7 @@
                                     <button type="submit"  class="btn btn-danger mybtn" name="operation" value="Delete">Delete</button>
                                 </c:when>
                             <c:otherwise>
-                                <button type="submit" class="btn btn-success">Make order</button>
+                                <button type="submit" class="btn btn-success" name="operation" value="AddToCart">Add</button>
                             </c:otherwise>
                             </c:choose>
 

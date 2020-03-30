@@ -10,6 +10,8 @@ public final class Parameters {
     public static final String TARIFF_ID = "tariffId";
     public static final String SERVICE_TYPE = "serviceType";
     public static final String OPERATION = "operation";
+    public static final String ROLE_USER = "roleUser";
+    public static final String STATUS_USER = "statusUser";
     public static final String TARIFF_NAME="tariff_name";
     public static final String TARIFF_PRICE="tariff_price";
     public static final String TARIFF_DURATION="tariff_duration";
@@ -26,6 +28,7 @@ public final class Parameters {
     public static final String SERVICE_ID_TV = "serviceIdTV";
     public static final String SERVICE_ID_MOBILE = "serviceIdMobile";
     public static final String SERVICE_ID_PC = "serviceIdPC";
+    public static final String BILL = "bill";
 
 
     private Parameters(){}

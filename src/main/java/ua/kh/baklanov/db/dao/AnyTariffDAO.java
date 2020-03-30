@@ -13,4 +13,5 @@ public interface AnyTariffDAO extends DAOGetAll<AnyTariff>{
     List<AnyTariff> getAllTVTariffs()throws DbException;
 
     List<AnyTariff> getTVTariffsOfCurrentType(String type)throws DbException;
+
 }
