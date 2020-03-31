@@ -16,4 +16,6 @@ public interface DAOService {
     MobileDAO getMobileDAO() throws DbException;
     RoleDAO getRoleDAO() throws DbException;
     StatusDAO getStatusDAO() throws DbException;
+    ContractDAO getContractDAO() throws DbException;
+    ContractStateDAO getContractStateDAO() throws DbException;
 }

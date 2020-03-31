@@ -175,8 +175,9 @@ public final class DefaultExtractorUtil {
             anyService.setDescription(rs.getString("description"));
             anyService.setInternet(extractInternet(rs));
             anyService.setService(extractPC(rs));
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException ex) {
+            LOG.error(Messages.ERROR_EXTRACTING+AnyService.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_EXTRACTING+AnyService.class.getSimpleName(), ex);
         }
 
         return anyService;
@@ -188,8 +189,9 @@ public final class DefaultExtractorUtil {
             anyService.setInternet(extractInternet(rs));
             anyService.setService(extractTV(rs));
             anyService.setDescription(rs.getString("description"));
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException ex) {
+            LOG.error(Messages.ERROR_EXTRACTING+AnyService.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_EXTRACTING+AnyService.class.getSimpleName(), ex);
         }
         return anyService;
     }
@@ -200,8 +202,9 @@ public final class DefaultExtractorUtil {
             anyService.setInternet(extractInternet(rs));
             anyService.setService(extractMobile(rs));
             anyService.setDescription(rs.getString("description"));
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException ex) {
+            LOG.error(Messages.ERROR_EXTRACTING+AnyService.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_EXTRACTING+AnyService.class.getSimpleName(), ex);
         }
         return anyService;
     }
@@ -236,5 +239,17 @@ public final class DefaultExtractorUtil {
             throw new DbException(Messages.ERROR_EXTRACTING+Role.class.getSimpleName(), ex);
         }
         return role;
+    }
+
+    public static ContractState extractContractState(ResultSet rs) throws DbException {
+        ContractState state=new ContractState();
+        try {
+            state.setId(rs.getLong("idContractState"));
+            state.setName(rs.getString("contractStateName"));
+        } catch (SQLException ex) {
+            LOG.error(Messages.ERROR_EXTRACTING+ContractState.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_EXTRACTING+ContractState.class.getSimpleName(), ex);
+        }
+        return state;
     }
 }

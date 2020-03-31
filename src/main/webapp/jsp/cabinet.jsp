@@ -44,6 +44,7 @@
                             <table class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
+                                    <th style="display:none">Id</th>
                                     <th>Name</th>
                                     <th>Price</th>
                                     <th>Duration</th>
@@ -58,6 +59,7 @@
                                 <c:forEach items="${sessionScope.cart}" var="item">
                                     <c:if test="${item.service.getClass().simpleName eq tv}">
                                         <tr>
+                                            <td style="display:none;">${item.tariff.id}</td>
                                             <td>${item.tariff.name}</td>
                                             <td>${item.tariff.price}$</td>
                                             <td>${item.tariff.durationInDays}</td>
@@ -96,6 +98,7 @@
                             <table class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
+                                    <th style="display:none">Id</th>
                                     <th>Name</th>
                                     <th>Price</th>
                                     <th>Duration</th>
@@ -109,6 +112,7 @@
                                 <c:forEach items="${sessionScope.cart}" var="item">
                                     <c:if test="${item.service.getClass().simpleName eq pc}">
                                         <tr>
+                                            <td style="display:none;">${item.tariff.id}</td>
                                             <td>${item.tariff.name}</td>
                                             <td>${item.tariff.price}$</td>
                                             <td>${item.tariff.durationInDays}</td>
@@ -146,6 +150,7 @@
                             <table class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
+                                    <th style="display:none">Id</th>
                                     <th>Name</th>
                                     <th>Price</th>
                                     <th>Duration</th>
@@ -162,6 +167,7 @@
                                 <c:forEach items="${sessionScope.cart}" var="item">
                                     <c:if test="${item.service.getClass().simpleName eq mobile}">
                                         <tr>
+                                            <td style="display:none;">${item.tariff.id}</td>
                                             <td>${item.tariff.name}</td>
                                             <td>${item.tariff.price}$</td>
                                             <td>${item.tariff.durationInDays}</td>
@@ -187,10 +193,41 @@
             </div>
         </div>
     </div>
+
+
+    <form method="post" action="${pageContext.request.contextPath}/tariff">
+        <input type="hidden" name="command" value="contractRequest"/>
+        <div id="btn_submit_order">
+            <button class="btn btn-success" style="font-size: 20px;">Submit</button>
+        </div>
+    </form>
 </div>
-<div id="btn_submit_order">
-    <button class="btnSelect btn btn-success" style="font-size: 20px;">Submit</button>
-</div>
+
+<div id="shortModal" class="modal modal-wide fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="wrap-input100">
+                        <span class="focus-input100">${applicationScope.textFields.getTariffName()}</span>
+                        <input id="name" name="name" class="input100" type="text" readonly>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <form method="post" action="${pageContext.request.contextPath}/tariff">
+                    <input type="hidden" id="tariffId" name="tariffId"/>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">NO</button>
+                    <button type="submit" class="btn btn-primary" name="command"
+                            value="deleteFromCart">YES</button>
+                    </form>
+                </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -208,5 +245,25 @@
 <script src="../resources/js/admin/buttons.colVis.min.js"></script>
 <script src="../resources/js/admin/datatables-init.js"></script>
 <script src="../resources/js/menu/modernizr.custom.js"></script>
+
+<script>
+    $("#shortModal").on("show.bs.modal", function() {
+        var height = $(window).height() - 200;
+        $(this).find(".modal-body").css("max-height", height);
+    });
+</script>
+
+<script>
+    $(document).ready(function(){
+        // code to read selected table row cell data (values).
+        $(".btnSelect").on('click',function(){
+            var currentRow=$(this).closest("tr");
+            var col1=currentRow.find("td:eq(0)").html();
+            var col2=currentRow.find("td:eq(1)").html();
+            document.getElementById("tariffId").value=col1;
+            document.getElementById("name").value=col2;
+        });
+    });
+</script>
 </body>
 </html>

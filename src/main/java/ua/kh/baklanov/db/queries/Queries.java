@@ -111,6 +111,12 @@ public final class Queries {
     public static final String GET_ALL_ROLES = "SELECT id as 'idRole', name as 'roleName' FROM roles";
 
     public static final String GET_ALL_STATUSES = "SELECT id AS 'idStatus', name as 'statusName' FROM statuses";
+    public static final String INSERT_CONTRACT = "INSERT INTO " +
+            "contracts (idUser, idTariff, idContractState, contractConclusionDate, contractExpirationDate) " +
+            "VALUES (?, ?, ? , ?, ?)";
+    public static final String GET_CONTRACT_STATE_BY_NAME = "SELECT id AS 'idContractState', " +
+            "name as 'contractStateName' " +
+            "FROM contractState WHERE name=?";
 
     private Queries() {
     }

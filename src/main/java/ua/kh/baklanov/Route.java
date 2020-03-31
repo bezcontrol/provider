@@ -11,6 +11,7 @@ public final class Route {
     public static final String ALL_TARIFFS = "/service?command=allTariffs";
     public static final String ADMIN_HOME = "jsp/adminHome.jsp";
     public static final String MY_CABINET = "jsp/cabinet.jsp";
+    public static final String MY_CONTRACTS = "jsp/contracts.jsp";
 
     private Route(){}
 }

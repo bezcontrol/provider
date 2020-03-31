@@ -16,31 +16,31 @@ public class DefaultService implements DAOService {
         return (UserBeanDAO) Context.get(Attributes.USER_BEAN_DAO);
     }
 
-    public TVDAO getTVDAO() {
+    public TVDAO getTVDAO() throws DbException {
         return (TVDAO) Context.get(Attributes.TV_DAO);
     }
 
-    public PCDAO getPCDAO() {
+    public PCDAO getPCDAO() throws DbException {
         return (PCDAO) Context.get(Attributes.PC_DAO);
     }
 
-    public AnyTariffDAO getAnyTariffDAO() {
+    public AnyTariffDAO getAnyTariffDAO() throws DbException {
         return (AnyTariffDAO) Context.get(Attributes.ANY_TARIFF_DAO);
     }
 
-    public ServiceDAO getServiceDAO() {
+    public ServiceDAO getServiceDAO() throws DbException {
         return (ServiceDAO) Context.get(Attributes.SERVICE_DAO);
     }
 
-    public TariffDAO getTariffDAO() {
+    public TariffDAO getTariffDAO() throws DbException {
         return (TariffDAO) Context.get(Attributes.TARIFF_DAO);
     }
 
-    public InternetDAO getInternetDAO() {
+    public InternetDAO getInternetDAO() throws DbException {
         return (InternetDAO) Context.get(Attributes.INTERNET_DAO);
     }
 
-    public MobileDAO getMobileDAO() {
+    public MobileDAO getMobileDAO() throws DbException {
         return (MobileDAO) Context.get(Attributes.MOBILE_DAO);
     }
 
@@ -54,5 +54,17 @@ public class DefaultService implements DAOService {
         return (StatusDAO) Context.get(Attributes.STATUS_DAO);
     }
 
-    public AnyServiceDAO getAnyServiceDAO(){return (AnyServiceDAO) Context.get(Attributes.ANY_SERVICE_DAO);}
+    @Override
+    public ContractDAO getContractDAO() throws DbException {
+        return (ContractDAO) Context.get(Attributes.CONTRACT_DAO);
+    }
+
+    @Override
+    public ContractStateDAO getContractStateDAO() throws DbException {
+        return (ContractStateDAO) Context.get(Attributes.CONTRACT_STATE_DAO);
+    }
+
+    public AnyServiceDAO getAnyServiceDAO() {
+        return (AnyServiceDAO) Context.get(Attributes.ANY_SERVICE_DAO);
+    }
 }

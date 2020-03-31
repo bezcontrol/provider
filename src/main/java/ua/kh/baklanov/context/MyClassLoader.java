@@ -7,8 +7,6 @@ import ua.kh.baklanov.exception.AppException;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
 
-
-
 public final class MyClassLoader {
     private static final Logger LOG = Logger.getLogger(MyClassLoader.class);
 
@@ -31,6 +29,8 @@ public final class MyClassLoader {
             Context.put(Attributes.USER_BEAN_DAO, new DefaultUserBeanDAOImpl());
             Context.put(Attributes.ROLE_DAO, new DefaultRoleDAOImpl());
             Context.put(Attributes.STATUS_DAO, new DefaultStatusDAOImpl());
+            Context.put(Attributes.CONTRACT_DAO, new DefaultContractDAOImpl());
+            Context.put(Attributes.CONTRACT_STATE_DAO, new DefaultContractStateDAOImpl());
         } catch (DbException e) {
             LOG.error(Messages.ERROR_CLASS_LOADER, e);
             throw new AppException(Messages.ERROR_CLASS_LOADER, e);

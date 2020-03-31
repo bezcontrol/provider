@@ -18,6 +18,8 @@ public final class TariffCommandContainer {
         commands.put("downloadPDF", new TariffDownloadPDFCommand());
         commands.put("downloadTXT", new TariffDownloadTXTCommand());
         commands.put("getSingleTariff", new GetSingleTariffCommand());
+        commands.put("deleteFromCart", new DeleteFromCartCommand());
+        commands.put("contractRequest", new ContractRequestCommand());
         commands.put("noCommand", new NoCommand());
     }
 

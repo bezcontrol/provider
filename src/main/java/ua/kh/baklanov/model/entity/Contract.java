@@ -6,7 +6,25 @@ public class Contract extends AbstractEntity {
 
     private long idUser;
     private long idTariff;
+    private long idContractState;
     private transient LocalDateTime contractConclusionDate;
+    private transient LocalDateTime contractExpirationDate;
+
+    public long getIdContractState() {
+        return idContractState;
+    }
+
+    public void setIdContractState(long idContractState) {
+        this.idContractState = idContractState;
+    }
+
+    public LocalDateTime getContractExpirationDate() {
+        return contractExpirationDate;
+    }
+
+    public void setContractExpirationDate(LocalDateTime contractExpirationDate) {
+        this.contractExpirationDate = contractExpirationDate;
+    }
 
     public long getIdUser() {
         return idUser;

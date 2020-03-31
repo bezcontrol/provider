@@ -16,6 +16,13 @@ CREATE TABLE `statuses` (
                             UNIQUE (`id`),
                             UNIQUE (`name`));
 
+CREATE TABLE `contractState` (
+                            `id` INT NOT NULL AUTO_INCREMENT,
+                            `name` VARCHAR(45) NOT NULL,
+                            PRIMARY KEY (`id`),
+                            UNIQUE (`id`),
+                            UNIQUE (`name`));
+
 CREATE TABLE `internet` (
                             `id` INT NOT NULL AUTO_INCREMENT,
                             `speed` INT NOT NULL,
@@ -134,8 +141,9 @@ CREATE TABLE `contracts` (
                              `id` INT NOT NULL AUTO_INCREMENT,
                              `idUser` INT NOT NULL,
                              `idTariff` INT NOT NULL,
-                             `idStatus` INT NOT NULL,
+                             `idContractState` INT NOT NULL,
                              `contractConclusionDate` DATETIME NOT NULL,
+                             `contractExpirationDate` DATETIME NOT NULL,
                              PRIMARY KEY (`id`),
                              UNIQUE (`id`),
                              CONSTRAINT `fk_contract_user`
@@ -147,6 +155,11 @@ CREATE TABLE `contracts` (
                                  FOREIGN KEY (`idTariff`)
                                      REFERENCES `tariffs` (`id`)
                                      ON DELETE CASCADE
+                                     ON UPDATE CASCADE,
+							 CONSTRAINT `fk_contract_state`
+                                 FOREIGN KEY (`idContractState`)
+                                     REFERENCES `contractState` (`id`)
+                                     ON DELETE CASCADE
                                      ON UPDATE CASCADE);
 
 
@@ -157,6 +170,7 @@ INSERT INTO `statuses` (`name`) VALUES ('waiting');
 INSERT INTO `statuses` (`name`) VALUES ('registered');
 INSERT INTO `statuses` (`name`) VALUES ('blocked');
 INSERT INTO `statuses` (`name`) VALUES ('missed');
+INSERT INTO contractState (name) VALUES ('waiting');
 INSERT INTO `users` (`login`, `password`,`email`, `idRole`, `idStatus`, `bill`) VALUES ('admin',SHA2('adminpass', 256),'user@gmail.com', '1','2','100.0');
 INSERT INTO `users` (`login`, `password`,`email`, `idRole`,`idStatus`, `bill`) VALUES ('client',SHA2('clientpass', 256),'user2@gmail.com', '2','2','200.0');
 INSERT INTO `internet` (id, speed, technology) VALUES (1, 520, '3G');

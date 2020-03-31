@@ -14,6 +14,8 @@ public final class Attributes {
     public static final String USER_BEAN_DAO = "USER_BEAN_DAO";
     public static final String ROLE_DAO = "ROLE_DAO";
     public static final String STATUS_DAO = "STATUS_DAO";
+    public static final String CONTRACT_DAO = "CONTRACT_DAO";
+    public static final String CONTRACT_STATE_DAO = "CONTRACT_STATE_DAO";
 
     private Attributes(){}
 }
