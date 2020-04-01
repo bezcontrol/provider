@@ -20,6 +20,6 @@ public class AddToCartCommand implements AbstractCommand {
         AnyTariff tariff = BeanExtractorUtil.extractAnyTariffById(tariffId);
         List<AnyTariff> cart=(ArrayList<AnyTariff>)request.getSession().getAttribute(Attributes.CART);
         cart.add(tariff);
-        return Route.ALL_TARIFFS;
+        return Route.ALL_TARIFFS_COM;
     }
 }

@@ -11,6 +11,8 @@ public final class Attributes {
     public static final String ROLES = "roles";
     public static final String STATUSES = "statuses";
     public static final String CART = "cart";
+    public static final String CONTRACTS = "contracts";
+    public static final String CONTRACT_STATES = "contractStates";
 
     private Attributes(){
     }

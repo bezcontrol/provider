@@ -13,6 +13,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DefaultTariffDAOImpl implements TariffDAO {
@@ -112,6 +113,6 @@ public class DefaultTariffDAOImpl implements TariffDAO {
 
     @Override
     public List getAll() throws DbException {
-        return null;
+        return new ArrayList();
     }
 }

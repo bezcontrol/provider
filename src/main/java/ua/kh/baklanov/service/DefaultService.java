@@ -64,6 +64,11 @@ public class DefaultService implements DAOService {
         return (ContractStateDAO) Context.get(Attributes.CONTRACT_STATE_DAO);
     }
 
+    @Override
+    public ContractBeanDAO getContractBeanDAO() throws DbException {
+        return (ContractBeanDAO) Context.get(Attributes.CONTRACT_BEAN_DAO);
+    }
+
     public AnyServiceDAO getAnyServiceDAO() {
         return (AnyServiceDAO) Context.get(Attributes.ANY_SERVICE_DAO);
     }

@@ -1,4 +1,4 @@
-package ua.kh.baklanov.web.command.adminPanel;
+package ua.kh.baklanov.web.command.admin_panel;
 
 import ua.kh.baklanov.web.command.AbstractCommand;
 import ua.kh.baklanov.web.command.NoCommand;
@@ -10,7 +10,8 @@ public final class AdminCommandContainer {
     private static Map<String, AbstractCommand> commands = new TreeMap<>();
 
     static {
-        commands.put("home", new AdminHomeCommand());
+        commands.put("users", new UsersCommand());
+        commands.put("orders", new OrdersCommand());
         commands.put("UpdateUser", new UpdateUserCommand());
         commands.put("noCommand", new NoCommand());
     }

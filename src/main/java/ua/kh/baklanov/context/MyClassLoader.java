@@ -31,6 +31,7 @@ public final class MyClassLoader {
             Context.put(Attributes.STATUS_DAO, new DefaultStatusDAOImpl());
             Context.put(Attributes.CONTRACT_DAO, new DefaultContractDAOImpl());
             Context.put(Attributes.CONTRACT_STATE_DAO, new DefaultContractStateDAOImpl());
+            Context.put(Attributes.CONTRACT_BEAN_DAO, new DefaultContractBeanDAOImpl());
         } catch (DbException e) {
             LOG.error(Messages.ERROR_CLASS_LOADER, e);
             throw new AppException(Messages.ERROR_CLASS_LOADER, e);

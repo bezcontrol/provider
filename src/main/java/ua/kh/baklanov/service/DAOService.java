@@ -18,4 +18,5 @@ public interface DAOService {
     StatusDAO getStatusDAO() throws DbException;
     ContractDAO getContractDAO() throws DbException;
     ContractStateDAO getContractStateDAO() throws DbException;
+    ContractBeanDAO getContractBeanDAO() throws DbException;
 }

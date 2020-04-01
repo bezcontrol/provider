@@ -97,7 +97,7 @@ public class DefaultAnyTariffDAOImpl implements AnyTariffDAO {
     }
 
     @Override
-    public List getAll() throws DbException {
+    public List<AnyTariff> getAll() throws DbException {
         LOG.info(Messages.INFO_GET_ALL_ANY_TARIFF);
         List<AnyTariff>all=new ArrayList<>();
         all.addAll(getAllMobileTariffs());

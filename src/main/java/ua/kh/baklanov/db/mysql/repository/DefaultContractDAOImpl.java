@@ -11,6 +11,7 @@ import ua.kh.baklanov.model.entity.Contract;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DefaultContractDAOImpl implements ContractDAO {
@@ -65,6 +66,6 @@ public class DefaultContractDAOImpl implements ContractDAO {
 
     @Override
     public List getAll() throws DbException {
-        return null;
+        return new ArrayList();
     }
 }

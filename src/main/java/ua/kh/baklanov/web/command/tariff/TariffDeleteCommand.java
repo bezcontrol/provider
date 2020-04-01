@@ -25,6 +25,6 @@ public class TariffDeleteCommand implements AbstractCommand {
             LOG.error(Messages.ERROR_TARIFF_DAO + TariffDeleteCommand.class.getName(), e);
             return Route.ERROR_PAGE;
         }
-        return Route.ALL_TARIFFS;
+        return Route.ALL_TARIFFS_COM;
     }
 }

@@ -6,10 +6,12 @@ import ua.kh.baklanov.exception.Messages;
 import ua.kh.baklanov.model.bean.AnyService;
 import ua.kh.baklanov.model.bean.AnyTariff;
 import ua.kh.baklanov.model.bean.UserBean;
+import ua.kh.baklanov.model.bean.ContractBean;
 import ua.kh.baklanov.model.entity.*;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 
 public final class DefaultExtractorUtil {
 
@@ -20,7 +22,7 @@ public final class DefaultExtractorUtil {
     public static User extractUser(ResultSet rs) throws DbException {
         User user=new User();
         try {
-            user.setId(rs.getLong("id"));
+            user.setId(rs.getLong("idUser"));
             user.setLogin(rs.getString("login"));
             user.setPassword(rs.getString("password"));
             user.setEmail(rs.getString("email"));
@@ -37,7 +39,7 @@ public final class DefaultExtractorUtil {
     public static TV extractTV(ResultSet rs) throws DbException {
         TV tv=new TV();
         try {
-            tv.setId(rs.getLong("id"));
+            tv.setId(rs.getLong("idTV"));
             tv.setType(rs.getString("type"));
             tv.setNumOfChannels(rs.getInt("numOfChannels"));
         } catch (SQLException ex) {
@@ -50,8 +52,8 @@ public final class DefaultExtractorUtil {
     public static Tariff extractTariff(ResultSet rs) throws DbException {
         Tariff tariff=new Tariff();
         try {
-            tariff.setId(rs.getLong("id"));
-            tariff.setName(rs.getString("name"));
+            tariff.setId(rs.getLong("idTariff"));
+            tariff.setName(rs.getString("tariffName"));
             tariff.setPrice(rs.getInt("price"));
             tariff.setIdService(rs.getLong("idService"));
             tariff.setDurationInDays(rs.getInt("durationInDays"));
@@ -65,7 +67,7 @@ public final class DefaultExtractorUtil {
     public static Internet extractInternet(ResultSet rs) throws DbException {
         Internet internet=new Internet();
         try {
-            internet.setId(rs.getLong("id"));
+            internet.setId(rs.getLong("idInternet"));
             internet.setSpeed(rs.getInt("speed"));
             internet.setTechnology(rs.getString("technology"));
         } catch (SQLException ex) {
@@ -130,7 +132,7 @@ public final class DefaultExtractorUtil {
     public static Service extractService(ResultSet rs) throws DbException {
         Service service=new Service();
         try {
-            service.setId(rs.getLong("id"));
+            service.setId(rs.getLong("idService"));
             service.setIdPC(rs.getLong("idPC"));
             service.setIdTV(rs.getLong("idTV"));
             service.setIdMobile(rs.getLong("idMobile"));
@@ -145,7 +147,7 @@ public final class DefaultExtractorUtil {
     public static PC extractPC(ResultSet rs) throws DbException {
         PC pc=new PC();
         try {
-            pc.setId(rs.getLong("id"));
+            pc.setId(rs.getLong("idPC"));
             pc.setNumOfConnectedPC(rs.getInt("numOfConnectedPC"));
         } catch (SQLException ex) {
             LOG.error(Messages.ERROR_EXTRACTING+PC.class.getSimpleName(), ex);
@@ -157,7 +159,7 @@ public final class DefaultExtractorUtil {
     public static Mobile extractMobile(ResultSet rs) throws DbException {
         Mobile mobile=new Mobile();
         try {
-            mobile.setId(rs.getLong("id"));
+            mobile.setId(rs.getLong("idMobile"));
             mobile.setNumOfMinutesInside(rs.getInt("numOfMinutesInside"));
             mobile.setNumOfMinutesOutside(rs.getInt("numOfMinutesOutside"));
             mobile.setNumOfMbts(rs.getInt("numOfMbts"));
@@ -251,5 +253,32 @@ public final class DefaultExtractorUtil {
             throw new DbException(Messages.ERROR_EXTRACTING+ContractState.class.getSimpleName(), ex);
         }
         return state;
+    }
+
+    public static ContractBean extractUserContractBean(ResultSet rs) throws DbException {
+        ContractBean bean=new ContractBean();
+        bean.setUserBean(extractUserBean(rs));
+        bean.setTariff(extractTariff(rs));
+        bean.setContract(extractContract(rs));
+        bean.setContractState(extractContractState(rs));
+        return bean;
+    }
+
+    private static Contract extractContract(ResultSet rs) throws DbException {
+        Contract contract=new Contract();
+        try {
+            contract.setId(rs.getLong("idContract"));
+            contract.setIdUser(rs.getLong("idUser"));
+            contract.setIdTariff(rs.getLong("idTariff"));
+            contract.setIdContractState(rs.getLong("idContractState"));
+            contract.setContractExpirationDate(new Timestamp(rs.getDate("contractExpirationDate")
+                    .getTime()).toLocalDateTime());
+            contract.setContractConclusionDate(new Timestamp(rs.getDate("contractConclusionDate")
+                    .getTime()).toLocalDateTime());
+        } catch (SQLException ex) {
+            LOG.error(Messages.ERROR_EXTRACTING+Contract.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_EXTRACTING+Contract.class.getSimpleName(), ex);
+        }
+        return contract;
     }
 }

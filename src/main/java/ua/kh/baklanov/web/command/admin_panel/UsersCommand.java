@@ -1,4 +1,4 @@
-package ua.kh.baklanov.web.command.adminPanel;
+package ua.kh.baklanov.web.command.admin_panel;
 
 import org.apache.log4j.Logger;
 import ua.kh.baklanov.Route;
@@ -19,8 +19,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
-public class AdminHomeCommand implements AbstractCommand {
-    private static final Logger LOG = Logger.getLogger(AdminHomeCommand.class);
+public class UsersCommand implements AbstractCommand {
+    private static final Logger LOG = Logger.getLogger(UsersCommand.class);
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response){
         try {
@@ -34,9 +34,9 @@ public class AdminHomeCommand implements AbstractCommand {
             request.getSession().setAttribute(Attributes.USERS, users);
             request.getSession().setAttribute(Attributes.ROLES, roles);
             request.getSession().setAttribute(Attributes.STATUSES, statuses);
-            return Route.ADMIN_HOME;
+            return Route.ADMIN_USERS;
         } catch (DbException e) {
-            LOG.error(Messages.ERROR_USER_DAO + AdminHomeCommand.class.getName(), e);
+            LOG.error(Messages.ERROR_USER_DAO + UsersCommand.class.getName(), e);
             return Route.HOME;
         }
     }

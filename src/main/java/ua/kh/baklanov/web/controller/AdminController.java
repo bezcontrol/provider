@@ -6,7 +6,7 @@ import ua.kh.baklanov.exception.AppException;
 import ua.kh.baklanov.exception.Messages;
 import ua.kh.baklanov.model.bean.UserBean;
 import ua.kh.baklanov.web.command.AbstractCommand;
-import ua.kh.baklanov.web.command.adminPanel.AdminCommandContainer;
+import ua.kh.baklanov.web.command.admin_panel.AdminCommandContainer;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

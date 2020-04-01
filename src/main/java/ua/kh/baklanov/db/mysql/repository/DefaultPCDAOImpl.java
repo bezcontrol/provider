@@ -13,6 +13,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DefaultPCDAOImpl implements PCDAO {
@@ -60,6 +61,6 @@ public class DefaultPCDAOImpl implements PCDAO {
 
     @Override
     public List getAll() throws DbException {
-        return null;
+        return new ArrayList();
     }
 }

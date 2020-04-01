@@ -18,7 +18,6 @@ import ua.kh.baklanov.web.validation.ValidateAnyTariffFields;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
 import java.util.List;
 
 public class TariffCreateCommand implements AbstractCommand {
@@ -48,7 +47,7 @@ public class TariffCreateCommand implements AbstractCommand {
                 isServiceTV(request, tariff);
                 isServiceMobile(request, tariff);
                 tariffDAO.insert(tariff);
-                return Route.ALL_TARIFFS;
+                return Route.ALL_TARIFFS_COM;
             } catch (DbException e) {
                 LOG.error(Messages.ERROR_TARIFF_DAO + TariffCreateCommand.class.getName(), e);
                 return Route.ERROR_PAGE;

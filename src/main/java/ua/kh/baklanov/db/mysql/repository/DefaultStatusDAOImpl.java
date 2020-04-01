@@ -7,11 +7,13 @@ import ua.kh.baklanov.db.mysql.extractor.DefaultExtractorUtil;
 import ua.kh.baklanov.db.queries.Queries;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
-import ua.kh.baklanov.model.entity.Role;
 import ua.kh.baklanov.model.entity.Status;
-import ua.kh.baklanov.model.entity.User;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
