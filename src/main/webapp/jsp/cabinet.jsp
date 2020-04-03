@@ -27,206 +27,69 @@
 </c:if>
 
 <div id="container_header_cart">
-    <h3 id="header_cart">YOUR CART</h3>
+    <h3 id="header_cart">YOUR CABINET</h3>
 </div>
 
 <div id="table_container">
     <div class="content mt-3">
-        <div class="animated fadeIn">
-            <div class="row">
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
 
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <strong class="card-title">Tariffs for tv</strong>
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-striped table-bordered">
-                                <thead>
-                                <tr>
-                                    <th style="display:none">Id</th>
-                                    <th>Name</th>
-                                    <th>Price</th>
-                                    <th>Duration</th>
-                                    <th>Type</th>
-                                    <th>Channels</th>
-                                    <th>Internet speed</th>
-                                    <th>Internet technology</th>
-                                    <th>Operations</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <c:forEach items="${sessionScope.cart}" var="item">
-                                    <c:if test="${item.service.getClass().simpleName eq tv}">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Data Table</strong>
+                            </div>
+                            <div class="card-body">
+                                <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th style="display:none">User id</th>
+                                        <th>Login</th>
+                                        <th>Email</th>
+                                        <th style="display:none">Tariff id</th>
+                                        <th>Tariff name</th>
+                                        <th>Price</th>
+                                        <th>Duration</th>
+                                        <th>Contract conclusion date</th>
+                                        <th>Contract expiration date</th>
+                                        <th>State</th>
+                                        <th>Operations</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <c:forEach items="${sessionScope.contracts}" var="contract">
                                         <tr>
-                                            <td style="display:none;">${item.tariff.id}</td>
-                                            <td>${item.tariff.name}</td>
-                                            <td>${item.tariff.price}$</td>
-                                            <td>${item.tariff.durationInDays}</td>
-                                            <td>${item.service.type}</td>
-                                            <td>${item.service.numOfChannels}</td>
-                                            <td>${item.internet.speed/8}</td>
-                                            <td>${item.internet.technology}</td>
+                                            <td>${contract.contract.id}</td>
+                                            <td style="display:none">${contract.userBean.user.id}</td>
+                                            <td>${contract.userBean.user.login}</td>
+                                            <td>${contract.userBean.user.email}</td>
+                                            <td style="display:none">${contract.tariff.id}</td>
+                                            <td>${contract.tariff.name}</td>
+                                            <td>${contract.tariff.price}</td>
+                                            <td>${contract.tariff.durationInDays}</td>
+                                            <td>${contract.contract.contractConclusionDate}</td>
+                                            <td>${contract.contract.contractExpirationDate}</td>
+                                            <td>${contract.contractState.name}</td>
                                             <td>
                                                 <a href="#shortModal" data-toggle="modal">
-                                                    <button class="btnSelect btn btn-danger">Delete</button>
+                                                    <button class="btnSelect btn btn-primary">Update</button>
                                                 </a>
                                             </td>
                                         </tr>
-                                    </c:if>
-                                </c:forEach>
-                                </tbody>
-                            </table>
+                                    </c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div><!-- .animated -->
         </div>
     </div>
-
-
-    <div class="content mt-3">
-        <div class="animated fadeIn">
-            <div class="row">
-
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <strong class="card-title">Tariffs for pc</strong>
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-striped table-bordered">
-                                <thead>
-                                <tr>
-                                    <th style="display:none">Id</th>
-                                    <th>Name</th>
-                                    <th>Price</th>
-                                    <th>Duration</th>
-                                    <th>Connected PC</th>
-                                    <th>Internet speed</th>
-                                    <th>Internet technology</th>
-                                    <th>Operations</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <c:forEach items="${sessionScope.cart}" var="item">
-                                    <c:if test="${item.service.getClass().simpleName eq pc}">
-                                        <tr>
-                                            <td style="display:none;">${item.tariff.id}</td>
-                                            <td>${item.tariff.name}</td>
-                                            <td>${item.tariff.price}$</td>
-                                            <td>${item.tariff.durationInDays}</td>
-                                            <td>${item.service.numOfConnectedPC}</td>
-                                            <td>${item.internet.speed/8}</td>
-                                            <td>${item.internet.technology}</td>
-                                            <td>
-                                                <a href="#shortModal" data-toggle="modal">
-                                                    <button class="btnSelect btn btn-danger">Delete</button>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    </c:if>
-                                </c:forEach>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="content mt-3">
-        <div class="animated fadeIn">
-            <div class="row">
-
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <strong class="card-title">Tariffs for mobile</strong>
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-striped table-bordered">
-                                <thead>
-                                <tr>
-                                    <th style="display:none">Id</th>
-                                    <th>Name</th>
-                                    <th>Price</th>
-                                    <th>Duration</th>
-                                    <th>Minutes inside country</th>
-                                    <th>Minutes outside country</th>
-                                    <th>SMS</th>
-                                    <th>Mbts internet</th>
-                                    <th>Internet speed</th>
-                                    <th>Internet technology</th>
-                                    <th>Operations</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <c:forEach items="${sessionScope.cart}" var="item">
-                                    <c:if test="${item.service.getClass().simpleName eq mobile}">
-                                        <tr>
-                                            <td style="display:none;">${item.tariff.id}</td>
-                                            <td>${item.tariff.name}</td>
-                                            <td>${item.tariff.price}$</td>
-                                            <td>${item.tariff.durationInDays}</td>
-                                            <td>${item.service.numOfMinutesInside}</td>
-                                            <td>${item.service.numOfMinutesOutside}</td>
-                                            <td>${item.service.numOfSMS}</td>
-                                            <td>${item.service.numOfMbts}</td>
-                                            <td>${item.internet.speed/8}</td>
-                                            <td>${item.internet.technology}</td>
-                                            <td>
-                                                <a href="#shortModal" data-toggle="modal">
-                                                    <button class="btnSelect btn btn-danger">Delete</button>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    </c:if>
-                                </c:forEach>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <form method="post" action="${pageContext.request.contextPath}/tariff">
-        <input type="hidden" name="command" value="contractRequest"/>
-        <div id="btn_submit_order">
-            <button class="btn btn-success" style="font-size: 20px;">Submit</button>
-        </div>
-    </form>
 </div>
-
-<div id="shortModal" class="modal modal-wide fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <div class="wrap-input100">
-                        <span class="focus-input100">${applicationScope.textFields.getTariffName()}</span>
-                        <input id="name" name="name" class="input100" type="text" readonly>
-
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <form method="post" action="${pageContext.request.contextPath}/tariff">
-                    <input type="hidden" id="tariffId" name="tariffId"/>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">NO</button>
-                    <button type="submit" class="btn btn-primary" name="command"
-                            value="deleteFromCart">YES</button>
-                    </form>
-                </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
 
 
 
