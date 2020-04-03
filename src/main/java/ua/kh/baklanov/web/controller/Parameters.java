@@ -29,6 +29,11 @@ public final class Parameters {
     public static final String SERVICE_ID_MOBILE = "serviceIdMobile";
     public static final String SERVICE_ID_PC = "serviceIdPC";
     public static final String BILL = "bill";
+    public static final String USER_ID = "userId";
+    public static final String CONTRACT_STATE = "contractState";
+    public static final String CONTRACT_ID = "contractId";
+    public static final String CONTRACT_CONCLUSION_DATE = "contractConclusionDate";
+    public static final String CONTRACT_EXPIRATION_DATE = "contractExpirationDate";
 
 
     private Parameters(){}

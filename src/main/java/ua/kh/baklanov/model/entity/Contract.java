@@ -49,4 +49,15 @@ public class Contract extends AbstractEntity {
     public void setContractConclusionDate(LocalDateTime contractConclusionDate) {
         this.contractConclusionDate = contractConclusionDate;
     }
+
+    @Override
+    public String toString() {
+        return "Contract{" +
+                "idUser=" + idUser +
+                ", idTariff=" + idTariff +
+                ", idContractState=" + idContractState +
+                ", contractConclusionDate=" + contractConclusionDate +
+                ", contractExpirationDate=" + contractExpirationDate +
+                '}';
+    }
 }

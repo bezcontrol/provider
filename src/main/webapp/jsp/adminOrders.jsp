@@ -63,11 +63,14 @@
                                 <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                     <thead>
                                     <tr>
+                                        <th>Id</th>
+                                        <th style="display:none">User id</th>
                                         <th>Login</th>
                                         <th>Email</th>
                                         <th>Bill</th>
                                         <th>Role</th>
                                         <th>Status</th>
+                                        <th style="display:none">Tariff id</th>
                                         <th>Tariff name</th>
                                         <th>Price</th>
                                         <th>Duration</th>
@@ -80,11 +83,14 @@
                                     <tbody>
                                     <c:forEach items="${sessionScope.contracts}" var="contract">
                                         <tr>
+                                            <td>${contract.contract.id}</td>
+                                            <td style="display:none">${contract.userBean.user.id}</td>
                                             <td>${contract.userBean.user.login}</td>
                                             <td>${contract.userBean.user.email}</td>
                                             <td>${contract.userBean.user.bill}</td>
                                             <td>${contract.userBean.role.name}</td>
                                             <td>${contract.userBean.status.name}</td>
+                                            <td style="display:none">${contract.tariff.id}</td>
                                             <td>${contract.tariff.name}</td>
                                             <td>${contract.tariff.price}</td>
                                             <td>${contract.tariff.durationInDays}</td>
@@ -103,12 +109,64 @@
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div><!-- .animated -->
         </div>
     </div>
+
+    <div id="shortModal" class="modal modal-wide fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form class="contact100-form validate-form" action="${pageContext.request.contextPath}/admin" method="post">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+
+                        <input type="hidden" id="userId" name="userId"/>
+                        <input type="hidden" id="tariffId" name="tariffId"/>
+
+                        <div class="wrap-input100">
+                            <span class="focus-input100">${applicationScope.textFields.getContractId()}</span>
+                            <input id="contractId" name="contractId" class="input100" type="text" readonly>
+                        </div>
+
+                        <div class="wrap-input100">
+                            <span class="focus-input100">${applicationScope.textFields.getUserLogin()}</span>
+                            <input id="login" name="login" class="input100" type="text" readonly>
+                        </div>
+
+                        <div class="wrap-input100">
+                            <span class="focus-input100">${applicationScope.textFields.getUserLogin()}</span>
+                            <input id="contractConclusionDate" name="contractConclusionDate" class="input100" type="text" readonly>
+                        </div>
+
+                        <div class="wrap-input100">
+                            <span class="focus-input100">${applicationScope.textFields.getUserLogin()}</span>
+                            <input id="contractExpirationDate" name="contractExpirationDate" class="input100" type="text" readonly>
+                        </div>
+
+                        <div>
+                            <span class="focus-input100">${applicationScope.textFields.getOrderState()}</span>
+                            <select id="contractState" class="js-select2" name="contractState">
+                                <c:forEach items="${sessionScope.contractStates}" var="item">
+                                    <option value="${item.id}">${item.name}</option>
+                                </c:forEach>
+                            </select>
+                            <div class="dropDownSelect2"></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" name="operation"
+                                value="UpdateOrder">Save changes</button>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
 
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -150,12 +208,18 @@
         // code to read selected table row cell data (values).
         $(".btnSelect").on('click', function () {
             var currentRow = $(this).closest("tr");
-            var col1 = currentRow.find("td:eq(0)").html();
-            var col2 = currentRow.find("td:eq(1)").html();
-            var col3 = currentRow.find("td:eq(2)").html();
-            document.getElementById("login").value = col1;
-            document.getElementById("email").value = col2;
-            document.getElementById("bill").value = col3;
+            var contractId = currentRow.find("td:eq(0)").html();
+            var userId = currentRow.find("td:eq(1)").html();
+            var login = currentRow.find("td:eq(2)").html();
+            var tariffId = currentRow.find("td:eq(7)").html();
+            var contractConclusionDate = currentRow.find("td:eq(11)").html();
+            var contractExpirationDate = currentRow.find("td:eq(12)").html();
+            document.getElementById("contractId").value = contractId;
+            document.getElementById("userId").value = userId;
+            document.getElementById("login").value = login;
+            document.getElementById("tariffId").value = tariffId;
+            document.getElementById("contractConclusionDate").value = contractConclusionDate;
+            document.getElementById("contractExpirationDate").value = contractExpirationDate;
         });
     });
 </script>

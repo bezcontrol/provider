@@ -15,5 +15,7 @@ public final class Route {
     public static final String ADMIN_ORDERS = "jsp/adminOrders.jsp";
     public static final String ADMIN_USERS = "jsp/adminUsers.jsp";
     public static final String ADMIN_USERS_COM="/admin?command=users";
+    public static final String ADMIN_ORDERS_COM="/admin?command=orders";
+
     private Route(){}
 }

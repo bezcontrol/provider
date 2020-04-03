@@ -56,7 +56,29 @@ public class DefaultContractDAOImpl implements ContractDAO {
 
     @Override
     public void update(Contract obj) throws DbException {
-
+        try (Connection con = factory.getConnection();
+             PreparedStatement statement = con.prepareStatement(Queries.UPDATE_CONTRACT)) {
+            int k=1;
+            statement.setLong(k, obj.getIdUser());
+            k++;
+            statement.setLong(k, obj.getIdTariff());
+            k++;
+            statement.setLong(k, obj.getIdContractState());
+            k++;
+            statement.setObject(k, obj.getContractConclusionDate());
+            k++;
+            statement.setObject(k, obj.getContractExpirationDate());
+            k++;
+            statement.setObject(k, obj.getId());
+            int rowsInserted = statement.executeUpdate();
+            if (rowsInserted > 0) {
+                LOG.info(Messages.INFO_SUCCESSFULLY_UPDATED+Contract.class.getSimpleName());
+            }
+            factory.commit(con);
+        } catch (SQLException | DbException ex) {
+            LOG.error(Messages.ERROR_UPDATE + Contract.class.getSimpleName(), ex);
+            throw new DbException(Messages.ERROR_UPDATE + Contract.class.getSimpleName(), ex);
+        }
     }
 
     @Override

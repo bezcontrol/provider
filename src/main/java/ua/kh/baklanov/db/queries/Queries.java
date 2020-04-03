@@ -155,6 +155,9 @@ public final class Queries {
     public static final String GET_ALL_CONTRACT_STATES = "SELECT id AS 'idContractState', " +
             "name as 'contractStateName' " +
             "FROM contractState";
+    public static final String UPDATE_CONTRACT = "UPDATE contracts " +
+            "SET idUser=?, idTariff=?, idContractState=?, contractConclusionDate=?, contractExpirationDate=? " +
+            "WHERE id=?";
 
     private Queries() {
     }

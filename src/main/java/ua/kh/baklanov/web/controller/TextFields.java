@@ -20,6 +20,12 @@ public final class TextFields {
     private static final String USER_BILL ="Bill: ";
     private static final String USER_ROLE ="Role: ";
     private static final String USER_STATUS ="Status: ";
+    private static final String ORDER_STATE ="Order state: ";
+    private static final String CONTRACT_ID ="Contract id: ";
+
+    public static String getContractId() {
+        return CONTRACT_ID;
+    }
 
     public static String getUserRole() {
         return USER_ROLE;
@@ -91,5 +97,9 @@ public final class TextFields {
 
     public String getUserBill() {
         return USER_BILL;
+    }
+
+    public static String getOrderState() {
+        return ORDER_STATE;
     }
 }

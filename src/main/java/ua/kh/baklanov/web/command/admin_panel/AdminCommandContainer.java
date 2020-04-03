@@ -13,6 +13,7 @@ public final class AdminCommandContainer {
         commands.put("users", new UsersCommand());
         commands.put("orders", new OrdersCommand());
         commands.put("UpdateUser", new UpdateUserCommand());
+        commands.put("UpdateOrder", new UpdateOrderCommand());
         commands.put("noCommand", new NoCommand());
     }
 
