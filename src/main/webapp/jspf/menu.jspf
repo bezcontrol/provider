@@ -33,7 +33,9 @@
                         <li><a href=""><i class="fa fa-credit-card-alt" aria-hidden="true"
                                           style="margin: 0px 20px;"></i>
                             Recharge balance</a></li>
-                        <li><a class="gn-icon gn-icon-help">Help</a></li>
+                        <c:if test="${sessionScope.userBean.role.name eq 'client'}">
+                            <li><a href="${pageContext.request.contextPath}/tariff?command=allContracts" class="gn-icon gn-icon-help">My Contracts</a></li>
+                        </c:if>
                         <li>
                             <a class="gn-icon gn-icon-archive">Archives</a>
                         </li>
@@ -53,7 +55,7 @@
                     </li>
                 </c:when>
                 <c:otherwise>
-                    <li><a href="../jsp/cabinet.jsp"><i class="fa fa-user-circle-o" aria-hidden="true" style="margin-right:15px;"></i><span>Hello, ${sessionScope.userBean.user.login}</span></a></li>
+                    <li><a href="../jsp/cart.jsp"><i class="fa fa-user-circle-o" aria-hidden="true" style="margin-right:15px;"></i><span>Hello, ${sessionScope.userBean.user.login}</span></a></li>
                 </c:otherwise>
             </c:choose>
         </c:when>

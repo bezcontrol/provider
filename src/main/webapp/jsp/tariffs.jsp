@@ -115,7 +115,6 @@
                                 <button type="submit" class="btn btn-success" name="operation" value="AddToCart">Add</button>
                             </c:otherwise>
                             </c:choose>
-
                         </c:if>
                             <button type="submit"  class="btn btn-danger mybtn" name="operation" value="Details">Details</button>
                         </form>

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Objects;
 
 @WebServlet("/tariff")
 public class TariffController extends HttpServlet {
@@ -23,7 +24,12 @@ public class TariffController extends HttpServlet {
         AbstractCommand command = null;
         String forward = Route.ERROR_PAGE;
         try {
-            command = TariffCommandContainer.get("getSingleTariff");
+            String operation = req.getParameter(Parameters.OPERATION);
+            if (Objects.nonNull(operation)) {
+                command = TariffCommandContainer.get("getSingleTariff");
+            } else {
+                command = TariffCommandContainer.get(req.getParameter(Parameters.COMMAND));
+            }
             LOG.info(Messages.INFO_EXECUTING_COMMAND + command.getClass().getSimpleName());
             forward = command.execute(req, resp);
         } catch (AppException ex) {
@@ -48,10 +54,10 @@ public class TariffController extends HttpServlet {
         } catch (AppException ex) {
             LOG.error(Messages.ERROR_EXECUTING_COMMAND + command.getClass().getSimpleName(), ex);
         }
-            try {
-                resp.sendRedirect(forward);
-            } catch (IOException ex) {
-                LOG.error(Messages.ERROR_REDIRECT + TariffController.class.getSimpleName(), ex);
-            }
+        try {
+            resp.sendRedirect(forward);
+        } catch (IOException ex) {
+            LOG.error(Messages.ERROR_REDIRECT + TariffController.class.getSimpleName(), ex);
+        }
     }
 }

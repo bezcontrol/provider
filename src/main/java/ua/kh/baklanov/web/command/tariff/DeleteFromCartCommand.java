@@ -23,6 +23,6 @@ public class DeleteFromCartCommand implements AbstractCommand {
             }
         }
         tariffs.remove(forDelete);
-        return Route.MY_CABINET;
+        return Route.MY_CART;
     }
 }

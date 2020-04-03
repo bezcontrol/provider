@@ -14,8 +14,6 @@ import ua.kh.baklanov.web.controller.Attributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.time.Instant;
-
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -37,6 +35,6 @@ public class ContractRequestCommand implements AbstractCommand {
             contractDAO.insert(contract);
         }
         cart.clear();
-        return Route.MY_CONTRACTS;
+        return Route.MY_CONTRACTS_COM;
     }
 }

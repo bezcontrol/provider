@@ -20,6 +20,7 @@ public final class TariffCommandContainer {
         commands.put("getSingleTariff", new GetSingleTariffCommand());
         commands.put("deleteFromCart", new DeleteFromCartCommand());
         commands.put("contractRequest", new ContractRequestCommand());
+        commands.put("allContracts", new AllContractsCommand());
         commands.put("noCommand", new NoCommand());
     }
 
