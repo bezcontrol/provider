@@ -16,7 +16,7 @@ CREATE TABLE `statuses` (
                             UNIQUE (`id`),
                             UNIQUE (`name`));
 
-CREATE TABLE `contractState` (
+CREATE TABLE `contractStates` (
                             `id` INT NOT NULL AUTO_INCREMENT,
                             `name` VARCHAR(45) NOT NULL,
                             PRIMARY KEY (`id`),
@@ -158,37 +158,38 @@ CREATE TABLE `contracts` (
                                      ON UPDATE CASCADE,
 							 CONSTRAINT `fk_contract_state`
                                  FOREIGN KEY (`idContractState`)
-                                     REFERENCES `contractState` (`id`)
+                                     REFERENCES `contractStates` (`id`)
                                      ON DELETE CASCADE
                                      ON UPDATE CASCADE);
 
 
 
-INSERT INTO `roles` (`name`) VALUES ('admin');
-INSERT INTO `roles` (`name`) VALUES ('client');
-INSERT INTO `statuses` (`name`) VALUES ('waiting');
-INSERT INTO `statuses` (`name`) VALUES ('registered');
-INSERT INTO `statuses` (`name`) VALUES ('blocked');
-INSERT INTO `statuses` (`name`) VALUES ('missed');
-INSERT INTO contractState (name) VALUES ('waiting');
-INSERT INTO contractState (name) VALUES ('registered');
-INSERT INTO contractState (name) VALUES ('blocked');
-INSERT INTO contractState (name) VALUES ('canceled');
-INSERT INTO `users` (`login`, `password`,`email`, `idRole`, `idStatus`, `bill`) VALUES ('admin',SHA2('adminpass', 256),'user@gmail.com', '1','2','100.0');
-INSERT INTO `users` (`login`, `password`,`email`, `idRole`,`idStatus`, `bill`) VALUES ('client',SHA2('clientpass', 256),'user2@gmail.com', '2','2','200.0');
-INSERT INTO `internet` (id, speed, technology) VALUES (1, 520, '3G');
-INSERT INTO `internet` (id, speed, technology) VALUES (2, 640, '4G');
-INSERT INTO `internet` (id, speed, technology) VALUES (3, 800, '5G');
-INSERT INTO `internet` (id, speed, technology) VALUES (4, 1000, '4G');
-INSERT INTO `pc` (`numOfConnectedPC`) VALUES ('1');
-INSERT INTO `pc` (`numOfConnectedPC`) VALUES ('10');
-INSERT INTO `tv` (`type`,`numOfChannels`) VALUES ('Analog','100');
-INSERT INTO `tv` (`type`,`numOfChannels`) VALUES ('IP-TV','150');
-INSERT INTO `tv` (`type`,`numOfChannels`) VALUES ('Smart-TV','200');
-INSERT INTO `mobile` (`numOfMinutesInside`,`numOfMinutesOutside`,`numOfSMS`,`numOfMbts`) VALUES ('100','20','50','7000');
-INSERT INTO `mobile` (`numOfMinutesInside`,`numOfMinutesOutside`,`numOfSMS`,`numOfMbts`) VALUES ('50','100','25','8000');
-INSERT INTO `mobile` (`numOfMinutesInside`,`numOfMinutesOutside`,`numOfSMS`,`numOfMbts`) VALUES ('300','100','50','0');
-INSERT INTO `mobile` (`numOfMinutesInside`,`numOfMinutesOutside`,`numOfSMS`,`numOfMbts`) VALUES ('250','100','25','2000');
+INSERT INTO roles (name) VALUES ('admin');
+INSERT INTO roles (name) VALUES ('client');
+INSERT INTO statuses (name) VALUES ('waiting');
+INSERT INTO statuses (name) VALUES ('registered');
+INSERT INTO statuses (name) VALUES ('blocked');
+INSERT INTO statuses (name) VALUES ('missed');
+INSERT INTO statuses (name) VALUES ('blockedByAdmin');
+INSERT INTO contractStates (name) VALUES ('waiting');
+INSERT INTO contractStates (name) VALUES ('registered');
+INSERT INTO contractStates (name) VALUES ('blocked');
+INSERT INTO contractStates (name) VALUES ('canceled');
+INSERT INTO users (login, password, email, idRole, idStatus, bill) VALUES ('admin',SHA2('adminpass', 256),'user@gmail.com', '1','2','100.0');
+INSERT INTO users (login, password, email, idRole, idStatus, bill) VALUES ('client',SHA2('clientpass', 256),'user2@gmail.com', '2','2','200.0');
+INSERT INTO internet (id, speed, technology) VALUES (1, 520, '3G');
+INSERT INTO internet (id, speed, technology) VALUES (2, 640, '4G');
+INSERT INTO internet (id, speed, technology) VALUES (3, 800, '5G');
+INSERT INTO internet (id, speed, technology) VALUES (4, 1000, '4G');
+INSERT INTO pc (numOfConnectedPC) VALUES ('1');
+INSERT INTO pc (numOfConnectedPC) VALUES ('10');
+INSERT INTO tv (type, numOfChannels) VALUES ('Analog','100');
+INSERT INTO tv (type, numOfChannels) VALUES ('IP-TV','150');
+INSERT INTO tv (type, numOfChannels) VALUES ('Smart-TV','200');
+INSERT INTO mobile (numOfMinutesInside, numOfMinutesOutside , numOfSMS, numOfMbts) VALUES ('100','20','50','7000');
+INSERT INTO mobile (numOfMinutesInside, numOfMinutesOutside , numOfSMS, numOfMbts) VALUES ('50','100','25','8000');
+INSERT INTO mobile (numOfMinutesInside, numOfMinutesOutside , numOfSMS, numOfMbts) VALUES ('300','100','50','0');
+INSERT INTO mobile (numOfMinutesInside, numOfMinutesOutside , numOfSMS, numOfMbts) VALUES ('250','100','25','2000');
 INSERT INTO services (id,idTV,idInternet,description) VALUES (1,2,2,'ip-tv with simple internet');
 INSERT INTO services (id,idTV,idInternet,description) VALUES (2,3,3, 'smart-tv with great internet');
 INSERT INTO services (id,idTV,description) VALUES (3,1, 'analog without internet');

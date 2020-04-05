@@ -13,6 +13,14 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="../resources/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
 <script src="../resources/js/menu/modernizr.custom.js"></script>
+
+<c:if test="${(sessionScope.userBean ne null) and (sessionScope.userBean.status.name eq 'blocked')}">
+    <c:redirect url="rechargeBalance.jsp"/>
+</c:if>
+<c:if test="${(sessionScope.userBean ne null) and (sessionScope.userBean.status.name eq 'blockedByAdmin')}">
+    <c:redirect url="rechargeBalance.jsp"/>
+</c:if>
+
 <div class="container">
     <ul id="gn-menu" class="gn-menu-main">
         <li class="gn-trigger">

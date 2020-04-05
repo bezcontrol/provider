@@ -139,7 +139,7 @@ public final class Queries {
             "VALUES (?, ?, ? , ?, ?)";
     public static final String GET_CONTRACT_STATE_BY_NAME = "SELECT id AS 'idContractState', " +
             "name as 'contractStateName' " +
-            "FROM contractState WHERE name=?";
+            "FROM contractStates WHERE name=?";
 
     public static final String GET_ALL_CONTRACT_BEANS = "SELECT c.id AS 'idContract', c.idContractState, " +
             "c.contractConclusionDate, c.contractExpirationDate, u.id AS 'idUser', u.login, u.password, u.email, " +
@@ -150,11 +150,11 @@ public final class Queries {
             "JOIN users u ON u.id=c.idUser " +
             "JOIN statuses s ON u.idStatus=s.id " +
             "JOIN tariffs t ON c.idTariff=t.id " +
-            "JOIN contractstate state ON c.idContractState=state.id " +
+            "JOIN contractstates state ON c.idContractState=state.id " +
             "JOIN roles r ON u.idRole=r.id;";
     public static final String GET_ALL_CONTRACT_STATES = "SELECT id AS 'idContractState', " +
             "name as 'contractStateName' " +
-            "FROM contractState";
+            "FROM contractStates";
     public static final String UPDATE_CONTRACT = "UPDATE contracts " +
             "SET idUser=?, idTariff=?, idContractState=?, contractConclusionDate=?, contractExpirationDate=? " +
             "WHERE id=?";
@@ -164,7 +164,7 @@ public final class Queries {
             "t.name AS 'tariffName', t.price, t.idService, t.durationInDays, state.id AS 'idContractState', " +
             "state.name AS 'contractStateName', r.name AS 'roleName', s.name AS 'statusName' FROM contracts c " +
             "JOIN users u ON u.id=c.idUser JOIN statuses s ON u.idStatus=s.id JOIN tariffs t ON c.idTariff=t.id " +
-            "JOIN contractstate state ON c.idContractState=state.id JOIN roles r ON u.idRole=r.id WHERE c.idUser=?";
+            "JOIN contractstates state ON c.idContractState=state.id JOIN roles r ON u.idRole=r.id WHERE c.idUser=?";
 
     private Queries() {
     }
