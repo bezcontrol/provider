@@ -44,7 +44,7 @@ public class DefaultUserBeanDAOImpl implements UserBeanDAO {
     }
 
     @Override
-    public UserBean getUserBeanByLogin(String login) throws DbException {
+    public UserBean getByLogin(String login) throws DbException {
         UserBean user=null;
         try (Connection con = factory.getConnection();
              PreparedStatement statement = con.prepareStatement(Queries.GET_USER_BEAN_BY_LOGIN)) {

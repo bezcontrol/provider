@@ -20,6 +20,7 @@ public class ServiceController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
+        UserTrackerUtil.setCurrentStateOfUserFromDb(req.getSession());
         String commandName = req.getParameter(Parameters.COMMAND);
         AbstractCommand command = ServiceCommandContainer.get(commandName);
         String forward = Route.ERROR_PAGE;

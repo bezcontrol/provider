@@ -53,6 +53,8 @@ public final class Messages {
     public static final String ERROR_ROLE_DAO = "Error when using role dao in command: ";
     public static final String ERROR_STATUS_DAO = "Error when using status dao in command: ";
     public static final Object ERROR_USER_IS_BLOCKED = "This account has been blocked";
+    public static final String ERROR_SUPPORTING_USER_IN_ACTUAL_STATE = "Error when supported user by " +
+            "updating him in session";
 
     private Messages(){}
 

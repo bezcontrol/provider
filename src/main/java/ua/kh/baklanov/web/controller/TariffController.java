@@ -21,6 +21,7 @@ public class TariffController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
+        UserTrackerUtil.setCurrentStateOfUserFromDb(req.getSession());
         AbstractCommand command = null;
         String forward = Route.ERROR_PAGE;
         try {
@@ -44,6 +45,7 @@ public class TariffController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
+        UserTrackerUtil.setCurrentStateOfUserFromDb(req.getSession());
         String commandName = req.getParameter(Parameters.COMMAND);
         AbstractCommand command = null;
         String forward = Route.ERROR_PAGE;

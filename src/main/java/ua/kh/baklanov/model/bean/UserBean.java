@@ -4,7 +4,9 @@ import ua.kh.baklanov.model.entity.Role;
 import ua.kh.baklanov.model.entity.Status;
 import ua.kh.baklanov.model.entity.User;
 
-public class UserBean {
+import java.io.Serializable;
+
+public class UserBean implements Serializable {
     private User user;
     private Role role;
     private Status status;

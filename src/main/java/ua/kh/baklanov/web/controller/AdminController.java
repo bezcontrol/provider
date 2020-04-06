@@ -19,9 +19,9 @@ import java.util.Objects;
 public class AdminController extends HttpServlet {
     private static final Logger LOG = Logger.getLogger(AdminController.class);
 
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
+        UserTrackerUtil.setCurrentStateOfUserFromDb(req.getSession());
         String commandName = req.getParameter(Parameters.OPERATION);
         AbstractCommand command = AdminCommandContainer.get(commandName);
         String forward = Route.ERROR_PAGE;
@@ -40,6 +40,7 @@ public class AdminController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
+        UserTrackerUtil.setCurrentStateOfUserFromDb(req.getSession());
         try {
             UserBean user= (UserBean) req.getSession().getAttribute("userBean");
             if (Objects.nonNull(user)&&"admin".equals(user.getRole().getName())) {

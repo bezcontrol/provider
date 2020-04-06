@@ -34,7 +34,7 @@ public class AuthenticationController extends HttpServlet {
 
     private static void process(HttpServletRequest request,
                              HttpServletResponse response) {
-
+        UserTrackerUtil.setCurrentStateOfUserFromDb(request.getSession());
         String commandName = request.getParameter(Parameters.COMMAND);
         AbstractCommand command = AuthenticationCommandContainer.get(commandName);
         String forward = Route.ERROR_PAGE;

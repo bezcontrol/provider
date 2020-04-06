@@ -4,7 +4,7 @@ import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.model.bean.UserBean;
 
 public interface UserBeanDAO extends DAOGetAll<UserBean> {
-    UserBean getUserBeanByLogin(String login) throws DbException;
+    UserBean getByLogin(String login) throws DbException;
 
-    UserBean getByEmail(String login) throws DbException;
+    UserBean getByEmail(String email) throws DbException;
 }

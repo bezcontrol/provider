@@ -5,14 +5,10 @@ import org.apache.commons.codec.Charsets;
 import org.apache.log4j.Logger;
 import ua.kh.baklanov.Route;
 import ua.kh.baklanov.db.dao.UserBeanDAO;
-import ua.kh.baklanov.db.dao.UserDAO;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
 import ua.kh.baklanov.model.bean.AnyTariff;
 import ua.kh.baklanov.model.bean.UserBean;
-import ua.kh.baklanov.model.entity.Role;
-import ua.kh.baklanov.model.entity.Status;
-import ua.kh.baklanov.model.entity.User;
 import ua.kh.baklanov.service.DAOService;
 import ua.kh.baklanov.service.DefaultService;
 import ua.kh.baklanov.web.command.AbstractCommand;
@@ -40,7 +36,7 @@ public class LoginCommand implements AbstractCommand {
         String forward;
         try {
             UserBeanDAO userBeanDAO = service.getUserBeanDAO();
-            UserBean user = userBeanDAO.getUserBeanByLogin(login);
+            UserBean user = userBeanDAO.getByLogin(login);
             if (user == null ||
                     !Hashing.sha256().hashString(password, Charsets.UTF_8).toString()
                             .equals(user.getUser().getPassword())) {
