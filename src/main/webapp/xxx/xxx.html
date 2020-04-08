@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- include the jQuery and jQuery UI scripts -->
+    <script src="../resources/js/lib/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+
+    <script src="../resources/js/bootstrap/bootstrap.min.js"></script>
+    <link href="../resources/css/bootstrap/bootstrap.css" rel="stylesheet">
+    <!-- plus a jQuery UI theme, here I use "flick" -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/flick/jquery-ui.css">
+    <link rel="stylesheet" href="slider.css">
+    <link rel="stylesheet" href="xxx.css">
+
+</head>
+<body>
+<form>
+    <div class="container_search">
+        <div class="slider"></div>
+        <div class="form-group">
+            <label for="select_search">Sort:</label>
+            <select class="form-control" id="select_search">
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+                <option>Name: A-Z</option>
+                <option>Name: Z-A</option>
+            </select>
+        </div>
+        <p>Your slider has a value of <span id="slider-value1"></span></p>
+        <p>Your slider has a value of <span id="slider-value2"></span></p>
+        <button type="submit" class="btn btn-warning">Warning</button>
+    </div>
+</form>
+
+
+<script src="slider.js"></script>
+<script src="xxx.js"></script>
+</body>
+</html>

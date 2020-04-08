@@ -1,6 +1,6 @@
 package ua.kh.baklanov.web.command.admin_panel;
 
-import ua.kh.baklanov.Route;
+import ua.kh.baklanov.web.Route;
 import ua.kh.baklanov.db.dao.ContractDAO;
 import ua.kh.baklanov.exception.AppException;
 import ua.kh.baklanov.model.entity.Contract;

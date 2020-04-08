@@ -1,8 +1,6 @@
 package ua.kh.baklanov.web.command.tariff;
 
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.PdfWriter;
-import ua.kh.baklanov.Route;
+import ua.kh.baklanov.web.Route;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.model.bean.AnyTariff;
 import ua.kh.baklanov.model.entity.Mobile;
@@ -15,7 +13,6 @@ import ua.kh.baklanov.web.controller.TextFields;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;

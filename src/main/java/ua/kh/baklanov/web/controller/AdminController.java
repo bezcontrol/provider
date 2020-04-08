@@ -1,7 +1,7 @@
 package ua.kh.baklanov.web.controller;
 
 import org.apache.log4j.Logger;
-import ua.kh.baklanov.Route;
+import ua.kh.baklanov.web.Route;
 import ua.kh.baklanov.exception.AppException;
 import ua.kh.baklanov.exception.Messages;
 import ua.kh.baklanov.model.bean.UserBean;

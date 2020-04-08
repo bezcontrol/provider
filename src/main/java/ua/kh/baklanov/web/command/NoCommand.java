@@ -1,6 +1,6 @@
 package ua.kh.baklanov.web.command;
 
-import ua.kh.baklanov.Route;
+import ua.kh.baklanov.web.Route;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

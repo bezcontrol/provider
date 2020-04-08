@@ -1,7 +1,7 @@
 package ua.kh.baklanov.web.command.tariff;
 
 import org.apache.log4j.Logger;
-import ua.kh.baklanov.Route;
+import ua.kh.baklanov.web.Route;
 import ua.kh.baklanov.db.dao.AnyServiceDAO;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;

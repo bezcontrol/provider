@@ -12,9 +12,36 @@
     <script src="../resources/js/bootstrap/bootstrap.min.js"></script>
     <link href="../resources/css/bootstrap/bootstrap.css" rel="stylesheet">
     <link href="../resources/css/tariffs/style.css" rel="stylesheet">
+
+
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+    <!-- plus a jQuery UI theme, here I use "flick" -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/flick/jquery-ui.css">
+    <link rel="stylesheet" href="../resources/css/tariffs/search/slider.css">
+    <link rel="stylesheet" href="../resources/css/tariffs/search/search.css">
+
+
     <%@ include file="../jspf/menu.jspf" %>
 </head>
 <body>
+<form action="tariff" method="get">
+    <div class="container_search">
+        <div class="slider"></div>
+        <div class="form-group">
+            <label for="select_search">Sort:</label>
+            <select class="form-control" id="select_search" name="select_search">
+                <c:forEach items="${sessionScope.sortOperations}" var="object">
+                    <option value="${object.name()}">${object.getValue()}</option>
+                </c:forEach>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-warning"name="command" value="search">Search</button>
+        <input id="lowerPrice" name="lowerPrice" type="hidden" value="">
+        <input id="upperPrice" name="upperPrice" type="hidden" value="">
+    </div>
+</form>
+
+
 <c:if test="${not empty tariffs}">
     <div id="cards">
         <c:forEach items="${requestScope.tariffs}" var="object">
@@ -142,6 +169,10 @@
         <button type="submit" class="btn btn-danger" name="operation" value="Create">Create</button>
     </c:if>
 </form>
+
+<script src="../resources/js/tariffs/search/slider.js"></script>
+<script src="../resources/js/tariffs/search/xxx.js"></script>
+
 
 </body>
 </html>

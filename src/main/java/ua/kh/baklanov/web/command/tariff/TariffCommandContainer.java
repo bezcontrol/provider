@@ -21,6 +21,7 @@ public final class TariffCommandContainer {
         commands.put("deleteFromCart", new DeleteFromCartCommand());
         commands.put("contractRequest", new ContractRequestCommand());
         commands.put("allContracts", new AllContractsCommand());
+        commands.put("search", new SearchCommand());
         commands.put("noCommand", new NoCommand());
     }
 

@@ -1,6 +1,6 @@
 package ua.kh.baklanov.web.command.authentication;
 
-import ua.kh.baklanov.Route;
+import ua.kh.baklanov.web.Route;
 import ua.kh.baklanov.web.command.AbstractCommand;
 
 import javax.servlet.http.HttpServletRequest;

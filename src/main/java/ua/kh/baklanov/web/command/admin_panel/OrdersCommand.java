@@ -1,7 +1,7 @@
 package ua.kh.baklanov.web.command.admin_panel;
 
 import org.apache.log4j.Logger;
-import ua.kh.baklanov.Route;
+import ua.kh.baklanov.web.Route;
 import ua.kh.baklanov.db.dao.ContractBeanDAO;
 import ua.kh.baklanov.db.dao.ContractStateDAO;
 import ua.kh.baklanov.exception.AppException;

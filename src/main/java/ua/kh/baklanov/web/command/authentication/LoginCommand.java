@@ -3,7 +3,7 @@ package ua.kh.baklanov.web.command.authentication;
 import com.google.common.hash.Hashing;
 import org.apache.commons.codec.Charsets;
 import org.apache.log4j.Logger;
-import ua.kh.baklanov.Route;
+import ua.kh.baklanov.web.Route;
 import ua.kh.baklanov.db.dao.UserBeanDAO;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;

@@ -1,0 +1,11 @@
+#steps-fivepercent-slider .ui-slider-tip {
+    visibility: visible;
+    opacity: 1;
+    top: -30px;
+}
+
+.container_search {
+    display: block;
+    margin: 8% auto 3% auto;
+    width: 50%;
+}

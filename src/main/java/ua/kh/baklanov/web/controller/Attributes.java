@@ -13,6 +13,7 @@ public final class Attributes {
     public static final String CART = "cart";
     public static final String CONTRACTS = "contracts";
     public static final String CONTRACT_STATES = "contractStates";
+    public static final String SORT_OPERATIONS = "sortOperations";
 
     private Attributes(){
     }

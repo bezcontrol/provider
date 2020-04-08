@@ -1,6 +1,6 @@
 package ua.kh.baklanov.web.command.tariff;
 
-import ua.kh.baklanov.Route;
+import ua.kh.baklanov.web.Route;
 import ua.kh.baklanov.db.dao.ContractBeanDAO;
 import ua.kh.baklanov.exception.AppException;
 import ua.kh.baklanov.model.bean.ContractBean;

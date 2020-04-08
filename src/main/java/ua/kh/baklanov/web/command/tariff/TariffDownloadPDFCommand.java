@@ -4,7 +4,7 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
-import ua.kh.baklanov.Route;
+import ua.kh.baklanov.web.Route;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.model.bean.AnyTariff;
 import ua.kh.baklanov.model.entity.Mobile;

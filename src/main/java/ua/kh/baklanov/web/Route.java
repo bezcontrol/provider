@@ -1,4 +1,4 @@
-package ua.kh.baklanov;
+package ua.kh.baklanov.web;
 
 public final class Route {
     public static final String ERROR_PAGE = "jsp/error_page.jsp";
