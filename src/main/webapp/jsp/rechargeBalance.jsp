@@ -1,24 +1,36 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cabinet</title>
-    <link rel="stylesheet" href="../resources/css/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="../resources/css/lib/font-awesome.min.css">
-    <link rel="stylesheet" href="../resources/css/admin/themify-icons.css">
-    <link rel="stylesheet" href="../resources/css/admin/flag-icon.min.css">
-    <link rel="stylesheet" href="../resources/css/admin/cs-skin-elastic.css">
-    <link rel="stylesheet" href="../resources/css/admin/jqvmap.min.css">
-
-    <link rel="stylesheet" href="../resources/css/admin/style.css">
-    <link rel="stylesheet" href="../resources/css/cabinet/main.css">
-
+    <title>Contact V5</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../resources/css/bootstrap/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../resources/css/lib/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../resources/css/lib/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../resources/css/lib/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../resources/css/lib/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../resources/css/lib/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../resources/css/lib/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../resources/css/lib/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../resources/css/lib/nouislider.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../resources/css/balance/util.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/balance/main.css">
+    <!--===============================================================================================-->
 </head>
 <body>
-<%@ include file="../jspf/menu.jspf" %>
 <c:set var="pc" value='PC'/>
 <c:set var="tv" value='TV'/>
 <c:set var="mobile" value='Mobile'/>
@@ -26,46 +38,56 @@
     <c:redirect url="/service?command=allTariffs"/>
 </c:if>
 
-<div id="container_header_cart">
-    <h3 id="header_cart">YOUR CABINET</h3>
+<div class="container-contact100">
+    <div class="wrap-contact100">
+        <form class="contact100-form validate-form" method="post" action="${pageContext.request.contextPath}/client">
+            <input type="hidden" name="command" value="rechargeBalance"/>
+				<span class="contact100-form-title">
+					Contact Us
+				</span>
+
+            <div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name">
+                <span class="label-input100">Login *</span>
+                <input class="input100" type="text" name="login" placeholder="Your login" value="${sessionScope.userBean.user.login}" readonly>
+            </div>
+
+            <div class="wrap-input100 bg1 rs1-wrap-input100">
+                <span class="label-input100">Add to balance</span>
+                <input class="input100" type="text" name="bill" placeholder="">
+            </div>
+
+            <div class="container-contact100-form-btn">
+                <button class="contact100-form-btn" type="submit">
+						<span>
+							Submit
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+                </button>
+            </div>
+        </form>
+    </div>
 </div>
 
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!--===============================================================================================-->
 <script src="../resources/js/lib/jquery-3.2.1.min.js"></script>
-<script src="../resources/js/lib/popper.min.js"></script>
+<!--===============================================================================================-->
+<script src="../resources/js/lib/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="../resources/js/lib/popper.js"></script>
 <script src="../resources/js/bootstrap/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="../resources/js/lib/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="../resources/js/lib/moment.min.js"></script>
+<script src="../resources/js/lib/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="../resources/js/lib/countdowntime.js"></script>
+<!--===============================================================================================-->
+<script src="../resources/js/lib/nouislider.min.js"></script>
+<!--===============================================================================================-->
+<script src="../resources/js/balance/main.js"></script>
 
-<script src="../resources/js/admin/jquery.dataTables.min.js"></script>
-<script src="../resources/js/admin/dataTables.bootstrap4.min.js"></script>
-<script src="../resources/js/admin/dataTables.buttons.min.js"></script>
-<script src="../resources/js/admin/buttons.bootstrap4.min.js"></script>
-
-<script src="../resources/js/admin/buttons.html5.min.js"></script>
-<script src="../resources/js/admin/buttons.print.min.js"></script>
-<script src="../resources/js/admin/buttons.colVis.min.js"></script>
-<script src="../resources/js/admin/datatables-init.js"></script>
-<script src="../resources/js/menu/modernizr.custom.js"></script>
-
-<script>
-    $("#shortModal").on("show.bs.modal", function() {
-        var height = $(window).height() - 200;
-        $(this).find(".modal-body").css("max-height", height);
-    });
-</script>
-
-<script>
-    $(document).ready(function(){
-        // code to read selected table row cell data (values).
-        $(".btnSelect").on('click',function(){
-            var currentRow=$(this).closest("tr");
-            var col1=currentRow.find("td:eq(0)").html();
-            var col2=currentRow.find("td:eq(1)").html();
-            document.getElementById("tariffId").value=col1;
-            document.getElementById("name").value=col2;
-        });
-    });
-</script>
 </body>
 </html>

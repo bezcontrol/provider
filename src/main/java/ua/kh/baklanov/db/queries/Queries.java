@@ -165,6 +165,8 @@ public final class Queries {
             "state.name AS 'contractStateName', r.name AS 'roleName', s.name AS 'statusName' FROM contracts c " +
             "JOIN users u ON u.id=c.idUser JOIN statuses s ON u.idStatus=s.id JOIN tariffs t ON c.idTariff=t.id " +
             "JOIN contractstates state ON c.idContractState=state.id JOIN roles r ON u.idRole=r.id WHERE c.idUser=?";
+    public static final String GET_CONTRACT_BY_ID = "Select id AS 'idContract', idUser, idTariff, idContractState, " +
+            "contractExpirationDate, contractConclusionDate FROM contracts WHERE id=?";
 
     private Queries() {
     }

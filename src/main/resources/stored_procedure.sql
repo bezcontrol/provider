@@ -51,15 +51,16 @@ BEGIN
                         UPDATE contracts c JOIN tariffs t ON t.id=c.idTariff JOIN users u ON u.id=c.idUser JOIN statuses s ON u.idStatus=s.id
                         SET c.contractExpirationDate = DATE_ADD( c.contractExpirationDate, INTERVAL t.durationInDays DAY)
                         WHERE c.idTariff=tariffId;
+
+                        UPDATE users u JOIN statuses s ON u.idStatus=s.id
+                        SET u.idStatus = statusNormalId
+                        WHERE u.id=userId;
                     else
                         UPDATE users u JOIN statuses s ON u.idStatus=s.id
                         SET u.idStatus =  statusBlockedId
                         WHERE u.id=userId;
                     end if;
-                else
-                    UPDATE users u JOIN statuses s ON u.idStatus=s.id
-                    SET u.idStatus = statusNormalId
-                    WHERE u.id=userId;
+
                 end if;
             end if;
         end if;

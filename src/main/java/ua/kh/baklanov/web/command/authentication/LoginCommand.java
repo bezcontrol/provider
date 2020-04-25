@@ -48,7 +48,7 @@ public class LoginCommand implements AbstractCommand {
                     return Route.LOGIN;
                 }
             }
-            if("blocked".equals(user.getStatus().getName())){
+            if("blockedByAdmin".equals(user.getStatus().getName())){
                 LOG.info(Messages.ERROR_USER_IS_BLOCKED);
                 request.setAttribute(Attributes.ERROR, Messages.ERROR_USER_IS_BLOCKED);
                 return Route.LOGIN;

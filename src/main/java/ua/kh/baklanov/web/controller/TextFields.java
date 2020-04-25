@@ -2,7 +2,7 @@ package ua.kh.baklanov.web.controller;
 
 public final class TextFields {
 
-    private static final String CONTRACT_CONCLUSION_DATE ="Contract conclusion date: ";
+
     private static final String INTERNET_SPEED ="Internet speed: ";
     private static final String INTERNET_TECHNOLOGY ="Internet technology: ";
     private static final String MINUTES_INSIDE_COUNTRY ="Minutes inside country: ";
@@ -22,6 +22,12 @@ public final class TextFields {
     private static final String USER_STATUS ="Status: ";
     private static final String ORDER_STATE ="Order state: ";
     private static final String CONTRACT_ID ="Contract id: ";
+    private static final String CONTRACT_CONCLUSION_DATE ="Contract conclusion date: ";
+    private static final String CONTRACT_EXPIRATION_DATE ="Contract expiration date: ";
+
+    public static String getContractExpirationDate() {
+        return CONTRACT_EXPIRATION_DATE;
+    }
 
     public static String getContractId() {
         return CONTRACT_ID;

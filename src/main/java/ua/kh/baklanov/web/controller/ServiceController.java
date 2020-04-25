@@ -36,6 +36,11 @@ public class ServiceController extends HttpServlet {
             req.getRequestDispatcher(forward).forward(req,resp);
         } catch (ServletException |IOException ex) {
             LOG.error(Messages.ERROR_FORWARD+ServiceController.class.getSimpleName(),ex);
+            try {
+                req.getRequestDispatcher(Route.RECHARGE_BALANCE).forward(req,resp);
+            } catch (ServletException | IOException e) {
+                LOG.error(Messages.ERROR_FORWARD+ServiceController.class.getSimpleName(),ex);
+            }
         }
     }
 }

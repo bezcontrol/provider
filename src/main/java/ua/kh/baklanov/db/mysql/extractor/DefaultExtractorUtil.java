@@ -264,7 +264,7 @@ public final class DefaultExtractorUtil {
         return bean;
     }
 
-    private static Contract extractContract(ResultSet rs) throws DbException {
+    public static Contract extractContract(ResultSet rs) throws DbException {
         Contract contract=new Contract();
         try {
             contract.setId(rs.getLong("idContract"));

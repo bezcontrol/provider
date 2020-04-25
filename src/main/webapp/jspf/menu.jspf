@@ -15,10 +15,10 @@
 <script src="../resources/js/menu/modernizr.custom.js"></script>
 
 <c:if test="${(sessionScope.userBean ne null) and (sessionScope.userBean.status.name eq 'blocked')}">
-    <c:redirect url="rechargeBalance.jsp"/>
+    <c:redirect url="${pageContext.request.contextPath}/jsp/rechargeBalance.jsp"/>
 </c:if>
 <c:if test="${(sessionScope.userBean ne null) and (sessionScope.userBean.status.name eq 'blockedByAdmin')}">
-    <c:redirect url="rechargeBalance.jsp"/>
+    <c:redirect url="${pageContext.request.contextPath}/jsp/blocked.jsp"/>
 </c:if>
 
 <div class="container">
@@ -38,7 +38,7 @@
                                                                                                        style="margin: 0px 20px;"></i>
                                 All tariffs</a>
                         </li>
-                        <li><a href=""><i class="fa fa-credit-card-alt" aria-hidden="true"
+                        <li><a href="${pageContext.request.contextPath}/jsp/rechargeBalance.jsp"><i class="fa fa-credit-card-alt" aria-hidden="true"
                                           style="margin: 0px 20px;"></i>
                             Recharge balance</a></li>
                         <c:if test="${sessionScope.userBean.role.name eq 'client'}">
