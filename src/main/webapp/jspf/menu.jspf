@@ -38,10 +38,11 @@
                                                                                                        style="margin: 0px 20px;"></i>
                                 All tariffs</a>
                         </li>
-                        <li><a href="${pageContext.request.contextPath}/jsp/rechargeBalance.jsp"><i class="fa fa-credit-card-alt" aria-hidden="true"
-                                          style="margin: 0px 20px;"></i>
-                            Recharge balance</a></li>
+
                         <c:if test="${sessionScope.userBean.role.name eq 'client'}">
+                            <li><a href="${pageContext.request.contextPath}/jsp/rechargeBalance.jsp"><i class="fa fa-credit-card-alt" aria-hidden="true"
+                                                                                                        style="margin: 0px 20px;"></i>
+                                Recharge balance</a></li>
                             <li><a href="${pageContext.request.contextPath}/tariff?command=allContracts" class="gn-icon gn-icon-help">My Contracts</a></li>
                         </c:if>
                         <li>

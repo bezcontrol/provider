@@ -62,9 +62,14 @@
 							Submit
 							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
 						</span>
+
                 </button>
+
             </div>
         </form>
+        <button class="contact100-form-btn" type="button" onclick="location.href='${pageContext.request.contextPath}/service?command=allTariffs'">
+            Back
+        </button>
     </div>
 </div>
 
