@@ -12,7 +12,7 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public final class DefaultFactory implements DAOFactory {
+public class DefaultFactory implements DAOFactory {
 
     private static final Logger LOG = Logger.getLogger(DefaultFactory.class);
 

@@ -18,4 +18,5 @@ public interface DAOFactory {
     void commit(Connection connection) throws DbException;
 
     void rollback(Connection connection) throws DbException;
+
 }
