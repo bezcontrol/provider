@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,30 +40,30 @@
             <form class="login100-form validate-form" action="authentication" method="post" name="form">
                 <input type="hidden" name="command" value="registration"/>
 					<span class="login100-form-title p-b-49">
-						Sign up
+						<fmt:message key="sign_up.sign_up"/>
 					</span>
 
                 <div class="wrap-input100 validate-input m-b-23" data-validate = "Username is required">
-                    <span class="label-input100">Username</span>
+                    <span class="label-input100"><fmt:message key="username"/></span>
                     <input class="input100" type="text" name="login" placeholder="Login">
                     <span class="focus-input100" data-symbol="&#xf206;"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input m-b-23" data-validate = "Email is required">
-                    <span class="label-input100">Email</span>
+                    <span class="label-input100"><fmt:message key="email"/></span>
                     <input class="input100" type="email" name="email" id="email" placeholder="Email"/>
                     <span class="focus-input100" data-symbol="&#xf206;"></span>
                 </div>
 
 
                 <div class="wrap-input100 validate-input" data-validate="Password is required">
-                    <span class="label-input100">Password</span>
+                    <span class="label-input100"><fmt:message key="sign_up.password"/></span>
                     <input class="input100" type="password" name="password" id="password" placeholder="Password">
                     <span class="focus-input100" data-symbol="&#xf190;"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Password is required">
-                    <span class="label-input100">Password</span>
+                    <span class="label-input100"><fmt:message key="sign_up.password_confirm"/></span>
                     <input class="input100" type="password" name="re_pass" id="confirm_password" placeholder="Confirm your password">
                     <span class="focus-input100" data-symbol="&#xf190;"></span>
                 </div>
@@ -71,7 +72,7 @@
                     <div class="wrap-login100-form-btn">
                         <div class="login100-form-bgbtn"></div>
                         <button class="login100-form-btn" type="submit" onclick="CheckPassword(document.form.password)">
-                            Sign Up
+                            <fmt:message key="sign_up.btn.sign_up"/>
                         </button>
                     </div>
                 </div>
@@ -92,26 +93,7 @@
                 </c:choose>
                 <div class="text-center p-t-8 p-b-31">
                     <a href="jsp/services.jsp">
-                        Start without authorization
-                    </a>
-                </div>
-                <div class="txt1 text-center p-t-10 p-b-20">
-						<span>
-							Or Sign Up Using
-						</span>
-                </div>
-
-                <div class="flex-c-m">
-                    <a href="#" class="login100-social-item bg1">
-                        <i class="fa fa-facebook"></i>
-                    </a>
-
-                    <a href="#" class="login100-social-item bg2">
-                        <i class="fa fa-twitter"></i>
-                    </a>
-
-                    <a href="#" class="login100-social-item bg3">
-                        <i class="fa fa-google"></i>
+                        <fmt:message key="sign_up.btn.without_login"/>
                     </a>
                 </div>
 
@@ -119,11 +101,23 @@
                     <div class="wrap-login100-form-btn">
                         <div class="login100-form-bgbtn"></div>
                         <button class="login100-form-btn" onclick="location.href='index.jsp'">
-                            Back
+                            <fmt:message key="back"/>
                         </button>
                     </div>
                 </div>
+            </form>
 
+            <form style="display: inline-block;" action="${pageContext.request.contextPath}/changeLocale.jsp" method="post">
+                <input type="hidden" name="locale" value="uk">
+                <input type="image" src="resources/img/flag-icons-24px/24px/UA.png"/>
+            </form>
+            <form style="display: inline-block;" action="${pageContext.request.contextPath}/changeLocale.jsp" method="post">
+                <input type="hidden" name="locale" value="ru">
+                <input type="image" src="resources/img/flag-icons-24px/24px/RU.png"/>
+            </form>
+            <form style="display: inline-block;" action="${pageContext.request.contextPath}/changeLocale.jsp" method="post">
+                <input type="hidden" name="locale" value="en">
+                <input type="image" src="resources/img/flag-icons-24px/24px/GB.png"/>
             </form>
         </div>
     </div>

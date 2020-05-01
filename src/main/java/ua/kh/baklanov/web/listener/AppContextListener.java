@@ -5,9 +5,13 @@ import ua.kh.baklanov.context.MyClassLoader;
 import ua.kh.baklanov.exception.AppException;
 import ua.kh.baklanov.web.controller.TextFields;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 
 @WebListener
 public class AppContextListener implements ServletContextListener {
@@ -21,5 +25,10 @@ public class AppContextListener implements ServletContextListener {
         } catch (AppException e) {
            LOG.error("Error loading context", e);
         }
+    }
+
+    @Override
+    public void contextDestroyed(ServletContextEvent servletContextEvent) {
+
     }
 }
