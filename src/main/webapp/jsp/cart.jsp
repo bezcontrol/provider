@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="/WEB-INF/caseFormatter.tld" prefix="ct" %>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -27,7 +28,7 @@
 </c:if>
 
 <div id="container_header_cart">
-    <h3 id="header_cart">YOUR CART</h3>
+    <h3 id="header_cart"><fmt:message key="cart.label"/></h3>
 </div>
 
 <div id="table_container">
@@ -38,21 +39,21 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Tariffs for tv</strong>
+                            <strong class="card-title"><ct:changeCase case="upper"><fmt:message key="cart.tv"/></ct:changeCase></strong>
                         </div>
                         <div class="card-body">
                             <table class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
                                     <th style="display:none">Id</th>
-                                    <th>Name</th>
-                                    <th>Price</th>
-                                    <th>Duration</th>
-                                    <th>Type</th>
-                                    <th>Channels</th>
-                                    <th>Internet speed</th>
-                                    <th>Internet technology</th>
-                                    <th>Operations</th>
+                                    <th><fmt:message key="cart.name"/></th>
+                                    <th><fmt:message key="cart.price"/></th>
+                                    <th><fmt:message key="cart.duration"/></th>
+                                    <th><fmt:message key="cart.tv.type"/></th>
+                                    <th><fmt:message key="cart.tv.channels"/></th>
+                                    <th><fmt:message key="cart.internet_speed"/></th>
+                                    <th><fmt:message key="cart.internet_technology"/></th>
+                                    <th><fmt:message key="cart.operations"/></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -69,7 +70,7 @@
                                             <td>${item.internet.technology}</td>
                                             <td>
                                                 <a href="#shortModal" data-toggle="modal">
-                                                    <button class="btnSelect btn btn-danger">Delete</button>
+                                                    <button class="btnSelect btn btn-danger"><fmt:message key="btn.delete"/></button>
                                                 </a>
                                             </td>
                                         </tr>
@@ -92,20 +93,20 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Tariffs for pc</strong>
+                            <strong class="card-title"><fmt:message key="cart.pc"/></strong>
                         </div>
                         <div class="card-body">
                             <table class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
                                     <th style="display:none">Id</th>
-                                    <th>Name</th>
-                                    <th>Price</th>
-                                    <th>Duration</th>
-                                    <th>Connected PC</th>
-                                    <th>Internet speed</th>
-                                    <th>Internet technology</th>
-                                    <th>Operations</th>
+                                    <th><fmt:message key="cart.name"/></th>
+                                    <th><fmt:message key="cart.price"/></th>
+                                    <th><fmt:message key="cart.duration"/></th>
+                                    <th><fmt:message key="cart.pc.connected_pc"/></th>
+                                    <th><fmt:message key="cart.internet_speed"/></th>
+                                    <th><fmt:message key="cart.internet_technology"/></th>
+                                    <th><fmt:message key="cart.operations"/></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -121,7 +122,7 @@
                                             <td>${item.internet.technology}</td>
                                             <td>
                                                 <a href="#shortModal" data-toggle="modal">
-                                                    <button class="btnSelect btn btn-danger">Delete</button>
+                                                    <button class="btnSelect btn btn-danger"><fmt:message key="btn.delete"/></button>
                                                 </a>
                                             </td>
                                         </tr>
@@ -144,23 +145,23 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Tariffs for mobile</strong>
+                            <strong class="card-title"><fmt:message key="cart.mobile"/></strong>
                         </div>
                         <div class="card-body">
                             <table class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
                                     <th style="display:none">Id</th>
-                                    <th>Name</th>
-                                    <th>Price</th>
-                                    <th>Duration</th>
-                                    <th>Minutes inside country</th>
-                                    <th>Minutes outside country</th>
+                                    <th><fmt:message key="cart.name"/></th>
+                                    <th><fmt:message key="cart.price"/></th>
+                                    <th><fmt:message key="cart.duration"/></th>
+                                    <th><fmt:message key="cart.mobile.mic"/></th>
+                                    <th><fmt:message key="cart.mobile.moc"/></th>
                                     <th>SMS</th>
-                                    <th>Mbts internet</th>
-                                    <th>Internet speed</th>
-                                    <th>Internet technology</th>
-                                    <th>Operations</th>
+                                    <th><fmt:message key="cart.mobile.internet_mbts"/></th>
+                                    <th>I<fmt:message key="cart.internet_speed"/></th>
+                                    <th><fmt:message key="cart.internet_technology"/></th>
+                                    <th><fmt:message key="cart.operations"/></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -179,7 +180,7 @@
                                             <td>${item.internet.technology}</td>
                                             <td>
                                                 <a href="#shortModal" data-toggle="modal">
-                                                    <button class="btnSelect btn btn-danger">Delete</button>
+                                                    <button class="btnSelect btn btn-danger"><fmt:message key="btn.delete"/></button>
                                                 </a>
                                             </td>
                                         </tr>
@@ -198,7 +199,7 @@
     <form method="post" action="${pageContext.request.contextPath}/tariff">
         <input type="hidden" name="command" value="contractRequest"/>
         <div id="btn_submit_order">
-            <button class="btn btn-success" style="font-size: 20px;">Submit</button>
+            <button class="btn btn-success" style="font-size: 20px;"><fmt:message key="btn.submit"/></button>
         </div>
     </form>
 </div>
@@ -219,9 +220,9 @@
                 <div class="modal-footer">
                     <form method="post" action="${pageContext.request.contextPath}/tariff">
                     <input type="hidden" id="tariffId" name="tariffId"/>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">NO</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><fmt:message key="btn.no"/></button>
                     <button type="submit" class="btn btn-primary" name="command"
-                            value="deleteFromCart">YES</button>
+                            value="deleteFromCart"><fmt:message key="btn.yes"/></button>
                     </form>
                 </div>
         </div><!-- /.modal-content -->

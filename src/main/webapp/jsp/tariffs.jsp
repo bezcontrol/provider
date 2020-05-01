@@ -26,23 +26,24 @@
 <body>
 <form action="tariff" method="get">
     <div class="container_search">
+        <label for="select_search"><fmt:message key="tariffs.search.price"/>:</label>
         <div class="slider"></div>
         <div class="form-group">
-            <label for="select_search">Sort:</label>
+            <label for="select_search"><fmt:message key="tariffs.search.sort"/>:</label>
             <select class="form-control" id="select_search" name="select_search">
                 <c:forEach items="${sessionScope.sortOperations}" var="object">
                     <option value="${object.name()}">${object.getValue()}</option>
                 </c:forEach>
             </select>
         </div>
-        <button type="submit" class="btn btn-warning"name="command" value="search">Search</button>
+        <button type="submit" class="btn btn-warning"name="command" value="search"><fmt:message key="tariffs.search.btn.search"/></button>
         <input id="lowerPrice" name="lowerPrice" type="hidden" value="">
         <input id="upperPrice" name="upperPrice" type="hidden" value="">
     </div>
 </form>
 
 
-<c:if test="${not empty tariffs}">
+<c:if test="${not empty requestScope.tariffs}">
     <div id="cards">
         <c:forEach items="${requestScope.tariffs}" var="object">
 
@@ -135,19 +136,19 @@
                         <c:if test="${not empty sessionScope.userBean.user}">
                             <c:choose>
                                 <c:when test="${sessionScope.userBean.role.name eq 'admin'}">
-                                    <button type="submit"  class="btn btn-danger mybtn" name="operation" value="Update">Update</button>
-                                    <button type="submit"  class="btn btn-danger mybtn" name="operation" value="Delete">Delete</button>
+                                    <button type="submit"  class="btn btn-danger mybtn" name="operation" value="Update"><fmt:message key="btn.update"/></button>
+                                    <button type="submit"  class="btn btn-danger mybtn" name="operation" value="Delete"><fmt:message key="btn.delete"/></button>
                                 </c:when>
                             <c:otherwise>
-                                <button type="submit" class="btn btn-success" name="operation" value="AddToCart">Add</button>
+                                <button type="submit" class="btn btn-success" name="operation" value="AddToCart"><fmt:message key="tariffs.card.btn.add_to_cart"/></button>
                             </c:otherwise>
                             </c:choose>
                         </c:if>
-                            <button type="submit"  class="btn btn-danger mybtn" name="operation" value="Details">Details</button>
+                            <button type="submit"  class="btn btn-danger mybtn" name="operation" value="Details"><fmt:message key="btn.details"/></button>
                         </form>
                             <div class="dropdown">
                                 <button class="btn btn-success dropdown-toggle download" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Download
+                                    <fmt:message key="tariffs.card.btn.download"/>
                                 </button>
                                 <div class="dropdown-menu" style="width: 100%;">
                                     <form action="tariff" method="post">
@@ -166,7 +167,7 @@
 </c:if>
 <form action="tariff" method="get">
     <c:if test="${sessionScope.userBean.role.name eq 'admin'}">
-        <button type="submit" class="btn btn-danger" name="operation" value="Create">Create</button>
+        <button type="submit" class="btn btn-danger" name="operation" value="Create"><fmt:message key="btn.create"/></button>
     </c:if>
 </form>
 

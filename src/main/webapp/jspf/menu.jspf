@@ -40,7 +40,7 @@
                         <c:if test="${sessionScope.userBean.role.name eq 'client'}">
                             <li><a href="${pageContext.request.contextPath}/jsp/rechargeBalance.jsp"><i class="fa fa-credit-card-alt" aria-hidden="true"
                                                                                                         style="margin: 0px 20px;"></i>
-                                <fmt:message key="client_menu.recharge_balance"/>Recharge balance</a></li>
+                                <fmt:message key="client_menu.recharge_balance"/></a></li>
                             <li><a href="${pageContext.request.contextPath}/tariff?command=allContracts" class="gn-icon gn-icon-help"><fmt:message key="client_menu.contracts"/></a></li>
                         </c:if>
                     </ul>
@@ -66,7 +66,7 @@
         <c:choose>
         <c:when test="${not empty sessionScope.userBean.user}">
             <li><a href=""><i class="fa fa-briefcase" aria-hidden="true" style="margin-right:15px;"></i><fmt:message key="client_menu.balance"/>: ${sessionScope.userBean.user.bill}</a></li>
-            <li style="float: right;border-right: none;border-left: 1px solid #c6d0da;"><a href="${pageContext.request.contextPath}/authentication?command=logout"><i class="fa fa-sign-out" aria-hidden="true"  style="margin-right:15px;"></i><span>Log Out</span></a>
+            <li style="float: right;border-right: none;border-left: 1px solid #c6d0da;"><a href="${pageContext.request.contextPath}/authentication?command=logout"><i class="fa fa-sign-out" aria-hidden="true"  style="margin-right:15px;"></i><span><fmt:message key="client_menu.log_out"/></span></a>
             <c:choose>
                 <c:when test="${sessionScope.userBean.role.name eq 'admin'}">
                     <li><a href="../jsp/adminHome.jsp"><i class="fa fa-user-circle-o" aria-hidden="true" style="margin-right:15px;"></i><span><fmt:message key="client_menu.admin"/></span></a>

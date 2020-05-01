@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Edit</title>
+    <title>Single</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -44,11 +44,11 @@
             <c:when test="${(requestScope.operation eq 'Update')}">
                 <!-- RIGHT SIDE OF UPDATE COMMAND (FORM) -->
                 <form class="contact100-form validate-form" action="tariff" method="post">
-                    <input type="hidden" name="tariffId" value="${selectedTariff.tariff.id}"/>
+                    <input type="hidden" name="tariffId" value="${requestScope.selectedTariff.tariff.id}"/>
                     <input type="hidden" name="serviceId" value="${requestScope.selectedTariff.service.id}"/>
 
                     <span class="contact100-form-title">
-                            ${requestScope.operation}
+                            <fmt:message key="btn.update"/>
                     </span>
                     <label class="label-input100"
                            for="tariff_name">${applicationScope.textFields.getTariffName()}</label>
@@ -183,7 +183,7 @@
                     <div class="container-contact100-form-btn">
                         <button class="contact100-form-btn" type="submit" name="command"
                                 value="${requestScope.operation}">
-                                ${requestScope.operation}
+                            <fmt:message key="btn.update"/>
                         </button>
                     </div>
                 </form>
@@ -195,7 +195,7 @@
                 <form class="contact100-form validate-form" action="tariff" method="post">
 
                         <span class="contact100-form-title">
-                                ${requestScope.operation}
+                               <fmt:message key="btn.create"/>
                         </span>
                     <label class="label-input100"
                            for="tariff_name">${applicationScope.textFields.getTariffName()}</label>
@@ -389,7 +389,7 @@
                     <input id="serviceType" type="hidden" name="serviceType" value=""/>
                     <button class="contact100-form-btn" type="submit" name="command"
                             value="${requestScope.operation}">
-                            ${requestScope.operation}
+                        <fmt:message key="btn.create"/>
                     </button>
                 </form>
 
@@ -399,20 +399,20 @@
             <c:otherwise>
                 <!-- RIGHT SIDE OF DETAILS AND DELETE COMMAND (FORM) -->
                 <form class="contact100-form validate-form" action="tariff" method="post">
-                    <input type="hidden" name="tariffId" value="${selectedTariff.tariff.id}"/>
+                    <input type="hidden" name="tariffId" value="${requestScope.selectedTariff.tariff.id}"/>
                     <input type="hidden" name="serviceType"
                            value="${requestScope.selectedTariff.service.getClass().simpleName}"/>
                     <label class="label-input100"
                            for="tariff_name_na">${applicationScope.textFields.getTariffName()}</label>
                     <div class="wrap-input100">
                         <input id="tariff_name_na" class="input100" type="text"
-                               placeholder="${selectedTariff.tariff.name}" disabled="disabled">
+                               placeholder="${requestScope.selectedTariff.tariff.name}" disabled="disabled">
                         <span class="focus-input100"></span>
                     </div>
 
                     <label class="label-input100" for="price_na">${applicationScope.textFields.getTariffPrice()}</label>
                     <div class="wrap-input100">
-                        <input id="price_na" class="input100" type="text" placeholder="${selectedTariff.tariff.price}"
+                        <input id="price_na" class="input100" type="text" placeholder="${requestScope.selectedTariff.tariff.price}"
                                disabled="disabled">
                         <span class="focus-input100"></span>
                     </div>
@@ -421,16 +421,16 @@
                            for="duration_na">${applicationScope.textFields.getTariffDurationInDays()}</label>
                     <div class="wrap-input100">
                         <input id="duration_na" class="input100" type="text"
-                               placeholder="${selectedTariff.tariff.durationInDays}" disabled="disabled">
+                               placeholder="${requestScope.selectedTariff.tariff.durationInDays}" disabled="disabled">
                         <span class="focus-input100"></span>
                     </div>
 
-                    <c:if test="${selectedTariff.internet ne null}">
+                    <c:if test="${requestScope.selectedTariff.internet ne null}">
                         <label class="label-input100"
                                for="speed_na">${applicationScope.textFields.getInternetSpeed()}</label>
                         <div class="wrap-input100">
                             <input id="speed_na" class="input100" type="text"
-                                   placeholder="${selectedTariff.internet.speed}"
+                                   placeholder="${requestScope.selectedTariff.internet.speed}"
                                    disabled="disabled">
                             <span class="focus-input100"></span>
                         </div>
@@ -438,7 +438,7 @@
                                for="technology_na">${applicationScope.textFields.getInternetTechnology()}</label>
                         <div class="wrap-input100">
                             <input id="technology_na" class="input100" type="text"
-                                   placeholder="${selectedTariff.internet.technology}"
+                                   placeholder="${requestScope.selectedTariff.internet.technology}"
                                    disabled="disabled">
                             <span class="focus-input100"></span>
                         </div>
@@ -450,7 +450,7 @@
                                    for="connectedPC_na">${applicationScope.textFields.getPcConnectedPC()}</label>
                             <div class="wrap-input100">
                                 <input id="connectedPC_na" class="input100" type="text"
-                                       placeholder="${selectedTariff.service.numOfConnectedPC}" disabled="disabled">
+                                       placeholder="${requestScope.selectedTariff.service.numOfConnectedPC}" disabled="disabled">
                                 <span class="focus-input100"></span>
                             </div>
                         </c:when>
@@ -459,14 +459,14 @@
                                    for="tvType_na">${applicationScope.textFields.getTvType()}</label>
                             <div class="wrap-input100">
                                 <input id="tvType_na" class="input100" type="text"
-                                       placeholder="${selectedTariff.service.type}" disabled="disabled">
+                                       placeholder="${requestScope.selectedTariff.service.type}" disabled="disabled">
                                 <span class="focus-input100"></span>
                             </div>
                             <label class="label-input100"
                                    for="numOfChannels_na">${applicationScope.textFields.getTvNumberOfChannels()}</label>
                             <div class="wrap-input100">
                                 <input id="numOfChannels_na" class="input100" type="text"
-                                       placeholder="${selectedTariff.service.numOfChannels}" disabled="disabled">
+                                       placeholder="${requestScope.selectedTariff.service.numOfChannels}" disabled="disabled">
                                 <span class="focus-input100"></span>
                             </div>
                         </c:when>
@@ -475,28 +475,28 @@
                                    for="minutesInside_na">${applicationScope.textFields.getMobileMinutesInside()}</label>
                             <div class="wrap-input100">
                                 <input id="minutesInside_na" class="input100" type="text"
-                                       placeholder="${selectedTariff.service.numOfMinutesInside}" disabled="disabled">
+                                       placeholder="${requestScope.selectedTariff.service.numOfMinutesInside}" disabled="disabled">
                                 <span class="focus-input100"></span>
                             </div>
                             <label class="label-input100"
                                    for="minutesOutside_na">${applicationScope.textFields.getMobileMinutesOutside()}</label>
                             <div class="wrap-input100">
                                 <input id="minutesOutside_na" class="input100" type="text"
-                                       placeholder="${selectedTariff.service.numOfMinutesOutside}" disabled="disabled">
+                                       placeholder="${requestScope.selectedTariff.service.numOfMinutesOutside}" disabled="disabled">
                                 <span class="focus-input100"></span>
                             </div>
                             <label class="label-input100"
                                    for="numOfSMS_na">${applicationScope.textFields.getMobileNumberOfSMS()}</label>
                             <div class="wrap-input100">
                                 <input id="numOfSMS_na" class="input100" type="text"
-                                       placeholder="${selectedTariff.service.numOfSMS}" disabled="disabled">
+                                       placeholder="${requestScope.selectedTariff.service.numOfSMS}" disabled="disabled">
                                 <span class="focus-input100"></span>
                             </div>
                             <label class="label-input100"
                                    for="numOfMbts-na">${applicationScope.textFields.getMobileNumberOfMbts()}</label>
                             <div class="wrap-input100">
                                 <input id="numOfMbts-na" class="input100" type="text"
-                                       placeholder="${selectedTariff.service.numOfMbts}" disabled="disabled">
+                                       placeholder="${requestScope.selectedTariff.service.numOfMbts}" disabled="disabled">
                                 <span class="focus-input100"></span>
                             </div>
                         </c:when>
@@ -507,19 +507,19 @@
                             <c:when test="${(requestScope.operation eq 'Details')}">
                                 <button class="contact100-form-btn" type="submit" name="command"
                                         value="${requestScope.operation}">
-                                        Back
+                                    <fmt:message key="back"/>
                                 </button>
                             </c:when>
                             <c:when test="${(requestScope.operation eq 'Delete')}">
                                 <button class="contact100-form-btn" type="submit" name="command"
                                         value="${requestScope.operation}">
-                                        ${requestScope.operation}
+                                    <fmt:message key="btn.delete"/>
                                 </button>
                             </c:when>
                             <c:when test="${(requestScope.operation eq 'AddToCart')}">
                                 <button class="contact100-form-btn" type="submit" name="command"
                                         value="${requestScope.operation}">
-                                        Add to cart
+                                    <fmt:message key="tariffs.card.btn.add_to_cart"/>
                                 </button>
                             </c:when>
                         </c:choose>
@@ -548,7 +548,7 @@
 
                         <div class="flex-col size2">
 						<span class="txt1 p-b-20">
-                                ${applicationScope.textFields.getTariffName()}${selectedTariff.tariff.name}
+                                ${applicationScope.textFields.getTariffName()}${requestScope.selectedTariff.tariff.name}
                         </span>
                         </div>
                     </div>
@@ -556,7 +556,7 @@
 
                         <div class="flex-col size2">
 						<span class="txt1 p-b-20">
-                                ${applicationScope.textFields.getTariffPrice()}${selectedTariff.tariff.price}
+                                ${applicationScope.textFields.getTariffPrice()}${requestScope.selectedTariff.tariff.price}
                         </span>
                         </div>
                     </div>
@@ -564,17 +564,17 @@
 
                         <div class="flex-col size2">
 						<span class="txt1 p-b-20">
-                                ${applicationScope.textFields.getTariffDurationInDays()}${selectedTariff.tariff.durationInDays}
+                                ${applicationScope.textFields.getTariffDurationInDays()}${requestScope.selectedTariff.tariff.durationInDays}
                         </span>
                         </div>
                     </div>
 
-                    <c:if test="${selectedTariff.internet ne null}">
+                    <c:if test="${requestScope.selectedTariff.internet ne null}">
                         <div class="flex-w size1 p-b-20">
 
                             <div class="flex-col size2">
 						<span class="txt1 p-b-20">
-                                ${applicationScope.textFields.getInternetSpeed()}${selectedTariff.internet.speed}
+                                ${applicationScope.textFields.getInternetSpeed()}${requestScope.selectedTariff.internet.speed}
                         </span>
                             </div>
                         </div>
@@ -582,7 +582,7 @@
 
                             <div class="flex-col size2">
 						<span class="txt1 p-b-20">
-                                ${applicationScope.textFields.getInternetTechnology()}${selectedTariff.internet.technology}
+                                ${applicationScope.textFields.getInternetTechnology()}${requestScope.selectedTariff.internet.technology}
                         </span>
                             </div>
                         </div>
@@ -593,7 +593,7 @@
                             <div class="flex-w size1 p-b-20">
                                 <div class="flex-col size2">
 						<span class="txt1 p-b-20">
-                                ${applicationScope.textFields.getPcConnectedPC()}${selectedTariff.service.numOfConnectedPC}
+                                ${applicationScope.textFields.getPcConnectedPC()}${requestScope.selectedTariff.service.numOfConnectedPC}
                         </span>
                                 </div>
                             </div>
@@ -602,14 +602,14 @@
                             <div class="flex-w size1 p-b-20">
                                 <div class="flex-col size2">
 						<span class="txt1 p-b-20">
-                                ${applicationScope.textFields.getTvType()}${selectedTariff.service.type}
+                                ${applicationScope.textFields.getTvType()}${requestScope.selectedTariff.service.type}
                         </span>
                                 </div>
                             </div>
                             <div class="flex-w size1 p-b-20">
                                 <div class="flex-col size2">
 						<span class="txt1 p-b-20">
-                                ${applicationScope.textFields.getTvNumberOfChannels()}${selectedTariff.service.numOfChannels}
+                                ${applicationScope.textFields.getTvNumberOfChannels()}${requestScope.selectedTariff.service.numOfChannels}
                         </span>
                                 </div>
                             </div>
@@ -618,28 +618,28 @@
                             <div class="flex-w size1 p-b-20">
                                 <div class="flex-col size2">
 						<span class="txt1 p-b-20">
-                                ${applicationScope.textFields.getMobileMinutesInside()}${selectedTariff.service.numOfMinutesInside}
+                                ${applicationScope.textFields.getMobileMinutesInside()}${requestScope.selectedTariff.service.numOfMinutesInside}
                         </span>
                                 </div>
                             </div>
                             <div class="flex-w size1 p-b-20">
                                 <div class="flex-col size2">
 						<span class="txt1 p-b-20">
-                                ${applicationScope.textFields.getMobileMinutesOutside()}${selectedTariff.service.numOfMinutesOutside}
+                                ${applicationScope.textFields.getMobileMinutesOutside()}${requestScope.selectedTariff.service.numOfMinutesOutside}
                         </span>
                                 </div>
                             </div>
                             <div class="flex-w size1 p-b-20">
                                 <div class="flex-col size2">
 						<span class="txt1 p-b-20">
-                                ${applicationScope.textFields.getMobileNumberOfSMS()}${selectedTariff.service.numOfSMS}
+                                ${applicationScope.textFields.getMobileNumberOfSMS()}${requestScope.selectedTariff.service.numOfSMS}
                         </span>
                                 </div>
                             </div>
                             <div class="flex-w size1 p-b-20">
                                 <div class="flex-col size2">
 						<span class="txt1 p-b-20">
-                                ${applicationScope.textFields.getMobileNumberOfMbts()}${selectedTariff.service.numOfMbts}
+                                ${applicationScope.textFields.getMobileNumberOfMbts()}${requestScope.selectedTariff.service.numOfMbts}
                         </span>
                                 </div>
                             </div>
@@ -655,7 +655,7 @@
 
                         <div class="flex-col size2">
 						<span class="txt1 p-b-20">
-                            SOME TEXT
+
                         </span>
                         </div>
                     </div>
@@ -684,10 +684,10 @@
         document.getElementById('internet_speed').value = $(this).find(':selected').data('speed');
         document.getElementById('internet_technology').value = $(this).find(':selected').data('tech');
         <c:choose>
-        <c:when test="${selectedTariff.service.getClass().simpleName eq pc}">
+        <c:when test="${requestScope.selectedTariff.service.getClass().simpleName eq pc}">
         document.getElementById('connectedPC').value = $(this).find(':selected').data('conpc');
         </c:when>
-        <c:when test="${selectedTariff.service.getClass().simpleName eq tv}">
+        <c:when test="${requestScope.selectedTariff.service.getClass().simpleName eq tv}">
         document.getElementById('typeTV').value = $(this).find(':selected').data('type');
         document.getElementById('numOfChannels').value = $(this).find(':selected').data('numofchannels');
         </c:when>

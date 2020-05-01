@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="/WEB-INF/caseFormatter.tld" prefix="ct" %>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -27,7 +28,7 @@
 </c:if>
 
 <div id="container_header_cart">
-    <h3 id="header_cart">YOUR CABINET</h3>
+    <h3 id="header_cart"><ct:changeCase case="upper"><fmt:message key="cabinet.label"/></ct:changeCase></h3>
 </div>
 
 <div id="table_container">
@@ -47,16 +48,15 @@
                                     <tr>
                                         <th>Id</th>
                                         <th style="display:none">User id</th>
-                                        <th>Login</th>
+                                        <th><fmt:message key="cabinet.login"/></th>
                                         <th>Email</th>
                                         <th style="display:none">Tariff id</th>
-                                        <th>Tariff name</th>
-                                        <th>Price</th>
-                                        <th>Duration</th>
-                                        <th>Contract conclusion date</th>
-                                        <th>Contract expiration date</th>
-                                        <th>State</th>
-                                        <th>Operations</th>
+                                        <th><fmt:message key="cabinet.tariff_name"/></th>
+                                        <th><fmt:message key="cabinet.price"/></th>
+                                        <th><fmt:message key="cabinet.duration"/></th>
+                                        <th><fmt:message key="cabinet.ccd"/></th>
+                                        <th><fmt:message key="cabinet.ced"/></th>
+                                        <th><fmt:message key="cabinet.state"/></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -73,11 +73,6 @@
                                             <td>${contract.contract.contractConclusionDate}</td>
                                             <td>${contract.contract.contractExpirationDate}</td>
                                             <td>${contract.contractState.name}</td>
-                                            <td>
-                                                <a href="#shortModal" data-toggle="modal">
-                                                    <button class="btnSelect btn btn-primary">Update</button>
-                                                </a>
-                                            </td>
                                         </tr>
                                     </c:forEach>
                                     </tbody>

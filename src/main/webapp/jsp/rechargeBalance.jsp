@@ -1,8 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Contact V5</title>
+    <title>Recharge balance</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -43,7 +45,7 @@
         <form class="contact100-form validate-form" method="post" action="${pageContext.request.contextPath}/client">
             <input type="hidden" name="command" value="rechargeBalance"/>
 				<span class="contact100-form-title">
-					Contact Us
+					<fmt:message key="recharge.label"/>
 				</span>
 
             <div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name">
@@ -59,7 +61,7 @@
             <div class="container-contact100-form-btn">
                 <button class="contact100-form-btn" type="submit">
 						<span>
-							Submit
+							<fmt:message key="btn.submit"/>
 							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
 						</span>
 
@@ -67,8 +69,8 @@
 
             </div>
         </form>
-        <button class="contact100-form-btn" type="button" onclick="location.href='${pageContext.request.contextPath}/service?command=allTariffs'">
-            Back
+        <button style="margin-top: 1%;" class="contact100-form-btn" type="button" onclick="location.href='${pageContext.request.contextPath}/service?command=allTariffs'">
+            <fmt:message key="back"/>
         </button>
     </div>
 </div>
