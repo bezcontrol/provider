@@ -64,5 +64,4 @@ public class DefaultRoleDAOImplTest {
         Assert.assertNotNull("is roles not null", roles);
         Assert.assertTrue("is roles list size more than 0", roles.size()>0);
     }
-
 }
