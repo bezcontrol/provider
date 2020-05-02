@@ -7,12 +7,27 @@ import ua.kh.baklanov.model.bean.AnyService;
 import ua.kh.baklanov.model.bean.AnyTariff;
 import ua.kh.baklanov.model.bean.UserBean;
 import ua.kh.baklanov.model.bean.ContractBean;
-import ua.kh.baklanov.model.entity.*;
+import ua.kh.baklanov.model.entity.Contract;
+import ua.kh.baklanov.model.entity.ContractState;
+import ua.kh.baklanov.model.entity.Internet;
+import ua.kh.baklanov.model.entity.Mobile;
+import ua.kh.baklanov.model.entity.PC;
+import ua.kh.baklanov.model.entity.Role;
+import ua.kh.baklanov.model.entity.Service;
+import ua.kh.baklanov.model.entity.Status;
+import ua.kh.baklanov.model.entity.TV;
+import ua.kh.baklanov.model.entity.Tariff;
+import ua.kh.baklanov.model.entity.User;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 
+/**
+ * DefaultExtractorUtil is a class that constructing models from
+ * @see ResultSet
+ * @author      Aleksei Baklanov
+ * */
 public final class DefaultExtractorUtil {
 
     private static final Logger LOG = Logger.getLogger(DefaultExtractorUtil.class);

@@ -4,6 +4,10 @@ import ua.kh.baklanov.model.entity.Contract;
 import ua.kh.baklanov.model.entity.ContractState;
 import ua.kh.baklanov.model.entity.Tariff;
 
+/**
+ * Bean class that contains full information about Contract
+ * @author Aleksei Baklanov
+ */
 public class ContractBean {
 
     private UserBean userBean;

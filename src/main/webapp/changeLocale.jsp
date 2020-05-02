@@ -12,5 +12,5 @@
 <c:set var="currentLocale" value="${param.locale}" scope="session"/>
 
 <%-- goto back to the settings--%>
-<jsp:forward page="${pageContext.request.contextPath}/jsp/services.jsp"/>
+<jsp:forward page="${sessionScope.current_path}"/>
 

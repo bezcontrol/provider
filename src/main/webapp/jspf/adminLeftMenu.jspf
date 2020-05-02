@@ -11,6 +11,8 @@
     <c:redirect url="/service?command=allTariffs"/>
 </c:if>
 
+<c:set var="current_path" value="${pageContext.request.requestURI}" scope="session" />
+
 <aside id="left-panel" class="left-panel">
     <nav class="navbar navbar-expand-sm navbar-default">
 

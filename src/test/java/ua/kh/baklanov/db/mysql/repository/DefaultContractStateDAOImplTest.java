@@ -42,7 +42,7 @@ public class DefaultContractStateDAOImplTest {
         when(resultSet.getLong("idContractState")).thenReturn(1L);
         when(resultSet.getString("contractStateName")).thenReturn("waiting");
 
-        Mockito.when(resultSet.next()).thenReturn(true).thenReturn(false);
+        when(resultSet.next()).thenReturn(true).thenReturn(false);
         when(preparedStatement.executeQuery()).thenReturn(resultSet);
         when(connection.prepareStatement(Queries.GET_CONTRACT_STATE_BY_NAME)).thenReturn(preparedStatement);
         when(factory.getConnection()).thenReturn(connection);
@@ -57,7 +57,7 @@ public class DefaultContractStateDAOImplTest {
         when(resultSet.getLong("idContractState")).thenReturn(1L);
         when(resultSet.getString("contractStateName")).thenReturn("waiting");
 
-        Mockito.when(resultSet.next()).thenReturn(true).thenReturn(false);
+        when(resultSet.next()).thenReturn(true).thenReturn(false);
         when(statement.executeQuery(Queries.GET_ALL_CONTRACT_STATES)).thenReturn(resultSet);
         when(connection.createStatement()).thenReturn(statement);
         when(factory.getConnection()).thenReturn(connection);

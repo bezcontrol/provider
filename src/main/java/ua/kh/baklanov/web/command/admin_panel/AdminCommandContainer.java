@@ -6,6 +6,11 @@ import ua.kh.baklanov.web.command.NoCommand;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * Class that contains commands for administrator's panel
+ * @author Aleksei Baklanov
+ */
+
 public final class AdminCommandContainer {
     private static Map<String, AbstractCommand> commands = new TreeMap<>();
 

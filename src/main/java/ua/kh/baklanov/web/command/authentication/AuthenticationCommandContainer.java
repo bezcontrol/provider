@@ -6,6 +6,10 @@ import ua.kh.baklanov.web.command.NoCommand;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * Class that contains commands for authentication
+ * @author Aleksei Baklanov
+ */
 public final class AuthenticationCommandContainer {
     private static Map<String, AbstractCommand> commands = new TreeMap<>();
 

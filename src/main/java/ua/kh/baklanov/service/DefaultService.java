@@ -2,9 +2,27 @@ package ua.kh.baklanov.service;
 
 import ua.kh.baklanov.context.Attributes;
 import ua.kh.baklanov.context.Context;
-import ua.kh.baklanov.db.dao.*;
-import ua.kh.baklanov.exception.DbException;
+import ua.kh.baklanov.db.dao.AnyServiceDAO;
+import ua.kh.baklanov.db.dao.AnyTariffDAO;
+import ua.kh.baklanov.db.dao.ContractBeanDAO;
+import ua.kh.baklanov.db.dao.ContractDAO;
+import ua.kh.baklanov.db.dao.ContractStateDAO;
+import ua.kh.baklanov.db.dao.InternetDAO;
+import ua.kh.baklanov.db.dao.MobileDAO;
+import ua.kh.baklanov.db.dao.PCDAO;
+import ua.kh.baklanov.db.dao.RoleDAO;
+import ua.kh.baklanov.db.dao.ServiceDAO;
+import ua.kh.baklanov.db.dao.StatusDAO;
+import ua.kh.baklanov.db.dao.TVDAO;
+import ua.kh.baklanov.db.dao.TariffDAO;
+import ua.kh.baklanov.db.dao.UserBeanDAO;
+import ua.kh.baklanov.db.dao.UserDAO;
 
+/**
+ * Class that contains methods for getting any dao from
+ * @see Context
+ * @author Aleksei Baklanov
+ */
 public class DefaultService implements DAOService {
 
     public UserDAO getUserDAO() {

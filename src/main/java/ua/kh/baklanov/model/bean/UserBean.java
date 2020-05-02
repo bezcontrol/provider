@@ -6,6 +6,10 @@ import ua.kh.baklanov.model.entity.User;
 
 import java.io.Serializable;
 
+/**
+ * Bean class that contains full information about User
+ * @author Aleksei Baklanov
+ */
 public class UserBean implements Serializable {
     private User user;
     private Role role;

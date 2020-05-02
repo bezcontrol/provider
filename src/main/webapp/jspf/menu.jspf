@@ -22,7 +22,7 @@
 <c:if test="${(sessionScope.userBean ne null) and (sessionScope.userBean.status.name eq 'blockedByAdmin')}">
     <c:redirect url="${pageContext.request.contextPath}/jsp/blocked.jsp"/>
 </c:if>
-
+<c:set var="current_path" value="${pageContext.request.requestURI}" scope="session"  />
 <div class="container">
     <ul id="gn-menu" class="gn-menu-main">
         <li class="gn-trigger">

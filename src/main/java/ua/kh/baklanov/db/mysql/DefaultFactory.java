@@ -12,6 +12,12 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+
+/**
+ * DefaultFactory is a singleton class that constructed from /META-INF/context.xml and
+ * manage connections to database
+ * @author      Aleksei Baklanov
+ * */
 public class DefaultFactory implements DAOFactory {
 
     private static final Logger LOG = Logger.getLogger(DefaultFactory.class);

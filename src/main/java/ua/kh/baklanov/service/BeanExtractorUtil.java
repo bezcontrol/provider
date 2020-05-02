@@ -10,7 +10,10 @@ import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.model.bean.AnyTariff;
 import ua.kh.baklanov.model.entity.Service;
 
-public class BeanExtractorUtil {
+public final class BeanExtractorUtil {
+
+    private BeanExtractorUtil(){}
+
     public static AnyTariff extractAnyTariffById(long tariffId) throws DbException {
         AnyTariff tariff = new AnyTariff();
         DAOService daoService = new DefaultService();
@@ -25,7 +28,7 @@ public class BeanExtractorUtil {
     }
 
 
-    public static Object getTypedObjectById(DAOService daoService, Service service) throws DbException {
+    private static Object getTypedObjectById(DAOService daoService, Service service) throws DbException {
         if(service.getIdTV()!=0){
             TVDAO tvdao = daoService.getTVDAO();
             return tvdao.getById(service.getIdTV());

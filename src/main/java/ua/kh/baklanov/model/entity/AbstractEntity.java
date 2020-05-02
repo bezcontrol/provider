@@ -2,6 +2,10 @@ package ua.kh.baklanov.model.entity;
 
 import java.io.Serializable;
 
+/**
+ * Abstract class that contains id and extended by all models
+ * @author Aleksei Baklanov
+ */
 public abstract class AbstractEntity implements Serializable {
 
     private Long id;

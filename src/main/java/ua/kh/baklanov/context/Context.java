@@ -3,6 +3,11 @@ package ua.kh.baklanov.context;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Context is a class with map that contains all specific dao classes and factories that application need
+ * @see MyClassLoader
+ * @author      Aleksei Baklanov
+ */
 public final class Context {
     private static Map<String, Object> contextMap = new HashMap<>();
 

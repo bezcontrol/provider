@@ -2,6 +2,11 @@ package ua.kh.baklanov.model.bean;
 
 import ua.kh.baklanov.model.entity.Internet;
 
+/**
+ * Bean class that contains full information about Service
+ * T - PC, TV or Mobile class
+ * @author Aleksei Baklanov
+ */
 public class AnyService<T> {
     private Internet internet;
     private T service;

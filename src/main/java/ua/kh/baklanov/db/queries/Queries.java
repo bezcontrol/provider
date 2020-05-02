@@ -1,5 +1,9 @@
 package ua.kh.baklanov.db.queries;
 
+/**
+ * Queries is a  class that contains strings with queries for statements
+ * @author      Aleksei Baklanov
+ * */
 public final class Queries {
 
     public static final String GET_USER_BY_LOGIN = "SELECT id AS 'idUser', login, password, " +

@@ -42,7 +42,7 @@ public class DefaultStatusDAOImplTest {
         when(resultSet.getLong("idStatus")).thenReturn(1L);
         when(resultSet.getString("statusName")).thenReturn("waiting");
 
-        Mockito.when(resultSet.next()).thenReturn(true).thenReturn(false);
+        when(resultSet.next()).thenReturn(true).thenReturn(false);
         when(preparedStatement.executeQuery()).thenReturn(resultSet);
         when(connection.prepareStatement(Queries.GET_STATUS_BY_NAME)).thenReturn(preparedStatement);
         when(factory.getConnection()).thenReturn(connection);
@@ -56,7 +56,7 @@ public class DefaultStatusDAOImplTest {
         when(resultSet.getLong("idStatus")).thenReturn(1L);
         when(resultSet.getString("statusName")).thenReturn("waiting");
 
-        Mockito.when(resultSet.next()).thenReturn(true).thenReturn(false);
+        when(resultSet.next()).thenReturn(true).thenReturn(false);
         when(statement.executeQuery(Queries.GET_ALL_STATUSES)).thenReturn(resultSet);
         when(connection.createStatement()).thenReturn(statement);
         when(factory.getConnection()).thenReturn(connection);

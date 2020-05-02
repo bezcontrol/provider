@@ -42,7 +42,7 @@ public class DefaultTariffDAOImplTest {
         when(resultSet.getLong("idService")).thenReturn(1L);
         when(resultSet.getInt("durationInDays")).thenReturn(28);
 
-        Mockito.when(resultSet.next()).thenReturn(true).thenReturn(false);
+        when(resultSet.next()).thenReturn(true).thenReturn(false);
         when(preparedStatement.executeQuery()).thenReturn(resultSet);
         when(connection.prepareStatement(Queries.GET_TARIFF_BY_ID)).thenReturn(preparedStatement);
         when(factory.getConnection()).thenReturn(connection);

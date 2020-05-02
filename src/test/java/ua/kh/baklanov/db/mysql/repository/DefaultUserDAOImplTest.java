@@ -46,7 +46,7 @@ public class DefaultUserDAOImplTest {
         when(resultSet.getLong("idStatus")).thenReturn(1L);
         when(resultSet.getDouble("bill")).thenReturn(100.0);
 
-        Mockito.when(resultSet.next()).thenReturn(true).thenReturn(false);
+        when(resultSet.next()).thenReturn(true).thenReturn(false);
         when(preparedStatement.executeQuery()).thenReturn(resultSet);
         when(connection.prepareStatement(Queries.GET_USER_BY_LOGIN)).thenReturn(preparedStatement);
         when(factory.getConnection()).thenReturn(connection);
@@ -65,7 +65,7 @@ public class DefaultUserDAOImplTest {
         when(resultSet.getLong("idStatus")).thenReturn(1L);
         when(resultSet.getDouble("bill")).thenReturn(100.0);
 
-        Mockito.when(resultSet.next()).thenReturn(true).thenReturn(false);
+        when(resultSet.next()).thenReturn(true).thenReturn(false);
         when(preparedStatement.executeQuery()).thenReturn(resultSet);
         when(connection.prepareStatement(Queries.GET_USER_BY_EMAIL)).thenReturn(preparedStatement);
         when(factory.getConnection()).thenReturn(connection);

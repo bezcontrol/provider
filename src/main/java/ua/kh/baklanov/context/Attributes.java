@@ -1,5 +1,12 @@
 package ua.kh.baklanov.context;
 
+/**
+ * Attributes is a class which contains strings with for putting it to
+ * @see Context that downloading by
+ * @see MyClassLoader
+ * @author      Aleksei Baklanov
+ */
+
 public final class Attributes {
     public static final String DB_FACTORY="DB_FACTORY";
     public static final String USER_DAO="USER_DAO";

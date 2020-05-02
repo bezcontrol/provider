@@ -4,7 +4,6 @@ import org.apache.log4j.Logger;
 import ua.kh.baklanov.web.Route;
 import ua.kh.baklanov.db.dao.ContractBeanDAO;
 import ua.kh.baklanov.db.dao.ContractStateDAO;
-import ua.kh.baklanov.exception.AppException;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
 import ua.kh.baklanov.model.bean.ContractBean;
@@ -21,7 +20,7 @@ import java.util.List;
 public class OrdersCommand implements AbstractCommand {
     private static final Logger LOG = Logger.getLogger(OrdersCommand.class);
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) throws AppException {
+    public String execute(HttpServletRequest request, HttpServletResponse response) {
         try {
             DAOService service= new DefaultService();
             ContractBeanDAO contractBeanDAO = service.getContractBeanDAO();
@@ -32,7 +31,7 @@ public class OrdersCommand implements AbstractCommand {
             request.getSession().setAttribute(Attributes.CONTRACT_STATES, states);
             return Route.ADMIN_ORDERS;
         } catch (DbException e) {
-            LOG.error(Messages.ERROR_USER_DAO + OrdersCommand.class.getName(), e);
+            LOG.error(Messages.ERROR_EXECUTING_COMMAND + OrdersCommand.class.getName(), e);
             return Route.HOME;
         }
     }

@@ -3,6 +3,11 @@ package ua.kh.baklanov.model.bean;
 import ua.kh.baklanov.model.entity.Internet;
 import ua.kh.baklanov.model.entity.Tariff;
 
+/**
+ * Bean class that contains full information about Tariff
+ * T - PC, TV or Mobile class
+ * @author Aleksei Baklanov
+ */
 public class AnyTariff<T>{
     private Tariff tariff;
     private T service;

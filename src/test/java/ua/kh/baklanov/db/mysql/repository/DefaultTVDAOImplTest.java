@@ -42,7 +42,7 @@ public class DefaultTVDAOImplTest {
         when(resultSet.getString("type")).thenReturn("Analog");
         when(resultSet.getInt("numOfChannels")).thenReturn(10);
 
-        Mockito.when(resultSet.next()).thenReturn(true).thenReturn(false);
+        when(resultSet.next()).thenReturn(true).thenReturn(false);
         when(preparedStatement.executeQuery()).thenReturn(resultSet);
         when(connection.prepareStatement(Queries.GET_TV_BY_ID)).thenReturn(preparedStatement);
         when(factory.getConnection()).thenReturn(connection);
@@ -57,7 +57,7 @@ public class DefaultTVDAOImplTest {
         when(resultSet.getString("type")).thenReturn("Analog");
         when(resultSet.getInt("numOfChannels")).thenReturn(10);
 
-        Mockito.when(resultSet.next()).thenReturn(true).thenReturn(false);
+        when(resultSet.next()).thenReturn(true).thenReturn(false);
         when(statement.executeQuery(Queries.GET_ALL_TV)).thenReturn(resultSet);
         when(connection.createStatement()).thenReturn(statement);
         when(factory.getConnection()).thenReturn(connection);
@@ -72,7 +72,7 @@ public class DefaultTVDAOImplTest {
         when(resultSet.getString("type")).thenReturn("Analog");
         when(resultSet.getInt("numOfChannels")).thenReturn(10);
 
-        Mockito.when(resultSet.next()).thenReturn(true).thenReturn(false);
+        when(resultSet.next()).thenReturn(true).thenReturn(false);
         when(statement.executeQuery(Queries.GET_ALL_TV)).thenReturn(resultSet);
         when(connection.createStatement()).thenReturn(statement);
         when(factory.getConnection()).thenReturn(connection);

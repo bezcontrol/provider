@@ -3,7 +3,7 @@ package ua.kh.baklanov.exception;
 /**
  * An exception that provides information on a database access error.
  *
- * @author D.Kolesnikov
+ * @author Aleksei Baklanov
  */
 public class DbException extends AppException {
 

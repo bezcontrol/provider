@@ -2,11 +2,32 @@ package ua.kh.baklanov.context;
 
 import org.apache.log4j.Logger;
 import ua.kh.baklanov.db.mysql.DefaultFactory;
-import ua.kh.baklanov.db.mysql.repository.*;
+import ua.kh.baklanov.db.mysql.repository.DefaultAnyServiceDAOImpl;
+import ua.kh.baklanov.db.mysql.repository.DefaultAnyTariffDAOImpl;
+import ua.kh.baklanov.db.mysql.repository.DefaultContractBeanDAOImpl;
+import ua.kh.baklanov.db.mysql.repository.DefaultContractDAOImpl;
+import ua.kh.baklanov.db.mysql.repository.DefaultContractStateDAOImpl;
+import ua.kh.baklanov.db.mysql.repository.DefaultInternetDAOImpl;
+import ua.kh.baklanov.db.mysql.repository.DefaultMobileDAOImpl;
+import ua.kh.baklanov.db.mysql.repository.DefaultPCDAOImpl;
+import ua.kh.baklanov.db.mysql.repository.DefaultRoleDAOImpl;
+import ua.kh.baklanov.db.mysql.repository.DefaultServiceDAOImpl;
+import ua.kh.baklanov.db.mysql.repository.DefaultStatusDAOImpl;
+import ua.kh.baklanov.db.mysql.repository.DefaultTVDAOImpl;
+import ua.kh.baklanov.db.mysql.repository.DefaultTariffDAOImpl;
+import ua.kh.baklanov.db.mysql.repository.DefaultUserBeanDAOImpl;
+import ua.kh.baklanov.db.mysql.repository.DefaultUserDAOImpl;
 import ua.kh.baklanov.exception.AppException;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
 
+
+/**
+ * MyClassLoader is a class which creates specific instances for application
+ * and puts them into
+ * @see Context
+ * @author      Aleksei Baklanov
+ */
 public final class MyClassLoader {
     private static final Logger LOG = Logger.getLogger(MyClassLoader.class);
 

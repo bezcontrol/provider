@@ -1,5 +1,10 @@
 package ua.kh.baklanov.exception;
 
+/**
+ * Messages is a class that contains info and error strings for logger and exceptions
+ *
+ * @author Aleksei Baklanov
+ */
 public final class Messages {
 
     public static final String ERROR_OBTAIN_CONNECTION="Can't obtain connection";
