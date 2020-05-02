@@ -11,6 +11,10 @@ import ua.kh.baklanov.service.DefaultService;
 import javax.servlet.http.HttpSession;
 import java.util.Objects;
 
+/**
+ * Class that updates state of user every request
+ * @author Aleksei Baklanov
+ */
 public final class UserTrackerUtil {
     private static final Logger LOG = Logger.getLogger(UserTrackerUtil.class);
 

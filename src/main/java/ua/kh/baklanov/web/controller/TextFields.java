@@ -2,7 +2,6 @@ package ua.kh.baklanov.web.controller;
 
 public final class TextFields {
 
-
     private static final String INTERNET_SPEED ="Internet speed: ";
     private static final String INTERNET_TECHNOLOGY ="Internet technology: ";
     private static final String MINUTES_INSIDE_COUNTRY ="Minutes inside country: ";

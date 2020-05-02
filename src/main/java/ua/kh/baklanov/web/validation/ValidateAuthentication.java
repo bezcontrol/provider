@@ -9,6 +9,10 @@ import ua.kh.baklanov.service.DefaultService;
 
 import java.util.Objects;
 
+/**
+ * Class that validate login form
+ * @author Aleksei Baklanov
+ */
 public final class ValidateAuthentication {
     private static final Logger LOG = Logger.getLogger(ValidateAuthentication.class);
     private ValidateAuthentication(){}

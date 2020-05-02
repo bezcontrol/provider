@@ -1,5 +1,9 @@
 package ua.kh.baklanov.web;
 
+/**
+ * Class that contains strings for routing to pages of site
+ * @author Aleksei Baklanov
+ */
 public final class Route {
     public static final String ERROR_PAGE = "jsp/error_page.jsp";
     public static final String HOME = "jsp/services.jsp";

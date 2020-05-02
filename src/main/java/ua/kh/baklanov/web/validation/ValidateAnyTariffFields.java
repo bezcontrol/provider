@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Class that contains validation of fields in tariff
+ * @author Aleksei Baklanov
+ */
 public final class ValidateAnyTariffFields {
 
     private static List<String>errors=new ArrayList<>();

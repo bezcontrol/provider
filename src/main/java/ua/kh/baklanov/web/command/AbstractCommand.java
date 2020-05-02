@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 @FunctionalInterface
 public interface AbstractCommand {
 
-
     String execute(HttpServletRequest request,
                                    HttpServletResponse response) throws AppException;
 

@@ -5,13 +5,14 @@ import ua.kh.baklanov.context.MyClassLoader;
 import ua.kh.baklanov.exception.AppException;
 import ua.kh.baklanov.web.controller.TextFields;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
+
+/**
+ * Class that sets up application context and configuration servlet context
+ * @author Aleksei Baklanov
+ */
 
 @WebListener
 public class AppContextListener implements ServletContextListener {

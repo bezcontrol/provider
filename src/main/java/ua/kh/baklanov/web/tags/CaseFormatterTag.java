@@ -9,7 +9,10 @@ import javax.servlet.jsp.tagext.BodyTagSupport;
 import java.io.IOException;
 import java.util.Locale;
 
-
+/**
+ * Class that contains specific tag execution
+ * @author Aleksei Baklanov
+ */
 public class CaseFormatterTag extends BodyTagSupport {
     private static final Logger LOG = Logger.getLogger(CaseFormatterTag.class);
     private String mCase;

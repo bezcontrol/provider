@@ -104,6 +104,7 @@
 
                 </div>
             </div><!-- .animated -->
+            <button class="btnSelect btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/registration.jsp'">Create</button>
         </div>
 
         <div id="shortModal" class="modal modal-wide fade">

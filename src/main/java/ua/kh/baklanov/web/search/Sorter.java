@@ -1,5 +1,9 @@
 package ua.kh.baklanov.web.search;
 
+/**
+ * Class that contains operations for sorting tariffs
+ * @author Aleksei Baklanov
+ */
 public enum Sorter {
     NAME_DESCENDING("Name: A-Z"),
     NAME_ASCENDING("Name: Z-A"),
