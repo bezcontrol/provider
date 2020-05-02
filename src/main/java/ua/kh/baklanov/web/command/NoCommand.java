@@ -1,14 +1,13 @@
 package ua.kh.baklanov.web.command;
 
-import ua.kh.baklanov.Route;
-import ua.kh.baklanov.exception.AppException;
+import ua.kh.baklanov.web.Route;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class NoCommand extends Command {
+public class NoCommand implements AbstractCommand {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response){
-        return Route.PAGE_ERROR_PAGE;
+        return Route.ERROR_PAGE;
     }
 }

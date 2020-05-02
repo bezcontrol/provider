@@ -1,28 +1,14 @@
 package ua.kh.baklanov.model.entity;
 
-public enum Status {
-    WAITING(1),
-    REGISTERED(2),
-    BLOCKED(3),
-    MISSED(4);
+public class Status extends AbstractEntity{
 
-    private long value;
+    private String name;
 
-    Status(long value) {
-        this.value=value;
+    public String getName() {
+        return name;
     }
 
-    public long getValue() {
-        return value;
-    }
-
-    public static Status getStatus(User user) {
-        long idStatus = user.getIdStatus();
-        for(Status e : values()) {
-            if(e.value==idStatus) {
-                return e;
-            }
-        }
-        return Status.MISSED;
+    public void setName(String name) {
+        this.name = name;
     }
 }

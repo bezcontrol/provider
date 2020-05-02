@@ -2,10 +2,10 @@ package ua.kh.baklanov.web.controller;
 
 
 import org.apache.log4j.Logger;
-import ua.kh.baklanov.Route;
+import ua.kh.baklanov.web.Route;
 import ua.kh.baklanov.exception.AppException;
 import ua.kh.baklanov.exception.Messages;
-import ua.kh.baklanov.web.command.Command;
+import ua.kh.baklanov.web.command.AbstractCommand;
 import ua.kh.baklanov.web.command.authentication.AuthenticationCommandContainer;
 
 import javax.servlet.ServletException;
@@ -23,40 +23,26 @@ public class AuthenticationController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) {
-        try {
-            if (request.getSession().getAttribute("user") != null) {
-                LOG.info("User is not null");
-                request.getRequestDispatcher(Route.HOME).forward(request, response);
-            } else {
-                LOG.info("User is null");
-                request.getRequestDispatcher(Route.LOGIN).forward(request, response);
-            }
-        } catch (ServletException | IOException e) {
-            LOG.error(Messages.ERROR_FORWARD + AuthenticationController.class.getName(), e);
-            request.setAttribute("error", Messages.ERROR_FORWARD);
-        }
+        process(request,response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request,
-                          HttpServletResponse response) throws IOException {
-        processPost(request, response);
+                          HttpServletResponse response){
+        process(request, response);
     }
 
-    /**
-     * Main method of this controller.
-     */
-    private void processPost(HttpServletRequest request,
+    private static void process(HttpServletRequest request,
                              HttpServletResponse response) {
-
+        UserTrackerUtil.setCurrentStateOfUserFromDb(request.getSession());
         String commandName = request.getParameter(Parameters.COMMAND);
-        Command command = AuthenticationCommandContainer.get(commandName);
-        String forward = Route.PAGE_ERROR_PAGE;
+        AbstractCommand command = AuthenticationCommandContainer.get(commandName);
+        String forward = Route.ERROR_PAGE;
         try {
-            LOG.info("Executing command");
+            LOG.info(Messages.INFO_EXECUTING_COMMAND+command.getClass().getSimpleName());
             forward = command.execute(request, response);
         } catch (AppException ex) {
-            LOG.error(Messages.ERROR_EXECUTING_COMMAND + command.getClass().getName());
+            LOG.error(Messages.ERROR_EXECUTING_COMMAND + command.getClass().getSimpleName(),ex);
             request.setAttribute(Attributes.ERROR, Messages.ERROR_EXECUTING_COMMAND);
         }
         if (Objects.nonNull(request.getAttribute(Attributes.ERROR)) ||
@@ -64,15 +50,13 @@ public class AuthenticationController extends HttpServlet {
             try {
                 request.getRequestDispatcher(forward).forward(request, response);
             } catch (ServletException | IOException e) {
-                LOG.error(Messages.ERROR_FORWARD + AuthenticationController.class.getName(), e);
-                request.setAttribute(Attributes.ERROR, Messages.ERROR_FORWARD);
+                LOG.error(Messages.ERROR_FORWARD + AuthenticationController.class.getSimpleName(), e);
             }
         } else {
             try {
                 response.sendRedirect(forward);
             } catch (IOException e) {
                 LOG.error(Messages.ERROR_REDIRECT + AuthenticationController.class.getName(), e);
-                request.setAttribute(Attributes.ERROR, Messages.ERROR_REDIRECT);
             }
         }
     }

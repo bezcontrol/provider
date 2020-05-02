@@ -1,7 +1,16 @@
 package ua.kh.baklanov.model.entity;
 
-public class TV extends Entity{
+public class TV extends AbstractEntity {
     private String type;
+    private int numOfChannels;
+
+    public int getNumOfChannels() {
+        return numOfChannels;
+    }
+
+    public void setNumOfChannels(int numOfChannels) {
+        this.numOfChannels = numOfChannels;
+    }
 
     public String getType() {
         return type;
@@ -15,6 +24,7 @@ public class TV extends Entity{
     public String toString() {
         return "TV{" +
                 "type='" + type + '\'' +
+                ", numOfChannels=" + numOfChannels +
                 '}';
     }
 }

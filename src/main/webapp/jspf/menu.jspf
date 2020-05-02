@@ -1,0 +1,90 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: bakla
+  Date: 15.03.2020
+  Time: 16:15
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<link rel="stylesheet" type="text/css" href="../resources/css/menu/normalize.css"/>
+<link rel="stylesheet" type="text/css" href="../resources/css/menu/demo.css"/>
+<link rel="stylesheet" type="text/css" href="../resources/css/menu/component.css"/>
+<link rel="stylesheet" type="text/css" href="../resources/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="../resources/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<script src="../resources/js/menu/modernizr.custom.js"></script>
+
+<c:if test="${(sessionScope.userBean ne null) and (sessionScope.userBean.status.name eq 'blocked')}">
+    <c:redirect url="${pageContext.request.contextPath}/jsp/rechargeBalance.jsp"/>
+</c:if>
+<c:if test="${(sessionScope.userBean ne null) and (sessionScope.userBean.status.name eq 'blockedByAdmin')}">
+    <c:redirect url="${pageContext.request.contextPath}/jsp/blocked.jsp"/>
+</c:if>
+<c:set var="current_path" value="${pageContext.request.requestURI}" scope="session"  />
+<div class="container">
+    <ul id="gn-menu" class="gn-menu-main">
+        <li class="gn-trigger">
+            <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+            <nav class="gn-menu-wrapper">
+                <div class="gn-scroller">
+                    <ul class="gn-menu">
+                        <li>
+                            <a href="${pageContext.request.contextPath}/service?command=allTariffs"><i class="fa fa-th"
+                                                                                                       aria-hidden="true"
+                                                                                                       style="margin: 0px 20px;"></i>
+                                <fmt:message key="client_menu.tariffs"/></a>
+                        </li>
+
+                        <c:if test="${sessionScope.userBean.role.name eq 'client'}">
+                            <li><a href="${pageContext.request.contextPath}/jsp/rechargeBalance.jsp"><i class="fa fa-credit-card-alt" aria-hidden="true"
+                                                                                                        style="margin: 0px 20px;"></i>
+                                <fmt:message key="client_menu.recharge_balance"/></a></li>
+                            <li><a href="${pageContext.request.contextPath}/tariff?command=allContracts" class="gn-icon gn-icon-help"><fmt:message key="client_menu.contracts"/></a></li>
+                        </c:if>
+                    </ul>
+                </div><!-- /gn-scroller -->
+            </nav>
+        </li>
+        <li><a href="../jsp/services.jsp"><i class="fa fa-home" aria-hidden="true" style="margin-right:15px;"></i><fmt:message key="client_menu.home"/></a></li>
+
+        <li>
+            <form style="display: inline-block;" action="${pageContext.request.contextPath}/changeLocale.jsp" method="post">
+                <input type="hidden" name="locale" value="uk">
+                <input type="image" src="../resources/img/flag-icons-24px/24px/UA.png"/>
+            </form>
+            <form style="display: inline-block;" action="${pageContext.request.contextPath}/changeLocale.jsp" method="post">
+                <input type="hidden" name="locale" value="ru">
+                <input type="image" src="../resources/img/flag-icons-24px/24px/RU.png"/>
+            </form>
+            <form style="display: inline-block;" action="${pageContext.request.contextPath}/changeLocale.jsp" method="post">
+                <input type="hidden" name="locale" value="en">
+                <input type="image" src="../resources/img/flag-icons-24px/24px/GB.png"/>
+            </form>
+        </li>
+        <c:choose>
+        <c:when test="${not empty sessionScope.userBean.user}">
+            <li><a href=""><i class="fa fa-briefcase" aria-hidden="true" style="margin-right:15px;"></i><fmt:message key="client_menu.balance"/>: ${sessionScope.userBean.user.bill}</a></li>
+            <li style="float: right;border-right: none;border-left: 1px solid #c6d0da;"><a href="${pageContext.request.contextPath}/authentication?command=logout"><i class="fa fa-sign-out" aria-hidden="true"  style="margin-right:15px;"></i><span><fmt:message key="client_menu.log_out"/></span></a>
+            <c:choose>
+                <c:when test="${sessionScope.userBean.role.name eq 'admin'}">
+                    <li><a href="../jsp/adminHome.jsp"><i class="fa fa-user-circle-o" aria-hidden="true" style="margin-right:15px;"></i><span><fmt:message key="client_menu.admin"/></span></a>
+                    </li>
+                </c:when>
+                <c:otherwise>
+                    <li><a href="../jsp/cart.jsp"><i class="fa fa-user-circle-o" aria-hidden="true" style="margin-right:15px;"></i><span><fmt:message key="client_menu.greeting"/>, ${sessionScope.userBean.user.login}</span></a></li>
+                </c:otherwise>
+            </c:choose>
+        </c:when>
+        <c:otherwise>
+        <li><a class="codrops-icon codrops-icon-drop" href="../index.jsp"><span><fmt:message key="client_menu.login" /></span></a></li>
+        </c:otherwise>
+        </c:choose>
+    </ul>
+    <script src="../resources/js/menu/classie.js"></script>
+    <script src="../resources/js/menu/gnmenu.js"></script>
+    <script src="../resources/js/menu/gnmenucreate.js"></script>
+
+</div>
+<!-- /container -->

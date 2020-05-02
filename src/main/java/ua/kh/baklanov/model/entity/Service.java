@@ -1,9 +1,19 @@
 package ua.kh.baklanov.model.entity;
 
-public class Service extends Entity {
+public class Service extends AbstractEntity {
     private long idPC;
     private long idTV;
     private long idMobile;
+    private long idInternet;
+    private String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public long getIdPC() {
         return idPC;
@@ -27,6 +37,14 @@ public class Service extends Entity {
 
     public void setIdMobile(long idMobile) {
         this.idMobile = idMobile;
+    }
+
+    public long getIdInternet() {
+        return idInternet;
+    }
+
+    public void setIdInternet(long idInternet) {
+        this.idInternet = idInternet;
     }
 
     @Override

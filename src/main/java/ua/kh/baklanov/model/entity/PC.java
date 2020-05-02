@@ -1,6 +1,6 @@
 package ua.kh.baklanov.model.entity;
 
-public class PC extends Entity {
+public class PC extends AbstractEntity {
     private int numOfConnectedPC;
 
     public int getNumOfConnectedPC() {

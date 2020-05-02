@@ -2,18 +2,28 @@ package ua.kh.baklanov.model.entity;
 
 import java.time.LocalDateTime;
 
-public class Contract extends Entity {
-    private double bill;
+public class Contract extends AbstractEntity {
+
     private long idUser;
     private long idTariff;
-    private LocalDateTime contractConclusionDate;
+    private long idContractState;
+    private transient LocalDateTime contractConclusionDate;
+    private transient LocalDateTime contractExpirationDate;
 
-    public double getBill() {
-        return bill;
+    public long getIdContractState() {
+        return idContractState;
     }
 
-    public void setBill(double bill) {
-        this.bill = bill;
+    public void setIdContractState(long idContractState) {
+        this.idContractState = idContractState;
+    }
+
+    public LocalDateTime getContractExpirationDate() {
+        return contractExpirationDate;
+    }
+
+    public void setContractExpirationDate(LocalDateTime contractExpirationDate) {
+        this.contractExpirationDate = contractExpirationDate;
     }
 
     public long getIdUser() {
@@ -38,5 +48,16 @@ public class Contract extends Entity {
 
     public void setContractConclusionDate(LocalDateTime contractConclusionDate) {
         this.contractConclusionDate = contractConclusionDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Contract{" +
+                "idUser=" + idUser +
+                ", idTariff=" + idTariff +
+                ", idContractState=" + idContractState +
+                ", contractConclusionDate=" + contractConclusionDate +
+                ", contractExpirationDate=" + contractExpirationDate +
+                '}';
     }
 }

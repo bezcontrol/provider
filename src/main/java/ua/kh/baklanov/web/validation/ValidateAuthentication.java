@@ -9,13 +9,17 @@ import ua.kh.baklanov.service.DefaultService;
 
 import java.util.Objects;
 
-public class ValidateAuthentication {
+/**
+ * Class that validate login form
+ * @author Aleksei Baklanov
+ */
+public final class ValidateAuthentication {
     private static final Logger LOG = Logger.getLogger(ValidateAuthentication.class);
     private ValidateAuthentication(){}
 
     public static String isUserAlreadyRegistered(User user) throws DbException {
         DAOService service= new DefaultService();
-        UserDAO userDAO = service.getUserDao();
+        UserDAO userDAO = service.getUserDAO();
         User userFromDB;
         userFromDB=userDAO.getByEmail(user.getEmail());
         if(Objects.nonNull(userFromDB)){
@@ -25,7 +29,7 @@ public class ValidateAuthentication {
         userFromDB=userDAO.getByLogin(user.getLogin());
         if(Objects.nonNull(userFromDB)){
             LOG.info("User with login exists");
-            return "You have account with this login";
+            return "Login is already in use";
         }
         LOG.info("User validated successfully");
         return null;
