@@ -1,14 +1,12 @@
 package ua.kh.baklanov.web.command.tariff;
 
 import org.apache.log4j.Logger;
+import ua.kh.baklanov.db.dao.ServiceDAO;
+import ua.kh.baklanov.model.entity.*;
 import ua.kh.baklanov.web.Route;
 import ua.kh.baklanov.db.dao.TariffDAO;
 import ua.kh.baklanov.exception.DbException;
 import ua.kh.baklanov.exception.Messages;
-import ua.kh.baklanov.model.entity.Mobile;
-import ua.kh.baklanov.model.entity.PC;
-import ua.kh.baklanov.model.entity.TV;
-import ua.kh.baklanov.model.entity.Tariff;
 import ua.kh.baklanov.service.DAOService;
 import ua.kh.baklanov.service.DefaultService;
 import ua.kh.baklanov.web.command.AbstractCommand;
@@ -19,6 +17,7 @@ import ua.kh.baklanov.web.validation.ValidateAnyTariffFields;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
+import java.util.Objects;
 
 public class TariffCreateCommand implements AbstractCommand {
     private static final Logger LOG = Logger.getLogger(TariffCreateCommand.class);
@@ -57,21 +56,72 @@ public class TariffCreateCommand implements AbstractCommand {
 
     private static Tariff isServiceTV(HttpServletRequest request, Tariff tariff) {
         if (request.getParameter(Parameters.SERVICE_TYPE).equals(TV.class.getSimpleName())) {
-            tariff.setIdService(Long.parseLong(request.getParameter(Parameters.SERVICE_ID_TV)));
+            DAOService service = new DefaultService();
+            try {
+                ServiceDAO serviceDAO=service.getServiceDAO();
+                Service serviceEntity;
+                if(Objects.nonNull(request.getParameter(Parameters.INTERNET_ID)) &&
+                        Long.parseLong(request.getParameter(Parameters.INTERNET_ID))!=0){
+                    serviceEntity = serviceDAO.getTVServiceByIdAndInternetId(
+                            Long.parseLong(request.getParameter(Parameters.SERVICE_ID_TV)),
+                            Long.parseLong(request.getParameter(Parameters.INTERNET_ID)));
+                } else {
+                    serviceEntity = serviceDAO.getTVServiceByIdAndWithoutInternet(
+                            Long.parseLong(request.getParameter(Parameters.SERVICE_ID_TV)));
+                }
+
+                tariff.setIdService(serviceEntity.getId());
+            } catch (DbException e) {
+                LOG.error(Messages.ERROR_SERVICE_DAO + TariffCreateCommand.class.getName(), e);
+            }
         }
         return tariff;
     }
 
     private static Tariff isServiceMobile(HttpServletRequest request, Tariff tariff) {
         if (request.getParameter(Parameters.SERVICE_TYPE).equals(Mobile.class.getSimpleName())) {
-            tariff.setIdService(Long.parseLong(request.getParameter(Parameters.SERVICE_ID_MOBILE)));
+            DAOService service = new DefaultService();
+            try {
+                ServiceDAO serviceDAO=service.getServiceDAO();
+                Service serviceEntity;
+                if(Objects.nonNull(request.getParameter(Parameters.INTERNET_ID)) &&
+                        Long.parseLong(request.getParameter(Parameters.INTERNET_ID))!=0){
+                    serviceEntity = serviceDAO.getMobileServiceByIdAndInternetId(
+                            Long.parseLong(request.getParameter(Parameters.SERVICE_ID_MOBILE)),
+                            Long.parseLong(request.getParameter(Parameters.INTERNET_ID)));
+                } else {
+                    serviceEntity = serviceDAO.getMobileServiceByIdAndWithoutInternet(
+                            Long.parseLong(request.getParameter(Parameters.SERVICE_ID_MOBILE)));
+                }
+                tariff.setIdService(serviceEntity.getId());
+            } catch (DbException e) {
+                LOG.error(Messages.ERROR_SERVICE_DAO + TariffCreateCommand.class.getName(), e);
+            }
+
         }
         return tariff;
     }
 
     private static Tariff isServicePC(HttpServletRequest request, Tariff tariff) {
         if (request.getParameter(Parameters.SERVICE_TYPE).equals(PC.class.getSimpleName())) {
-            tariff.setIdService(Long.parseLong(request.getParameter(Parameters.SERVICE_ID_PC)));
+            DAOService service = new DefaultService();
+            try {
+                ServiceDAO serviceDAO=service.getServiceDAO();
+                Service serviceEntity;
+                if(Objects.nonNull(request.getParameter(Parameters.INTERNET_ID)) &&
+                        Long.parseLong(request.getParameter(Parameters.INTERNET_ID))!=0){
+                    serviceEntity = serviceDAO.getPCServiceByIdAndInternetId(
+                            Long.parseLong(request.getParameter(Parameters.SERVICE_ID_PC)),
+                            Long.parseLong(request.getParameter(Parameters.INTERNET_ID)));
+                } else {
+                    serviceEntity = serviceDAO.getPCServiceByIdAndWithoutInternet(
+                            Long.parseLong(request.getParameter(Parameters.SERVICE_ID_PC)));
+                }
+                tariff.setIdService(serviceEntity.getId());
+            } catch (DbException e) {
+                LOG.error(Messages.ERROR_SERVICE_DAO + TariffCreateCommand.class.getName(), e);
+            }
+
         }
         return tariff;
     }

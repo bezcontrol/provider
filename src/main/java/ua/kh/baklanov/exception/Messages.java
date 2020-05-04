@@ -61,6 +61,8 @@ public final class Messages {
     public static final String ERROR_SUPPORTING_USER_IN_ACTUAL_STATE = "Error when supported user by " +
             "updating him in session";
     public static final String ERROR_CASE_FORMATTER_TAG = "Error when changing case in appropriate custom tag";
+    public static final String ERROR_GET_SERVICE_BY_ID = "Can't get service by id";
+    public static final String ERROR_SERVICE_DAO = "Error when using service dao in command: ";
 
     private Messages(){}
 

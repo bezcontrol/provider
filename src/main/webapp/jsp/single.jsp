@@ -67,21 +67,27 @@
 
                                     <c:choose>
                                         <c:when test="${service.service.getClass().simpleName eq pc}">
-                                            <option data-speed="${service.internet.speed}"
+                                            <option value="${service.service.id}"
+                                                    data-speed="${service.internet.speed}"
                                                     data-tech="${service.internet.technology}"
+                                                    data-intid="${service.internet.id}"
                                                     data-conpc="${service.service.numOfConnectedPC}">
                                                 <c:out value="${service.description}"/></option>
                                         </c:when>
                                         <c:when test="${service.service.getClass().simpleName eq tv}">
-                                            <option data-speed="${service.internet.speed}"
+                                            <option value="${service.service.id}"
+                                                    data-speed="${service.internet.speed}"
                                                     data-tech="${service.internet.technology}"
+                                                    data-intid="${service.internet.id}"
                                                     data-type="${service.service.type}"
                                                     data-numofchannels="${service.service.numOfChannels}">
                                                 <c:out value="${service.description}"/></option>
                                         </c:when>
                                         <c:otherwise>
-                                            <option data-speed="${service.internet.speed}"
+                                            <option value="${service.service.id}"
+                                                    data-speed="${service.internet.speed}"
                                                     data-tech="${service.internet.technology}"
+                                                    data-intid="${service.internet.id}"
                                                     data-numofmininside="${service.service.numOfMinutesInside}"
                                                     data-numofminoutside="${service.service.numOfMinutesOutside}"
                                                     data-numofsms="${service.service.numOfSMS}"
@@ -180,6 +186,7 @@
                         </c:when>
                     </c:choose>
                     <input id="serviceType" type="hidden" name="serviceType" value="${requestScope.serviceType}"/>
+                    <input id="internetId" type="hidden" name="internetId" value=""/>
                     <div class="container-contact100-form-btn">
                         <button class="contact100-form-btn" type="submit" name="command"
                                 value="${requestScope.operation}">
@@ -248,6 +255,7 @@
                                             <option value="${service.service.id}"
                                                     data-speed="${service.internet.speed}"
                                                     data-tech="${service.internet.technology}"
+                                                    data-intid="${service.internet.id}"
                                                     data-conpc="${service.service.numOfConnectedPC}">
                                                 <c:out value="${service.description}"/></option>
                                         </c:if>
@@ -266,6 +274,7 @@
                             <input id="connectedPC" class="input100 tariff_field" type="text" placeholder="" disabled="disabled">
                             <span class="focus-input100"></span>
                         </div>
+
                     </div>
 
                     <div id="ifTV" style="display: none;">
@@ -281,6 +290,7 @@
                                             <option value="${service.service.id}"
                                                     data-speed="${service.internet.speed}"
                                                     data-tech="${service.internet.technology}"
+                                                    data-intid="${service.internet.id}"
                                                     data-type="${service.service.type}"
                                                     data-numofchannels="${service.service.numOfChannels}">
                                                 <c:out value="${service.description}"/></option>
@@ -323,6 +333,7 @@
                                             <option value="${service.service.id}"
                                                     data-speed="${service.internet.speed}"
                                                     data-tech="${service.internet.technology}"
+                                                    data-intid="${service.internet.id}"
                                                     data-numofmininside="${service.service.numOfMinutesInside}"
                                                     data-numofminoutside="${service.service.numOfMinutesOutside}"
                                                     data-numofsms="${service.service.numOfSMS}"
@@ -363,6 +374,7 @@
                             <input id="numOfMbts" class="input100 tariff_field" type="text" placeholder="" disabled="disabled">
                             <span class="focus-input100"></span>
                         </div>
+
                     </div>
 
                     <label class="label-input100"
@@ -378,6 +390,7 @@
                                disabled="disabled">
                         <span class="focus-input100"></span>
                     </div>
+
                     <c:if test="${sessionScope.errorValidation.size()>0}">
                         <c:forEach items="${sessionScope.errorValidation}" var="element">
                             <div class="m-t-15 alert alert-danger alert-dismissible">
@@ -387,6 +400,7 @@
                         </c:forEach>
                     </c:if>
                     <input id="serviceType" type="hidden" name="serviceType" value=""/>
+                    <input id="internetId" type="hidden" name="internetId" value=""/>
                     <button class="contact100-form-btn" type="submit" name="command"
                             value="${requestScope.operation}">
                         <fmt:message key="btn.create"/>
@@ -590,6 +604,7 @@
 
                     <c:choose>
                         <c:when test="${requestScope.selectedTariff.service.getClass().simpleName eq pc}">
+                            <input id="serviceType" type="hidden" name="serviceType" value="${pc}"/>
                             <div class="flex-w size1 p-b-20">
                                 <div class="flex-col size2">
 						<span class="txt1 p-b-20">
@@ -599,6 +614,7 @@
                             </div>
                         </c:when>
                         <c:when test="${requestScope.selectedTariff.service.getClass().simpleName eq tv}">
+                            <input id="serviceType" type="hidden" name="serviceType" value="${tv}"/>
                             <div class="flex-w size1 p-b-20">
                                 <div class="flex-col size2">
 						<span class="txt1 p-b-20">
@@ -615,6 +631,7 @@
                             </div>
                         </c:when>
                         <c:when test="${requestScope.selectedTariff.service.getClass().simpleName eq mobile}">
+                            <input id="serviceType" type="hidden" name="serviceType" value="${mobile}"/>
                             <div class="flex-w size1 p-b-20">
                                 <div class="flex-col size2">
 						<span class="txt1 p-b-20">
@@ -683,6 +700,7 @@
     $("#serviceId").change(function () {
         document.getElementById('internet_speed').value = $(this).find(':selected').data('speed');
         document.getElementById('internet_technology').value = $(this).find(':selected').data('tech');
+        document.getElementById('internetId').value = $(this).find(':selected').data('intid');
         <c:choose>
         <c:when test="${requestScope.selectedTariff.service.getClass().simpleName eq pc}">
         document.getElementById('connectedPC').value = $(this).find(':selected').data('conpc');
@@ -699,10 +717,8 @@
         </c:otherwise>
         </c:choose>
     });
-
 </script>
 <script>
-
     $(".js-select2").each(function () {
         $(this).select2({
             minimumResultsForSearch: 20,
@@ -719,7 +735,6 @@
             $(this).parent().next().removeClass('eff-focus-selection');
         });
     });
-
 </script>
 
 <script>

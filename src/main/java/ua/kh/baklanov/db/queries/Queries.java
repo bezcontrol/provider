@@ -68,6 +68,24 @@ public final class Queries {
             "s.idInternet, s.description, t.id AS 'idTariff', t.name AS 'tariffName', t.durationInDays " +
             "FROM services s JOIN tariffs t ON s.id=t.idService WHERE t.id=?";
 
+    public static final String GET_TV_SERVICES_BY_ID ="SELECT id as 'idService', idPC, idTV, idMobile, idInternet " +
+            "FROM services WHERE idTV=? and idInternet=?";
+
+    public static final String GET_PC_SERVICES_BY_ID ="SELECT id as 'idService', idPC, idTV, idMobile, idInternet " +
+            "FROM services WHERE idPC=? and idInternet=?";
+
+    public static final String GET_MOBILE_SERVICES_BY_ID ="SELECT id as 'idService', idPC, idTV, idMobile, idInternet " +
+            "FROM services WHERE idMobile=? and idInternet=?";
+
+    public static final String GET_TV_SERVICES_BY_ID_WITHOUT_INTERNET ="SELECT id as 'idService', idPC, idTV, idMobile, idInternet " +
+            "FROM services WHERE idTV=? and idInternet IS NULL";
+
+    public static final String GET_PC_SERVICES_BY_ID_WITHOUT_INTERNET ="SELECT id as 'idService', idPC, idTV, idMobile, idInternet " +
+            "FROM services WHERE idPC=? and idInternet IS NULL";
+
+    public static final String GET_MOBILE_SERVICES_BY_ID_WITHOUT_INTERNET ="SELECT id as 'idService', idPC, idTV, idMobile, idInternet " +
+            "FROM services WHERE idMobile=? and idInternet IS NULL";
+
     public static final String GET_TV_BY_ID = "SELECT id AS 'idTV', type, numOfChannels  FROM TV WHERE id=?";
     public static final String GET_PC_BY_ID  = "SELECT id AS 'idPC', numOfConnectedPC FROM PC WHERE id=?";
     public static final String GET_TARIFF_BY_ID = "SELECT id AS 'idTariff', name AS 'tariffName', idService, " +
